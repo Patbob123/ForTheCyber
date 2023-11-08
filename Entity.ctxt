@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Entity
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Character\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Character\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n\ \r\n\ MAKE\ WOBBLE\ IDLE\ AND\ WALK\ SMOOTHLY\ TO\ SLOT\r\n\ \r\n
 comment1.params=
 comment1.target=Entity()
 comment2.params=

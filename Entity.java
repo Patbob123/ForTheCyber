@@ -5,6 +5,9 @@ import java.util.ArrayList; // import the ArrayList class
  * 
  * @author (your name) 
  * @version (a version number or a date)
+ * 
+ * MAKE WOBBLE IDLE AND WALK SMOOTHLY TO SLOT
+ * 
  */
 public abstract class Entity extends SuperSmoothMover implements Comparable<Entity>
 {
@@ -44,6 +47,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public void toSlot(Slot slot){
         //FOR NOW
         slot.setEntity(this);
+        
         
         setLocation(slot.getX(), slot.getY());
     }

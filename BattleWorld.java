@@ -71,7 +71,7 @@ public class BattleWorld extends World
             Entity e = entities.get(curAttacker);
             Side targetSide = entireField[1-e.getSide()];
             Entity target = targetSide.getRandomEntity();
-            e.attack();
+            e.attack(target);
             
             
             curAttacker++;
