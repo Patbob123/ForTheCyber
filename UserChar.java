@@ -40,12 +40,15 @@ public class UserChar extends Entity
         this.defense = setdefense;
     }
     
+    public void setHp(double sethp){
+        this.hp = sethp;
+    }
     //speed,hp,defense
     
-    public void attack(){
+    public void attackAll(){
         ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjectsInRange (1000, Enemy.class);
-            for (Entity c : ppl){
-                c.takeDamage(this.attack);
+            for (Entity e : ppl){
+                e.takeDamage(this.attack);
             }
     }
 }
