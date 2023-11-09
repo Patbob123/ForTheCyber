@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class UserChar extends Entity
 {
     private double maxHp = 100;
+    
     public UserChar(){
-        
         //set hp to max at beginning
         hp = maxHp;
         side = 0;
@@ -25,6 +25,8 @@ public class UserChar extends Entity
             getWorld().removeObject(this);
         }
     }
+    
+    //set attack, speed, hp, defense
     
     public void setAttack(double setattack){
         //set attack... attack == dmg for now
@@ -43,12 +45,36 @@ public class UserChar extends Entity
     public void setHp(double sethp){
         this.hp = sethp;
     }
-    //speed,hp,defense
+
+    //get attack, speed, hp, defense
+    
+    public double getAttack(){
+        //attack == dmg for now
+        return(this.attack);
+    }
+    
+    public double getSpeed(){
+        return(this.speed);
+    }
+    
+    public double getDefense(){
+        return(this.defense);
+    }
+    
+    public double getHp(){
+        return(this.hp);
+    }
+    
+    public void attack(Entity target){
+        
+        //makes the target, who was sent through the parameter, take damage
+        target.takeDamage(attack);
+    }
     
     public void attackAll(){
-        ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjectsInRange (1000, Enemy.class);
-            for (Entity e : ppl){
-                e.takeDamage(this.attack);
-            }
+        ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjects (Enemy.class);
+        for (Entity e : ppl){
+            e.takeDamage(this.attack);
+        }
     }
 }
