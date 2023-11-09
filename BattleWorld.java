@@ -9,10 +9,12 @@ import java.util.Collections;
  */
 public class BattleWorld extends World
 {
-
+    private UserChar uc;
+    
     private ArrayList<Entity> entities = new ArrayList<Entity>();
     private Side userSide;
     private Side enemySide;
+    private Slot[] attackSlots;
     
     private Side[] entireField;
     
@@ -24,6 +26,14 @@ public class BattleWorld extends World
         super(1024, 800, 1); 
         setupField();
         
+    }
+    
+    public BattleWorld(UserChar u)
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(1024, 800, 1); 
+        setupField();
+        uc = u;
     }
     
     public void setupField(){
@@ -78,5 +88,8 @@ public class BattleWorld extends World
             battling = false;
         }
     }
-    
+
+    public Slot[] getAttackSlots(){
+        return attackSlots;
+    }
 }

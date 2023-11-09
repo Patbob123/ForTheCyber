@@ -5,10 +5,8 @@ comment1.params=
 comment1.target=UserChar()
 comment10.params=
 comment10.target=double\ getHp()
-comment11.params=target
-comment11.target=void\ attack(Entity)
-comment12.params=
-comment12.target=void\ attackAll()
+comment11.params=
+comment11.target=void\ attackAll()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=setattack
@@ -16,18 +14,13 @@ comment3.target=void\ setAttack(double)
 comment4.params=setspeed
 comment4.target=void\ setSpeed(double)
 comment5.params=setdefense
-comment5.target=void\ setDefense(double)
+comment5.target=void\ setDef(double)
 comment6.params=sethp
 comment6.target=void\ setHp(double)
 comment7.params=
-<<<<<<< Updated upstream
 comment7.target=double\ getAttack()
 comment8.params=
 comment8.target=double\ getSpeed()
 comment9.params=
 comment9.target=double\ getDefense()
-numComments=13
-=======
-comment7.target=void\ attackAll()
-numComments=8
->>>>>>> Stashed changes
+numComments=12
