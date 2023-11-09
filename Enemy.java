@@ -15,7 +15,5 @@ public abstract class Enemy extends Entity
     {
         super.act();
     }   
-    public void attack(){
-        //idk 
-    }
+
 }

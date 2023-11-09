@@ -17,14 +17,21 @@ public class BattleWorld extends World
     
     private Side[] entireField;
     
+    private int actCounter;
+    
     public BattleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 800, 1); 
         setupField();
-        
+        actCounter = 0;
     }
-    
+    public void act(){
+        actCounter++;
+    }
+    public int getAct(){
+        return actCounter;
+    }
     public void setupField(){
         userSide = new Side(0, 1);
         enemySide = new Side(1, 6);
