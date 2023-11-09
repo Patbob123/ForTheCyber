@@ -45,11 +45,24 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     
     
     public void toSlot(Slot slot){
-        //FOR NOW
         slot.setEntity(this);
+        int targetX = slot.getX(); //gets slot x-coord
+        int targetY = slot.getY(); //gets slot x-coord
+        int xDistance = targetX - getX(); //gets x distance to the slot
+        int yDistance = targetY - getY(); //gets y distance to the slot
         
+        double distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance); //calculate distance to the slot
         
-        setLocation(slot.getX(), slot.getY());
+        turnTowards(xDistance, yDistance);
+        
+        while(distance > 1) {
+            move(1);
+            distance = Math.sqrt(Math.pow(targetX - getX(), 2) + Math.pow(targetY - getY(), 2)); //updates distance
+        }
+        
+        setRotation(0); 
+        
+        //setLocation(slot.getX(), slot.getY());
     }
     public void takeDamage(double damage) {
         this.hp -= damage;
