@@ -73,7 +73,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public void initToSlot(Slot slot){
         this.slot = slot;
         //slot.setEntity(this);
-        System.out.println(slot.getX());
+        //System.out.println(slot.getX());
     }
     public void toSlot(){
         

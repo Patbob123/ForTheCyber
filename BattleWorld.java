@@ -17,12 +17,19 @@ public class BattleWorld extends World
     
     private Side[] entireField;
     
+    Label abc;
+    
     public BattleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 800, 1); 
         setupField();
+        abc = new Label("Aello");
+        addObject(abc, 100,100);
         
+    }
+    public void act(){
+        checkIfAddText();
     }
     
     public void setupField(){
@@ -76,5 +83,13 @@ public class BattleWorld extends World
     public Slot[] getAttackSlots(){
         return attackSlots;
     }
-    
+    public void checkIfAddText(){
+        int rand = Greenfoot.getRandomNumber(100);
+        spawnText("Hello", rand);
+    }
+    public void spawnText(String message,int y){
+        System.out.println("here");
+        Label text = new Label (message);
+        addObject(text,100,10*y);
+    }
 }
