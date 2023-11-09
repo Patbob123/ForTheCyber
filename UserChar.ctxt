@@ -20,9 +20,14 @@ comment5.target=void\ setDefense(double)
 comment6.params=sethp
 comment6.target=void\ setHp(double)
 comment7.params=
+<<<<<<< Updated upstream
 comment7.target=double\ getAttack()
 comment8.params=
 comment8.target=double\ getSpeed()
 comment9.params=
 comment9.target=double\ getDefense()
 numComments=13
+=======
+comment7.target=void\ attackAll()
+numComments=8
+>>>>>>> Stashed changes
