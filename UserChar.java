@@ -38,7 +38,7 @@ public class UserChar extends Entity
         this.speed = setspeed;
     }
     
-    public void setDefense(double setdefense){
+    public void setDef(double setdefense){
         this.defense = setdefense;
     }
     
@@ -65,11 +65,11 @@ public class UserChar extends Entity
         return(this.hp);
     }
     
-    // public void attack(Entity target){
+    //public void attack(Entity target){
         
-        // //makes the target, who was sent through the parameter, take damage
-        // target.takeDamage(attack);
-    // }
+        //makes the target, who was sent through the parameter, take damage
+        //target.takeDamage(attack);
+    //}
     
     public void attackAll(){
         ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjectsInRange (2000, Enemy.class);

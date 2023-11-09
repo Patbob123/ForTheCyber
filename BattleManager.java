@@ -29,7 +29,6 @@ public class BattleManager extends Actor
     }
     public void nextTurn(){
         turnNumber++;
-        System.out.println("Turn: "+turnNumber);
         curAttacker = entities.get(curAttackerIndex);
         originalAttackerSlot = curAttacker.getSlot();
         
