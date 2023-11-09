@@ -19,7 +19,7 @@ public class UserChar extends Entity
     public void act() 
     {
         super.act();
-        if (hp<= 0){
+        if (isDead()){
             //if hp is 0 or less, die
             //PUT DYING ANIM HERE IN FUTURE
             getWorld().removeObject(this);
@@ -65,11 +65,11 @@ public class UserChar extends Entity
         return(this.hp);
     }
     
-    public void attack(Entity target){
+    // public void attack(Entity target){
         
-        //makes the target, who was sent through the parameter, take damage
-        target.takeDamage(attack);
-    }
+        // //makes the target, who was sent through the parameter, take damage
+        // target.takeDamage(attack);
+    // }
     
     public void attackAll(){
         ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjectsInRange (2000, Enemy.class);

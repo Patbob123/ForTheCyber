@@ -13,10 +13,9 @@ public class BattleWorld extends World
     private ArrayList<Entity> entities = new ArrayList<Entity>();
     private Side userSide;
     private Side enemySide;
+    private Slot[] attackSlots;
     
     private Side[] entireField;
-    
-    private boolean battling;
     
     public BattleWorld()
     {    
@@ -31,52 +30,51 @@ public class BattleWorld extends World
         enemySide = new Side(1, 6);
         
         entireField = new Side[]{userSide, enemySide};
+        attackSlots = new Slot[]{new Slot(650, 550), new Slot(550, 450)};
         
-        Slot[] userSideSlots = userSide.getSlots();
-        for(int i = 0; i < userSideSlots.length; i++){
-            Slot slot = userSideSlots[i];
+        for(Slot slot: userSide.getSlots()){
+            addObject(slot, slot.peekX(), slot.peekY());
+        }        
+        for(Slot slot: enemySide.getSlots()){
             addObject(slot, slot.peekX(), slot.peekY());
         }
         
-        Slot[] enemySideSlots = enemySide.getSlots();
-        for(int i = 0 ; i < enemySideSlots.length; i++){
-            Slot slot = enemySideSlots[i];
+        for(Slot slot: attackSlots){
             addObject(slot, slot.peekX(), slot.peekY());
         }
         startBattle();
     }
     
     public void startBattle(){
-        battling = true;
+        Coordinate userSideSpawn = new Coordinate(800, 800);
+        Coordinate enemySideSpawn = new Coordinate(400, 0);
         
-        for(int i = 0; i < userSide.getSlots().length; i++){
+        for(Slot slot: userSide.getSlots()){
             UserChar uc = new UserChar();
-            addObject(uc, 0, 0);
-            uc.toSlot(userSide.getSlots()[i]);
+            addObject(uc, userSideSpawn.getX(), userSideSpawn.getY());
+            uc.initToSlot(slot);
             entities.add(uc);
         }
-        for(int i = 0; i < enemySide.getSlots().length; i++){
+        for(Slot slot: enemySide.getSlots()){
             Cube cube = new Cube();
-            addObject(cube, 0, 0);
-            cube.toSlot(enemySide.getSlots()[i]);
+            addObject(cube, enemySideSpawn.getX(), enemySideSpawn.getY());
+            cube.initToSlot(slot);
             entities.add(cube);
         }
         
         Collections.sort(entities);
+        BattleManager bm = new BattleManager(entities, entireField);
+        bm.nextTurn();
+        addObject(bm, 0, 0);
     }
-    
-    public void battlePhase(){
-        int curAttacker = 0;
-        while(battling){ //WE NEED A WAY FOR GUYS TO DIE FIRST
-            Entity e = entities.get(curAttacker);
-            Side targetSide = entireField[1-e.getSide()];
-            Entity target = targetSide.getRandomEntity();
-            e.attack(target);
-            
-            
-            curAttacker++;
-            battling = false;
+    public void refreshEntities(){
+        removeObjects(getObjects(Entity.class));
+        for(Entity e: entities){
+            addObject(e, 0, 0);
         }
+    }
+    public Slot[] getAttackSlots(){
+        return attackSlots;
     }
     
 }

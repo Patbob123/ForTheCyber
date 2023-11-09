@@ -13,7 +13,7 @@ public abstract class Enemy extends Entity
     }
     public void act() 
     {
-        // Add your action code here.
+        super.act();
     }   
     public void attack(){
         //idk 

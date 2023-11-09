@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
 /**
  * Write a description of class Field here.
  * 
@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Side extends Actor
 {
     private Slot[] slots;
+    private ArrayList<Entity> entities;
+    
     public Side(int side, int slotAmount){ //0 is user side, 1 is enemy side
         
         slots = new Slot[slotAmount];
@@ -38,6 +40,15 @@ public class Side extends Actor
     }
     public Entity getRandomEntity(){
         return slots[Greenfoot.getRandomNumber(slots.length)].getEntity();
+    }
+    public ArrayList<Entity> getEntities(){
+        if(entities == null){
+            entities = new ArrayList<Entity>();
+            for(Slot slot: slots){
+                entities.add(slot.getEntity());
+            }
+        }
+        return entities;
     }
     
     public void act()
