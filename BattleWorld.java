@@ -17,15 +17,17 @@ public class BattleWorld extends World
     
     private Side[] entireField;
     
-    Label abc;
+    SuperTextBox sidebar;
+    Font funFont;
     
     public BattleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 800, 1); 
         setupField();
-        abc = new Label("Aello");
-        addObject(abc, 100,100);
+        funFont = new Font ("Comic Sans MS", false, false, 16);
+        sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
+        addObject(sidebar, 150,100);
         
     }
     public void act(){
