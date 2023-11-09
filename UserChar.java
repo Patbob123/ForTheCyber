@@ -72,7 +72,7 @@ public class UserChar extends Entity
     }
     
     public void attackAll(){
-        ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjects (Enemy.class);
+        ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjectsInRange (2000, Enemy.class);
         for (Entity e : ppl){
             e.takeDamage(this.attack);
         }
