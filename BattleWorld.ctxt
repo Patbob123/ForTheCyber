@@ -6,6 +6,7 @@ comment1.target=BattleWorld()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
+<<<<<<< HEAD
 comment3.target=int\ getAct()
 comment4.params=u
 comment4.target=BattleWorld(UserChar)
@@ -18,3 +19,19 @@ comment7.target=void\ refreshEntities()
 comment8.params=
 comment8.target=Slot[]\ getAttackSlots()
 numComments=9
+=======
+comment3.target=void\ setupField()
+comment4.params=
+comment4.target=void\ startBattle()
+comment5.params=
+comment5.target=void\ refreshEntities()
+comment6.params=
+comment6.target=Slot[]\ getAttackSlots()
+comment7.params=
+comment7.target=void\ checkIfAddText()
+comment8.params=
+comment8.target=void\ displayText()
+comment9.params=message\ y
+comment9.target=void\ spawnText(java.lang.String,\ int)
+numComments=10
+>>>>>>> origin/textbox.20
