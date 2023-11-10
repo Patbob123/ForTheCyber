@@ -1,6 +1,3 @@
-
-
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList; // import the ArrayList class
 /**
@@ -18,6 +15,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected double speed;
     protected double attack;
     protected double defense;
+    
     protected boolean finishedAttack;
     
     protected String name;

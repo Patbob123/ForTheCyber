@@ -8,9 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BuilderWorld extends World
 {
-    UserChar uc;
-    
     private boolean doneMaking;
+    private UserChar userCharInstance;
     
     /**
      * Constructor for objects of class StatWorld.
@@ -18,9 +17,31 @@ public class BuilderWorld extends World
      */
     public BuilderWorld()
     {
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
-        uc = new UserChar();
+        super(1024, 800, 1); 
+        
+        userCharInstance = new UserChar();
+        
+        UI blackRectangle = new UI(200, 800);
+        UI eblackRectangle = new UI(200, 800);
+        addObject(blackRectangle, 100, 400);
+        addObject(eblackRectangle, 924, 400);
+        
+        Button hpButton = new Button("life");
+        Button speedButton = new Button("speed");
+        Button attackButton = new Button("strength");
+        Button defenseButton = new Button("defense");
+        
+        Button armButton = new Button("Robotic arm", 50, 100);
+
+        addObject(hpButton, 100, 100);
+        addObject(speedButton, 100, 200);
+        addObject(attackButton, 100, 300);
+        addObject(defenseButton, 100, 400);
+        
+        addObject(armButton, 370, 400);
+
+                
+        userCharInstance = new UserChar();
         doneMaking = false;
     }
     
@@ -51,5 +72,10 @@ public class BuilderWorld extends World
     
     private void setSpeed(double speed){
         uc.setSpeed(speed);
+    {    
+        
+    
+    public UserChar getUserChar() {
+        return userCharInstance;
     }
 }

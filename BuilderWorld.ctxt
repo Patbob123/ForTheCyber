@@ -5,6 +5,7 @@ comment1.params=
 comment1.target=BuilderWorld()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ StatWorld.\r\n\ \r\n
 comment2.params=
+<<<<<<< HEAD
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ setBattleWorld()
@@ -17,3 +18,7 @@ comment6.target=void\ setAttack(double)
 comment7.params=speed
 comment7.target=void\ setSpeed(double)
 numComments=8
+=======
+comment2.target=UserChar\ getUserChar()
+numComments=3
+>>>>>>> origin/BuilderWorld

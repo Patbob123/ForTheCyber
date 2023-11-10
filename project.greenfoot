@@ -1,32 +1,38 @@
 #Greenfoot project file
-dependency1.from=BattleWorld
-dependency1.to=Entity
+dependency1.from=BuilderWorld
+dependency1.to=UserChar
 dependency1.type=UsesDependency
+<<<<<<< HEAD
 <<<<<<< HEAD
 dependency10.from=BattleManager
 dependency10.to=Side
+=======
+dependency10.from=BattleWorld
+dependency10.to=BattleManager
+>>>>>>> origin/BuilderWorld
 dependency10.type=UsesDependency
-dependency11.from=Entity
-dependency11.to=Slot
+dependency11.from=BattleManager
+dependency11.to=Entity
 dependency11.type=UsesDependency
-dependency12.from=Entity
-dependency12.to=Attack
+dependency12.from=BattleManager
+dependency12.to=Slot
 dependency12.type=UsesDependency
-dependency13.from=Entity
-dependency13.to=BattleWorld
+dependency13.from=BattleManager
+dependency13.to=Side
 dependency13.type=UsesDependency
-dependency14.from=UserChar
-dependency14.to=Enemy
+dependency14.from=Entity
+dependency14.to=Slot
 dependency14.type=UsesDependency
-dependency15.from=Side
-dependency15.to=Entity
+dependency15.from=Entity
+dependency15.to=Attack
 dependency15.type=UsesDependency
-dependency16.from=Side
-dependency16.to=Slot
+dependency16.from=Entity
+dependency16.to=BattleWorld
 dependency16.type=UsesDependency
-dependency17.from=Slot
-dependency17.to=Entity
+dependency17.from=UserChar
+dependency17.to=Enemy
 dependency17.type=UsesDependency
+<<<<<<< HEAD
 =======
 dependency10.from=BattleWorld
 dependency10.to=Label
@@ -74,22 +80,48 @@ dependency3.type=UsesDependency
 dependency4.from=BattleWorld
 <<<<<<< HEAD
 dependency4.to=Coordinate
+=======
+dependency18.from=Side
+dependency18.to=Entity
+dependency18.type=UsesDependency
+dependency19.from=Side
+dependency19.to=Slot
+dependency19.type=UsesDependency
+dependency2.from=BuilderWorld
+dependency2.to=UI
+dependency2.type=UsesDependency
+dependency20.from=Button
+dependency20.to=UserChar
+dependency20.type=UsesDependency
+dependency21.from=Button
+dependency21.to=BuilderWorld
+dependency21.type=UsesDependency
+dependency22.from=Slot
+dependency22.to=Entity
+dependency22.type=UsesDependency
+dependency3.from=BuilderWorld
+dependency3.to=Button
+dependency3.type=UsesDependency
+dependency4.from=BattleWorld
+dependency4.to=Entity
+>>>>>>> origin/BuilderWorld
 dependency4.type=UsesDependency
 dependency5.from=BattleWorld
-dependency5.to=UserChar
+dependency5.to=Side
 dependency5.type=UsesDependency
 dependency6.from=BattleWorld
-dependency6.to=Cube
+dependency6.to=Slot
 dependency6.type=UsesDependency
 dependency7.from=BattleWorld
-dependency7.to=BattleManager
+dependency7.to=Coordinate
 dependency7.type=UsesDependency
-dependency8.from=BattleManager
-dependency8.to=Entity
+dependency8.from=BattleWorld
+dependency8.to=UserChar
 dependency8.type=UsesDependency
-dependency9.from=BattleManager
-dependency9.to=Slot
+dependency9.from=BattleWorld
+dependency9.to=Cube
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=739
 editor.fx.0.width=816
 editor.fx.0.x=312
@@ -123,6 +155,15 @@ height=1096
 package.numDependencies=21
 package.numTargets=19
 >>>>>>> origin/textbox.20
+=======
+editor.fx.0.height=1096
+editor.fx.0.width=1936
+editor.fx.0.x=-8
+editor.fx.0.y=-8
+height=1096
+package.numDependencies=22
+package.numTargets=18
+>>>>>>> origin/BuilderWorld
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -146,12 +187,17 @@ target1.x=0
 target1.y=0
 target10.height=50
 <<<<<<< HEAD
+<<<<<<< HEAD
 target10.name=ChatBox
+=======
+target10.name=BuilderWorld
+>>>>>>> origin/BuilderWorld
 target10.showInterface=false
 target10.type=ClassTarget
-target10.width=80
+target10.width=90
 target10.x=0
 target10.y=0
+<<<<<<< HEAD
 target11.height=70
 target11.name=Coordinate
 =======
@@ -167,31 +213,39 @@ target11.name=BuilderWorld
 target11.showInterface=false
 target11.type=ClassTarget
 target11.width=90
+=======
+target11.height=50
+target11.name=ChatBox
+target11.showInterface=false
+target11.type=ClassTarget
+target11.width=80
+>>>>>>> origin/BuilderWorld
 target11.x=0
 target11.y=0
 <<<<<<< HEAD
 target12.height=70
-target12.name=Cube
+target12.name=Coordinate
 target12.showInterface=false
 target12.type=ClassTarget
 target12.width=120
 target12.x=0
 target12.y=0
-target13.height=50
-target13.name=BattleWorld
+target13.height=70
+target13.name=Cube
 target13.showInterface=false
 target13.type=ClassTarget
-target13.width=90
+target13.width=120
 target13.x=0
 target13.y=0
-target14.height=50
-target14.name=Enemy
+target14.height=70
+target14.name=Button
 target14.showInterface=false
-target14.type=AbstractTarget
-target14.width=80
+target14.type=ClassTarget
+target14.width=120
 target14.x=0
 target14.y=0
 target15.height=50
+<<<<<<< HEAD
 target15.name=Slot
 =======
 target12.height=50
@@ -218,6 +272,9 @@ target14.y=0
 target15.height=50
 target15.name=BattleWorld
 >>>>>>> origin/textbox.20
+=======
+target15.name=BattleWorld
+>>>>>>> origin/BuilderWorld
 target15.showInterface=false
 target15.type=ClassTarget
 target15.width=90
@@ -225,13 +282,35 @@ target15.x=0
 target15.y=0
 target16.height=50
 <<<<<<< HEAD
+<<<<<<< HEAD
 target16.name=StatBar
+=======
+target16.name=Enemy
+>>>>>>> origin/BuilderWorld
 target16.showInterface=false
-target16.type=ClassTarget
+target16.type=AbstractTarget
 target16.width=80
 target16.x=0
 target16.y=0
+<<<<<<< HEAD
 target2.height=70
+=======
+target17.height=50
+target17.name=Slot
+target17.showInterface=false
+target17.type=ClassTarget
+target17.width=80
+target17.x=0
+target17.y=0
+target18.height=50
+target18.name=StatBar
+target18.showInterface=false
+target18.type=ClassTarget
+target18.width=80
+target18.x=0
+target18.y=0
+target2.height=50
+>>>>>>> origin/BuilderWorld
 target2.name=BattleManager
 =======
 target16.name=Enemy
@@ -333,11 +412,11 @@ target8.type=ClassTarget
 target8.width=100
 target8.x=0
 target8.y=0
-target9.height=50
-target9.name=BuilderWorld
+target9.height=70
+target9.name=UI
 target9.showInterface=false
 target9.type=ClassTarget
-target9.width=90
+target9.width=120
 target9.x=0
 target9.y=0
 version=3.1.0
@@ -366,7 +445,11 @@ target9.x=0
 target9.y=0
 version=3.0.0
 width=1936
+<<<<<<< HEAD
 >>>>>>> origin/textbox.20
 world.lastInstantiated=BattleWorld
+=======
+world.lastInstantiated=BuilderWorld
+>>>>>>> origin/BuilderWorld
 xPosition=0
 yPosition=0
