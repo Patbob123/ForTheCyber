@@ -45,20 +45,20 @@ public class Button extends Actor
                 user.setAttack(user.getAttack() + 1);
                 System.out.println("strength: " + user.getAttack());
             } else if (attributeType.equals("defense")) {
-                user.setDefense(user.getDefense() + 1);
-                System.out.println("defense: " + user.getDefense());
+                user.setDef(user.getDef() + 1);
+                System.out.println("defense: " + user.getDef());
             } else if (attributeType.equals("Robotic arm")) {
                 if (Value == 0) {
                     Value = 1;
                     user.setAttack(user.getAttack() + 5);
-                    user.setDefense(user.getDefense() + 2);
+                    user.setDef(user.getDef() + 2);
                 } else {
                     user.setAttack(user.getAttack() - 5);
-                    user.setDefense(user.getDefense() - 2);
+                    user.setDef(user.getDef() - 2);
                     Value = 0;
                 }
                 System.out.println("strength: " + user.getAttack());
-                System.out.println("defense: " + user.getDefense());
+                System.out.println("defense: " + user.getDef());
             }
         }
     }

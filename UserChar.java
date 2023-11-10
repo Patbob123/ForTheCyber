@@ -57,7 +57,7 @@ public class UserChar extends Entity
         return(this.speed);
     }
     
-    public double getDefense(){
+    public double getDef(){
         return(this.defense);
     }
     

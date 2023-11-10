@@ -26,17 +26,24 @@ public class BuilderWorld extends World
         addObject(blackRectangle, 100, 400);
         addObject(eblackRectangle, 924, 400);
         
-        Button hpButton = new Button("life");
-        Button speedButton = new Button("speed");
-        Button attackButton = new Button("strength");
-        Button defenseButton = new Button("defense");
+        StatSetter hpSetter = new StatSetter(setHpFunc, 1 , "temp", 100, 100, this);  
+        StatSetter defSetter = new StatSetter(setDefFunc, 1 , "temp", 100, 200, this);  
+        StatSetter attackSetter = new StatSetter(setAttackFunc, 1 , "temp", 100, 300, this);  
+        StatSetter speedSetter = new StatSetter(setSpeedFunc, 1 , "temp", 100, 400, this);  
+        
+        Presser nextButton = new Presser(goBattleWorld, "temp");
+        addObject(nextButton, 500, 500);
+        // Button hpButton = new Button("life");
+        // Button speedButton = new Button("speed");
+        // Button attackButton = new Button("strength");
+        // Button defenseButton = new Button("defense");
         
         Button armButton = new Button("Robotic arm", 50, 100);
 
-        addObject(hpButton, 100, 100);
-        addObject(speedButton, 100, 200);
-        addObject(attackButton, 100, 300);
-        addObject(defenseButton, 100, 400);
+        // addObject(hpButton, 100, 100);
+        // addObject(speedButton, 100, 200);
+        // addObject(attackButton, 100, 300);
+        // addObject(defenseButton, 100, 400);
         
         addObject(armButton, 370, 400);
 
@@ -52,30 +59,37 @@ public class BuilderWorld extends World
     }
     
     private void setBattleWorld(){
-        BattleWorld w = new BattleWorld(uc);
+        BattleWorld w = new BattleWorld(userCharInstance);
         Greenfoot.setWorld(w);
     }
     
     //set hp private methods for builderworld
     
     private void setHp(double hp){
-        uc.setHp(hp);
+        getUserChar().setHp(hp);
     }
     
     private void setDef(double def){
-        uc.setDef(def);
+        getUserChar().setDef(def);
     }
     
     private void setAttack(double attk){
-        uc.setAttack(attk);
+        getUserChar().setAttack(attk);
     }
     
     private void setSpeed(double speed){
-        uc.setSpeed(speed);
-    {    
+        getUserChar().setSpeed(speed);
+    }    
         
     
     public UserChar getUserChar() {
         return userCharInstance;
     }
+    
+    public SetterFunction setHpFunc = (increment) -> setHp(getUserChar().getHp()+increment);
+    public SetterFunction setDefFunc = (increment) -> setDef(getUserChar().getDef()+increment);
+    public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()+increment);
+    public SetterFunction setSpeedFunc = (increment) -> setSpeed(getUserChar().getSpeed()+increment);
+
+    public Function goBattleWorld = () -> Greenfoot.setWorld(new BattleWorld());
 }

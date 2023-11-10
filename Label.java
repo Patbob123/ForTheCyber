@@ -17,6 +17,12 @@ public class Label extends Actor
         label.drawString(text,2,20);
         setImage(label);
     }
+    public Label(String text, Color color){
+        GreenfootImage label = new GreenfootImage(text.length()*20,20);
+        label.setColor(color);
+        label.drawString(text,2,20);
+        setImage(label);
+    }
     public void setText(){
         
     }
