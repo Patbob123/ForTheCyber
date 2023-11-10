@@ -11,6 +11,7 @@ public class BattleWorld extends World
 {
 
     private ArrayList<Entity> entities = new ArrayList<Entity>();
+    private ArrayList<SuperTextBox> text = new ArrayList<SuperTextBox>();
     private Side userSide;
     private Side enemySide;
     private Slot[] attackSlots;
@@ -19,6 +20,8 @@ public class BattleWorld extends World
     
     SuperTextBox sidebar;
     Font funFont;
+    TextManager tm;
+    int count = 0;
     
     public BattleWorld()
     {    
@@ -28,6 +31,8 @@ public class BattleWorld extends World
         funFont = new Font ("Comic Sans MS", false, false, 16);
         sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
         addObject(sidebar, 150,100);
+        tm = new TextManager(text);
+        
         
     }
     public void act(){
@@ -86,8 +91,21 @@ public class BattleWorld extends World
         return attackSlots;
     }
     public void checkIfAddText(){
-        int rand = Greenfoot.getRandomNumber(100);
-        spawnText("Hello", rand);
+        if(Greenfoot.getRandomNumber(100) == 1){
+            String input = Greenfoot.ask("Please input a value");
+            tm.addSentence(input);
+            count++;
+            displayText();
+        }
+    }
+    public void displayText(){
+        if(getObjects((SuperTextBox.class)) != null){
+            removeObjects(getObjects(SuperTextBox.class));
+        }
+        
+        for(int i = text.size()-1; i>=0; i--){
+            addObject(text.get(i),200,700-(30*i));
+        }
     }
     public void spawnText(String message,int y){
         System.out.println("here");
