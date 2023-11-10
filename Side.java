@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Side extends Actor
+public class Side extends Actor//阵营
 {
     private Slot[] slots;
     private ArrayList<Entity> entities;

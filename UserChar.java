@@ -65,11 +65,10 @@ public class UserChar extends Entity
         return(this.hp);
     }
     
-    // public void attack(Entity target){
-        
-        // //makes the target, who was sent through the parameter, take damage
-        // target.takeDamage(attack);
-    // }
+    /*public void Attack(实体目标){
+        //使通过参数发送的目标受到伤害
+        目标.takeDamage(攻击);
+    }*/
     
     public void attackAll(){
         ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjectsInRange (2000, Enemy.class);

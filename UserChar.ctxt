@@ -7,6 +7,7 @@ comment10.params=
 comment10.target=double\ getHp()
 comment11.params=
 comment11.target=void\ attackAll()
+comment11.text=public\ void\ Attack(\u5B9E\u4F53\u76EE\u6807){\r\n\ \ \ \ \ \ \ \ //\u4F7F\u901A\u8FC7\u53C2\u6570\u53D1\u9001\u7684\u76EE\u6807\u53D7\u5230\u4F24\u5BB3\r\n\ \ \ \ \ \ \ \ \u76EE\u6807.takeDamage(\u653B\u51FB);\r\n}
 comment2.params=
 comment2.target=void\ act()
 comment3.params=setattack
