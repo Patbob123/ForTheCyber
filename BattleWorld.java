@@ -22,7 +22,6 @@ public class BattleWorld extends World
     private int actCounter;
     
     SuperTextBox sidebar;
-    Font funFont;
     TextManager tm;
     int count = 0;
     
@@ -34,10 +33,10 @@ public class BattleWorld extends World
         actCounter = 0;
     }
     public void act(){
+        checkIfAddText();
         actCounter++;
     }
     public int getAct(){
-        checkIfAddText();
         return actCounter;
     }
     
@@ -47,11 +46,10 @@ public class BattleWorld extends World
         super(1024, 800, 1); 
         setupField();
         uc = u;
-        funFont = new Font ("Comic Sans MS", false, false, 16);
-        sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
-        addObject(sidebar, 150,100);
+        // sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
+        // addObject(sidebar, 150,100);
         tm = new TextManager(text);
-        
+        addObject(tm, 0, 0);
         
     }
     
@@ -109,24 +107,18 @@ public class BattleWorld extends World
     }
     public void checkIfAddText(){
         if(Greenfoot.getRandomNumber(100) == 1){
-            String input = Greenfoot.ask("Please input a value");
-            tm.addSentence(input);
+            //String input = Greenfoot.ask("Please input a value");
+            System.out.println(tm);
+            if(Greenfoot.getRandomNumber(4) == 1){
+                tm.addSentence("ASDASD");
+            }else if(Greenfoot.getRandomNumber(4) == 2){
+                tm.addSentence("FASFASDDS");
+            }else{
+                tm.addSentence("EFASDWADSADWS");
+            }
+            
             count++;
-            displayText();
         }
     }
-    public void displayText(){
-        if(getObjects((SuperTextBox.class)) != null){
-            removeObjects(getObjects(SuperTextBox.class));
-        }
-        
-        for(int i = text.size()-1; i>=0; i--){
-            addObject(text.get(i),200,700-(30*i));
-        }
-    }
-    public void spawnText(String message,int y){
-        System.out.println("here");
-        Label text = new Label (message);
-        addObject(text,100,10*y);
-    }
+    
 }

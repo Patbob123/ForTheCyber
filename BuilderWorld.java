@@ -91,5 +91,5 @@ public class BuilderWorld extends World
     public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()+increment);
     public SetterFunction setSpeedFunc = (increment) -> setSpeed(getUserChar().getSpeed()+increment);
 
-    public Function goBattleWorld = () -> Greenfoot.setWorld(new BattleWorld());
+    public Function goBattleWorld = () -> Greenfoot.setWorld(new BattleWorld(userCharInstance));
 }

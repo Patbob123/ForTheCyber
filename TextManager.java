@@ -16,6 +16,16 @@ public class TextManager extends Actor
     }
     public void addSentence(String sentence){
         text.add(0,new SuperTextBox(sentence,  funFont, 236));
+        displayText();
+    }
+    public void displayText(){
+        if(getWorld().getObjects((SuperTextBox.class)) != null){
+            getWorld().removeObjects(getWorld().getObjects(SuperTextBox.class));
+        }
+        
+        for(int i = text.size()-1; i>=0; i--){
+            getWorld().addObject(text.get(i),200,700-(30*i));
+        }
     }
     public void act()
     {
