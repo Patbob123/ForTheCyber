@@ -23,7 +23,6 @@ public class BattleWorld extends World
     
     SuperTextBox sidebar;
     TextManager tm;
-    int count = 0;
     
     public BattleWorld()
     {    
@@ -107,7 +106,6 @@ public class BattleWorld extends World
     }
     public void checkIfAddText(){
         if(Greenfoot.getRandomNumber(100) == 1){
-            //String input = Greenfoot.ask("Please input a value");
             System.out.println(tm);
             if(Greenfoot.getRandomNumber(4) == 1){
                 tm.addSentence("ASDASD");
@@ -116,8 +114,6 @@ public class BattleWorld extends World
             }else{
                 tm.addSentence("EFASDWADSADWS");
             }
-            
-            count++;
         }
     }
     

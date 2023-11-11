@@ -11,6 +11,11 @@ import java.util.ArrayList; // import the ArrayList class
  */
 public abstract class Entity extends SuperSmoothMover implements Comparable<Entity>
 {
+    protected double maxHP;
+    protected double maxSpeed;
+    protected double maxAttack;
+    protected double maxDefense;
+    
     protected double hp;
     protected double speed;
     protected double attack;
@@ -34,6 +39,11 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected ArrayList<Attack> attacks = new ArrayList<Attack>();
     
     public Entity(){
+        hp = maxHP;
+        attack = maxAttack;
+        speed = maxSpeed;
+        defense = maxDefense;
+        
         finishedAttack = false;
         onSlot = false;
         testCharImage = new GreenfootImage(90, 90);
@@ -112,13 +122,6 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         double distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance); //calculate distance to the slot
         return distance;
     }
-    public void takeDamage(double damage) {
-        this.hp -= damage;
-    }
-    
-    public boolean isDead() {
-        return this.hp == 0;
-    }
     private void breathe(){
         if(((BattleWorld)getWorld()).getAct()%3!=0) return;
         if(inhaling){ //height increases
@@ -134,5 +137,51 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         if (this.speed < e.speed) return -1;
         if (this.speed > e.speed) return 1;
         return 0;
+    }
+        //setters for attack, speed, hp, defense
+    
+    public void setAttack(double setattack){
+        //set attack... attack == dmg for now
+        this.attack = setattack;
+    }
+    
+    public void setSpeed(double setspeed){
+        //set speed
+        this.speed = setspeed;
+    }
+    
+    public void setDef(double setdefense){
+        this.defense = setdefense;
+    }
+    
+    public void setHp(double sethp){
+        this.hp = sethp;
+    }
+    
+    public void takeDamage(double damage) {
+        this.hp -= damage;
+    }
+    
+    public boolean isDead() {
+        return this.hp == 0;
+    }
+
+    //getter attack, speed, hp, defense
+    
+    public double getAttack(){
+        //attack == dmg for now
+        return(this.attack);
+    }
+    
+    public double getSpeed(){
+        return(this.speed);
+    }
+    
+    public double getDef(){
+        return(this.defense);
+    }
+    
+    public double getHp(){
+        return(this.hp);
     }
 }

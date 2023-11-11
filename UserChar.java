@@ -26,45 +26,6 @@ public class UserChar extends Entity
         }
     }
     
-    //set attack, speed, hp, defense
-    
-    public void setAttack(double setattack){
-        //set attack... attack == dmg for now
-        this.attack = setattack;
-    }
-    
-    public void setSpeed(double setspeed){
-        //set speed
-        this.speed = setspeed;
-    }
-    
-    public void setDef(double setdefense){
-        this.defense = setdefense;
-    }
-    
-    public void setHp(double sethp){
-        this.hp = sethp;
-    }
-
-    //get attack, speed, hp, defense
-    
-    public double getAttack(){
-        //attack == dmg for now
-        return(this.attack);
-    }
-    
-    public double getSpeed(){
-        return(this.speed);
-    }
-    
-    public double getDef(){
-        return(this.defense);
-    }
-    
-    public double getHp(){
-        return(this.hp);
-    }
-    
     //public void attack(Entity target){
         
         //makes the target, who was sent through the parameter, take damage
