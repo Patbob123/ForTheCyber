@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=PlasmaMissile
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ PlasmaMissile\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=attacker
+comment1.target=PlasmaMissile(Entity)
+comment2.params=
+comment2.target=double\ calculateDamage()
+comment3.params=
+comment3.target=void\ updateMove()
+comment4.params=target
+comment4.target=void\ attackMove(Entity)
+comment5.params=
+comment5.target=void\ act()
+numComments=6
