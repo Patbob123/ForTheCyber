@@ -37,6 +37,7 @@ public class TextManager extends Actor
     }
     public void addFont(Font theFont) {
         try {
+            fontFile = new File("cheeseFont.ttf");
             in = new FileInputStream(fontFile);
             pixelFont = Font.createFont(Font.TRUETYPE_FONT, in);
             pixelFont32 = pixelFont.deriveFont(32f); 
