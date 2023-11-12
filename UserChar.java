@@ -9,11 +9,11 @@ import java.util.ArrayList;
 public class UserChar extends Entity
 {
     private double maxHp = 100;
-    
     public UserChar(){
         //set hp to max at beginning
         hp = maxHp;
         side = 0;
+        //addAttack(
     }
     
     public void act() 

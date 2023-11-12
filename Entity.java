@@ -36,8 +36,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected double ImageSizeScale;
     protected double toSlotSpeed;
     
-    protected ArrayList<Attack> attacks = new ArrayList<Attack>();
+    protected ArrayList<Attack> attackSet = new ArrayList<Attack>(); 
     
+    protected PlasmaMissile plasmaMissile = new PlasmaMissile();
     public Entity(){
         hp = maxHP;
         attack = maxAttack;
@@ -56,6 +57,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         breathEveryAct = 3;
         
         ImageSizeScale = 0.05;
+        
+        //Temporary
+        addAttack(plasmaMissile);
     }
     
     public void act() 
@@ -72,8 +76,10 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
 
     public void attack(Entity target){
         this.finishedAttack = false;
+        System.out.println(attackSet.size());
+        int atkNum = Greenfoot.getRandomNumber(attackSet.size()); // Pick a move out of the arraylist of moves
+        attackSet.get(atkNum).dealDamage(this,target); // Call the dealDamage method in the attackmove class 
         initToSlot(((BattleWorld)getWorld()).getAttackSlots()[getSide()]); 
-     
     }
     public void executeAttack(Entity target){
         target.takeDamage(attack);
@@ -97,6 +103,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         
         slot.setEntity(this);
     }
+    
+    //Move to correct slot
     public void toSlot(){
         
         int targetX = slot.getX(); //gets slot x-coord
@@ -122,6 +130,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         double distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance); //calculate distance to the slot
         return distance;
     }
+    
+    //Idle animation
     private void breathe(){
         if(((BattleWorld)getWorld()).getAct()%3!=0) return;
         if(inhaling){ //height increases
@@ -138,50 +148,46 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         if (this.speed > e.speed) return 1;
         return 0;
     }
-        //setters for attack, speed, hp, defense
-    
-    public void setAttack(double setattack){
-        //set attack... attack == dmg for now
-        this.attack = setattack;
+    public void addAttack(Attack attackMove){
+        attackSet.add(attackMove);
     }
     
-    public void setSpeed(double setspeed){
-        //set speed
-        this.speed = setspeed;
-    }
-    
-    public void setDef(double setdefense){
-        this.defense = setdefense;
-    }
-    
-    public void setHp(double sethp){
-        this.hp = sethp;
-    }
-    
-    public void takeDamage(double damage) {
-        this.hp -= damage;
-    }
-    
-    public boolean isDead() {
-        return this.hp == 0;
-    }
-
     //getter attack, speed, hp, defense
-    
     public double getAttack(){
         //attack == dmg for now
         return(this.attack);
     }
-    
     public double getSpeed(){
         return(this.speed);
     }
-    
     public double getDef(){
         return(this.defense);
     }
-    
     public double getHp(){
         return(this.hp);
+    } 
+    
+    //setters for attack, speed, hp, defense
+    public void setAttack(double setattack){
+        //set attack... attack == dmg for now
+        this.attack = setattack;
     }
+    public void setSpeed(double setspeed){
+        //set speed
+        this.speed = setspeed;
+    }
+    public void setDef(double setdefense){
+        this.defense = setdefense;
+    }
+    public void setHp(double sethp){
+        this.hp = sethp;
+    }
+    public void takeDamage(double damage) {
+        this.hp -= damage;
+    }
+    public boolean isDead() {
+        return this.hp == 0;
+    }
+
+    
 }

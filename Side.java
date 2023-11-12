@@ -1,7 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class Field here.
+ * (User or Enemy) Side Class
+ * - Sets up the user and enemy idle positions 
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -16,6 +17,8 @@ public class Side extends Actor//阵营
         slots = new Slot[slotAmount];
         int row = 0;
         int column = 0;
+        
+        // Generate Slot positions
         if(side == 0){
             for(int i = 0; i < slots.length; i++){
                 Slot slot = new Slot(700+column, 600+column*30);
@@ -33,15 +36,15 @@ public class Side extends Actor//阵营
                 
             }
         }
-        
     }
     public Slot[] getSlots(){
         return slots;
     }
-    public Entity getRandomEntity(){
+    public Entity getRandomEntity(){ //Get one entity from array slot
         return slots[Greenfoot.getRandomNumber(slots.length)].getEntity();
     }
-    public ArrayList<Entity> getEntities(){
+    
+    public ArrayList<Entity> getEntities(){ //Get all entities from slot array list
         if(entities == null){
             entities = new ArrayList<Entity>();
             for(Slot slot: slots){

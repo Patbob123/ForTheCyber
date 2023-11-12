@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Side
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Field\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ (User\ or\ Enemy)\ Side\ Class\r\n\ -\ Sets\ up\ the\ user\ and\ enemy\ idle\ positions\ \r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=side\ slotAmount
 comment1.target=Side(int,\ int)
 comment2.params=

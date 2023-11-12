@@ -10,14 +10,18 @@ public abstract class Attack extends SuperSmoothMover
 {
     Entity attacker;
     Entity target;
+    
+    //Grab the entity's stats for damage ratios
     protected double AD;
     protected double HP;
     protected double DEF;
     protected double SPD;
+    /*
     public Attack (Entity attacker){
         this.attacker = attacker;
         AD = attacker.getAttack();
     }
-    abstract void attackMove(Entity target);
+    */
+    public abstract void dealDamage(Entity attacker, Entity target);
        
 }

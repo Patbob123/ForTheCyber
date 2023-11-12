@@ -2,7 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.util.Collections;
 /**
- * Write a description of class MyWorld here.
+ * Battle World Controls:
+ * 
+ * 
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -106,7 +108,7 @@ public class BattleWorld extends World
     }
     public void checkIfAddText(){
         if(Greenfoot.getRandomNumber(100) == 1){
-            System.out.println(tm);
+            //System.out.println(tm);
             if(Greenfoot.getRandomNumber(4) == 1){
                 tm.addSentence("ASDASD");
             }else if(Greenfoot.getRandomNumber(4) == 2){

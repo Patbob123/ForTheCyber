@@ -1,8 +1,7 @@
 #BlueJ class context
 comment0.target=Attack
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Attack\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=attacker
-comment1.target=Attack(Entity)
-comment2.params=target
-comment2.target=void\ attackMove(Entity)
-numComments=3
+comment1.params=attacker\ target
+comment1.target=void\ dealDamage(Entity,\ Entity)
+comment1.text=\r\n\ \ \ \ public\ Attack\ (Entity\ attacker){\r\n\ \ \ \ \ \ \ \ this.attacker\ \=\ attacker;\r\n\ \ \ \ \ \ \ \ AD\ \=\ attacker.getAttack();\r\n\ \ \ \ }\r\n
+numComments=2
