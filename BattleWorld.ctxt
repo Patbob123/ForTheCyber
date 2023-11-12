@@ -18,5 +18,5 @@ comment7.target=void\ refreshEntities()
 comment8.params=
 comment8.target=Slot[]\ getAttackSlots()
 comment9.params=
-comment9.target=void\ checkIfAddText()
+comment9.target=TextManager\ getTM()
 numComments=10

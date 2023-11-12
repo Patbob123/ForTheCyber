@@ -22,19 +22,23 @@ public class BattleWorld extends World
     private Side[] entireField;
     
     private int actCounter;
-    
-    SuperTextBox sidebar;
-    TextManager tm;
+
+    private TextManager tm;
+    private StatBar sb;
     
     public BattleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1024, 800, 1); 
-        setupField();
+        super(1008, 816, 1); 
+        
+        tm = new TextManager(text);
+        addObject(tm, tm.getImage().getWidth()/2,tm.getImage().getHeight()/2);
+        
+
         actCounter = 0;
+       
     }
     public void act(){
-        checkIfAddText();
         actCounter++;
     }
     public int getAct(){
@@ -44,14 +48,15 @@ public class BattleWorld extends World
     public BattleWorld(UserChar u)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1024, 800, 1); 
-        setupField();
+        this();
         uc = u;
+        sb = new StatBar(uc);
+        addObject(sb, sb.getImage().getWidth()/2,sb.getImage().getHeight()/2);
+        
+        setupField();
         // sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
         // addObject(sidebar, 150,100);
-        tm = new TextManager(text);
-        addObject(tm, 0, 0);
-        
+                
     }
     
     public void setupField(){
@@ -59,7 +64,7 @@ public class BattleWorld extends World
         enemySide = new Side(1, 6);
         
         entireField = new Side[]{userSide, enemySide};
-        attackSlots = new Slot[]{new Slot(650, 550), new Slot(550, 450)};
+        attackSlots = new Slot[]{new Slot(550, 450), new Slot(625, 375)};
         
         for(Slot slot: userSide.getSlots()){
             addObject(slot, slot.peekX(), slot.peekY());
@@ -79,7 +84,6 @@ public class BattleWorld extends World
         Coordinate enemySideSpawn = new Coordinate(400, 0);
         
         for(Slot slot: userSide.getSlots()){
-            UserChar uc = new UserChar();
             addObject(uc, userSideSpawn.getX(), userSideSpawn.getY());
             uc.initToSlot(slot);
             entities.add(uc);
@@ -93,8 +97,9 @@ public class BattleWorld extends World
         
         Collections.sort(entities);
         BattleManager bm = new BattleManager(entities, entireField);
-        bm.nextTurn();
         addObject(bm, 0, 0);
+        bm.nextTurn();
+        
     }
     public void refreshEntities(){
         removeObjects(getObjects(Entity.class));
@@ -106,17 +111,8 @@ public class BattleWorld extends World
     public Slot[] getAttackSlots(){
         return attackSlots;
     }
-    public void checkIfAddText(){
-        if(Greenfoot.getRandomNumber(100) == 1){
-            //System.out.println(tm);
-            if(Greenfoot.getRandomNumber(4) == 1){
-                tm.addSentence("ASDASD");
-            }else if(Greenfoot.getRandomNumber(4) == 2){
-                tm.addSentence("FASFASDDS");
-            }else{
-                tm.addSentence("EFASDWADSADWS");
-            }
-        }
+    public TextManager getTM(){
+        return tm;
     }
     
 }

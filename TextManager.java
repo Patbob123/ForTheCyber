@@ -8,10 +8,15 @@ import java.util.ArrayList;
  */
 public class TextManager extends Actor
 {
-    ArrayList<SuperTextBox> text;
-    Font funFont = new Font ("Comic Sans MS", false, false, 16);
+    private int spacing;
+    private ArrayList<SuperTextBox> text;
+    private Font funFont = new Font ("Comic Sans MS", false, false, 16);
     public TextManager(ArrayList <SuperTextBox> text){
+        spacing = 60;
+        
         this.text = text;
+        setImage(new GreenfootImage("log.png"));
+        getImage().scale(getImage().getWidth()*Constants.IMAGE_SCALING, getImage().getHeight()*Constants.IMAGE_SCALING);
         
     }
     public void addSentence(String sentence){
@@ -22,9 +27,16 @@ public class TextManager extends Actor
         if(getWorld().getObjects((SuperTextBox.class)) != null){
             getWorld().removeObjects(getWorld().getObjects(SuperTextBox.class));
         }
-        
+         
         for(int i = text.size()-1; i>=0; i--){
-            getWorld().addObject(text.get(i),200,700-(30*i));
+           
+            int opacity = 255-(i*spacing/2);
+            if(opacity < 0) {
+                text.remove(text.get(i));
+                continue;
+            }
+            text.get(i).setOpacity(opacity);
+            getWorld().addObject(text.get(i),getImage().getWidth()/2,getImage().getHeight()-(spacing*(i+1)+10));
         }
     }
     public void act()

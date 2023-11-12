@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Container
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Container\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=image\ maxContained\ spacing
+comment1.target=Container(greenfoot.GreenfootImage,\ int,\ int)
+comment2.params=contained
+comment2.target=void\ setContained(int)
+comment3.params=
+comment3.target=int\ getContained()
+comment4.params=
+comment4.target=void\ refresh()
+numComments=5

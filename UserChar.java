@@ -9,10 +9,14 @@ import java.util.ArrayList;
 public class UserChar extends Entity
 {
     private double maxHp = 100;
+    private HPBar hpBar;
+    
     public UserChar(){
         //set hp to max at beginning
         hp = maxHp;
+        
         side = 0;
+        name = "ssundee";
         //addAttack(
     }
     
@@ -25,6 +29,23 @@ public class UserChar extends Entity
             getWorld().removeObject(this);
         }
     }
+    public void assignHpBar(HPBar hpBar){
+        this.hpBar = hpBar;
+        System.out.println(getHpBar());
+        
+    }
+    public void setHp(double hp){
+        super.setHp(hp);
+        System.out.println(getHp());
+        getHpBar().refresh();
+    }
+    public HPBar getHpBar(){
+        return this.hpBar;
+    }
+    public double getMaxHp(){
+        return this.maxHp;
+    }
+    
     
     //public void attack(Entity target){
         

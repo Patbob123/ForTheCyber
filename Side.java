@@ -21,12 +21,12 @@ public class Side extends Actor//阵营
         // Generate Slot positions
         if(side == 0){
             for(int i = 0; i < slots.length; i++){
-                Slot slot = new Slot(700+column, 600+column*30);
+                Slot slot = new Slot(400+column, 550+column*30);
                 slots[i] = slot;
             }
         }else if(side == 1){
             for(int i = 1; i < slots.length+1; i++){
-                Slot slot = new Slot(300+column*200, 150-column*30+row*200 );
+                Slot slot = new Slot(600+column*150, 100+column*30+row*150 );
                 slots[i-1] = slot;
                 column++;
                 if(i%3 == 0){

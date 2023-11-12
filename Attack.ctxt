@@ -4,4 +4,6 @@ comment0.text=\r\n\ Write\ a\ description\ of\ class\ Attack\ here.\r\n\ \r\n\ @
 comment1.params=attacker\ target
 comment1.target=void\ dealDamage(Entity,\ Entity)
 comment1.text=\r\n\ \ \ \ public\ Attack\ (Entity\ attacker){\r\n\ \ \ \ \ \ \ \ this.attacker\ \=\ attacker;\r\n\ \ \ \ \ \ \ \ AD\ \=\ attacker.getAttack();\r\n\ \ \ \ }\r\n
-numComments=2
+comment2.params=
+comment2.target=int\ getDuration()
+numComments=3

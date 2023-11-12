@@ -303,6 +303,9 @@ public class SuperTextBox extends Actor
         update();
     }
     
+    public void setOpacity(int opacity){
+        getImage().setTransparency(opacity);
+    }
      /**
      * <h3>Mr. Cohen's Text Centering Algorithm</h3>
      * 

@@ -17,7 +17,7 @@ public class BuilderWorld extends World
      */
     public BuilderWorld()
     {
-        super(1024, 800, 1); 
+        super(1008, 816, 1); 
         
         userCharInstance = new UserChar();
         

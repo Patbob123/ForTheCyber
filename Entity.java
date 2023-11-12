@@ -21,6 +21,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected double attack;
     protected double defense;
     
+    protected int attackTime;
     protected boolean finishedAttack;
     
     protected String name;
@@ -68,7 +69,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         if(!onSlot) {
             toSlot();
         }else {
-            finishedAttack = true;
+            executeAttack();
         }
         
     }    
@@ -76,13 +77,17 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
 
     public void attack(Entity target){
         this.finishedAttack = false;
-        System.out.println(attackSet.size());
         int atkNum = Greenfoot.getRandomNumber(attackSet.size()); // Pick a move out of the arraylist of moves
         attackSet.get(atkNum).dealDamage(this,target); // Call the dealDamage method in the attackmove class 
+        attackTime = attackSet.get(atkNum).getDuration(); 
         initToSlot(((BattleWorld)getWorld()).getAttackSlots()[getSide()]); 
     }
-    public void executeAttack(Entity target){
-        target.takeDamage(attack);
+    public void executeAttack(){
+        attackTime--;
+        if(attackTime <= 0){
+            finishedAttack = true;
+        }
+        
     }
     public boolean isAttackFinished(){
         return this.finishedAttack;
@@ -166,6 +171,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public double getHp(){
         return(this.hp);
     } 
+    public String toString(){
+        return this.name;
+    }
     
     //setters for attack, speed, hp, defense
     public void setAttack(double setattack){
@@ -183,7 +191,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         this.hp = sethp;
     }
     public void takeDamage(double damage) {
-        this.hp -= damage;
+        setHp(this.hp - damage);
     }
     public boolean isDead() {
         return this.hp == 0;
