@@ -23,39 +23,37 @@ public class TextManager extends Actor
     File fontFile = new File("cheeseFont.tty");
     Font pixelFont, pixelFont32;
     FileInputStream in;
+    Font ourFont; 
+    greenfoot.Font pixel; 
     
-    public TextManager(ArrayList <SuperTextBox> text){
+    public TextManager(ArrayList <SuperTextBox> text) throws FontFormatException, IOException {
         spacing = 60;
         
         this.text = text;
         setImage(new GreenfootImage("log.png"));
         getImage().scale(getImage().getWidth()*Constants.IMAGE_SCALING, getImage().getHeight()*Constants.IMAGE_SCALING);
-        addFont();
+        addFont(ourFont);
         
     }
-    //public void addFont() throws java.io.IOException, java.awt.FontFormatException, java.io.FileNotFoundException {
-    public void addFont() {
-        try{
+    public void addFont(Font theFont) {
+        try {
             in = new FileInputStream(fontFile);
             pixelFont = Font.createFont(Font.TRUETYPE_FONT, in);
             pixelFont32 = pixelFont.deriveFont(32f); 
             java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(pixelFont32);
-            greenfoot.Font pp = new greenfoot.Font(pixelFont32.getName(), pixelFont32.getStyle() % 2 == 1, pixelFont32.getStyle() / 2 == 1, pixelFont32.getSize());
+            pixel = new greenfoot.Font(pixelFont32.getName(), pixelFont32.getStyle() % 2 == 1, pixelFont32.getStyle() / 2 == 1, pixelFont32.getSize());
             in.close();
         }
-        
-        catch (FileNotFoundException e){
+        catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        catch (FontFormatException e){
+        } catch (FontFormatException e) {
             e.printStackTrace();
         }
     }
     public void addSentence(String sentence){
-        //text.add(0,new SuperTextBox(sentence,funFont, 236));
+        text.add(0,new SuperTextBox(sentence,pixel, 236));
         displayText();
     }
     public void displayText(){

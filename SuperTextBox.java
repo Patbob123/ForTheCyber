@@ -121,7 +121,8 @@ public class SuperTextBox extends Actor
             bordered = false;
 
         this.width = width;
-        fontSize = font.getSize();
+        fontSize = 18;
+        //fontSize = font.getSize();
 
         // Spacing is a factor of font size - Font sizes typically describe the max height of 
         // the characters in that font. I.e. 24pt font is 24 pixels tall
