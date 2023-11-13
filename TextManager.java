@@ -37,14 +37,20 @@ public class TextManager extends Actor
     }
     public void addFont(Font theFont) {
         try {
+            //Read the .ttf file containing the font
             fontFile = new File("cheeseFont.ttf");
             in = new FileInputStream(fontFile);
+
+            // Convert the .ttf file into a Java.awt.font
             pixelFont = Font.createFont(Font.TRUETYPE_FONT, in);
-            pixelFont32 = pixelFont.deriveFont(32f); 
+            pixelFont32 = pixelFont.deriveFont(32f); // Resize font (Change to lower size later)
             java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(pixelFont32);
+
+            // Create a greenfoot font using the newly created java.awt.font  
             pixel = new greenfoot.Font(pixelFont32.getName(), pixelFont32.getStyle() % 2 == 1, pixelFont32.getStyle() / 2 == 1, pixelFont32.getSize());
             in.close();
         }
+        // Error handling for reading fonts (makes sure the file exists during compile time)
         catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
