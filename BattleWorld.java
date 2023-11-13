@@ -36,6 +36,8 @@ public class BattleWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1008, 816, 1); 
+        
+        // Spawning TextManager requires error handling for reading files (See textmanager class)
         try{
             tm = new TextManager(text);
         }
