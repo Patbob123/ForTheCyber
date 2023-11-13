@@ -26,6 +26,10 @@ public class BattleWorld extends World
     private TextManager tm;
     private StatBar sb;
     
+    private GreenfootImage bgImage;
+    private GreenfootImage bg1 = new GreenfootImage("bg1.png");
+    
+    
     public BattleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -34,9 +38,11 @@ public class BattleWorld extends World
         tm = new TextManager(text);
         addObject(tm, tm.getImage().getWidth()/2,tm.getImage().getHeight()/2);
         
-
+        
         actCounter = 0;
-       
+        
+        bgImage = new GreenfootImage(getWidth(), getHeight());
+        setBackground(bgImage);
     }
     public void act(){
         actCounter++;
@@ -44,7 +50,10 @@ public class BattleWorld extends World
     public int getAct(){
         return actCounter;
     }
-    
+    public void setBg(GreenfootImage bg){
+        bg.scale(bg.getWidth()*Constants.IMAGE_SCALING, bg.getHeight()*Constants.IMAGE_SCALING);
+        bgImage.drawImage(bg1, 250, 0);
+    }
     public BattleWorld(UserChar u)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -100,6 +109,7 @@ public class BattleWorld extends World
         addObject(bm, 0, 0);
         bm.nextTurn();
         
+        setBg(bg1);
     }
     public void refreshEntities(){
         removeObjects(getObjects(Entity.class));

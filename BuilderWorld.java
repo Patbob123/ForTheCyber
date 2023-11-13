@@ -11,6 +11,7 @@ public class BuilderWorld extends World
     private boolean doneMaking;
     private UserChar userCharInstance;
     
+    private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     /**
      * Constructor for objects of class StatWorld.
      * 
@@ -21,15 +22,16 @@ public class BuilderWorld extends World
         
         userCharInstance = new UserChar();
         
-        UI blackRectangle = new UI(200, 800);
+        UI builderUI = new UI(builderImage);
         UI eblackRectangle = new UI(200, 800);
-        addObject(blackRectangle, 100, 400);
-        addObject(eblackRectangle, 924, 400);
+        addObject(builderUI, getWidth()/2, getHeight()/2);
+        //addObject(blackRectangle, 100, 400);
+        //addObject(eblackRectangle, 924, 400);
         
-        StatSetter hpSetter = new StatSetter(setHpFunc, 1 , "temp", 100, 100, this);  
-        StatSetter defSetter = new StatSetter(setDefFunc, 1 , "temp", 100, 200, this);  
-        StatSetter attackSetter = new StatSetter(setAttackFunc, 1 , "temp", 100, 300, this);  
-        StatSetter speedSetter = new StatSetter(setSpeedFunc, 1 , "temp", 100, 400, this);  
+        StatSetter attackSetter = new StatSetter(setAttackFunc, 1 , "atk", 50, 170, this);  
+        StatSetter defSetter = new StatSetter(setDefFunc, 1 , "def", 50, 310, this);  
+        StatSetter speedSetter = new StatSetter(setSpeedFunc, 1 , "speed", 50, 450, this);  
+        StatSetter hpSetter = new StatSetter(setHpFunc, 1 , "hp", 50, 590, this);  
         
         Presser nextButton = new Presser(goBattleWorld, "temp");
         addObject(nextButton, 500, 500);

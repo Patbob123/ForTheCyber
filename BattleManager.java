@@ -37,8 +37,8 @@ public class BattleManager extends Actor
         
         curAttacker.attack(target);
         ((BattleWorld)getWorld()).getTM().addSentence(curAttacker + " attacked " + target);
+        if(target.isDead()) entireField[1-curAttacker.getSide()].getEntities().remove(target);
         
-        //if(target.isDead()) entities.remove(target);
         curAttackerIndex++;
         if(curAttackerIndex >= entities.size()){
             curAttackerIndex = 0;
@@ -46,7 +46,7 @@ public class BattleManager extends Actor
     }
     public void act(){
         //System.out.println(curAttacker);
-        if(entireField[0].getEntities().size()==0||entireField[0].getEntities().size()==0){
+        if(entireField[0].getEntities().size()==0||entireField[1].getEntities().size()==0){
             System.out.println("BATTLE ENDED");
             getWorld().removeObject(this);
         }

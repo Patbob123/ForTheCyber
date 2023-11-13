@@ -12,11 +12,11 @@ public class StatSetter
     
     
     public StatSetter(SetterFunction buttonAction, int increment, String text, int x, int y, World w){
-        length = 200;
+        length = 210;
         
-        Presser addButton = new Presser(buttonAction, "temp", increment);
-        Presser subButton = new Presser(buttonAction, "temp", -increment);
-        Label temp = new Label("temp", Color.BLUE);
+        Presser addButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png",  increment);
+        Presser subButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png", -increment);
+        Label temp = new Label(text, Color.BLUE);
         
         w.addObject(subButton, x, y);
         w.addObject(temp, x+length/2, y);

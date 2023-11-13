@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Side extends Actor//阵营
+public class Side extends Actor//
 {
     private Slot[] slots;
     private ArrayList<Entity> entities;
@@ -33,7 +33,6 @@ public class Side extends Actor//阵营
                     row++;
                     column = 0;
                 }
-                
             }
         }
     }

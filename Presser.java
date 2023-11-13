@@ -15,6 +15,7 @@ public class Presser extends Actor
     private SetterFunction setterAction;
     private Function action;
     private GreenfootImage buttonImage;
+    private GreenfootImage hoverButtonImage;
     
     private int increment;
     
@@ -22,16 +23,21 @@ public class Presser extends Actor
      * @param buttonAction  The Function object that will run
      * @param buttonFile    The image of the button's directory
      */
-    public Presser(SetterFunction buttonAction, String buttonFile, int increment){
-        buttonImage = new GreenfootImage(50, 50);
-        buttonImage.setColor(Color.YELLOW);
-        buttonImage.fill();
-        //buttonImage = new GreenfootImage(buttonFile);
-        buttonImage.scale(buttonImage.getWidth(), buttonImage.getHeight());
+    public Presser(SetterFunction buttonAction, String buttonFile, String hoverButtonFile, int increment){
+        buttonImage = new GreenfootImage(buttonFile);
+        hoverButtonImage = new GreenfootImage(hoverButtonFile);
+        this.increment = increment;
+        if(increment > 0) {
+            buttonImage.mirrorHorizontally();
+            hoverButtonImage.mirrorHorizontally();
+        }
+        
+        buttonImage.scale(buttonImage.getWidth()*Constants.IMAGE_SCALING, buttonImage.getHeight()*Constants.IMAGE_SCALING);
+        hoverButtonImage.scale(hoverButtonImage.getWidth()*Constants.IMAGE_SCALING, hoverButtonImage.getHeight()*Constants.IMAGE_SCALING);
         setImage(buttonImage);
         setterAction = buttonAction;
         
-        this.increment = increment;
+        
     }
     public Presser(Function buttonAction, String buttonFile){
         buttonImage = new GreenfootImage(50, 50);
@@ -41,8 +47,6 @@ public class Presser extends Actor
         buttonImage.scale(buttonImage.getWidth(), buttonImage.getHeight());
         setImage(buttonImage);
         action = buttonAction;
-        
-        this.increment = increment;
     }
     
     /**
@@ -80,11 +84,11 @@ public class Presser extends Actor
     private void detectHover(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(mouse!=null){
-            List hovering = getWorld().getObjectsAt(mouse.getX(), mouse.getY(), Button.class);
+            List hovering = getWorld().getObjectsAt(mouse.getX(), mouse.getY(), Presser.class);
             if(hovering.contains(this)){
-                setLocation(startX, startY); //Moves the button up
+                setImage(hoverButtonImage); //Moves the button up
             }else{
-                setLocation(startX, startY); //Moves the button back to starting position
+                setImage(buttonImage); //Moves the button back to starting position
             }
         }
     }

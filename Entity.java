@@ -188,7 +188,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         this.defense = setdefense;
     }
     public void setHp(double sethp){
-        this.hp = sethp;
+        this.hp = sethp > 0 ? sethp : 0;
     }
     public void takeDamage(double damage) {
         setHp(this.hp - damage);

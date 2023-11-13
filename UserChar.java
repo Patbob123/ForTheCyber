@@ -8,11 +8,12 @@ import java.util.ArrayList;
  */
 public class UserChar extends Entity
 {
-    private double maxHp = 100;
+    private double maxHp;
     private HPBar hpBar;
     
     public UserChar(){
         //set hp to max at beginning
+        maxHp = 100;
         hp = maxHp;
         
         side = 0;
@@ -31,13 +32,14 @@ public class UserChar extends Entity
     }
     public void assignHpBar(HPBar hpBar){
         this.hpBar = hpBar;
-        System.out.println(getHpBar());
-        
     }
     public void setHp(double hp){
         super.setHp(hp);
-        System.out.println(getHp());
-        getHpBar().refresh();
+        if(getHpBar()!=null){
+            getHpBar().refresh();
+        }else{
+            maxHp = hp;
+        }
     }
     public HPBar getHpBar(){
         return this.hpBar;

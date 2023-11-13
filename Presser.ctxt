@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Presser
 comment0.text=\r\n\ Button\ class\ that\ runs\ its\ Function\ object's\ function\ when\ clicked\ by\ the\ mouse\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ 2023-06-20\r\n
-comment1.params=buttonAction\ buttonFile\ increment
-comment1.target=Presser(SetterFunction,\ java.lang.String,\ int)
+comment1.params=buttonAction\ buttonFile\ hoverButtonFile\ increment
+comment1.target=Presser(SetterFunction,\ java.lang.String,\ java.lang.String,\ int)
 comment1.text=\r\n\ @param\ buttonAction\ \ The\ Function\ object\ that\ will\ run\r\n\ @param\ buttonFile\ \ \ \ The\ image\ of\ the\ button's\ directory\r\n
 comment2.params=buttonAction\ buttonFile
 comment2.target=Presser(Function,\ java.lang.String)
