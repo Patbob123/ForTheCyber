@@ -10,6 +10,7 @@ public class BuilderWorld extends World
 {
     private boolean doneMaking;
     private UserChar userCharInstance;
+    private String curAugment;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     /**
@@ -33,8 +34,14 @@ public class BuilderWorld extends World
         StatSetter speedSetter = new StatSetter(setSpeedFunc, 1 , "speed", 50, 450, this);  
         StatSetter hpSetter = new StatSetter(setHpFunc, 1 , "hp", 50, 590, this);  
         
-        Presser nextButton = new Presser(goBattleWorld, "temp");
-        addObject(nextButton, 500, 500);
+        Presser marmButton = new Presser(setAugment, "ready.png", "ready.png", "Mech Arm");
+        Presser scopeButton = new Presser(setAugment, "ready.png", "ready.png", "360 No Scope");
+        
+        addObject(marmButton, 370, 200);
+        addObject(scopeButton, 370, 300);
+        
+        Presser nextButton = new Presser(goBattleWorld, "ready.png", "ready.png");
+        addObject(nextButton, 500, 700);
         // Button hpButton = new Button("life");
         // Button speedButton = new Button("speed");
         // Button attackButton = new Button("strength");
@@ -81,17 +88,28 @@ public class BuilderWorld extends World
     
     private void setSpeed(double speed){
         getUserChar().setSpeed(speed);
-    }    
+    }
+    
+    private void setAugment(String augment){
+        curAugment = augment;
+    }
         
     
     public UserChar getUserChar() {
         return userCharInstance;
     }
+    public void goToBattleWorld(){
+        if(curAugment==null) return;
+        Augment.applyAugment(curAugment, userCharInstance);
+        Greenfoot.setWorld(new BattleWorld(userCharInstance));
+    }
+    
+    public AugmentFunction setAugment = (augment) -> setAugment(augment);
     
     public SetterFunction setHpFunc = (increment) -> setHp(getUserChar().getHp()+increment);
     public SetterFunction setDefFunc = (increment) -> setDef(getUserChar().getDef()+increment);
     public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()+increment);
     public SetterFunction setSpeedFunc = (increment) -> setSpeed(getUserChar().getSpeed()+increment);
 
-    public Function goBattleWorld = () -> Greenfoot.setWorld(new BattleWorld(userCharInstance));
+    public Function goBattleWorld = () -> goToBattleWorld();
 }

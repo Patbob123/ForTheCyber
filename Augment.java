@@ -22,13 +22,13 @@ public class Augment
     public String[] getAugmentList(){
         return this.augmentList;
     }
-    public void applyAugment(String augment){
+    public static void applyAugment(String augment, UserChar uc){
         switch(augment){
             case "Mech Arm":
-                //setAttack = asdasodma
+                uc.setHp(100);
                 break;
             case "360 No Scope":
-                //setAttack = 360
+                uc.setAttack(360);
                 break;
             default:
                 System.out.println("ur broke");

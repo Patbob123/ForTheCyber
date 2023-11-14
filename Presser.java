@@ -12,12 +12,14 @@ public class Presser extends Actor
     private int startX;
     private int startY;
     
+    private AugmentFunction augmentAction;
     private SetterFunction setterAction;
     private Function action;
     private GreenfootImage buttonImage;
     private GreenfootImage hoverButtonImage;
     
     private int increment;
+    private String augment;
     
     /**
      * @param buttonAction  The Function object that will run
@@ -39,14 +41,25 @@ public class Presser extends Actor
         
         
     }
-    public Presser(Function buttonAction, String buttonFile){
-        buttonImage = new GreenfootImage(50, 50);
-        buttonImage.setColor(Color.YELLOW);
-        buttonImage.fill();
+    public Presser(Function buttonAction, String buttonFile, String hoverButtonFile){
+        buttonImage = new GreenfootImage(buttonFile);
+        hoverButtonImage = new GreenfootImage(hoverButtonFile);
         //buttonImage = new GreenfootImage(buttonFile);
-        buttonImage.scale(buttonImage.getWidth(), buttonImage.getHeight());
+        buttonImage.scale(buttonImage.getWidth()*Constants.IMAGE_SCALING, buttonImage.getHeight()*Constants.IMAGE_SCALING);
+        hoverButtonImage.scale(hoverButtonImage.getWidth()*Constants.IMAGE_SCALING, hoverButtonImage.getHeight()*Constants.IMAGE_SCALING);
         setImage(buttonImage);
         action = buttonAction;
+    }
+    public Presser(AugmentFunction buttonAction, String buttonFile, String hoverButtonFile, String augment){
+        buttonImage = new GreenfootImage(buttonFile);
+        hoverButtonImage = new GreenfootImage(hoverButtonFile);
+        //buttonImage = new GreenfootImage(buttonFile);
+        buttonImage.scale(buttonImage.getWidth()*Constants.IMAGE_SCALING, buttonImage.getHeight()*Constants.IMAGE_SCALING);
+        hoverButtonImage.scale(hoverButtonImage.getWidth()*Constants.IMAGE_SCALING, hoverButtonImage.getHeight()*Constants.IMAGE_SCALING);
+        setImage(buttonImage);
+        
+        this.augment = augment;
+        augmentAction = buttonAction;
     }
     
     /**
@@ -73,6 +86,7 @@ public class Presser extends Actor
      * Running the Function object's function
      */
     public void runAction() {
+        if(augmentAction != null) augmentAction.applyAugment(augment);
         if(setterAction != null) setterAction.applySetter(increment);
         if(action != null) action.apply();
     }

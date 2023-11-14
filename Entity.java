@@ -11,10 +11,11 @@ import java.util.ArrayList; // import the ArrayList class
  */
 public abstract class Entity extends SuperSmoothMover implements Comparable<Entity>
 {
-    protected double maxHP;
+    protected double maxHp;
     protected double maxSpeed;
     protected double maxAttack;
     protected double maxDefense;
+    protected HPBar hpBar;
     
     protected double hp;
     protected double speed;
@@ -41,7 +42,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     
     protected PlasmaMissile plasmaMissile = new PlasmaMissile();
     public Entity(){
-        hp = maxHP;
+        hp = maxHp;
         attack = maxAttack;
         speed = maxSpeed;
         defense = maxDefense;
@@ -171,6 +172,15 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public double getHp(){
         return(this.hp);
     } 
+    public void assignHpBar(HPBar hpBar){
+        this.hpBar = hpBar;
+    }
+    public HPBar getHpBar(){
+        return this.hpBar;
+    }
+    public double getMaxHp(){
+        return this.maxHp;
+    }
     public String toString(){
         return this.name;
     }
@@ -189,6 +199,11 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     public void setHp(double sethp){
         this.hp = sethp > 0 ? sethp : 0;
+        if(getHpBar()!=null){
+            getHpBar().refresh();
+        }else{
+            maxHp = hp;
+        }
     }
     public void takeDamage(double damage) {
         setHp(this.hp - damage);

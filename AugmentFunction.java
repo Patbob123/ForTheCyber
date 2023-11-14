@@ -6,5 +6,5 @@
  */
 public interface AugmentFunction 
 {
-     void applySetter(String augment);
+     void applyAugment(String augment);
 }

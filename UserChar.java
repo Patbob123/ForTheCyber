@@ -8,8 +8,7 @@ import java.util.ArrayList;
  */
 public class UserChar extends Entity
 {
-    private double maxHp;
-    private HPBar hpBar;
+    
     
     public UserChar(){
         //set hp to max at beginning
@@ -30,23 +29,7 @@ public class UserChar extends Entity
             getWorld().removeObject(this);
         }
     }
-    public void assignHpBar(HPBar hpBar){
-        this.hpBar = hpBar;
-    }
-    public void setHp(double hp){
-        super.setHp(hp);
-        if(getHpBar()!=null){
-            getHpBar().refresh();
-        }else{
-            maxHp = hp;
-        }
-    }
-    public HPBar getHpBar(){
-        return this.hpBar;
-    }
-    public double getMaxHp(){
-        return this.maxHp;
-    }
+    
     
     
     //public void attack(Entity target){
