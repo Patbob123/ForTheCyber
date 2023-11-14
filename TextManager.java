@@ -43,7 +43,7 @@ public class TextManager extends Actor
 
             // Convert the .ttf file into a Java.awt.font
             pixelFont = Font.createFont(Font.TRUETYPE_FONT, in);
-            pixelFont32 = pixelFont.deriveFont(16f); // Resize font (Change to lower size later)
+            pixelFont32 = pixelFont.deriveFont(14f); // Resize font (Change to lower size later)
             java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(pixelFont32);
 
             // Create a greenfoot font using the newly created java.awt.font  
