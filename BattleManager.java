@@ -45,7 +45,6 @@ public class BattleManager extends Actor
         }
     }
     public void act(){
-        //System.out.println(curAttacker);
         if(entireField[0].getEntities().size()==0||entireField[1].getEntities().size()==0){
             System.out.println("BATTLE ENDED");
             getWorld().removeObject(this);

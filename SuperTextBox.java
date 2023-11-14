@@ -121,6 +121,7 @@ public class SuperTextBox extends Actor
             bordered = false;
 
         this.width = width;
+        
         fontSize = font.getSize();
 
         // Spacing is a factor of font size - Font sizes typically describe the max height of 
@@ -139,6 +140,7 @@ public class SuperTextBox extends Actor
         update (text);
 
         setImage(image);
+        image.setFont(font);
 
     }
 
