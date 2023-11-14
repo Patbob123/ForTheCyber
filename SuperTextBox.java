@@ -239,9 +239,28 @@ public class SuperTextBox extends Actor
             } else{
                 xPos = padding + borderThickness;
             }
-            // System.out.println("Pad: " + padding  + " vSpace " + vSpace + " fontSize: " + fontSize);
-            // System.out.println("Drawing String " + i + " at " +yPos);
-            image.drawString(text[i], xPos , yPos);
+            // System.out.println("Pad: " + padding  + " vSpace " + vSpace + " fontSize: " + fontSize); //This is #blue hello, this is &green
+            System.out.println("Drawing String " + text[i] + " at " +yPos);
+        
+            String[] words = text[i].split(" ");
+            for(int j = 0; j < words.length; j++){
+                switch(words[j].substring(0,1)){
+                    case "#":
+                        image.setColor(Color.BLUE);
+                        words[j] = words[j].substring(1,words[j].length());
+                        break;
+                    case "&":
+                        image.setColor(Color.GREEN);
+                        break;
+                    default:
+                        image.setColor(foreColor);
+                        break;
+                }
+
+                image.drawString(words[j], xPos+j*100 , yPos);
+            }
+            
+            
         }
 
     }
@@ -281,7 +300,7 @@ public class SuperTextBox extends Actor
         update();
 
     }
-
+    
     /**
      * Set or change Colors.
      * 
