@@ -40,7 +40,7 @@ public class Side extends Actor//
         return slots;
     }
     public Entity getRandomEntity(){ //Get one entity from array slot
-        return slots[Greenfoot.getRandomNumber(slots.length)].getEntity();
+        return getEntities().get(Greenfoot.getRandomNumber(getEntities().size()));
     }
     
     public ArrayList<Entity> getEntities(){ //Get all entities from slot array list

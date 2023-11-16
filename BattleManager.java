@@ -1,5 +1,7 @@
 import greenfoot.*;
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
 
 /**
  * Write a description of class BattleManager here.
@@ -10,9 +12,11 @@ import java.util.ArrayList;
 public class BattleManager extends Actor
 {
     private ArrayList<Entity> entities;
+    private Queue<Entity> attackList;
     private Side[] entireField;
     private double turnSpeed; //multiplier
     private int turnNumber; 
+    private int trueTurnNumber;
     private int curAttackerIndex;
     private Entity curAttacker;
     
@@ -23,24 +27,48 @@ public class BattleManager extends Actor
         this.entireField = entireField;
         this.turnSpeed = 1;
         this.turnNumber = 0;
+        this.trueTurnNumber = 0;
         this.curAttackerIndex = 0;
+        
+        createAttackOrder();
         
         setImage(new GreenfootImage(1,1));
     }
+    public void createAttackOrder(){
+        attackList = new LinkedList<Entity>();
+        int entityIndex = 0;
+        int setAttackListSize = 20;
+        outerloop:
+        while(attackList.size() < setAttackListSize){
+            trueTurnNumber++;
+            for(int i = entities.size()-1; i >= 0; i--){
+                if(trueTurnNumber%entities.get(i).getSpeed()==0){
+                    attackList.add(entities.get(i));
+                    if(attackList.size() >= setAttackListSize) break outerloop;
+                }
+            }
+        }
+    }
     public void nextTurn(){
+       
         turnNumber++;
-        curAttacker = entities.get(curAttackerIndex);
+        curAttacker = attackList.poll();
         originalAttackerSlot = curAttacker.getSlot();
         
         Side targetSide = entireField[1-curAttacker.getSide()];
         Entity target = targetSide.getRandomEntity();
-        
+        System.out.println(targetSide.getEntities());
         curAttacker.attack(target);
-        ((BattleWorld)getWorld()).getTM().addSentence(curAttacker + " attacked " + target);
-        if(target.isDead()) entireField[1-curAttacker.getSide()].getEntities().remove(target);
+        ((BattleWorld)getWorld()).getTM().addSentence(curAttacker + " !attacked " + target);
+        if(target.isDead()){
+            entireField[1-curAttacker.getSide()].getEntities().remove(target);
+            entities.remove(target);
+            target.removeFromWorld();
+            createAttackOrder();
+        }
         
         curAttackerIndex++;
-        if(curAttackerIndex >= entities.size()){
+        if(curAttackerIndex >= attackList.size()){
             curAttackerIndex = 0;
         }
     }

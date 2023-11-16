@@ -65,8 +65,8 @@ public class TextManager extends Actor
         }
     }
     public void addSentence(String sentence){
-        splitSentence(sentence);
-        new SuperTextBox(splitSentence(sentence),pixel,1,false);
+        //splitSentence(sentence);
+        //new SuperTextBox(splitSentence(sentence),pixel,1,false);
         text.add(0,new SuperTextBox(sentence,pixel, textBoxWidth));
         displayText();
     }

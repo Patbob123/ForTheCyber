@@ -1,3 +1,4 @@
+import greenfoot.*;
 /**
  * Write a description of class Cube here.
  * 
@@ -9,8 +10,10 @@ public class Cube extends Enemy
     // instance variables - replace the example below with your own
     public Cube()
     {
-        name = "Cube";
+        name = "Cube"+String.valueOf(Greenfoot.getRandomNumber(500));
         attack = 5;
+        speed = 3;
+        hp = 100;
     }
 
     /**

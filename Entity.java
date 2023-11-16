@@ -211,6 +211,10 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public boolean isDead() {
         return this.hp == 0;
     }
+    public void removeFromWorld(){
+        getWorld().removeObject(getHpBar());
+        getWorld().removeObject(this);
+    }
 
     
 }

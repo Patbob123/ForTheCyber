@@ -241,7 +241,7 @@ public class SuperTextBox extends Actor
                 xPos = padding + borderThickness;
             }
             nextXCord = xPos;
-            System.out.println("Drawing String " + text[i] + " at " +yPos);
+            //System.out.println("Drawing String " + text[i] + " at " +yPos);
         
             String[] words = text[i].split(" ");
             for(int j = 0; j < words.length; j++){
@@ -391,9 +391,9 @@ public class SuperTextBox extends Actor
                     // This lets me only look at every other pixel on the first run - check back one to the right
                     // when I find a pixel to see if I passed the first pixel or not. This should almost half the 
                     // total calls to getColorAt().
-                    if (temp.getColorAt(checkX + 1, i).getAlpha() != 0){
+                    if (temp.getColorAt(checkX , i).getAlpha() != 0){
                         checkX++;
-                        if (temp.getColorAt(checkX + 1, i).getAlpha() != 0){
+                        if (temp.getColorAt(checkX-1, i).getAlpha() != 0){
                             checkX++;
                         }
                     }

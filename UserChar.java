@@ -14,6 +14,8 @@ public class UserChar extends Entity
         //set hp to max at beginning
         maxHp = 100;
         hp = maxHp;
+        speed = 1;
+        attack = 1;
         
         side = 0;
         name = "ssundee";
