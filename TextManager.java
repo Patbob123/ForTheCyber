@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 
 
@@ -26,6 +27,8 @@ public class TextManager extends Actor
     Font ourFont; 
     greenfoot.Font pixel; 
     
+    int textBoxWidth; 
+    
     public TextManager(ArrayList <SuperTextBox> text) throws FontFormatException, IOException {
         spacing = 60;
         
@@ -33,6 +36,8 @@ public class TextManager extends Actor
         setImage(new GreenfootImage("log.png"));
         getImage().scale(getImage().getWidth()*Constants.IMAGE_SCALING, getImage().getHeight()*Constants.IMAGE_SCALING);
         addFont(ourFont);
+        
+        textBoxWidth = 236; 
         
     }
     public void addFont(Font theFont) {
@@ -43,7 +48,7 @@ public class TextManager extends Actor
 
             // Convert the .ttf file into a Java.awt.font
             pixelFont = Font.createFont(Font.TRUETYPE_FONT, in);
-            pixelFont32 = pixelFont.deriveFont(16f); // Resize font (Change to lower size later)
+            pixelFont32 = pixelFont.deriveFont(14f); // Resize font (Change to lower size later)
             java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(pixelFont32);
 
             // Create a greenfoot font using the newly created java.awt.font  
@@ -60,8 +65,35 @@ public class TextManager extends Actor
         }
     }
     public void addSentence(String sentence){
-        text.add(0,new SuperTextBox(sentence,pixel, 236));
+        splitSentence(sentence);
+        new SuperTextBox(splitSentence(sentence),pixel,1,false);
+        text.add(0,new SuperTextBox(sentence,pixel, textBoxWidth));
         displayText();
+    }
+    public String[] splitSentence (String sentence){
+        double ratio;
+        int stringWidth= SuperTextBox.getStringWidth(pixel,sentence);
+        String[] words = sentence.split("");
+        int curLength = 0;
+        String curString = "";
+        String[] multiLine;
+        for(String s: words){
+            ratio = stringWidth%textBoxWidth;
+            if(ratio <= 0){
+                //return words;
+            }
+            if((curLength += SuperTextBox.getStringWidth(pixel,s)) > stringWidth){
+                //multiLine += curString;
+                curString = "";
+                stringWidth -= curLength;
+                curLength = 0;
+            }
+            else{
+                curLength += SuperTextBox.getStringWidth(pixel,s);
+                curString += s +" "; 
+            }
+        }
+        return words;
     }
     public void displayText(){
         if(getWorld().getObjects((SuperTextBox.class)) != null){

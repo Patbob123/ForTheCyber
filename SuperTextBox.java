@@ -204,8 +204,9 @@ public class SuperTextBox extends Actor
     }
 
     public void update (){
-
+        boolean coloured = false;
         int xPos, yPos;
+        int nextXCord; 
 
         image.setColor(backColor);
         image.fill();
@@ -239,9 +240,33 @@ public class SuperTextBox extends Actor
             } else{
                 xPos = padding + borderThickness;
             }
-            // System.out.println("Pad: " + padding  + " vSpace " + vSpace + " fontSize: " + fontSize);
-            // System.out.println("Drawing String " + i + " at " +yPos);
-            image.drawString(text[i], xPos , yPos);
+            nextXCord = xPos;
+            System.out.println("Drawing String " + text[i] + " at " +yPos);
+        
+            String[] words = text[i].split(" ");
+            for(int j = 0; j < words.length; j++){
+                switch(words[j].substring(0,1)){
+                    case "!":
+                        image.setColor(Color.RED);
+                        words[j] = words[j].substring(1,words[j].length());
+                        break;
+                    case "@":
+                        image.setColor(Color.GREEN);
+                        words[j] = words[j].substring(1,words[j].length());
+                        break;
+                    case "#":
+                        image.setColor(Color.BLUE);
+                        words[j] = words[j].substring(1,words[j].length());
+                        break;
+                    default:
+                        image.setColor(foreColor);
+                        break;
+                }
+                int length = getStringWidth(font,words[j]);
+                nextXCord += length + 10;
+                image.drawString(words[j], xPos , yPos);
+                xPos = nextXCord;
+            }
         }
 
     }
@@ -281,7 +306,7 @@ public class SuperTextBox extends Actor
         update();
 
     }
-
+    
     /**
      * Set or change Colors.
      * 
