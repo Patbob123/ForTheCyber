@@ -36,7 +36,7 @@ public class BattleManager extends Actor
         Entity target = targetSide.getRandomEntity();
         
         curAttacker.attack(target);
-        ((BattleWorld)getWorld()).getTM().addSentence("@"+curAttacker + " !attacked " + "#"+target);
+        ((BattleWorld)getWorld()).getTM().addSentence("@"+curAttacker + " !attacked " + "DDDD"+target+" ASDASDASD ASDASD AS DAS DAS DAS DA SD");
         
         //if(target.isDead()) entities.remove(target);
         curAttackerIndex++;

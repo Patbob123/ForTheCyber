@@ -241,7 +241,6 @@ public class SuperTextBox extends Actor
                 xPos = padding + borderThickness;
             }
             nextXCord = xPos;
-            System.out.println("Drawing String " + text[i] + " at " +yPos);
         
             String[] words = text[i].split(" ");
             for(int j = 0; j < words.length; j++){
@@ -370,7 +369,7 @@ public class SuperTextBox extends Actor
         // taller than wide. For example, a 24 point font is usually 24 points tall 
         // height varies by character but even a w or m should be less than 20 wide
         // 24 / 1.2 = 20
-        int maxWidth = (int)(text.length() * (font.getSize()/1.20));//1000; 
+        int maxWidth = (int)(text.length() * (font.getSize()));//1000; 
         int fontSize = font.getSize();
         int marginOfError = fontSize / 6; // how many pixels can be skipped scanning vertically for pixels?
         int checkX;

@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Arrays;
 
 
 
@@ -30,7 +31,7 @@ public class TextManager extends Actor
     int textBoxWidth; 
     
     public TextManager(ArrayList <SuperTextBox> text) throws FontFormatException, IOException {
-        spacing = 60;
+        spacing = 100;
         
         this.text = text;
         setImage(new GreenfootImage("log.png"));
@@ -66,40 +67,48 @@ public class TextManager extends Actor
     }
     public void addSentence(String sentence){
         splitSentence(sentence);
-        new SuperTextBox(splitSentence(sentence),pixel,1,false);
-        text.add(0,new SuperTextBox(sentence,pixel, textBoxWidth));
+        //new SuperTextBox(splitSentence(sentence),pixel,1,false);
+        text.add(0,new SuperTextBox(splitSentence(sentence),pixel, textBoxWidth));
         displayText();
     }
     public String[] splitSentence (String sentence){
         double ratio;
         int stringWidth= SuperTextBox.getStringWidth(pixel,sentence);
-        String[] words = sentence.split("");
+        String[] words = sentence.split(" ");
         int curLength = 0;
         String curString = "";
+        String multiLineString = "";
         String[] multiLine;
         for(String s: words){
-            ratio = stringWidth%textBoxWidth;
-            if(ratio <= 0){
-                //return words;
-            }
-            if((curLength += SuperTextBox.getStringWidth(pixel,s)) > stringWidth){
-                //multiLine += curString;
-                curString = "";
-                stringWidth -= curLength;
-                curLength = 0;
+            //ratio = stringWidth/textBoxWidth;
+            //if(ratio <= 0){
+            //    multiLineString += curString;
+            //    multiLine = multiLineString.split("`");
+            //    return multiLine;
+            //}
+            System.out.println(s);
+            if((curLength += SuperTextBox.getStringWidth(pixel,s)) > textBoxWidth){
+                
+                multiLineString += curString +"`";
+                curString = s+" ";
+                //stringWidth -= curLength;
+                curLength = SuperTextBox.getStringWidth(pixel,s);
             }
             else{
                 curLength += SuperTextBox.getStringWidth(pixel,s);
                 curString += s +" "; 
             }
         }
-        return words;
+        
+        multiLine = multiLineString.split("`");
+        System.out.println(Arrays.toString(multiLine));
+        return multiLine;
     }
     public void displayText(){
         if(getWorld().getObjects((SuperTextBox.class)) != null){
             getWorld().removeObjects(getWorld().getObjects(SuperTextBox.class));
         }
-         
+            
         for(int i = text.size()-1; i>=0; i--){
            
             int opacity = 255-(i*spacing/2);

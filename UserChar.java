@@ -31,12 +31,10 @@ public class UserChar extends Entity
     }
     public void assignHpBar(HPBar hpBar){
         this.hpBar = hpBar;
-        System.out.println(getHpBar());
         
     }
     public void setHp(double hp){
         super.setHp(hp);
-        System.out.println(getHp());
         getHpBar().refresh();
     }
     public HPBar getHpBar(){
