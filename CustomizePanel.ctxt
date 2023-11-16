@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=CustomizePanel
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ AugmentPanel\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=CustomizePanel()
+comment2.params=
+comment2.target=void\ goToAugment()
+comment3.params=
+comment3.target=void\ goToMoveset()
+comment4.params=text
+comment4.target=void\ refresh(java.lang.String)
+numComments=5

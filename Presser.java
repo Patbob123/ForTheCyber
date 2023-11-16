@@ -50,6 +50,12 @@ public class Presser extends Actor
         setImage(buttonImage);
         action = buttonAction;
     }
+    public Presser(Function buttonAction, GreenfootImage buttonImage){
+        //buttonImage = new GreenfootImage(buttonFile);
+        buttonImage.scale(buttonImage.getWidth()*Constants.IMAGE_SCALING, buttonImage.getHeight()*Constants.IMAGE_SCALING);
+        setImage(buttonImage);
+        action = buttonAction;
+    }
     public Presser(AugmentFunction buttonAction, String buttonFile, String hoverButtonFile, String augment){
         buttonImage = new GreenfootImage(buttonFile);
         hoverButtonImage = new GreenfootImage(hoverButtonFile);
@@ -97,7 +103,7 @@ public class Presser extends Actor
      */
     private void detectHover(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(mouse!=null){
+        if(mouse!=null&&hoverButtonImage!=null){
             List hovering = getWorld().getObjectsAt(mouse.getX(), mouse.getY(), Presser.class);
             if(hovering.contains(this)){
                 setImage(hoverButtonImage); //Moves the button up

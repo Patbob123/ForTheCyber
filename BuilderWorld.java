@@ -40,6 +40,16 @@ public class BuilderWorld extends World
         addObject(marmButton, 370, 200);
         addObject(scopeButton, 370, 300);
         
+        CustomizePanel cp = new CustomizePanel();
+        addObject(cp, 233*Constants.IMAGE_SCALING+cp.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+cp.getImage().getHeight()/2);
+        Function goToAugment = () -> cp.goToAugment();
+        Function goToMoveset = () -> cp.goToMoveset();
+        GreenfootImage blankButtonImg = new GreenfootImage(47/3, 11/3);
+        Presser toAugmentButton = new Presser(goToAugment, blankButtonImg);
+        Presser toMovesetButton = new Presser(goToMoveset, blankButtonImg);
+        addObject(toAugmentButton, 240*Constants.IMAGE_SCALING+toAugmentButton.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+toAugmentButton.getImage().getHeight()/2);
+        addObject(toMovesetButton, 287*Constants.IMAGE_SCALING+toMovesetButton.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+toMovesetButton.getImage().getHeight()/2);
+        
         Presser nextButton = new Presser(goBattleWorld, "ready.png", "ready.png");
         addObject(nextButton, 500, 700);
         // Button hpButton = new Button("life");

@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=AugmentPanel
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ AugmentPanel\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=AugmentPanel()
-comment2.params=text
-comment2.target=void\ refresh(java.lang.String)
-numComments=3
