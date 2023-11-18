@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=EnemyWorld
+comment0.text=\r\n\ Enemies\r\n\ \r\n\ Tier\ 1\ Mobs\r\n\ -\ Gunner\ \r\n\ -\ Melee\ \r\n\ -\ Buffer\ \r\n\ \r\n\ Tier\ 2\ Mobs\r\n\ -\ Juggernaut\ \r\n\ -\ Deathray\ \r\n\ -\ Skelecop\ \r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=EnemyWorld()
+comment2.params=Difficulty
+comment2.target=void\ generateEnemies(int)
+numComments=3
