@@ -11,6 +11,7 @@ public class BuilderWorld extends World
     private boolean doneMaking;
     private UserChar userCharInstance;
     private String curAugment;
+    private CustomizePanel cp;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     /**
@@ -52,7 +53,7 @@ public class BuilderWorld extends World
         addObject(longarmButton, 370, 350);
         addObject(taserButton, 370, 300);
         
-        CustomizePanel cp = new CustomizePanel();
+        cp = new CustomizePanel();
         addObject(cp, 233*Constants.IMAGE_SCALING+cp.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+cp.getImage().getHeight()/2);
         Function goToAugment = () -> cp.goToAugment();
         Function goToMoveset = () -> cp.goToMoveset();
@@ -119,15 +120,19 @@ public class BuilderWorld extends World
     public void goToBattleWorld(){
         if(curAugment==null) return;
         Augment.applyAugment(curAugment, userCharInstance);
+        userCharInstance.setMoveset(cp.getMoveset());
         Greenfoot.setWorld(new BattleWorld(userCharInstance));
     }
     
-    public AugmentFunction setAugment = (augment) -> setAugment(augment);
     
+    
+    public AugmentFunction setAugment = (augment) -> setAugment(augment);
+        
     public SetterFunction setHpFunc = (increment) -> setHp(getUserChar().getHp()+increment);
     public SetterFunction setDefFunc = (increment) -> setDef(getUserChar().getDef()+increment);
     public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()+increment);
     public SetterFunction setSpeedFunc = (increment) -> setSpeed(getUserChar().getSpeed()+increment);
-
+    
+    
     public Function goBattleWorld = () -> goToBattleWorld();
 }

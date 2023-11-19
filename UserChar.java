@@ -7,9 +7,7 @@ import java.util.ArrayList;
  * @Nov 7 2023
  */
 public class UserChar extends Entity
-{
-    
-    
+{    
     public UserChar(){
         //set hp to max at beginning
         maxHp = 100;
@@ -21,7 +19,7 @@ public class UserChar extends Entity
         name = "ssundee";
         //addAttack(
     }
-    
+
     public void act() 
     {
         super.act();
@@ -45,13 +43,6 @@ public class UserChar extends Entity
     public double getMaxHp(){
         return this.maxHp;
     }
-    
-    
-    //public void attack(Entity target){
-        
-        //makes the target, who was sent through the parameter, take damage
-        //target.takeDamage(attack);
-    //}
     
     public void attackAll(){
         ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjectsInRange (2000, Enemy.class);
