@@ -5,4 +5,6 @@ comment1.params=
 comment1.target=EnemyWorld()
 comment2.params=Difficulty
 comment2.target=void\ generateEnemies(int)
-numComments=3
+comment3.params=
+comment3.target=java.util.ArrayList\ getStageEnemies()
+numComments=4
