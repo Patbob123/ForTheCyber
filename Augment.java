@@ -10,7 +10,16 @@ public class Augment
     private String[] augmentList;
     public Augment()
     {
-        augmentList = new String[]{"Mech Arm", "360 No Scope"};
+        augmentList = new String[]{
+            "Robot Arm",
+            "Robot Leg",
+            "Stealth Cloak",
+            "Kevlar Vest",
+            "Syringe",
+            "Shield",
+            "Long Arm",
+            "Taser"
+        };
     }
 
     /**
@@ -24,10 +33,28 @@ public class Augment
     }
     public static void applyAugment(String augment, UserChar uc){
         switch(augment){
-            case "Mech Arm":
+            case "Robot Arm":
                 uc.setHp(100);
                 break;
-            case "360 No Scope":
+            case "Robot Leg":
+                uc.setHp(100);
+                break;
+            case "Stealth Cloak":
+                uc.setHp(100);
+                break;
+            case "Kevlar Vest":
+                uc.setHp(100);
+                break;
+            case "Syringe":
+                uc.setHp(100);
+                break;
+            case "Shield":
+                uc.setAttack(360);
+                break;
+            case "Long Arm":
+                uc.setAttack(360);
+                break;
+            case "Taser":
                 uc.setAttack(360);
                 break;
             default:

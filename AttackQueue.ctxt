@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=AttackQueue
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ attackQueue\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=entities
+comment1.target=AttackQueue(java.util.ArrayList)
+comment2.params=
+comment2.target=void\ displayQueue()
+numComments=3

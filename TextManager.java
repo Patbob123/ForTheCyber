@@ -22,23 +22,24 @@ public class TextManager extends Actor
     private int spacing;
     private ArrayList<SuperTextBox> text;
     //private Font funFont = new Font ("Comic Sans MS", false, false, 16);
-    File fontFile = new File("cheeseFont.tty");
-    Font pixelFont, pixelFont32;
-    FileInputStream in;
-    Font ourFont; 
-    greenfoot.Font pixel; 
+    private File fontFile = new File("cheeseFont.tty");
+    private Font pixelFont, pixelFont32;
+    private FileInputStream in;
+    private Font ourFont; 
+    private greenfoot.Font pixel; 
     
-    int textBoxWidth; 
+    private int textBoxWidth; 
+    private int borderThickness;
     
     public TextManager(ArrayList <SuperTextBox> text) throws FontFormatException, IOException {
-        spacing = 100;
-        
         this.text = text;
         setImage(new GreenfootImage("log.png"));
         getImage().scale(getImage().getWidth()*Constants.IMAGE_SCALING, getImage().getHeight()*Constants.IMAGE_SCALING);
         addFont(ourFont);
         
         textBoxWidth = 236; 
+        borderThickness = 4;
+        spacing = 10;
         
     }
     public void addFont(Font theFont) {
@@ -66,13 +67,12 @@ public class TextManager extends Actor
         }
     }
     public void addSentence(String sentence){
-        splitSentence(sentence);
+        //splitSentence(sentence);
         //new SuperTextBox(splitSentence(sentence),pixel,1,false);
-        text.add(0,new SuperTextBox(splitSentence(sentence),pixel, textBoxWidth));
+        text.add(0,new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA));
         displayText();
     }
     public String[] splitSentence (String sentence){
-        double ratio;
         int stringWidth= SuperTextBox.getStringWidth(pixel,sentence);
         String[] words = sentence.split(" ");
         int curLength = 0;
@@ -86,7 +86,13 @@ public class TextManager extends Actor
             //    multiLine = multiLineString.split("`");
             //    return multiLine;
             //}
-            System.out.println(s);
+            //System.out.println(s);
+            if(s.equals("/n")){
+                multiLineString += curString +"`";
+                curString = "";
+                curLength = 0;
+                continue;
+            }
             if((curLength += SuperTextBox.getStringWidth(pixel,s)) > textBoxWidth){
                 
                 multiLineString += curString +"`";
@@ -99,26 +105,30 @@ public class TextManager extends Actor
                 curString += s +" "; 
             }
         }
-        
+        multiLineString += curString;
         multiLine = multiLineString.split("`");
-        System.out.println(Arrays.toString(multiLine));
+        //System.out.println(Arrays.toString(multiLine));
         return multiLine;
     }
     public void displayText(){
         if(getWorld().getObjects((SuperTextBox.class)) != null){
-            getWorld().removeObjects(getWorld().getObjects(SuperTextBox.class));
+            getWorld().removeObjects(text);
         }
             
         for(int i = text.size()-1; i>=0; i--){
-           
-            int opacity = 255-(i*spacing/2);
+            int textBoxHeight = text.get(i).getImage().getHeight();
+            int opacity = 255-((textBoxHeight+spacing)*(i))/2;
             if(opacity < 0) {
                 text.remove(text.get(i));
                 continue;
             }
             text.get(i).setOpacity(opacity);
-            getWorld().addObject(text.get(i),getImage().getWidth()/2,getImage().getHeight()-(spacing*(i+1)+10));
+            
+            getWorld().addObject(text.get(i),getX(),getY()+getImage().getHeight()/2-((textBoxHeight+spacing)*(i)+80));
         }
+    }
+    public greenfoot.Font getFont(){
+        return pixel;
     }
     public void act()
     {

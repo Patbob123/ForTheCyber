@@ -44,6 +44,7 @@ public class BattleWorld extends World
         // Spawning TextManager requires error handling for reading files (See textmanager class)
         try{
             tm = new TextManager(text);
+            addObject(tm, tm.getImage().getWidth()/2,tm.getImage().getHeight()/2);
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -52,13 +53,15 @@ public class BattleWorld extends World
         } catch (FontFormatException e) {
             e.printStackTrace();
         }
-        addObject(tm, tm.getImage().getWidth()/2,tm.getImage().getHeight()/2);
+        
         
         
         actCounter = 0;
         
         bgImage = new GreenfootImage(getWidth(), getHeight());
         setBackground(bgImage);
+        
+        setPaintOrder(SuperTextBox.class);
     }
     public void act(){
         actCounter++;

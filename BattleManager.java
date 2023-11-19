@@ -2,6 +2,12 @@ import greenfoot.*;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.awt.FontFormatException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 /**
  * Write a description of class BattleManager here.
@@ -20,6 +26,7 @@ public class BattleManager extends Actor
     private int curAttackerIndex;
     private Entity curAttacker;
     
+     
     private Slot originalAttackerSlot;
     public BattleManager(ArrayList<Entity> entities, Side[] entireField)
     {
@@ -59,7 +66,10 @@ public class BattleManager extends Actor
         Entity target = targetSide.getRandomEntity();
         System.out.println(targetSide.getEntities());
         curAttacker.attack(target);
-        ((BattleWorld)getWorld()).getTM().addSentence(curAttacker + " !attacked " + target);
+        
+        ((BattleWorld)getWorld()).getTM().addSentence(
+            "@Turn: @"+turnNumber+" /n "+curAttacker + " !attacked " + target);
+        
         if(target.isDead()){
             entireField[1-curAttacker.getSide()].getEntities().remove(target);
             entities.remove(target);

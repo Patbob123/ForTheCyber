@@ -34,11 +34,23 @@ public class BuilderWorld extends World
         StatSetter speedSetter = new StatSetter(setSpeedFunc, 1 , "speed", 50, 450, this);  
         StatSetter hpSetter = new StatSetter(setHpFunc, 1 , "hp", 50, 590, this);  
         
-        Presser marmButton = new Presser(setAugment, "ready.png", "ready.png", "Mech Arm");
-        Presser scopeButton = new Presser(setAugment, "ready.png", "ready.png", "360 No Scope");
+        Presser marmButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Robot Arm");
+        Presser mlegButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Robot Leg");
+        Presser cloakButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Stealth Cloak");
+        Presser vestButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Kevlar Vest");
+        Presser syringeButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Syringe");
+        Presser shieldButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Shield");
+        Presser longarmButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Long Arm");
+        Presser taserButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Taser");
         
-        addObject(marmButton, 370, 200);
-        addObject(scopeButton, 370, 300);
+        addObject(marmButton, 650, 400);
+        addObject(mlegButton, 550, 500);
+        addObject(cloakButton, 508, 200);
+        addObject(vestButton, 508, 350);
+        addObject(syringeButton, 650, 350);
+        addObject(shieldButton, 370, 400);
+        addObject(longarmButton, 370, 350);
+        addObject(taserButton, 370, 300);
         
         CustomizePanel cp = new CustomizePanel();
         addObject(cp, 233*Constants.IMAGE_SCALING+cp.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+cp.getImage().getHeight()/2);
@@ -56,16 +68,12 @@ public class BuilderWorld extends World
         // Button speedButton = new Button("speed");
         // Button attackButton = new Button("strength");
         // Button defenseButton = new Button("defense");
-        
-        Button armButton = new Button("Robotic arm", 50, 100);
 
         // addObject(hpButton, 100, 100);
         // addObject(speedButton, 100, 200);
         // addObject(attackButton, 100, 300);
         // addObject(defenseButton, 100, 400);
         
-        addObject(armButton, 370, 400);
-
                 
         userCharInstance = new UserChar();
         doneMaking = false;
