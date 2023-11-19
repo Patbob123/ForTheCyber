@@ -6,11 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DeathRay extends Attack
+public class Mech57 extends Enemy
 {
-    public void dealDamage (Entity attacker, Entity target){
-        
-    } 
+    /**
+     * Act - do whatever the DeathRay wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act()
     {
         // Add your action code here.

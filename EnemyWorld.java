@@ -30,7 +30,7 @@ public class EnemyWorld extends World
         enemyDic.put(1,new Melee());
         enemyDic.put(2,new Sustainer());
         enemyDic.put(3,new Juggernaut());
-        enemyDic.put(4,new DeathRay());
+        enemyDic.put(4,new Mech57());
         enemyDic.put(5,new SkeleCop());
     }
     

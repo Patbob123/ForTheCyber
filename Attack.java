@@ -17,12 +17,10 @@ public abstract class Attack extends SuperSmoothMover
     protected double DEF;
     protected double SPD;
     protected int duration = 180;
-    /*
-    public Attack (Entity attacker){
-        this.attacker = attacker;
-        AD = attacker.getAttack();
+    
+    public Attack (){
+        
     }
-    */
     public abstract void dealDamage(Entity attacker, Entity target);
     public int getDuration(){
         return duration;

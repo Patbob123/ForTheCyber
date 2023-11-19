@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DeathRay here.
+ * Write a description of class BodySlam here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DeathRay extends Attack
+public class BodySlam extends Attack
 {
     public void dealDamage (Entity attacker, Entity target){
         

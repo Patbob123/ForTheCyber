@@ -6,13 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PlasmaMissile extends Attack
+public class PlasmaBeam extends Attack
 {
     private double baseDamage;
     private double AD_ratio = 1.0;
     private double moveDamage;
     /*
-    public PlasmaMissile (Entity attacker){
+    public PlasmaBeam (Entity attacker){
         super(attacker);
         moveDamage = calculateDamage();
     }

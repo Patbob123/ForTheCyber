@@ -40,7 +40,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     
     protected ArrayList<Attack> attackSet = new ArrayList<Attack>(); 
     
-    protected PlasmaMissile plasmaMissile = new PlasmaMissile();
+    protected PlasmaBeam plasmaMissile = new PlasmaBeam();
     public Entity(){
         hp = maxHp;
         attack = maxAttack;
@@ -205,6 +205,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
             maxHp = hp;
         }
     }
+    public void setMoveset(ArrayList<Attack> attack){
+        this.attackSet = attack;
+    }
     public void takeDamage(double damage) {
         setHp(this.hp - damage);
     }
@@ -215,6 +218,6 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         getWorld().removeObject(getHpBar());
         getWorld().removeObject(this);
     }
-
+    
     
 }
