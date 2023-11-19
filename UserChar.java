@@ -31,7 +31,20 @@ public class UserChar extends Entity
             getWorld().removeObject(this);
         }
     }
-    
+    public void assignHpBar(HPBar hpBar){
+        this.hpBar = hpBar;
+        
+    }
+    public void setHp(double hp){
+        super.setHp(hp);
+        getHpBar().refresh();
+    }
+    public HPBar getHpBar(){
+        return this.hpBar;
+    }
+    public double getMaxHp(){
+        return this.maxHp;
+    }
     
     
     //public void attack(Entity target){

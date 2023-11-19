@@ -191,6 +191,7 @@ dependency8.type=UsesDependency
 dependency9.from=BattleWorld
 dependency9.to=Cube
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=739
 editor.fx.0.width=816
 editor.fx.0.x=312
@@ -198,6 +199,15 @@ editor.fx.0.y=54
 height=916
 package.numDependencies=64
 package.numTargets=35
+=======
+editor.fx.0.height=1056
+editor.fx.0.width=1936
+editor.fx.0.x=-8
+editor.fx.0.y=-8
+height=1056
+package.numDependencies=51
+package.numTargets=34
+>>>>>>> origin/custom-font2beta
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -211,7 +221,11 @@ readme.name=@README
 readme.width=49
 readme.x=10
 readme.y=10
+<<<<<<< HEAD
 simulation.speed=50
+=======
+simulation.speed=86
+>>>>>>> origin/custom-font2beta
 target1.height=50
 target1.name=Entity
 target1.showInterface=false
@@ -457,8 +471,13 @@ target9.type=ClassTarget
 target9.width=120
 target9.x=0
 target9.y=0
+<<<<<<< HEAD
 version=3.1.0
 width=1456
+=======
+version=3.0.0
+width=1936
+>>>>>>> origin/custom-font2beta
 world.lastInstantiated=BuilderWorld
 xPosition=0
 yPosition=0
