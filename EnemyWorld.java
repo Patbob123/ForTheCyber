@@ -54,7 +54,10 @@ public class EnemyWorld extends World
         stages.add(stageEnemies);
     }
     
-    public ArrayList<ArrayList <Enemy> > getStageEnemies (){
-        return stages; 
+    public ArrayList <Enemy> getStage1 (){
+        return stages.get(0); 
+    }
+    public ArrayList <Enemy> getStage2 (){
+        return stages.get(1); 
     }
 }
