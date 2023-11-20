@@ -1,64 +1,61 @@
+import java.util.HashMap;
+import greenfoot.*;
 /**
  * Write a description of class Augment here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Augment  
+public abstract class Augment  
 {
-    // instance variables - replace the example below with your own
-    private String[] augmentList;
+    private static HashMap<String, Augment> augmentMap = new HashMap<>(){{
+            put("Robot Arm", new RobotArm());
+            put("Robot Leg", new RobotLeg());
+            put("Stealth Cloak", new Cloak());
+            put("Kevlar Vest", new Vest());
+            put("Syringe", new Syringe());
+            put("Shield", new Shield());
+            put("Long Arm", new LongArm());
+            put("Taser", new Taser());
+        }};;
+    protected GreenfootImage portraitImage;
+    protected String name;
+    protected String desc;
+    
     public Augment()
     {
-        augmentList = new String[]{
-            "Robot Arm",
-            "Robot Leg",
-            "Stealth Cloak",
-            "Kevlar Vest",
-            "Syringe",
-            "Shield",
-            "Long Arm",
-            "Taser"
-        };
+
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public String[] getAugmentList(){
-        return this.augmentList;
+    public void scaleImage(GreenfootImage image){
+        image.scale(image.getWidth()*Constants.IMAGE_SCALING, image.getHeight()*Constants.IMAGE_SCALING);
+        
     }
-    public static void applyAugment(String augment, UserChar uc){
-        switch(augment){
-            case "Robot Arm":
-                uc.setHp(100);
-                break;
-            case "Robot Leg":
-                uc.setHp(100);
-                break;
-            case "Stealth Cloak":
-                uc.setHp(100);
-                break;
-            case "Kevlar Vest":
-                uc.setHp(100);
-                break;
-            case "Syringe":
-                uc.setHp(100);
-                break;
-            case "Shield":
-                uc.setAttack(360);
-                break;
-            case "Long Arm":
-                uc.setAttack(360);
-                break;
-            case "Taser":
-                uc.setAttack(360);
-                break;
-            default:
-                System.out.println("ur broke");
-        }
+    public HashMap<String, Augment> getAugmentList(){
+        return this.augmentMap;
+    }
+    public GreenfootImage getPortrait(){
+        return portraitImage;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getDesc(){
+        return desc;
+    }
+    public void activateInitial(){
+        //Default does nothing
+    }
+    public void activateLevelUp(){
+        //Default does nothing
+    }
+    public void activateUserTurn(){
+        //Default does nothing
+    }
+    public void activateEnemyTurn(){
+        //Default does nothing
+    }
+    public static Augment getAugment(String augment){
+        return augmentMap.get(augment);
     }
 }

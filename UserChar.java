@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class UserChar extends Entity
 {    
+    private Augment augment;
     public UserChar(){
         //set hp to max at beginning
         maxHp = 100;
@@ -42,6 +43,12 @@ public class UserChar extends Entity
     }
     public double getMaxHp(){
         return this.maxHp;
+    }
+    public void setAugment(Augment augment){
+        this.augment = augment;
+    }
+    public Augment getAugment(){
+        return this.augment;
     }
     
     public void attackAll(){

@@ -31,9 +31,9 @@ public class TextManager extends Actor
     private int textBoxWidth; 
     private int borderThickness;
     
-    public TextManager(ArrayList <SuperTextBox> text) throws FontFormatException, IOException {
-        this.text = text;
-        setImage(new GreenfootImage("log.png"));
+    public TextManager() throws FontFormatException, IOException {
+        text = new ArrayList<SuperTextBox>();
+        //setImage(new GreenfootImage("log.png"));
         getImage().scale(getImage().getWidth()*Constants.IMAGE_SCALING, getImage().getHeight()*Constants.IMAGE_SCALING);
         addFont(ourFont);
         
@@ -42,7 +42,7 @@ public class TextManager extends Actor
         spacing = 10;
         
     }
-    public void addFont(Font theFont) {
+    public greenfoot.Font addFont(Font theFont) {
         try {
             //Read the .ttf file containing the font
             fontFile = new File("cheeseFont.ttf");
@@ -56,6 +56,7 @@ public class TextManager extends Actor
             // Create a greenfoot font using the newly created java.awt.font  
             pixel = new greenfoot.Font(pixelFont32.getName(), pixelFont32.getStyle() % 2 == 1, pixelFont32.getStyle() / 2 == 1, pixelFont32.getSize());
             in.close();
+            return pixel;
         }
         // Error handling for reading fonts (makes sure the file exists during compile time)
         catch (FileNotFoundException e) {
@@ -65,6 +66,7 @@ public class TextManager extends Actor
         } catch (FontFormatException e) {
             e.printStackTrace();
         }
+        return null;
     }
     public void addSentence(String sentence){
         //splitSentence(sentence);

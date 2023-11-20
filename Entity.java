@@ -77,6 +77,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     
 
     public void attack(Entity target){
+        if(attackSet.size() <= 0) return;
         this.finishedAttack = false;
         int atkNum = Greenfoot.getRandomNumber(attackSet.size()); // Pick a move out of the arraylist of moves
         attackSet.get(atkNum).dealDamage(this,target); // Call the dealDamage method in the attackmove class 

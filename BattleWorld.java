@@ -43,7 +43,7 @@ public class BattleWorld extends World
         
         // Spawning TextManager requires error handling for reading files (See textmanager class)
         try{
-            tm = new TextManager(text);
+            tm = new TextManager();
             addObject(tm, tm.getImage().getWidth()/2,tm.getImage().getHeight()/2);
         }
         catch (FileNotFoundException e) {

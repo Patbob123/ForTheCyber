@@ -1,67 +1,93 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList; 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+
+
 
 /**
- * Label class that contain text to display
+ * Write a description of class TextManager here.
  * 
- * @author Dawson
- * @version 2023-06-20
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class TextPlace extends Actor
+public class TextPlace extends TextManager
 {
-    private Font font;
-    private Color color;
-    private int width;
-    private int height;
-    private String[] labels;
+    private SuperTextBox text;
+    //private Font funFont = new Font ("Comic Sans MS", false, false, 16);
+    private File fontFile = new File("cheeseFont.tty");
+    private Font pixelFont, pixelFont32;
+    private FileInputStream in;
+    private Font ourFont; 
+    private greenfoot.Font pixel; 
     
-    private GreenfootImage image;
-    /**
-     * Sets variables and image
-     * 
-     * @param curFont   Font
-     * @param curColor  Color  
-     * @param curWidth  Width
-     * @param curHeight Height
-     */
-    public TextPlace(Font curFont, Color curColor, int curWidth, int curHeight){
-        font = curFont;
-        color = curColor;
-        width = curWidth;
-        height = curHeight;
-        image = new GreenfootImage(curWidth, curHeight);
-    }
-    /**
-     * Sets color, font and image
-     */
-    public void init(){
-        image.setFont(font);
-        image.setColor(color);
-        setImage(image);    
-    }
-    /**
-     * Sets labels
-     * 
-     * @param curLabels The labels that will displayed alongside a value
-     */
-    protected void setLabels(String[] curLabels){
-        labels = curLabels;
-    }
+    private int x;
+    private int y;
+    private int textBoxWidth; 
+    private int borderThickness;
     
-    /**
-     * Updates the label
-     * 
-     * @param value The values that will displayed alongside a label
-     */
-    protected void update(String[] value){
-        image = new GreenfootImage(width, height);
-        image.setFont(font);
-        image.setColor(color);
-        setImage(image); 
-        String text = "";
-        for(int i = 0 ; i < value.length; i++){
-            text+=labels[i]+" "+value[i]+"  ";
-        }
-        image.drawString(text, font.getSize(), font.getSize());
+    public TextPlace(String sentence, int x, int y) throws FontFormatException, IOException {
+        this.x = x;
+        this.y = y;
         
+        pixel = addFont(ourFont);
+        
+        textBoxWidth = 236; 
+        borderThickness = 4;
+        
+        text = new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA);
+        setImage(new GreenfootImage(1,1));
+    }
+    public void setSentence(String sentence){
+        getWorld().removeObject(text);
+        text = new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA);
+        getWorld().addObject(text,x,y+text.getImage().getHeight()/2);
+    }
+    public void removeSentence(){
+        getWorld().removeObject(text);
+    }
+    public String[] splitSentence (String sentence){
+        int stringWidth= SuperTextBox.getStringWidth(pixel,sentence);
+        String[] words = sentence.split(" ");
+        int curLength = 0;
+        String curString = "";
+        String multiLineString = "";
+        String[] multiLine;
+        for(String s: words){
+            //ratio = stringWidth/textBoxWidth;
+            //if(ratio <= 0){
+            //    multiLineString += curString;
+            //    multiLine = multiLineString.split("`");
+            //    return multiLine;
+            //}
+            //System.out.println(s);
+            if(s.equals("/n")){
+                multiLineString += curString +"`";
+                curString = "";
+                curLength = 0;
+                continue;
+            }
+            if(curLength + SuperTextBox.getStringWidth(pixel,s)  > textBoxWidth - borderThickness * 3){
+                
+                multiLineString += curString +"`";
+                curString = s+" ";
+                //stringWidth -= curLength;
+                curLength = SuperTextBox.getStringWidth(pixel,s);
+            }
+            else{
+                curLength += SuperTextBox.getStringWidth(pixel,s);
+                curString += s +" "; 
+            }
+        }
+        multiLineString += curString;
+        multiLine = multiLineString.split("`");
+        //System.out.println(Arrays.toString(multiLine));
+        return multiLine;
     }
 }

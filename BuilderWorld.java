@@ -62,6 +62,7 @@ public class BuilderWorld extends World
         Presser toMovesetButton = new Presser(goToMoveset, blankButtonImg);
         addObject(toAugmentButton, 240*Constants.IMAGE_SCALING+toAugmentButton.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+toAugmentButton.getImage().getHeight()/2);
         addObject(toMovesetButton, 287*Constants.IMAGE_SCALING+toMovesetButton.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+toMovesetButton.getImage().getHeight()/2);
+
         
         Presser nextButton = new Presser(goBattleWorld, "ready.png", "ready.png");
         addObject(nextButton, 500, 700);
@@ -110,7 +111,8 @@ public class BuilderWorld extends World
     }
     
     private void setAugment(String augment){
-        curAugment = augment;
+        userCharInstance.setAugment(Augment.getAugment(augment));
+        cp.goToAugment();
     }
         
     
@@ -118,8 +120,8 @@ public class BuilderWorld extends World
         return userCharInstance;
     }
     public void goToBattleWorld(){
-        if(curAugment==null) return;
-        Augment.applyAugment(curAugment, userCharInstance);
+        if(userCharInstance.getAugment()==null) return;
+        
         userCharInstance.setMoveset(cp.getMoveset());
         Greenfoot.setWorld(new BattleWorld(userCharInstance));
     }

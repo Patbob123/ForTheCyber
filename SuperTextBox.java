@@ -370,7 +370,6 @@ public class SuperTextBox extends Actor
         // height varies by character but even a w or m should be less than 20 wide
         // 24 / 1.2 = 20
         int maxWidth = (int)(text.length() * (font.getSize()));//1000; 
-        System.out.println(text+" "+text.length()+" "+font.getSize());
         int fontSize = font.getSize();
         int marginOfError = fontSize / 6; // how many pixels can be skipped scanning vertically for pixels?
         int checkX;

@@ -64,7 +64,6 @@ public class BattleManager extends Actor
         
         Side targetSide = entireField[1-curAttacker.getSide()];
         Entity target = targetSide.getRandomEntity();
-        System.out.println(targetSide.getEntities());
         curAttacker.attack(target);
         
         ((BattleWorld)getWorld()).getTM().addSentence(

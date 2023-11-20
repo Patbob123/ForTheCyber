@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=TextManager
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ TextManager\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=text
-comment1.target=TextManager(java.util.ArrayList)
+comment1.params=
+comment1.target=TextManager()
 comment2.params=theFont
-comment2.target=void\ addFont(java.awt.Font)
+comment2.target=greenfoot.Font\ addFont(java.awt.Font)
 comment3.params=sentence
 comment3.target=void\ addSentence(java.lang.String)
 comment4.params=sentence
