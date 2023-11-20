@@ -14,20 +14,27 @@ public class Levelup extends Popup
     
     public Levelup() {
         //flash 6 times in 3 seconds
-        flashDuration = 180;
-        flashTime = 30;
-        
+        flashDuration = 60;
+        flashTime = 10;
+        popupImage = new GreenfootImage(500, 500);
+        popupImage.fill();
+        altImage = new GreenfootImage(1,1);
+        setImage(popupImage);
     }
     
     public void act() {
         flashDuration--;
         if(flashDuration % flashTime == 0) {
             //switch to another frame
-            
+            setImage(altImage);
+            if(flashDuration % (flashTime*2) == 0){
+                setImage(popupImage);
+            }
         }
         
-        if(flashDuration == 0) {
-            //remove popup 
+        if(flashDuration <= 0) {
+            getWorld().removeObject(this);
+            return;
         }
         
     }

@@ -79,6 +79,7 @@ public class BuilderWorld extends World
                 
         userCharInstance = new UserChar();
         doneMaking = false;
+        setPaintOrder(Popup.class);
     }
     
     public void act(){

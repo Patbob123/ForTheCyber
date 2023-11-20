@@ -33,4 +33,7 @@ public class Cloak extends Augment
         // put your code here
         return x + y;
     }
+    public void activateLevelUp(){
+    }
+        
 }

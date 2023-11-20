@@ -6,10 +6,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Popup extends Actor
+public abstract class Popup extends Actor
 {
-  
-    
+    protected GreenfootImage popupImage;
+    protected GreenfootImage altImage;
     public Popup() {
         
     }

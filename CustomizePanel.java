@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.awt.FontFormatException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class CustomizePanel extends Actor
     private GreenfootImage movesetPanelImg;
     private boolean onAugment;
     private ArrayList <Attack> moveset;
+    private ArrayList <Attack> totalMoveset;
     
     private TextPlace nameDisplay;
     private TextPlace descDisplay;
@@ -26,8 +28,15 @@ public class CustomizePanel extends Actor
         movesetPanelImg = new GreenfootImage("movesetpanel.png");
         augmentPanelImg.scale(augmentPanelImg.getWidth()*Constants.IMAGE_SCALING, augmentPanelImg.getHeight()*Constants.IMAGE_SCALING);
         movesetPanelImg.scale(movesetPanelImg.getWidth()*Constants.IMAGE_SCALING, movesetPanelImg.getHeight()*Constants.IMAGE_SCALING);
-        moveset = new ArrayList <>();
-
+        moveset = new ArrayList<>();
+        totalMoveset = new ArrayList<>();
+        totalMoveset.add(new ShotGun());
+        totalMoveset.add(new PlasmaBeam()); 
+        totalMoveset.add(new BodySlam());
+        totalMoveset.add(new DeathRay());
+        totalMoveset.add(new BoxJab());
+        totalMoveset.add(new Pincer());
+        
         setImage(augmentPanelImg);
         
         //addObject
@@ -57,6 +66,13 @@ public class CustomizePanel extends Actor
         onAugment = false;
         nameDisplay.removeSentence();
         descDisplay.removeSentence();
+        for(int i = 0 ; i < totalMoveset.size(); i++){
+            Presser move = new Presser(setMoveset, "augmentbutton.png", "augmentbutton.png", totalMoveset.get(i).getName());
+            getWorld().addObject(move, getX()-getImage().getWidth()/4, getY() - getImage().getHeight()/3 + i * 75);
+            TextPlace attackDesc = initTextDisplay("Select Augment", getX(), getY() - getImage().getHeight()/3 + i * 75);
+            attackDesc.setSentence(totalMoveset.get(i).getName());
+        }
+            
         setImage(movesetPanelImg);
     }
     public TextPlace initTextDisplay(String text, int x, int y){

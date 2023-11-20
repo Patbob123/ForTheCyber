@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BodySlam extends Attack
 {
+    public BodySlam(){
+        name = "BodySlam";
+    }
     public void dealDamage (Entity attacker, Entity target){
         
     } 

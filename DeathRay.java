@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DeathRay extends Attack
 {
+    public DeathRay(){
+        name = "DeathRay";
+    }
     public void dealDamage (Entity attacker, Entity target){
         
     } 

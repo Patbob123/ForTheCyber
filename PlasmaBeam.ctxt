@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=PlasmaBeam
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ PlasmaMissile\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=attacker
-comment1.target=double\ calculateDamage(Entity)
+comment1.params=
+comment1.target=PlasmaBeam()
 comment1.text=\r\n\ \ \ \ public\ PlasmaBeam\ (Entity\ attacker){\r\n\ \ \ \ \ \ \ \ super(attacker);\r\n\ \ \ \ \ \ \ \ moveDamage\ \=\ calculateDamage();\r\n\ \ \ \ }\r\n
-comment2.params=attacker\ target
-comment2.target=void\ dealDamage(Entity,\ Entity)
-comment2.text=\r\n\ \ \ \ public\ void\ updateMove(){\r\n\ \ \ \ \ \ \ \ moveDamage\ \=\ calculateDamage();\r\n\ \ \ \ }\r\n
-numComments=3
+comment2.params=attacker
+comment2.target=double\ calculateDamage(Entity)
+comment3.params=attacker\ target
+comment3.target=void\ dealDamage(Entity,\ Entity)
+comment3.text=\r\n\ \ \ \ public\ void\ updateMove(){\r\n\ \ \ \ \ \ \ \ moveDamage\ \=\ calculateDamage();\r\n\ \ \ \ }\r\n
+numComments=4

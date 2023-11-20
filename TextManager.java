@@ -33,7 +33,7 @@ public class TextManager extends Actor
     
     public TextManager() throws FontFormatException, IOException {
         text = new ArrayList<SuperTextBox>();
-        //setImage(new GreenfootImage("log.png"));
+        setImage(new GreenfootImage("log.png"));
         getImage().scale(getImage().getWidth()*Constants.IMAGE_SCALING, getImage().getHeight()*Constants.IMAGE_SCALING);
         addFont(ourFont);
         

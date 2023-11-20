@@ -17,6 +17,9 @@ public class PlasmaBeam extends Attack
         moveDamage = calculateDamage();
     }
     */
+    public PlasmaBeam(){
+        name = "PlasmaBeam";
+    }
     public double calculateDamage(Entity attacker){
         return baseDamage+(attacker.getAttack()*AD_ratio);
     }

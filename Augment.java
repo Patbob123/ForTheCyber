@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public abstract class Augment  
 {
-    private static HashMap<String, Augment> augmentMap = new HashMap<>(){{
+    private static HashMap<String, Augment> augmentMap = new HashMap<String, Augment>(){{
             put("Robot Arm", new RobotArm());
             put("Robot Leg", new RobotLeg());
             put("Stealth Cloak", new Cloak());
@@ -46,7 +46,7 @@ public abstract class Augment
     public void activateInitial(){
         //Default does nothing
     }
-    public void activateLevelUp(){
+    public void activateLevelUp(UserChar u){
         //Default does nothing
     }
     public void activateUserTurn(){

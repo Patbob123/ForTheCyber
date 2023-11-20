@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pincer extends Attack
 {
+    public Pincer(){
+        name = "Pincer";
+    }
     public void dealDamage (Entity attacker, Entity target){
         
     } 

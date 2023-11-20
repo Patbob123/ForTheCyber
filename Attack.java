@@ -17,6 +17,7 @@ public abstract class Attack extends SuperSmoothMover
     protected double DEF;
     protected double SPD;
     protected int duration = 180;
+    protected String name;
     
     public Attack (){
         
@@ -25,5 +26,9 @@ public abstract class Attack extends SuperSmoothMover
     public int getDuration(){
         return duration;
     }
+    public String getName(){
+        return name;
+    }
+        
        
 }

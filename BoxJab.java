@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BoxJab extends Attack
 {
+    public BoxJab(){
+        name ="BoxJab";
+    }
     public void dealDamage (Entity attacker, Entity target){
         
     } 

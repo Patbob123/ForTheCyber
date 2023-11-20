@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ShotGun extends Attack
 {
-    
+    public ShotGun(){
+        name = "ShotGun";
+    }
     public void dealDamage (Entity attacker, Entity target){
         
     } 
