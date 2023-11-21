@@ -29,4 +29,7 @@ public class SoundManager
     public void playSound(String sound){
         soundFiles.get(sound).playSound();        
     }
+    public void playSoundLoop(String sound){
+        soundFiles.get(sound).playSoundLoop();        
+    }
 }

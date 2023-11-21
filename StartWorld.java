@@ -33,6 +33,7 @@ public class StartWorld extends World
     public void act (){
         acts++;
         if(acts > 120 && Greenfoot.mouseClicked(null)){
+            stopped();
             Greenfoot.setWorld(new IntroWorld());
         }
         /**

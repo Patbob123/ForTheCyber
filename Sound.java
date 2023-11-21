@@ -29,6 +29,9 @@ public class Sound
             soundIndex++;    
         }
     }
+    public void playSoundLoop(){
+         sounds[0].playLoop();
+    }
     public int getSoundIndex(){
         return soundIndex;
     }

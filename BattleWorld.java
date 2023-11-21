@@ -37,7 +37,8 @@ public class BattleWorld extends World
     
     private GreenfootImage bgImage;
     private GreenfootImage bg1 = new GreenfootImage("bg1.png");
-    
+  
+    private SoundManager sm;
     
     public BattleWorld()
     {    
@@ -58,14 +59,17 @@ public class BattleWorld extends World
         }
         
         
-        
         actCounter = 0;
         
         bgImage = new GreenfootImage(getWidth(), getHeight());
         setBackground(bgImage);
         
         setPaintOrder(SuperTextBox.class);
+        
+        sm = new SoundManager();
+        sm.playSoundLoop("backbmsuci.mp3");
     }
+    
     public void act(){
         actCounter++;
     }
