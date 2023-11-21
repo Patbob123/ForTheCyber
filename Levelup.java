@@ -16,9 +16,9 @@ public class Levelup extends Popup
         //flash 6 times in 3 seconds
         flashDuration = 60;
         flashTime = 10;
-        popupImage = new GreenfootImage(500, 500);
-        popupImage.fill();
-        altImage = new GreenfootImage(1,1);
+        popupImage = new GreenfootImage("levelup.png");
+        
+        altImage = new GreenfootImage("levelup2.png");
         setImage(popupImage);
     }
     
