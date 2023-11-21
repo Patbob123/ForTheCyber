@@ -37,9 +37,12 @@ public class BattleManager extends Actor
         this.trueTurnNumber = 0;
         this.curAttackerIndex = 0;
         
-        createAttackOrder();
+        
         
         setImage(new GreenfootImage(1,1));
+    }
+    public void addedToWorld(World w){
+        createAttackOrder();
     }
     public void createAttackOrder(){
         attackList = new LinkedList<Entity>();
@@ -51,13 +54,16 @@ public class BattleManager extends Actor
             for(int i = entities.size()-1; i >= 0; i--){
                 if(trueTurnNumber%entities.get(i).getSpeed()==0){
                     attackList.add(entities.get(i));
-                    if(attackList.size() >= setAttackListSize) break outerloop;
+                    if(attackList.size() >= setAttackListSize){
+                        break outerloop;
+                    }
                 }
             }
         }
+       
     }
     public void nextTurn(){
-       
+        
         turnNumber++;
         curAttacker = attackList.poll();
         originalAttackerSlot = curAttacker.getSlot();
@@ -75,7 +81,10 @@ public class BattleManager extends Actor
             target.removeFromWorld();
             createAttackOrder();
         }
-        
+        if(attackList.size() < 10){
+            createAttackOrder();
+        }
+         ((BattleWorld)getWorld()).getAttackQueue().updateQueue((LinkedList<Entity>)attackList);
         curAttackerIndex++;
         if(curAttackerIndex >= attackList.size()){
             curAttackerIndex = 0;

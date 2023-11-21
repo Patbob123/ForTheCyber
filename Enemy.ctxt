@@ -9,6 +9,4 @@ comment3.params=
 comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ dragHpBar()
-comment5.params=
-comment5.target=greenfoot.GreenfootImage\ getPortrait()
-numComments=6
+numComments=5

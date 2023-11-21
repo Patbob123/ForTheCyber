@@ -20,18 +20,18 @@ import java.util.Arrays;
  */
 public class EnemyWorld extends World
 {
-    HashMap < Integer, Enemy> enemyDic = new HashMap<Integer, Enemy>();
+    HashMap < Integer, Enemy> enemyDict = new HashMap<Integer, Enemy>();
     ArrayList <ArrayList <Enemy> > stages = new ArrayList <ArrayList <Enemy> >();
     public EnemyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        enemyDic.put(0,new Gunner());
-        enemyDic.put(1,new Melee());
-        enemyDic.put(2,new Sustainer());
-        enemyDic.put(3,new Juggernaut());
-        enemyDic.put(4,new Mech57());
-        enemyDic.put(5,new SkeleCop());
+        enemyDict.put(0,new Gunner());
+        enemyDict.put(1,new Melee());
+        enemyDict.put(2,new Sustainer());
+        enemyDict.put(3,new Juggernaut());
+        enemyDict.put(4,new Mech57());
+        enemyDict.put(5,new SkeleCop());
     }
     
     public void generateEnemies(int Difficulty){
@@ -42,13 +42,13 @@ public class EnemyWorld extends World
             
             for(int i = 0; i< 10; i++){
                 random = Greenfoot.getRandomNumber(3);
-                stageEnemies.add(enemyDic.get(random));
+                stageEnemies.add(enemyDict.get(random));
             }
 
         } else if (Difficulty == 1){ // Tier 2 enemies
             for(int i = 0; i< 10; i++){
                 random = Greenfoot.getRandomNumber(3);
-                stageEnemies.add(enemyDic.get(random+3));
+                stageEnemies.add(enemyDict.get(random+3));
             }
         }
         stages.add(stageEnemies);

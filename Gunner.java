@@ -9,7 +9,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Gunner extends Enemy
 {
     public Gunner(){
-        portraitImage = new GreenfootImage("");
+        entityImage = new GreenfootImage("enemy/gunner.png");
+        entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
+        
+        portraitImage = new GreenfootImage("enemy/GunnerPortrait.png");
+        portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
+        
+        setImage(entityImage);
+        width = getImage().getWidth();
+        height = getImage().getHeight();
     }
 
     public void act()

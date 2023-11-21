@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Collections;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -31,6 +33,7 @@ public class BattleWorld extends World
 
     private TextManager tm;
     private StatBar sb;
+    private AttackQueue aq;
     
     private GreenfootImage bgImage;
     private GreenfootImage bg1 = new GreenfootImage("bg1.png");
@@ -80,6 +83,8 @@ public class BattleWorld extends World
         uc = u;
         sb = new StatBar(uc);
         addObject(sb, sb.getImage().getWidth()/2,sb.getImage().getHeight()/2);
+        aq = new AttackQueue(new LinkedList<Entity>());
+        addObject(aq, 140*Constants.IMAGE_SCALING+aq.getImage().getWidth()/2,7*Constants.IMAGE_SCALING+aq.getImage().getHeight()/2);
         
         setupField();
         // sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
@@ -136,12 +141,15 @@ public class BattleWorld extends World
             addObject(e, 0, 0);
         }
     }
-
+    
     public Slot[] getAttackSlots(){
         return attackSlots;
     }
     public TextManager getTM(){
         return tm;
+    }
+    public AttackQueue getAttackQueue(){
+        return aq;
     }
     
 }

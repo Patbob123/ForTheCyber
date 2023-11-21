@@ -29,7 +29,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected int side;
     protected Slot slot;
     
-    protected GreenfootImage testCharImage;
+    protected GreenfootImage entityImage;
+    protected GreenfootImage portraitImage;
     protected int width;
     protected int height;
     protected boolean inhaling;
@@ -49,19 +50,15 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         
         finishedAttack = false;
         onSlot = false;
-        testCharImage = new GreenfootImage(90, 90);
-        testCharImage.setColor(Color.BLUE);
-        testCharImage.fill();
-        setImage(testCharImage);
-        width = getImage().getWidth();
-        height = getImage().getHeight();
+        
         inhaling = true;
         breathEveryAct = 3;
         
-        ImageSizeScale = 0.05;
+        ImageSizeScale = 0.02;
         
         //Temporary
         addAttack(plasmaMissile);
+        
     }
     
     public void act() 
@@ -100,7 +97,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public int getSide(){
         return this.side;
     }
-    
+    public GreenfootImage getPortrait(){
+        return this.portraitImage;
+    }
     
     public void initToSlot(Slot slot){
         onSlot = false;
@@ -140,11 +139,13 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     
     //Idle animation
     private void breathe(){
-        if(((BattleWorld)getWorld()).getAct()%3!=0) return;
+        if(((BattleWorld)getWorld()).getAct()%5!=0) return;
         if(inhaling){ //height increases
+            System.out.println(getImage().getHeight() +" "+ height);
             getImage().scale(getImage().getWidth()-1, getImage().getHeight()+1);
             inhaling  = getImage().getHeight() < height * (1+ImageSizeScale);
         }else{ //width increases
+            System.out.println(getImage().getHeight() +" "+ height);
             getImage().scale(getImage().getWidth()+1, getImage().getHeight()-1);
             inhaling  = getImage().getHeight() < height * (1-ImageSizeScale);
         }

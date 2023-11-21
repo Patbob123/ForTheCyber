@@ -8,10 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Melee extends Enemy
 {
-    /**
-     * Act - do whatever the Melee wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Melee(){
+        entityImage = new GreenfootImage("enemy/melee.png");
+        entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
+        
+        portraitImage = new GreenfootImage("enemy/MeleePortrait.png");
+        portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
+    
+        setImage(entityImage);
+        width = getImage().getWidth();
+        height = getImage().getHeight();
+    }
     public void act()
     {
         // Add your action code here.

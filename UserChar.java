@@ -10,6 +10,11 @@ public class UserChar extends Entity
 {    
     private Augment augment;
     public UserChar(){
+        entityImage = new GreenfootImage("enemy/juggernaut.png");
+        entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
+        
+        portraitImage = new GreenfootImage("enemy/JuggernautPortrait.png");
+        portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         //set hp to max at beginning
         maxHp = 100;
         hp = maxHp;
@@ -19,6 +24,9 @@ public class UserChar extends Entity
         side = 0;
         name = "ssundee";
         //addAttack(
+        setImage(entityImage);
+        width = getImage().getWidth();
+        height = getImage().getHeight();
     }
 
     public void act() 
