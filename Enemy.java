@@ -11,7 +11,7 @@ public abstract class Enemy extends Entity
     public Enemy(){
         side = 1;
         attack = 1;
-        defense = 1;
+        hp = 100;
         speed = 5;
         hpBar = new HPBar(this);
         assignHpBar(hpBar);
@@ -26,6 +26,9 @@ public abstract class Enemy extends Entity
     }   
     public void dragHpBar(){
         getHpBar().setLocation(getX(), getY()+60);
+    }
+    public Enemy cloneEnemy(){
+        return new Gunner();
     }
     
 

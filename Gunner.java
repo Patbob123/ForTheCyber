@@ -22,8 +22,7 @@ public class Gunner extends Enemy
         height = getImage().getHeight();
     }
 
-    public void act()
-    {
-        // Add your action code here.
+    public Enemy cloneEnemy(){
+        return new Gunner();
     }
 }

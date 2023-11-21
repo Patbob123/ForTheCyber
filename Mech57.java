@@ -21,8 +21,7 @@ public class Mech57 extends Enemy
         width = getImage().getWidth();
         height = getImage().getHeight();
     }
-    public void act()
-    {
-        // Add your action code here.
+    public Enemy cloneEnemy(){
+        return new Mech57();
     }
 }

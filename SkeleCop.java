@@ -21,4 +21,7 @@ public class SkeleCop extends Enemy
         width = getImage().getWidth();
         height = getImage().getHeight();
     }
+    public Enemy cloneEnemy(){
+        return new SkeleCop();
+    }
 }

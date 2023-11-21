@@ -128,7 +128,7 @@ public class BattleWorld extends World
         }
         for(int i = 0 ; i <  enemySide.getSlots().length; i++){
             
-            Enemy e = stages.get(wave).get(i);
+            Enemy e = stages.get(wave).get(i).cloneEnemy();
             addObject(e, enemySideSpawn.getX(), enemySideSpawn.getY());
             e.initToSlot(enemySide.getSlots()[i]);
             entities.add(e);
