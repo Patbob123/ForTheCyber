@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Melee extends Enemy
 {
     public Melee(){
+        this.name = "Melee";
+        
         entityImage = new GreenfootImage("enemy/melee.png");
         entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
         

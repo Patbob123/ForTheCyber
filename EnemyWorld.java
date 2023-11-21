@@ -20,44 +20,59 @@ import java.util.Arrays;
  */
 public class EnemyWorld extends World
 {
-    HashMap < Integer, Enemy> enemyDict = new HashMap<Integer, Enemy>();
-    ArrayList <ArrayList <Enemy> > stages = new ArrayList <ArrayList <Enemy> >();
+    private int enemyPerStage;
+    private HashMap<Integer, Enemy> enemyDict;
+    private ArrayList<ArrayList<Enemy>> stages;
     public EnemyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
-        enemyDict.put(0,new Gunner());
-        enemyDict.put(1,new Melee());
-        enemyDict.put(2,new Sustainer());
-        enemyDict.put(3,new Juggernaut());
-        enemyDict.put(4,new Mech57());
-        enemyDict.put(5,new SkeleCop());
+        super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1);
+        
+        enemyDict = new HashMap<Integer, Enemy>(){{
+            put(0,new Gunner());
+            put(1,new Melee());
+            put(2,new Sustainer());
+            put(3,new Juggernaut());
+            put(4,new Mech57());
+            put(5,new SkeleCop());
+        }};
+
+        stages = new ArrayList<ArrayList<Enemy>>();
+        enemyPerStage = 10;
+        generateEnemies(0);
+        generateEnemies(1);
+        
+        Presser nextButton = new Presser(goBuilderWorld, "ready.png", "ready.png");
+        addObject(nextButton, 500, 700);
     }
-    
-    public void generateEnemies(int Difficulty){
+    public void generateEnemies(int difficulty){
         ArrayList <Enemy> stageEnemies = new ArrayList <Enemy>();
         int random;
-        if (Difficulty == 0){ // Tier 1 enemies
+        if (difficulty == 0){ // Tier 1 enemies
             int numOfHardEnemies = 2;
             
-            for(int i = 0; i< 10; i++){
+            for(int i = 0; i < enemyPerStage; i++){
                 random = Greenfoot.getRandomNumber(3);
                 stageEnemies.add(enemyDict.get(random));
             }
 
-        } else if (Difficulty == 1){ // Tier 2 enemies
-            for(int i = 0; i< 10; i++){
+        } else if (difficulty == 1){ // Tier 2 enemies
+            for(int i = 0; i < enemyPerStage; i++){
+                
                 random = Greenfoot.getRandomNumber(3);
                 stageEnemies.add(enemyDict.get(random+3));
+              
             }
         }
         stages.add(stageEnemies);
     }
+    public ArrayList<ArrayList<Enemy>> getStages(){
+        return stages;
+    }
+    public void goToBuilderWorld(){
+        Greenfoot.setWorld(new BuilderWorld(getStages()));
+    }
+
     
-    public ArrayList <Enemy> getStage1 (){
-        return stages.get(0); 
-    }
-    public ArrayList <Enemy> getStage2 (){
-        return stages.get(1); 
-    }
+    public Function goBuilderWorld = () -> goToBuilderWorld();
 }

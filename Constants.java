@@ -12,4 +12,6 @@ public class Constants
     public static final Color AQUA = new Color(49, 203, 227);
     public static final Color DARK_BLUE = new Color(39, 42, 79);
     public static final Color LIGHT_AQUA = new Color(163, 238, 249);
+    public static final int WORLD_WIDTH = 1008;
+    public static final int WORLD_HEIGHT = 816;
 }

@@ -141,11 +141,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     private void breathe(){
         if(((BattleWorld)getWorld()).getAct()%5!=0) return;
         if(inhaling){ //height increases
-            System.out.println(getImage().getHeight() +" "+ height);
             getImage().scale(getImage().getWidth()-1, getImage().getHeight()+1);
             inhaling  = getImage().getHeight() < height * (1+ImageSizeScale);
         }else{ //width increases
-            System.out.println(getImage().getHeight() +" "+ height);
             getImage().scale(getImage().getWidth()+1, getImage().getHeight()-1);
             inhaling  = getImage().getHeight() < height * (1-ImageSizeScale);
         }

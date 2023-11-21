@@ -10,6 +10,9 @@ public abstract class Enemy extends Entity
 {
     public Enemy(){
         side = 1;
+        attack = 1;
+        defense = 1;
+        speed = 5;
         hpBar = new HPBar(this);
         assignHpBar(hpBar);
     }

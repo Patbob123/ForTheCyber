@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
 /**
  * Write a description of class StatWorld here.
  * 
@@ -12,6 +12,7 @@ public class BuilderWorld extends World
     private int maxPoints;
     private int curPoints;
     private UserChar userCharInstance;
+    private ArrayList<ArrayList<Enemy>> stages;
     private String curAugment;
     private CustomizePanel cp;
     
@@ -25,10 +26,11 @@ public class BuilderWorld extends World
      * Constructor for objects of class StatWorld.
      * 
      */
-    public BuilderWorld()
+    public BuilderWorld(ArrayList<ArrayList<Enemy>> stages)
     {
-        super(1008, 816, 1); 
+        super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1); 
         
+        this.stages = stages;
         
         UI builderUI = new UI(builderImage);
         UI eblackRectangle = new UI(200, 800);
@@ -96,15 +98,9 @@ public class BuilderWorld extends World
     }
     
     public void act(){
-        if (doneMaking){
-            setBattleWorld();
-        }
+
     }
-    
-    private void setBattleWorld(){
-        BattleWorld w = new BattleWorld(userCharInstance);
-        Greenfoot.setWorld(w);
-    }
+
     
     private boolean checkPoints(double prevAmount, double postAmount){
         if(prevAmount < postAmount){
@@ -123,7 +119,6 @@ public class BuilderWorld extends World
     //set hp private methods for builderworld
     
     private void setHp(double hp){
-        System.out.println(hp);
         if(!checkPoints(getUserChar().getHp()/10, hp/10)) return;
         getUserChar().setHp(hp);
         hpSetter.update(hp/10);
@@ -154,14 +149,13 @@ public class BuilderWorld extends World
         
     
     public UserChar getUserChar() {
-        System.out.println(userCharInstance.getHpBar());
         return userCharInstance;
     }
     public void goToBattleWorld(){
         if(userCharInstance.getAugment()==null) return;
-        
+        System.out.println(stages);
         userCharInstance.setMoveset(cp.getMoveset());
-        Greenfoot.setWorld(new BattleWorld(userCharInstance));
+        Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
     }
     
     

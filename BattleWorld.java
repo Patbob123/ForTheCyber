@@ -20,6 +20,7 @@ import java.io.IOException;
 public class BattleWorld extends World
 {
     private UserChar uc;
+    private ArrayList<ArrayList<Enemy>> stages;
     
     private ArrayList<Entity> entities = new ArrayList<Entity>();
     private ArrayList<SuperTextBox> text = new ArrayList<SuperTextBox>();
@@ -29,6 +30,7 @@ public class BattleWorld extends World
     
     private Side[] entireField;
     
+    private int wave;
     private int actCounter;
 
     private TextManager tm;
@@ -42,7 +44,7 @@ public class BattleWorld extends World
     public BattleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1008, 816, 1); 
+        super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1); 
         
         // Spawning TextManager requires error handling for reading files (See textmanager class)
         try{
@@ -76,7 +78,7 @@ public class BattleWorld extends World
         bg.scale(bg.getWidth()*Constants.IMAGE_SCALING, bg.getHeight()*Constants.IMAGE_SCALING);
         bgImage.drawImage(bg1, 250, 0);
     }
-    public BattleWorld(UserChar u)
+    public BattleWorld(UserChar u, ArrayList<ArrayList<Enemy>> stages)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         this();
@@ -85,6 +87,9 @@ public class BattleWorld extends World
         addObject(sb, sb.getImage().getWidth()/2,sb.getImage().getHeight()/2);
         aq = new AttackQueue(new LinkedList<Entity>());
         addObject(aq, 140*Constants.IMAGE_SCALING+aq.getImage().getWidth()/2,7*Constants.IMAGE_SCALING+aq.getImage().getHeight()/2);
+        
+        this.stages = stages;
+        this.wave = 0;
         
         setupField();
         // sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
@@ -121,11 +126,12 @@ public class BattleWorld extends World
             uc.initToSlot(slot);
             entities.add(uc);
         }
-        for(Slot slot: enemySide.getSlots()){
-            Cube cube = new Cube();
-            addObject(cube, enemySideSpawn.getX(), enemySideSpawn.getY());
-            cube.initToSlot(slot);
-            entities.add(cube);
+        for(int i = 0 ; i <  enemySide.getSlots().length; i++){
+            
+            Enemy e = stages.get(wave).get(i);
+            addObject(e, enemySideSpawn.getX(), enemySideSpawn.getY());
+            e.initToSlot(enemySide.getSlots()[i]);
+            entities.add(e);
         }
         
         Collections.sort(entities);

@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Gunner extends Enemy
 {
     public Gunner(){
+        this.name = "Gunner";
+        
         entityImage = new GreenfootImage("enemy/gunner.png");
         entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
         
