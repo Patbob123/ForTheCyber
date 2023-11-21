@@ -30,10 +30,10 @@ public class BuilderWorld extends World
         //addObject(blackRectangle, 100, 400);
         //addObject(eblackRectangle, 924, 400);
         
-        StatSetter attackSetter = new StatSetter(setAttackFunc, 1 , "atk", 50, 170, this);  
-        StatSetter defSetter = new StatSetter(setDefFunc, 1 , "def", 50, 310, this);  
-        StatSetter speedSetter = new StatSetter(setSpeedFunc, 1 , "speed", 50, 450, this);  
-        StatSetter hpSetter = new StatSetter(setHpFunc, 1 , "hp", 50, 590, this);  
+        StatSetter attackSetter = new StatSetter(setAttackFunc, userCharInstance, 1 , "atk", 50, 170, this);  
+        StatSetter defSetter = new StatSetter(setDefFunc, userCharInstance, 1 , "def", 50, 310, this);  
+        StatSetter speedSetter = new StatSetter(setSpeedFunc, userCharInstance, 1 , "speed", 50, 450, this);  
+        StatSetter hpSetter = new StatSetter(setHpFunc, userCharInstance, 1 , "hp", 50, 590, this);  
         
         Presser marmButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Robot Arm");
         Presser mlegButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Robot Leg");

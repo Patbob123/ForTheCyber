@@ -31,14 +31,13 @@ public class TextPlace extends TextManager
     private int y;
     private int textBoxWidth; 
     private int borderThickness;
-    
-    public TextPlace(String sentence, int x, int y) throws FontFormatException, IOException {
+    public TextPlace(String sentence, int x, int y, int textBoxWidth) throws FontFormatException, IOException {
         this.x = x;
         this.y = y;
         
         pixel = addFont(ourFont);
         
-        textBoxWidth = 236; 
+        this.textBoxWidth = textBoxWidth; 
         borderThickness = 4;
         
         text = new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA);

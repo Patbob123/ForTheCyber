@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Enemy extends Entity
 {
+    protected GreenfootImage portraitImage;
     public Enemy(){
         side = 1;
         hpBar = new HPBar(this);
@@ -23,6 +24,9 @@ public abstract class Enemy extends Entity
     }   
     public void dragHpBar(){
         getHpBar().setLocation(getX(), getY()+60);
+    }
+    public GreenfootImage getPortrait(){
+        return portraitImage;
     }
 
 }

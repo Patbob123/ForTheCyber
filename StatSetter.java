@@ -11,19 +11,21 @@ import java.io.IOException;
 public class StatSetter extends Actor
 {
     private int length;
+    private UserChar u;
     
     private TextPlace amountDisplay;
     private TextPlace descDisplay;
-    public StatSetter(SetterFunction buttonAction, int increment, String text, int x, int y, World w){
+    public StatSetter(SetterFunction buttonAction, UserChar u, int increment, String text, int x, int y, World w){
         length = 210;
+        this.u = u;
         
         Presser addButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png",  increment);
         Presser subButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png", -increment);
-        //TextPlace temp = new Label(text, Color.BLUE);
+        //TextPlace temp = new TextPlace(text, Color.BLUE);
         
         w.addObject(subButton, x, y);
         //w.addObject(temp, x+length/2, y);
-        w.addObject(addButton, x+length, y); //no work rn
+        w.addObject(addButton, x+length, y); 
     }
     public void addedToWorld(World w){
         amountDisplay = initTextDisplay("Select Augment", getX(), getY());
@@ -32,9 +34,9 @@ public class StatSetter extends Actor
         getWorld().addObject(amountDisplay, getX(), getY());
         getWorld().addObject(descDisplay, getX(), getY());
     }
-    public TextPlace initTextDisplay(String text, int x, int y){
+    public TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
         try{
-            TextPlace textDisplay = new TextPlace(text, x, y);
+            TextPlace textDisplay = new TextPlace(text, x, y, textBoxWidth);
             return textDisplay;
         }catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -44,6 +46,9 @@ public class StatSetter extends Actor
             e.printStackTrace();
         }
         return null;
+    }
+    public TextPlace initTextDisplay(String text, int x, int y){
+        return initTextDisplay(text, x, y, 236);
     }
 
 }
