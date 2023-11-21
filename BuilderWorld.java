@@ -9,9 +9,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class BuilderWorld extends World
 {
     private boolean doneMaking;
+    private int maxPoints;
+    private int curPoints;
     private UserChar userCharInstance;
     private String curAugment;
     private CustomizePanel cp;
+    
+    private StatSetter attackSetter;
+    private StatSetter defSetter;
+    private StatSetter speedSetter;
+    private StatSetter hpSetter;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     /**
@@ -22,7 +29,6 @@ public class BuilderWorld extends World
     {
         super(1008, 816, 1); 
         
-        userCharInstance = new UserChar();
         
         UI builderUI = new UI(builderImage);
         UI eblackRectangle = new UI(200, 800);
@@ -30,10 +36,15 @@ public class BuilderWorld extends World
         //addObject(blackRectangle, 100, 400);
         //addObject(eblackRectangle, 924, 400);
         
-        StatSetter attackSetter = new StatSetter(setAttackFunc, userCharInstance, 1 , "atk", 50, 170, this);  
-        StatSetter defSetter = new StatSetter(setDefFunc, userCharInstance, 1 , "def", 50, 310, this);  
-        StatSetter speedSetter = new StatSetter(setSpeedFunc, userCharInstance, 1 , "speed", 50, 450, this);  
-        StatSetter hpSetter = new StatSetter(setHpFunc, userCharInstance, 1 , "hp", 50, 590, this);  
+        attackSetter = new StatSetter(setAttackFunc, 1 , "atk", 50, 170);  
+        defSetter = new StatSetter(setDefFunc, 1 , "def", 50, 310);  
+        speedSetter = new StatSetter(setSpeedFunc, 1 , "speed", 50, 450);  
+        hpSetter = new StatSetter(setHpFunc, 10 , "hp", 50, 590);  
+        
+        addObject(attackSetter, 0, 0);
+        addObject(defSetter, 0, 0);
+        addObject(speedSetter, 0, 0);
+        addObject(hpSetter, 0, 0);
         
         Presser marmButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Robot Arm");
         Presser mlegButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Robot Leg");
@@ -79,6 +90,8 @@ public class BuilderWorld extends World
                 
         userCharInstance = new UserChar();
         doneMaking = false;
+        maxPoints = 18;
+        curPoints = 0;
         setPaintOrder(Popup.class);
     }
     
@@ -93,22 +106,45 @@ public class BuilderWorld extends World
         Greenfoot.setWorld(w);
     }
     
+    private boolean checkPoints(double prevAmount, double postAmount){
+        if(prevAmount < postAmount){
+            if(curPoints < maxPoints && postAmount < 10){
+                curPoints++;
+                return true;
+            }
+        }else{
+            if(postAmount > 0){
+                curPoints--;
+                return true;
+            }
+        }
+        return false;
+    }
     //set hp private methods for builderworld
     
     private void setHp(double hp){
+        System.out.println(hp);
+        if(!checkPoints(getUserChar().getHp()/10, hp/10)) return;
         getUserChar().setHp(hp);
+        hpSetter.update(hp/10);
     }
     
     private void setDef(double def){
+        if(!checkPoints(getUserChar().getDef(), def)) return;
         getUserChar().setDef(def);
+        defSetter.update(def);
     }
     
     private void setAttack(double attk){
+        if(!checkPoints(getUserChar().getAttack(), attk)) return;
         getUserChar().setAttack(attk);
+        attackSetter.update(attk);
     }
     
     private void setSpeed(double speed){
+        if(!checkPoints(getUserChar().getSpeed(), speed)) return;
         getUserChar().setSpeed(speed);
+        speedSetter.update(speed);
     }
     
     private void setAugment(String augment){
@@ -118,6 +154,7 @@ public class BuilderWorld extends World
         
     
     public UserChar getUserChar() {
+        System.out.println(userCharInstance.getHpBar());
         return userCharInstance;
     }
     public void goToBattleWorld(){

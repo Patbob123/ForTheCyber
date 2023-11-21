@@ -34,7 +34,7 @@ public class BattleManager extends Actor
         this.entireField = entireField;
         this.turnSpeed = 1;
         this.turnNumber = 0;
-        this.trueTurnNumber = 0;
+        this.trueTurnNumber = 1;
         this.curAttackerIndex = 0;
         
         

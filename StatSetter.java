@@ -11,28 +11,39 @@ import java.io.IOException;
 public class StatSetter extends Actor
 {
     private int length;
-    private UserChar u;
+    private Presser addButton;
+    private Presser subButton;
+    
+    private int x;
+    private int y;
     
     private TextPlace amountDisplay;
     private TextPlace descDisplay;
-    public StatSetter(SetterFunction buttonAction, UserChar u, int increment, String text, int x, int y, World w){
+    public StatSetter(SetterFunction buttonAction, int increment, String text, int x, int y){
         length = 210;
-        this.u = u;
+        this.x = x;
+        this.y = y;
         
-        Presser addButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png",  increment);
-        Presser subButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png", -increment);
-        //TextPlace temp = new TextPlace(text, Color.BLUE);
-        
-        w.addObject(subButton, x, y);
-        //w.addObject(temp, x+length/2, y);
-        w.addObject(addButton, x+length, y); 
+        addButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png",  increment);
+        subButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png", -increment);
     }
     public void addedToWorld(World w){
-        amountDisplay = initTextDisplay("Select Augment", getX(), getY());
+        amountDisplay = initTextDisplay("Select Augment", x+length/2, y+10, 100);
+        
+        
         descDisplay = initTextDisplay("Select Augment", getX(), getY()+10);
         
-        getWorld().addObject(amountDisplay, getX(), getY());
-        getWorld().addObject(descDisplay, getX(), getY());
+        // getWorld().addObject(amountDisplay, getX(), getY());
+        // getWorld().addObject(descDisplay, getX(), getY());
+    
+        getWorld().addObject(subButton, x, y);
+        getWorld().addObject(amountDisplay, x+length/2, y);
+        getWorld().addObject(addButton, x+length, y); 
+        
+        amountDisplay.setSentence("1.0");
+    }
+    public void update(double amount){
+        amountDisplay.setSentence(String.valueOf(amount));
     }
     public TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
         try{

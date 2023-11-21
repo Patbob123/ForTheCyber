@@ -16,10 +16,11 @@ public class UserChar extends Entity
         portraitImage = new GreenfootImage("enemy/JuggernautPortrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         //set hp to max at beginning
-        maxHp = 100;
+        maxHp = 10;
         hp = maxHp;
         speed = 1;
         attack = 1;
+        defense = 1;
         
         side = 0;
         name = "ssundee";
@@ -40,11 +41,10 @@ public class UserChar extends Entity
     }
     public void assignHpBar(HPBar hpBar){
         this.hpBar = hpBar;
-        
     }
     public void setHp(double hp){
         super.setHp(hp);
-        getHpBar().refresh();
+        if(getHpBar()!= null) getHpBar().refresh();
     }
     public HPBar getHpBar(){
         return this.hpBar;

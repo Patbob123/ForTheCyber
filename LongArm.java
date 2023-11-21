@@ -18,7 +18,7 @@ public class LongArm extends Augment
         portraitImage = new GreenfootImage("augment/longarm.png");
         scaleImage(portraitImage);
         
-        name = "Absurdly Long Arm";
+        name = "Wick's Stick";
         desc = "IM fgoing to make this description super super super long so i can test stuff";
     }
 
