@@ -68,16 +68,24 @@ public class BattleManager extends Actor
         curAttacker = attackList.poll();
         originalAttackerSlot = curAttacker.getSlot();
         
+        
         Attack move = curAttacker.pickRandomMove();
-        String logMessage = "@Turn: @"+turnNumber+" /n "+curAttacker+" performed "+ move.getName()+" on ";
-        for(Entity target: curAttacker.attack(move, entireField)){
-            logMessage += target+" ";
-            if(target.isDead()){
-                entireField[1-curAttacker.getSide()].getEntities().remove(target);
-                entities.remove(target);
-                target.removeFromWorld();
+        String logMessage = "@Turn: @"+turnNumber+" /n !"+curAttacker+" performed @"+ move.getName()+" on: ";
+        
+        ArrayList<Entity> allTargets = curAttacker.attack(move, entireField);
+
+        System.out.println("ASDA");
+        for(int i = 0; i < allTargets.size(); i++){
+            logMessage += "!"+allTargets.get(i)+" ";
+            System.out.println(allTargets.get(i)+": "+allTargets.get(i).isDead());
+            if(allTargets.get(i).isDead()){
+
+                entities.remove(allTargets.get(i));
+                allTargets.get(i).removeFromWorld();
+                logMessage+= allTargets.get(i)+" !died ";
+                entireField[1-curAttacker.getSide()].getEntities().remove(allTargets.get(i));
                 createAttackOrder();
-                logMessage+= target+" died ";
+                
             }
         }
         ((BattleWorld)getWorld()).getTM().addSentence(logMessage);

@@ -30,12 +30,14 @@ public class TextManager extends Actor
     
     private int textBoxWidth; 
     private int borderThickness;
+    private int initPlaceY;
     
     public TextManager() throws FontFormatException, IOException {
         text = new ArrayList<SuperTextBox>();
         setImage(new GreenfootImage("log.png"));
         getImage().scale(getImage().getWidth()*Constants.IMAGE_SCALING, getImage().getHeight()*Constants.IMAGE_SCALING);
         addFont(ourFont);
+        
         
         textBoxWidth = 236; 
         borderThickness = 4;
@@ -67,6 +69,9 @@ public class TextManager extends Actor
             e.printStackTrace();
         }
         return null;
+    }
+    public void addedToWorld(World w){
+        initPlaceY = getY()+getImage().getHeight()/2-50;
     }
     public void addSentence(String sentence){
         //splitSentence(sentence);
@@ -116,8 +121,9 @@ public class TextManager extends Actor
         if(getWorld().getObjects((SuperTextBox.class)) != null){
             getWorld().removeObjects(text);
         }
-        int placeY = getImage().getHeight()-80;
-        for(int i = text.size()-1; i>=0; i--){
+        int placeY = 0;
+        //-((textBoxHeight+spacing)*(i)+80)    
+        for(int i = 0; i < text.size(); i++){
             int textBoxHeight = text.get(i).getImage().getHeight();
             int opacity = 255-((textBoxHeight+spacing)*(i))/2;
             if(opacity < 0) {
@@ -126,8 +132,9 @@ public class TextManager extends Actor
             }
             text.get(i).setOpacity(opacity);
             
-            getWorld().addObject(text.get(i),getX(),placeY);
-            placeY -= (textBoxHeight+spacing)*(i);
+            placeY += textBoxHeight/2;
+            getWorld().addObject(text.get(i),getX(),initPlaceY-placeY);
+            placeY += textBoxHeight/2+spacing;
         }
     }
     public greenfoot.Font getFont(){

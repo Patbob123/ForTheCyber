@@ -74,13 +74,15 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public ArrayList<Entity> attack(Attack move,Side[] entireField){
         if(attackSet.size() <= 0) return null;
         this.finishedAttack = false;
-        ArrayList<Entity> allTargets = move.performMove(move.target(this, entireField, this.side),this); // Call move.target, which gets all targets affected by this move, then pass to performMove(), which executes the effects on targets
+        
+        ArrayList<Entity> allTargets = move.target(this, entireField, this.side); // Call move.target, which gets all targets affected by this move, then pass to performMove(), which executes the effects on targets
+        move.performMove(allTargets,this);
+        
         attackTime = move.getDuration(); 
         initToSlot(((BattleWorld)getWorld()).getAttackSlots()[getSide()]); 
         return allTargets;
     }
     public Attack pickRandomMove(){
-        System.out.println(attackSet);
         return attackSet.get(Greenfoot.getRandomNumber(attackSet.size()-1)); // Pick a move out of the arraylist of moves
     }
     public void executeAttack(){
@@ -157,7 +159,6 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         return 0;
     }
     public void addAttack(Attack attackMove){
-        System.out.println(attackMove);
         attackSet.add(attackMove);
     }
     
