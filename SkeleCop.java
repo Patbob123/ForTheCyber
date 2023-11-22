@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class SkeleCop extends Enemy
 {
     public SkeleCop(){
-        this.name = "SkeleCop";
+        name = "SkeleCop";
         
         entityImage = new GreenfootImage("enemy/skelecop.png");
         entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);

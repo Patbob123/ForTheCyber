@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * <p>This is the UserChar class. It 
  * 
@@ -24,10 +25,11 @@ public class UserChar extends Entity
         
         side = 0;
         name = "ssundee";
-        //addAttack(
+        addAttack(new DeathRay());
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
+        
     }
 
     public void act() 

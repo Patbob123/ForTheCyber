@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Juggernaut extends Enemy
 {
     public Juggernaut(){
-        this.name = "Juggernaut";
+        name = "Juggernaut";
         
         entityImage = new GreenfootImage("enemy/juggernaut.png");
         entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);

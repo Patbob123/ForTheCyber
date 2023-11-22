@@ -6,7 +6,9 @@ comment1.target=PlasmaBeam()
 comment1.text=\r\n\ \ \ \ public\ PlasmaBeam\ (Entity\ attacker){\r\n\ \ \ \ \ \ \ \ super(attacker);\r\n\ \ \ \ \ \ \ \ moveDamage\ \=\ calculateDamage();\r\n\ \ \ \ }\r\n
 comment2.params=attacker
 comment2.target=double\ calculateDamage(Entity)
-comment3.params=attacker\ target
-comment3.target=void\ dealDamage(Entity,\ Entity)
+comment3.params=attacker\ entireField\ side
+comment3.target=java.util.ArrayList\ target(Entity,\ Side[],\ int)
 comment3.text=\r\n\ \ \ \ public\ void\ updateMove(){\r\n\ \ \ \ \ \ \ \ moveDamage\ \=\ calculateDamage();\r\n\ \ \ \ }\r\n
-numComments=4
+comment4.params=targets\ attacker
+comment4.target=java.util.ArrayList\ performMove(java.util.ArrayList,\ Entity)
+numComments=5

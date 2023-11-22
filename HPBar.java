@@ -38,6 +38,7 @@ public class HPBar extends Actor
     }
     public void refresh(){
         if(e.getHp() <= 0) return;
+        System.out.println(e.getMaxHp());
         getImage().scale((int)(maxHpWidth*(e.getHp()/e.getMaxHp())) ,getImage().getHeight());
         setLocation(180+getImage().getWidth()/2, 735);
     }

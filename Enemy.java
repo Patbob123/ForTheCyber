@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * Write a description of class Enemy here.
  * 
@@ -11,10 +12,12 @@ public abstract class Enemy extends Entity
     public Enemy(){
         side = 1;
         attack = 1;
-        hp = 100;
+        maxHp = 100;
+        hp = maxHp;
         speed = 5;
         hpBar = new HPBar(this);
         assignHpBar(hpBar);
+        addAttack(new DeathRay());
     }
     public void addedToWorld(World w){
         w.addObject(getHpBar(), 0, 0);

@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList; // import the ArrayList class
+import java.util.Arrays;
 /**
  * Write a description of class Character here.
  * 
@@ -39,15 +40,12 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected double ImageSizeScale;
     protected double toSlotSpeed;
     
-    protected ArrayList<Attack> attackSet = new ArrayList<Attack>(); 
-    
-    protected PlasmaBeam plasmaMissile = new PlasmaBeam();
+    protected ArrayList<Attack> attackSet = new ArrayList<Attack>(Arrays.asList(new BodySlam())); 
     public Entity(){
-        hp = maxHp;
-        attack = maxAttack;
-        speed = maxSpeed;
-        defense = maxDefense;
-        
+        //hp = maxHp;
+        //attack = maxAttack;
+        //speed = maxSpeed;
+        //defense = maxDefense;
         finishedAttack = false;
         onSlot = false;
         
@@ -57,7 +55,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         ImageSizeScale = 0.02;
         
         //Temporary
-        addAttack(plasmaMissile);
+        //addAttack(plasmaMissile);
         
     }
     
@@ -73,13 +71,17 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }    
     
 
-    public void attack(Entity target){
-        if(attackSet.size() <= 0) return;
+    public ArrayList<Entity> attack(Attack move,Side[] entireField){
+        if(attackSet.size() <= 0) return null;
         this.finishedAttack = false;
-        int atkNum = Greenfoot.getRandomNumber(attackSet.size()); // Pick a move out of the arraylist of moves
-        attackSet.get(atkNum).dealDamage(this,target); // Call the dealDamage method in the attackmove class 
-        attackTime = attackSet.get(atkNum).getDuration(); 
+        ArrayList<Entity> allTargets = move.performMove(move.target(this, entireField, this.side),this); // Call move.target, which gets all targets affected by this move, then pass to performMove(), which executes the effects on targets
+        attackTime = move.getDuration(); 
         initToSlot(((BattleWorld)getWorld()).getAttackSlots()[getSide()]); 
+        return allTargets;
+    }
+    public Attack pickRandomMove(){
+        System.out.println(attackSet);
+        return attackSet.get(Greenfoot.getRandomNumber(attackSet.size()-1)); // Pick a move out of the arraylist of moves
     }
     public void executeAttack(){
         attackTime--;
@@ -155,6 +157,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         return 0;
     }
     public void addAttack(Attack attackMove){
+        System.out.println(attackMove);
         attackSet.add(attackMove);
     }
     
@@ -206,10 +209,13 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
     }
     public void setMoveset(ArrayList<Attack> attack){
-        this.attackSet = attack;
+        //this.attackSet = attack;
     }
     public void takeDamage(double damage) {
         setHp(this.hp - damage);
+    }
+    public void heal(double healing) {
+        setHp(this.hp + healing);
     }
     public boolean isDead() {
         return this.hp == 0;

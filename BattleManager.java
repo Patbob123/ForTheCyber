@@ -68,19 +68,20 @@ public class BattleManager extends Actor
         curAttacker = attackList.poll();
         originalAttackerSlot = curAttacker.getSlot();
         
-        Side targetSide = entireField[1-curAttacker.getSide()];
-        Entity target = targetSide.getRandomEntity();
-        curAttacker.attack(target);
-        
-        ((BattleWorld)getWorld()).getTM().addSentence(
-            "@Turn: @"+turnNumber+" /n "+curAttacker + " !attacked " + target);
-        
-        if(target.isDead()){
-            entireField[1-curAttacker.getSide()].getEntities().remove(target);
-            entities.remove(target);
-            target.removeFromWorld();
-            createAttackOrder();
+        Attack move = curAttacker.pickRandomMove();
+        String logMessage = "@Turn: @"+turnNumber+" /n "+curAttacker+" performed "+ move.getName()+" on ";
+        for(Entity target: curAttacker.attack(move, entireField)){
+            logMessage += target+" ";
+            if(target.isDead()){
+                entireField[1-curAttacker.getSide()].getEntities().remove(target);
+                entities.remove(target);
+                target.removeFromWorld();
+                createAttackOrder();
+                logMessage+= target+" died ";
+            }
         }
+        ((BattleWorld)getWorld()).getTM().addSentence(logMessage);
+        
         if(attackList.size() < 10){
             createAttackOrder();
         }

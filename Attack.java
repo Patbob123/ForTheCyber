@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
 /**
  * Write a description of class Attack here.
  * 
@@ -22,7 +22,8 @@ public abstract class Attack extends SuperSmoothMover
     public Attack (){
         
     }
-    public abstract void dealDamage(Entity attacker, Entity target);
+    public abstract ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker);
+    public abstract ArrayList<Entity> target(Entity attacker, Side[] entireField, int side);
     public int getDuration(){
         return duration;
     }

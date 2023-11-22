@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Sustainer extends Enemy
 {
     public Sustainer(){
-        this.name = "Sustainer";
+        name = "Sustainer";
         
         entityImage = new GreenfootImage("enemy/sustainer.png");
         entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
