@@ -13,8 +13,8 @@ public class UserChar extends Entity
     private StatBar statBar;
     
     public UserChar(){
-        entityImage = new GreenfootImage("enemy/juggernaut.png");
-        entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
+        entityImageUrl = "enemy/juggernaut.png";
+        entityImage = createDuplicateImage();
         
         portraitImage = new GreenfootImage("enemy/JuggernautPortrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);

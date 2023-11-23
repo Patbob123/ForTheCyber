@@ -11,8 +11,8 @@ public class Gunner extends Enemy
     public Gunner(){
         name = "Gunner";
         
-        entityImage = new GreenfootImage("enemy/gunner.png");
-        entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
+        entityImageUrl = "enemy/gunner.png";
+        entityImage = createDuplicateImage();
         
         portraitImage = new GreenfootImage("enemy/GunnerPortrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
