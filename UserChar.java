@@ -13,10 +13,10 @@ public class UserChar extends Entity
     private StatBar statBar;
     
     public UserChar(){
-        entityImageUrl = "enemy/juggernaut.png";
+        entityImageUrl = "epickwick.png";
         entityImage = createDuplicateImage();
         
-        portraitImage = new GreenfootImage("enemy/JuggernautPortrait.png");
+        portraitImage = new GreenfootImage("epickwickPortrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         //set hp to max at beginning
         maxHp = 10;
