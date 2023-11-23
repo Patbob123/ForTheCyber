@@ -33,12 +33,12 @@ public class StartWorld extends World
         bgImage = startBg.getCurrentImage();
         
         setBackground (transparentBg);
-        fade = new Fader (600, false);
+        fade = new Fader ((60*4), false); //60 acts = 1 second, so 4 seconds for fader
         playingLoopedAnim = true;
         addObject(fade, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
-        /**
-        startMusic = new GreenfootSound ("startMusic.mp3"); // add this when added startMusic
-        */
+        
+        startMusic = new GreenfootSound ("Jaded.mp3"); // add this when added startMusic
+        startMusic.setVolume(50);
     }
     
     public void act (){
@@ -66,6 +66,8 @@ public class StartWorld extends World
         if(acts >= 3600){ //if wait 1 min, easter egg (logo dies)
             playingLoopedAnim = false;
         }
+        
+        startMusic.play();
     }
     
     private GreenfootImage getLogoImg(){
@@ -82,11 +84,11 @@ public class StartWorld extends World
     }
     
     public void started (){
-        //startMusic.playLoop();//on play, play music
+        startMusic.playLoop();//on play, play music
     }
     
     public void stopped (){
-        //startMusic.stop();//on pause, pause music
+        startMusic.stop();//on pause, pause music
     }
     
 }
