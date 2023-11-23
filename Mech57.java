@@ -11,8 +11,8 @@ public class Mech57 extends Enemy
     public Mech57(){
         name = "Mech57";
         
-        entityImage = new GreenfootImage("enemy/mech57.png");
-        entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
+        entityImageUrl = "enemy/mech57.png";
+        entityImage = createDuplicateImage();
         
         portraitImage = new GreenfootImage("enemy/Mech57Portrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);

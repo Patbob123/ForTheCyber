@@ -11,8 +11,8 @@ public class Melee extends Enemy
     public Melee(){
         name = "Melee";
         
-        entityImage = new GreenfootImage("enemy/melee.png");
-        entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
+        entityImageUrl = "enemy/melee.png";
+        entityImage = createDuplicateImage();
         
         portraitImage = new GreenfootImage("enemy/MeleePortrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
