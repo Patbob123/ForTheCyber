@@ -119,13 +119,13 @@ public class CustomizePanel extends Actor
         return moveset;
     }
     public void addToMoveset(String move){
-        if(moveset.size() >= 3) return;
         if(moveset.contains(totalMoveset.get(move))){
             moveset.remove(totalMoveset.get(move));
         }else{
+            if(moveset.size() >= 3) return;
             moveset.add(totalMoveset.get(move));
         }
-        
+        System.out.println(moveset);
     }
     public AugmentFunction setMoveset = (move) -> addToMoveset(move);
 }

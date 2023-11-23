@@ -57,9 +57,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         maxDefense = 9;
         maxAttack = 9;
         
-        stunner = false;;
-        stunned = false;;
-        wideRange = false;;
+        stunner = false;
+        stunned = false;
+        wideRange = false;
         dodge = false;
         //attack = maxAttack;
         //speed = maxSpeed;
@@ -189,7 +189,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         if (this.speed > e.speed) return 1;
         return 0;
     }
-    public void addAttack(Attack attackMove){
+    public void addMoveset(Attack attackMove){
+        System.out.println("AYA");
         attackSet.add(attackMove);
     }
     

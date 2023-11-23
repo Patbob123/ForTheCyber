@@ -17,7 +17,7 @@ public abstract class Enemy extends Entity
         speed = 5;
         hpBar = new HPBar(this);
         assignHpBar(hpBar);
-        addAttack(new DeathRay());
+        addMoveset(new DeathRay());
     }
     public void addedToWorld(World w){
         w.addObject(getHpBar(), 0, 0);
