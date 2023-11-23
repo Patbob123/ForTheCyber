@@ -237,9 +237,12 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         filterActs = 50;
     }
     public void heal(double healing) {
-        
         setHp(this.hp + healing);
         
+        filteredImage = createDuplicateImage();
+        changeColour(filteredImage.getAwtImage(), -1, +2, -1, 40);
+        setImage(filteredImage);
+        filterActs = 50;
     }
     public boolean isDead() {
         return this.hp == 0;
