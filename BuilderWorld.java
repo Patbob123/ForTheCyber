@@ -22,6 +22,8 @@ public class BuilderWorld extends World
     private StatSetter hpSetter;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
+
+    private SoundManager sm;
     /**
      * Constructor for objects of class StatWorld.
      * 
@@ -87,14 +89,16 @@ public class BuilderWorld extends World
         // addObject(hpButton, 100, 100);
         // addObject(speedButton, 100, 200);
         // addObject(attackButton, 100, 300);
-        // addObject(defenseButton, 100, 400);
+        // addObject(defenseButton, 100, 400);       
         
-                
         userCharInstance = new UserChar();
         doneMaking = false;
         maxPoints = 18;
         curPoints = 0;
         setPaintOrder(Popup.class);
+        
+        //sm = new SoundManager();
+        //sm.playSoundLoop("backbmsuci.mp3"); 
     }
     
     public void act(){

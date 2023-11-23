@@ -13,9 +13,10 @@ public class Sound
     /**
      * Constructor for objects of class Sound
      */
-    public Sound( String soundFile, int volume)
+    public Sound(String soundFile, int volume)
     {
         soundIndex = 0;
+        sounds = new GreenfootSound[20];
         for(int i = 0; i < sounds.length; i++){
             sounds[i] = new GreenfootSound(soundFile);
             sounds[i].setVolume(volume);
@@ -28,6 +29,9 @@ public class Sound
         } else {
             soundIndex++;    
         }
+    }
+    public void playSoundLoop(){
+         sounds[0].playLoop();
     }
     public int getSoundIndex(){
         return soundIndex;
