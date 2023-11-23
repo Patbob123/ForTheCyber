@@ -33,6 +33,12 @@ public class Sound
     public void playSoundLoop(){
          sounds[0].playLoop();
     }
+    public void pauseSoundLoop(String sound){
+        sounds[0].pause();
+    }
+    public void stopSoundLoop(String sound){
+        sounds[0].stop();
+    }
     public int getSoundIndex(){
         return soundIndex;
     }
