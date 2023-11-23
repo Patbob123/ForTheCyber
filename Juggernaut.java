@@ -11,7 +11,7 @@ public class Juggernaut extends Enemy
     public Juggernaut(){
         name = "Juggernaut";
         
-        entityImage = new GreenfootImage("enemy/juggernaut.png");
+        entityImage = new GreenfootImage("enemy/juggernaut.png");   
         entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
         
         portraitImage = new GreenfootImage("enemy/JuggernautPortrait.png");

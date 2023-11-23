@@ -34,6 +34,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected Slot slot;
     
     protected GreenfootImage entityImage;
+    protected GreenfootImage originalEntityImage;
     protected GreenfootImage portraitImage;
     protected int width;
     protected int height;
@@ -42,6 +43,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected boolean onSlot;
     protected double ImageSizeScale;
     protected double toSlotSpeed;
+    
+    protected SimpleTimer frame;
     
     protected ArrayList<Attack> attackSet = new ArrayList<Attack>(Arrays.asList(new BodySlam())); 
     public Entity(){
@@ -57,20 +60,25 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         
         ImageSizeScale = 0.02;
         
-        //Temporary
-        //addAttack(plasmaMissile);
+        frame = new SimpleTimer();
+        
+        originalEntityImage = getImage();
+        
+        
         
     }
     
     public void act() 
     {
+        if(frame.millisElapsed() >= Constants.EFFECT_DURATION){
+            setImage(entityImage);
+        }
         breathe();
         if(!onSlot) {
             toSlot();
         }else {
             executeAttack();
         }
-        
     }    
     
 
@@ -217,11 +225,15 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     public void takeDamage(double damage) {
         setHp(this.hp - damage);
-        
+        //turnGreen();
+        originalEntityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
+        setImage(originalEntityImage);
+        frame.mark();
     }
     public void heal(double healing) {
+        
         setHp(this.hp + healing);
-        turnGreen();
+        
     }
     public boolean isDead() {
         return this.hp == 0;
