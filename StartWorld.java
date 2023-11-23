@@ -9,14 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class StartWorld extends World
 {
     private int acts, frameCount;
-    
-    private static GifImage startBg;
     private GreenfootSound startMusic;
     private boolean playingLoopedAnim;
-    
+    private static GifImage startBg;
     private GreenfootImage bgImage, transparentBg;
     private GreenfootImage logoF1, logoF2, logoF3;
     private GreenfootImage currImg;
+    private Fader fade;
     /**
      * Constructor for objects of class StartWorld.
      * 
@@ -31,14 +30,12 @@ public class StartWorld extends World
         logoF1 = new GreenfootImage("logof1.png");
         logoF2 = new GreenfootImage("logof2.png");
         logoF3 = new GreenfootImage("logof3.png");
-        
         bgImage = startBg.getCurrentImage();
-        //setBackground (bgImage);
         
         setBackground (transparentBg);
-        
-        frameCount = 0;
+        fade = new Fader (600, false);
         playingLoopedAnim = true;
+        addObject(fade, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
         /**
         startMusic = new GreenfootSound ("startMusic.mp3"); // add this when added startMusic
         */
@@ -65,6 +62,10 @@ public class StartWorld extends World
                 //put flickering sound here
             }
         } //draw logo img ontop
+        
+        if(acts >= 3600){ //if wait 1 min, easter egg (logo dies)
+            playingLoopedAnim = false;
+        }
     }
     
     private GreenfootImage getLogoImg(){
