@@ -17,12 +17,7 @@ public class Pincer extends Attack
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
-        firstTarget.takeDamage(attacker.getAttack());
-        for(Entity e: targets){
-            if(e!=firstTarget){
-                e.takeDamage(attacker.getAttack()/6);
-            }
-        }
+        firstTarget.takeDamage(attacker.getAttack()*2);
         return targets;
     } 
    

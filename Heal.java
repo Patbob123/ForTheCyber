@@ -14,6 +14,8 @@ public class Heal extends Attack
         return entireField[side].getEntities();
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
+        Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
+        firstTarget.takeDamage(attacker.getAttack()/4);
         attacker.heal(attacker.getAttack());
         for(Entity e: targets){
             if(e!=attacker){

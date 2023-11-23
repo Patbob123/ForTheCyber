@@ -18,6 +18,7 @@ public abstract class Attack extends SuperSmoothMover
     protected double SPD;
     protected int duration = 180;
     protected String name;
+    protected int critChance;
     
     public Attack (){
         
@@ -30,6 +31,11 @@ public abstract class Attack extends SuperSmoothMover
     public String getName(){
         return name;
     }
-        
-       
+    public boolean checkIfCrit(){
+        int luck = Greenfoot.getRandomNumber(10);
+        if(critChance >= luck){
+            return true;
+        }
+        return false;
+    }       
 }
