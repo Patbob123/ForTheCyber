@@ -40,9 +40,21 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected double ImageSizeScale;
     protected double toSlotSpeed;
     
+    protected boolean stunner;
+    protected boolean stunned;
+    protected boolean wideRange;
+    protected boolean dodge;
+
     protected ArrayList<Attack> attackSet = new ArrayList<Attack>(Arrays.asList(new BodySlam())); 
     public Entity(){
-        //hp = maxHp;
+        maxSpeed = 9;
+        maxDefense = 9;
+        maxAttack = 9;
+        
+        stunner = false;;
+        stunned = false;;
+        wideRange = false;;
+        dodge = false;
         //attack = maxAttack;
         //speed = maxSpeed;
         //defense = maxDefense;
@@ -75,7 +87,12 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         if(attackSet.size() <= 0) return null;
         this.finishedAttack = false;
         
+        
         ArrayList<Entity> allTargets = move.target(this, entireField, this.side); // Call move.target, which gets all targets affected by this move, then pass to performMove(), which executes the effects on targets
+        if(getWideRange()) allTargets = entireField[1-getSide()].getEntities();
+        if(getStunner()){
+            for(Entity e: allTargets) e.stun(true);
+        }
         move.performMove(allTargets,this);
         
         attackTime = move.getDuration(); 
@@ -185,6 +202,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public double getMaxHp(){
         return this.maxHp;
     }
+    public Augment getAugment(){
+        return null;
+    }
     public String toString(){
         return this.name;
     }
@@ -192,14 +212,14 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     //setters for attack, speed, hp, defense
     public void setAttack(double setattack){
         //set attack... attack == dmg for now
-        this.attack = setattack;
+        this.attack = setattack > maxAttack ? maxAttack : setattack;
     }
     public void setSpeed(double setspeed){
         //set speed
-        this.speed = setspeed;
+        this.speed = setspeed > maxSpeed ? maxSpeed : setspeed;
     }
     public void setDef(double setdefense){
-        this.defense = setdefense;
+        this.defense = setdefense > maxDefense ? maxDefense : setdefense;
     }
     public void setHp(double sethp){
         this.hp = sethp > 0 ? sethp : 0;
@@ -209,14 +229,43 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
             maxHp = hp;
         }
     }
-    public void setMoveset(ArrayList<Attack> attack){
-        //this.attackSet = attack;
+    public boolean getStunner(){
+        return this.stunner;
+    }
+    public boolean getDodge(){
+        return this.dodge;
+    }
+    public boolean getWideRange(){
+        return this.wideRange;
+    }
+    public boolean getStunned(){
+        return this.stunned;
+    }
+    public void setStunner(){
+        this.stunner = true;
+    }
+    public void setDodge(){
+        this.dodge = true;
+    }
+    public void setWideRange(){
+        this.wideRange = true;
+    }
+    public void setMoveset(ArrayList<Attack> attackSet){
+        this.attackSet = attackSet;
+    }
+    public void stun(boolean stunned){
+        this.stunned = stunned;
     }
     public void takeDamage(double damage) {
+        if(getDodge() && Greenfoot.getRandomNumber(10)==1) return;
         setHp(this.hp - damage);
     }
     public void heal(double healing) {
-        setHp(this.hp + healing);
+        if(this.hp + healing < this.maxHp){
+            setHp(this.hp + healing);
+        }else{
+            setHp(this.maxHp);
+        }
     }
     public boolean isDead() {
         return this.hp == 0;

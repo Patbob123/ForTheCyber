@@ -68,26 +68,42 @@ public class BattleManager extends Actor
         curAttacker = attackList.poll();
         originalAttackerSlot = curAttacker.getSlot();
         
+        String augmentMessage = "";
+        if(curAttacker.getAugment()!=null) {
+            augmentMessage+=curAttacker.getAugment().activateOwnerTurn()+" /n ";
+        }
         
         Attack move = curAttacker.pickRandomMove();
-        String logMessage = "@Turn: @"+turnNumber+" /n !"+curAttacker+" performed @"+ move.getName()+" on: ";
+        String logMessage = "@Turn: @"+turnNumber;
         
-        ArrayList<Entity> allTargets = curAttacker.attack(move, entireField);
-
-        System.out.println("ASDA");
-        for(int i = 0; i < allTargets.size(); i++){
-            logMessage += "!"+allTargets.get(i)+" ";
-            System.out.println(allTargets.get(i)+": "+allTargets.get(i).isDead());
-            if(allTargets.get(i).isDead()){
-
-                entities.remove(allTargets.get(i));
-                allTargets.get(i).removeFromWorld();
-                logMessage+= allTargets.get(i)+" !died ";
-                entireField[1-curAttacker.getSide()].getEntities().remove(allTargets.get(i));
-                createAttackOrder();
-                
+             
+        if(curAttacker.getStunned()){
+            curAttacker.stun(false);
+            logMessage += " /n !"+curAttacker+" was STUNNED ";
+        }
+        else{
+            ArrayList<Entity> allTargets = curAttacker.attack(move, entireField);
+            logMessage += " /n !"+curAttacker+" performed @"+ move.getName()+" on: ";
+            System.out.println("ASDA");
+            for(int i = 0; i < allTargets.size(); i++){
+                logMessage += "!"+allTargets.get(i)+" ";
+                System.out.println(allTargets.get(i)+": "+allTargets.get(i).isDead());
+                if(allTargets.get(i).isDead()){
+                    
+                    if(curAttacker.getAugment()!=null) {
+                        augmentMessage+=curAttacker.getAugment().activateLevelUp()+" /n ";
+                    }
+                    
+                    entities.remove(allTargets.get(i));
+                    allTargets.get(i).removeFromWorld();
+                    logMessage+= allTargets.get(i)+" !died ";
+                    entireField[1-curAttacker.getSide()].getEntities().remove(allTargets.get(i));
+                    createAttackOrder();
+                    
+                }
             }
         }
+        //logMessage += augmentMessage;
         ((BattleWorld)getWorld()).getTM().addSentence(logMessage);
         
         if(attackList.size() < 10){

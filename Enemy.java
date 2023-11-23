@@ -27,6 +27,9 @@ public abstract class Enemy extends Entity
         super.act();
         dragHpBar();
     }   
+    public Augment getAugment(){
+        return null;
+    }
     public void dragHpBar(){
         getHpBar().setLocation(getX(), getY()+60);
     }

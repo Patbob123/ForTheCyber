@@ -153,7 +153,8 @@ public class BuilderWorld extends World
     }
     public void goToBattleWorld(){
         if(userCharInstance.getAugment()==null) return;
-        userCharInstance.setMoveset(cp.getMoveset());
+        userCharInstance.getAugment().activateInitial();
+        //userCharInstance.setMoveset(cp.getMoveset());
         Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
     }
     

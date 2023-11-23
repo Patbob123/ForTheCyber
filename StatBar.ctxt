@@ -5,4 +5,6 @@ comment1.params=uc
 comment1.target=StatBar(UserChar)
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
-numComments=3
+comment3.params=
+comment3.target=void\ refresh()
+numComments=4

@@ -21,12 +21,15 @@ public abstract class Augment
     protected GreenfootImage portraitImage;
     protected String name;
     protected String desc;
+    protected Entity owner;
     
     public Augment()
     {
-
+        
     }
-
+    public void setOwner(Entity owner){
+        this.owner = owner;
+    }
     public void scaleImage(GreenfootImage image){
         image.scale(image.getWidth()*Constants.IMAGE_SCALING, image.getHeight()*Constants.IMAGE_SCALING);
         
@@ -46,14 +49,17 @@ public abstract class Augment
     public void activateInitial(){
         //Default does nothing
     }
-    public void activateLevelUp(UserChar u){
+    public String activateLevelUp(){
         //Default does nothing
+        return "";
     }
-    public void activateUserTurn(){
+    public String activateOwnerTurn(){
         //Default does nothing
+        return "";
     }
-    public void activateEnemyTurn(){
+    public String activateOpposerTurn(){
         //Default does nothing
+        return "";
     }
     public static Augment getAugment(String augment){
         return augmentMap.get(augment);

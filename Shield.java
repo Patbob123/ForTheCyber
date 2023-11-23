@@ -22,15 +22,10 @@ public class Shield extends Augment
         desc = "Go invis";
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public String activateLevelUp(){
+        owner.setAttack(owner.getAttack()+1);
+        owner.setDef(owner.getDef()+2);
+        
+        return owner+" gained 2 attack and 1 defense from "+getName();
     }
 }

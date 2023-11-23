@@ -22,13 +22,10 @@ public class RobotArm extends Augment
         desc = "Go invis";
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public void activateLevelUp(UserChar u){
-        u.setAttack(u.getAttack()+1);
+    public String activateLevelUp(){
+        owner.setAttack(owner.getAttack()+2);
+        owner.setSpeed(owner.getSpeed()+1);
+        
+        return owner+" gained 2 attack and 1 speed from "+getName();
     }
 }

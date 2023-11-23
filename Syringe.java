@@ -22,15 +22,12 @@ public class Syringe extends Augment
         desc = "Go invis";
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public String activateLevelUp(){
+        owner.setAttack(owner.getAttack()+4);
+        return owner+" gained 4 attack and 1 speed from "+getName();
+    }
+    public String activateOwnerTurn(){
+        owner.takeDamage(2);
+        return owner+" took 2 damage from "+getName();
     }
 }

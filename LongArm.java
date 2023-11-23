@@ -22,15 +22,7 @@ public class LongArm extends Augment
         desc = "IM fgoing to make this description super super super long so i can test stuff";
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void activateInitial(){
+        owner.setWideRange();
     }
 }

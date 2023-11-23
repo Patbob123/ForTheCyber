@@ -10,6 +10,8 @@ import java.util.Arrays;
 public class UserChar extends Entity
 {    
     private Augment augment;
+    private StatBar statBar;
+    
     public UserChar(){
         entityImage = new GreenfootImage("enemy/juggernaut.png");
         entityImage.scale(entityImage.getWidth()*Constants.IMAGE_SCALING, entityImage.getHeight()*Constants.IMAGE_SCALING);
@@ -44,17 +46,36 @@ public class UserChar extends Entity
     public void assignHpBar(HPBar hpBar){
         this.hpBar = hpBar;
     }
+    public void assignStatBar(StatBar statBar){
+        this.statBar = statBar;
+    }
     public void setHp(double hp){
         super.setHp(hp);
         if(getHpBar()!= null) getHpBar().refresh();
     }
+    public void setAttack(double attk){
+        super.setAttack(attk);
+        if(getStatBar()!= null) getStatBar().refresh();
+    }
+    public void setDef(double def){
+        super.setDef(def);
+        if(getStatBar()!= null) getStatBar().refresh();
+    }
+    public void setSpeed(double speed){
+        super.setSpeed(speed);
+        if(getStatBar()!= null) getStatBar().refresh();
+    }
     public HPBar getHpBar(){
         return this.hpBar;
+    }
+    public StatBar getStatBar(){
+        return this.statBar;
     }
     public double getMaxHp(){
         return this.maxHp;
     }
     public void setAugment(Augment augment){
+        augment.setOwner(this);
         this.augment = augment;
     }
     public Augment getAugment(){

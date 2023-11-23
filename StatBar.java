@@ -16,8 +16,11 @@ public class StatBar extends Actor
     private Container defContainer;
     private Container speedContainer;
     private HPBar hpBar;
+    private UserChar u;
     
     public StatBar(UserChar uc){
+        this.u = uc;
+        
         setImage(new GreenfootImage("stats.png"));
         getImage().scale(getImage().getWidth()*Constants.IMAGE_SCALING, getImage().getHeight()*Constants.IMAGE_SCALING);
         
@@ -25,12 +28,11 @@ public class StatBar extends Actor
         defContainer = new Container(defStatImage, 9, 10);
         speedContainer = new Container(speedStatImage, 9, 10);
         
-        atkContainer.setContained(4);
-        defContainer.setContained(9);
-        speedContainer.setContained(3);
+        refresh();
         
-        hpBar = new HPBar(uc);
-        uc.assignHpBar(hpBar);
+        hpBar = new HPBar(this.u);
+        this.u.assignHpBar(hpBar);
+        this.u.assignStatBar(this);
     }
     public void addedToWorld(World w){
         getWorld().addObject(atkContainer, 470+atkContainer.getImage().getWidth()/2, 675);
@@ -38,5 +40,10 @@ public class StatBar extends Actor
         getWorld().addObject(speedContainer, 470+speedContainer.getImage().getWidth()/2, 775);
         
         getWorld().addObject(hpBar, 180+hpBar.getImage().getWidth()/2, 735);       
+    }
+    public void refresh(){
+        atkContainer.setContained((int)u.getAttack());
+        defContainer.setContained((int)u.getDef());
+        speedContainer.setContained((int)u.getSpeed());
     }
 }
