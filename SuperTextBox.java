@@ -129,12 +129,10 @@ public class SuperTextBox extends Actor
         vSpace = fontSize / 4; //6
         this.padding = (int)(fontSize / 3.0); // 8
 
-        // System.out.println("Pad: " + padding  + " vSpace " + vSpace + " fontSize: " + fontSize);
 
         // Padding top and bottom, vSpace between rows and bottom to make up for extra space on top
         height = (padding * 2) + (vSpace * (numLines)) + (fontSize * numLines) + (2 * borderThickness);
 
-        //System.out.println("Creating image with a height of " + height);
         image = generateImage(width, height);
 
         update (text);

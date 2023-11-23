@@ -24,8 +24,6 @@ public class Fader extends Popup
     
     public void act() {
         fadeDuration += reverse ? -1 : 1;
-        
-        System.out.println((int)(((double)fadeDuration/maxDuration)*255));
         if(fadeDuration > maxDuration || fadeDuration < 0){
             getWorld().removeObject(this);
             return;

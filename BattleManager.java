@@ -84,10 +84,8 @@ public class BattleManager extends Actor
         else{
             ArrayList<Entity> allTargets = curAttacker.attack(move, entireField);
             logMessage += " /n !"+curAttacker+" performed @"+ move.getName()+" on: ";
-            System.out.println("ASDA");
             for(int i = 0; i < allTargets.size(); i++){
                 logMessage += "!"+allTargets.get(i)+" ";
-                System.out.println(allTargets.get(i)+": "+allTargets.get(i).isDead());
                 if(allTargets.get(i).isDead()){
                     
                     if(curAttacker.getAugment()!=null) {

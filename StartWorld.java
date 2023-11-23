@@ -58,11 +58,9 @@ public class StartWorld extends World
         
         if(playingLoopedAnim){
             if(Greenfoot.getRandomNumber(20) > 1){
-                transparentBg.drawImage(currImg, 0, 0);
-            } else {
-                
-            }//draw logo img ontop
-        } 
+                    transparentBg.drawImage(currImg, 0, 0);
+                }
+            } //draw logo img ontop
     }
     
     private GreenfootImage getLogoImg(){

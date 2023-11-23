@@ -22,6 +22,7 @@ public class BuilderWorld extends World
     private StatSetter hpSetter;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
+    private GreenfootImage builderBgImage = new GreenfootImage("builderworldbg.png");
 
     private SoundManager sm;
     /**
@@ -99,6 +100,7 @@ public class BuilderWorld extends World
         
         //sm = new SoundManager();
         //sm.playSoundLoop("backbmsuci.mp3"); 
+        setBackground(builderBgImage);
     }
     
     public void act(){
