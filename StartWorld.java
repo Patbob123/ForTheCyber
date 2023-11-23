@@ -45,8 +45,10 @@ public class StartWorld extends World
     }
     
     public void act (){
+        
         acts++;
-        if(acts > 120 && Greenfoot.mouseClicked(null)){
+        
+        if(acts > 150 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 2.5 seconds
             stopped();
             Greenfoot.setWorld(new IntroWorld());
         }
@@ -57,10 +59,12 @@ public class StartWorld extends World
         transparentBg.drawImage(bgImage, 0, 0);
         
         if(playingLoopedAnim){
-            if(Greenfoot.getRandomNumber(20) > 1){
+            if(Greenfoot.getRandomNumber(50) > 1){
                     transparentBg.drawImage(currImg, 0, 0);
-                }
-            } //draw logo img ontop
+            } else {
+                //put flickering sound here
+            }
+        } //draw logo img ontop
     }
     
     private GreenfootImage getLogoImg(){
