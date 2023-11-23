@@ -1,6 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList; // import the ArrayList class
 import java.util.Arrays;
+import java.awt.image.BufferedImage;
+import java.awt.Graphics2D;
+import java.awt.AlphaComposite;
 /**
  * Write a description of class Character here.
  * 
@@ -214,9 +217,11 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     public void takeDamage(double damage) {
         setHp(this.hp - damage);
+        
     }
     public void heal(double healing) {
         setHp(this.hp + healing);
+        turnGreen();
     }
     public boolean isDead() {
         return this.hp == 0;
@@ -224,6 +229,30 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public void removeFromWorld(){
         getWorld().removeObject(getHpBar());
         getWorld().removeObject(this);
+    }
+    public void turnGreen(){
+        BufferedImage original = getImage().getAwtImage(); // dimensions width x height, black on transparent
+        
+        int width = original.getWidth();
+        int height = original.getHeight();
+        
+        // Nested for loop through each pixel on the image 
+        for(int y = 0; y < height; y++){
+            for(int x = 0; x < width; x++){
+                int p = original.getRGB(x,y);
+                
+                int a = (p>>24)&0xff;
+                int g = (p>>8)&0xff;
+                
+                // Set new RGB Colour
+                p = (a<<24) | (0<<16) | (g<<8) | 0;
+                original.setRGB(x,y,p); 
+            }
+        }
+        /*
+         * Some Notes:
+         * - Setting p = (a<<23) | (0<<20) | (g<<8) | 0; will be near invisible 
+         */
     }
     
     
