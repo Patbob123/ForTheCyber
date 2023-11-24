@@ -62,7 +62,7 @@ public abstract class Augment
         return "";
     }
     public void addLevelup(){
-        int x = owner.getWorld().getWidth()/2-owner.getWorld().getWidth()/4;
+        int x = owner.getWorld().getWidth()/2+owner.getWorld().getWidth()/5;
         int y = owner.getWorld().getHeight()/2-owner.getWorld().getHeight()/4;
         owner.getWorld().addObject(new Levelup(), x, y);
     }

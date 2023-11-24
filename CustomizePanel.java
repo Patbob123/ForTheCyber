@@ -134,7 +134,6 @@ public class CustomizePanel extends Actor
             }
             i++;
         }
-        System.out.println(moveset);
     }
     public AugmentFunction setMoveset = (move) -> addToMoveset(move);
 }

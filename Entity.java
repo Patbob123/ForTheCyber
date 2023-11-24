@@ -190,7 +190,6 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         return 0;
     }
     public void addMoveset(Attack attackMove){
-        System.out.println("AYA");
         attackSet.add(attackMove);
     }
     
