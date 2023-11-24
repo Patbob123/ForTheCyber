@@ -1,12 +1,11 @@
-import greenfoot.GreenfootSound;
-
+import greenfoot.*;
 /**
  * Write a description of class Sound here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Sound  
+public class Sound extends Actor
 {
     private int soundIndex;
     private GreenfootSound[] sounds;
@@ -31,14 +30,15 @@ public class Sound
         }
     }
     public void playSoundLoop(){
-         sounds[0].playLoop();
+         sounds[soundIndex].playLoop();
     }
-    public void pauseSoundLoop(String sound){
-        sounds[0].pause();
+    public void pauseSoundLoop(){
+        sounds[soundIndex].pause();
     }
-    public void stopSoundLoop(String sound){
-        sounds[0].stop();
+    public void stopSoundLoop(){
+        sounds[soundIndex].stop();
     }
+
     public int getSoundIndex(){
         return soundIndex;
     }

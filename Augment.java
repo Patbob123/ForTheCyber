@@ -61,6 +61,11 @@ public abstract class Augment
         //Default does nothing
         return "";
     }
+    public void addLevelup(){
+        int x = owner.getWorld().getWidth()/2-owner.getWorld().getWidth()/4;
+        int y = owner.getWorld().getHeight()/2-owner.getWorld().getHeight()/4;
+        owner.getWorld().addObject(new Levelup(), x, y);
+    }
     public static Augment getAugment(String augment){
         return augmentMap.get(augment);
     }

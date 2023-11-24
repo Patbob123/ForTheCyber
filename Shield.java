@@ -23,7 +23,7 @@ public class Shield extends Augment
     }
 
     public String activateLevelUp(){
-        owner.getWorld().addObject(new Levelup(), owner.getWorld().getWidth()/2, owner.getWorld().getHeight()/2);
+        addLevelup();
         
         owner.setAttack(owner.getAttack()+1);
         owner.setDef(owner.getDef()+2);

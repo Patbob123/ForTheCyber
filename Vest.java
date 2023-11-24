@@ -23,7 +23,7 @@ public class Vest extends Augment
     }
 
     public String activateLevelUp(){
-        owner.getWorld().addObject(new Levelup(), owner.getWorld().getWidth()/2, owner.getWorld().getHeight()/2);
+        addLevelup();
         
         owner.setDef(owner.getDef()+1);
         return owner+" gained 1 defense "+getName();

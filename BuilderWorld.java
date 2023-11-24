@@ -99,10 +99,12 @@ public class BuilderWorld extends World
         curPoints = 0;
         setPaintOrder(Popup.class);
         
-        builderMusic.playLoop();
+        //builderMusic.playLoop();
         
-        //sm = new SoundManager();
-        //sm.playSoundLoop("backbmsuci.mp3"); 
+        sm = new SoundManager();
+        addObject(sm, 0, 0);
+        sm.playSoundLoop("builderMusic");
+        
         setBackground(builderBgImage);
     }
     
@@ -156,6 +158,12 @@ public class BuilderWorld extends World
         cp.goToAugment();
     }
         
+    public void started(){
+        sm.resumeSounds();
+    }
+    public void stopped(){
+        sm.pauseSounds();
+    }
     
     public UserChar getUserChar() {
         return userCharInstance;
@@ -169,14 +177,7 @@ public class BuilderWorld extends World
         Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
     }
     
-    public void started (){
-        builderMusic.playLoop();//on play, play music
-    }
-    
-    public void stopped (){
-        builderMusic.pause();//on pause, pause music
-    }
-    
+  
     public AugmentFunction setAugment = (augment) -> setAugment(augment);
         
     public SetterFunction setHpFunc = (increment) -> setHp(getUserChar().getHp()+increment);

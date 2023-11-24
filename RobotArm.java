@@ -23,7 +23,7 @@ public class RobotArm extends Augment
     }
 
     public String activateLevelUp(){
-        owner.getWorld().addObject(new Levelup(), owner.getWorld().getWidth()/2, owner.getWorld().getHeight()/2);
+        addLevelup();
         
         owner.setAttack(owner.getAttack()+2);
         owner.setSpeed(owner.getSpeed()+1);
