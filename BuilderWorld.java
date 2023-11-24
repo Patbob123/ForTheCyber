@@ -165,7 +165,13 @@ public class BuilderWorld extends World
         Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
     }
     
+    public void started (){
+        builderMusic.playLoop();//on play, play music
+    }
     
+    public void stopped (){
+        builderMusic.stop();//on pause, pause music
+    }
     
     public AugmentFunction setAugment = (augment) -> setAugment(augment);
         
