@@ -11,6 +11,7 @@ public class Button extends Actor
     private String attributeType; 
     private GreenfootImage buttonImage;
     private int Value = 0;
+    private SoundManager sm;
     
     public Button(String type) {
         attributeType = type;
@@ -18,6 +19,7 @@ public class Button extends Actor
         buttonImage.setColor(Color.RED);
         buttonImage.fill();
         setImage(buttonImage);
+        
     }
     
     public Button(String type, int width, int height) {
@@ -26,6 +28,7 @@ public class Button extends Actor
         buttonImage.setColor(Color.YELLOW);
         buttonImage.fill();
         setImage(buttonImage);
+        
     }
     
     /**
@@ -34,6 +37,7 @@ public class Button extends Actor
      */
     public void act() {
         if (Greenfoot.mouseClicked(this)) {
+            
             UserChar user = ((BuilderWorld)getWorld()).getUserChar();
             if (attributeType.equals("life")) {
                 user.setHp(user.getHp() + 1);

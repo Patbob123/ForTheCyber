@@ -34,7 +34,7 @@ public class SoundManager extends Actor
         soundFiles.put("boxJab", new Sound("attacks/boxjab.wav",100 ));
         soundFiles.put("shotgun", new Sound("attacks/shotgun.wav",100 ));
         soundFiles.put("heal", new Sound("attacks/heal.wav",100 ));
-
+        soundFiles.put("click", new Sound("buttonclick.wav",100 ));
         
         
         setImage(new GreenfootImage(1,1));
