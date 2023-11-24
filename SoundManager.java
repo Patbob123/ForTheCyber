@@ -35,6 +35,8 @@ public class SoundManager extends Actor
         soundFiles.put("shotgun", new Sound("attacks/shotgun.wav",100 ));
         soundFiles.put("heal", new Sound("attacks/heal.wav",100 ));
         soundFiles.put("click", new Sound("buttonclick.wav",100 ));
+        soundFiles.put("blip", new Sound("blip.wav",100));
+        soundFiles.put("rain", new Sound("rainambient.mp3",50));
         
         
         setImage(new GreenfootImage(1,1));

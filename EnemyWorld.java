@@ -25,10 +25,12 @@ import java.io.IOException;
  */
 public class EnemyWorld extends SuperWorld
 {
-    private int enemyPerWave;
+    private int enemyPerWave, acts, currActs;
+    private boolean goingToBuilderWorld;
     private HashMap<Integer, Enemy> enemyDict;
     private ArrayList<ArrayList<Enemy>> waves;
     private GreenfootImage title;
+    private Fader fade,fadeOut;
 
     public EnemyWorld()
     {    
@@ -62,6 +64,23 @@ public class EnemyWorld extends SuperWorld
         displayEnemies(getStages().get(3), 650);
         setBackground(title); 
         
+        fade = new Fader ((60*2), false); //60 acts = 1 second, so 4 seconds for fader
+        fadeOut = new Fader ((60*2), true);
+        
+        goingToBuilderWorld = false;
+        
+        addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
+    }
+    public void act(){
+        acts++;
+        if(goingToBuilderWorld){
+            currActs++;
+            if (currActs >= fadeOut.getMaxDuration()){
+                sm.stopSounds();
+                goingToBuilderWorld = false;
+                Greenfoot.setWorld(new BuilderWorld(getStages()));
+            }
+        }
     }
     public void generateEnemies(int difficulty){
         ArrayList <Enemy> waveEnemies = new ArrayList <Enemy>();
@@ -95,7 +114,8 @@ public class EnemyWorld extends SuperWorld
         return waves;
     }
     public void goToBuilderWorld(){
-        Greenfoot.setWorld(new BuilderWorld(getStages()));
+        goingToBuilderWorld = true;
+        addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     public void displayEnemies(ArrayList<Enemy> wave, int height){
         for (int i = 0; i< wave.size(); i++){
@@ -104,7 +124,6 @@ public class EnemyWorld extends SuperWorld
             addObject(portrait, (i*50)+450, height);
         }   
     }
-
 
     public Function goBuilderWorld = () -> goToBuilderWorld();
 }

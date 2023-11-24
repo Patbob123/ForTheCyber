@@ -39,7 +39,6 @@ public class StartWorld extends SuperWorld
         mouseIsClicked = false;
         currActs = 0;
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
-        
 
     }
     
@@ -49,8 +48,13 @@ public class StartWorld extends SuperWorld
         
         if(acts==1)sm.playSoundLoop("Jaded");
         
+        if (acts == 10){
+            sm.playSoundLoop("rain");
+        }
+        
         if(acts > 240 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 4 seconds
             mouseIsClicked = true;
+            sm.playSound("blip");
         }
         
         if(mouseIsClicked){
@@ -81,7 +85,7 @@ public class StartWorld extends SuperWorld
                         transparentBg.drawImage(currImg, 0, 0);
                 }
             } else {
-                if(Greenfoot.getRandomNumber(200) > 1){
+                if(Greenfoot.getRandomNumber(120) > 1){
                         transparentBg.drawImage(currImg, 0, 0);
                 }
             }

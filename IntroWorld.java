@@ -31,6 +31,7 @@ public class IntroWorld extends SuperWorld
         fade = new Fader(60*2,false);
         fadeOut = new Fader(60*2,true);
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
+        sm.stopSounds();
     }
     
     public void act() {
