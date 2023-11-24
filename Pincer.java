@@ -13,15 +13,18 @@ public class Pincer extends Attack
         name = "Pincer";
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
-        return entireField[1-side].getEntities();
+        ArrayList<Entity> potentialTargets = entireField[1-side].getEntities();
+        
+        ArrayList<Entity> targets = new ArrayList<Entity>();
+        targets.add(potentialTargets.get(Greenfoot.getRandomNumber(potentialTargets.size())));
+        
+        return targets;
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
         ((BattleWorld)attacker.getWorld()).getSM().playSound("pincer");
         
-        Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
-        firstTarget.takeDamage(attacker.getAttack()*2);
-        
-        attacker.meleeAttackAnimation(target);
+        targets.get(0).takeDamage(attacker.getAttack()*2);
+        attacker.meleeAttackAnimation(targets.get(0));
         
         return targets;
     } 

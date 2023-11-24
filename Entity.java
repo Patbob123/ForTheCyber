@@ -90,9 +90,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
 
         breathe();
-        if(meleeTarget != null){
-            hitMeleeTarget();
-        }
+    
         if(!onSlot) {
             toSlot();
         }else {
@@ -114,7 +112,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         move.performMove(allTargets,this);
         
         attackTime = move.getDuration(); 
-        initToSlot(((BattleWorld)getWorld()).getAttackSlots()[getSide()]); 
+        initToSlot(((BattleWorld)getWorld()).getAttackSlots()[getSide()]);
         return allTargets;
     }
     public Attack pickRandomMove(){
@@ -122,6 +120,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     public void executeAttack(){
         attackTime--;
+        if(meleeTarget != null){
+            hitMeleeTarget();
+        }
         if(attackTime <= 0){
             finishedAttack = true;
         }
@@ -143,7 +144,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public void initToSlot(Slot slot){
         onSlot = false;
         this.slot = slot;
-        double distance = getDistance();
+        double distance = getDistance(slot);
         toSlotSpeed = distance/30;
         
         slot.setEntity(this);
@@ -154,12 +155,12 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         
         int targetX = slot.getX(); //gets slot x-coord
         int targetY = slot.getY(); //gets slot x-coord
-        double distance = getDistance();
+        double distance = getDistance(slot);
         
         turnTowards(targetX, targetY);
         if(distance > 0) {
             move(distance < toSlotSpeed ? 1 : toSlotSpeed);
-            distance = getDistance();
+            distance = getDistance(slot);
         }else if(distance == 0){
             onSlot = true;
         }
@@ -167,9 +168,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         setRotation(0); 
 
     }
-    public double getDistance(){
-        int targetX = slot.getX(); //gets slot x-coord
-        int targetY = slot.getY(); //gets slot x-coord
+    public double getDistance(Actor a){
+        int targetX = a.getX(); //gets slot x-coord
+        int targetY = a.getY(); //gets slot x-coord
         int xDistance = targetX - getX(); //gets x distance to the slot
         int yDistance = targetY - getY(); //gets y distance to the slot
         double distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance); //calculate distance to the slot
@@ -188,21 +189,22 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
     }
     public void meleeAttackAnimation(Entity target){
+        System.out.println("T: " +target);
         meleeTarget = target;
     }
     public void hitMeleeTarget(){
         
-        int targetX = meleeTarget.getX(); //gets slot x-coord
-        int targetY = meleeTarget.getY(); //gets slot x-coord
-        double distance = getDistance();
+        int targetX = meleeTarget.getX(); //gets target x-coord
+        int targetY = meleeTarget.getY(); //gets target y-coord
+        double distance = getDistance(meleeTarget);
         
         turnTowards(targetX, targetY);
         if(distance > 0) {
             move(distance < toSlotSpeed ? 1 : toSlotSpeed);
-            distance = getDistance();
         }else if(distance == 0){
-            initToSlot(this.slot);
+            System.out.println("ASDASD");
             meleeTarget = null;
+            initToSlot(this.slot);
         }
         
         setRotation(0); 

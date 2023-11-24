@@ -48,7 +48,7 @@ public class EnemyWorld extends SuperWorld
         }};
 
         waves = new ArrayList<ArrayList<Enemy>>();
-        enemyPerWave = 10;
+        enemyPerWave = 6;
         generateEnemies(0);
         generateEnemies(1);
         generateEnemies(2);

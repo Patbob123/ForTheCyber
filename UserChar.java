@@ -37,6 +37,7 @@ public class UserChar extends Entity
     public void act() 
     {
         super.act();
+        System.out.println(meleeTarget);
         if (isDead()){
             //if hp is 0 or less, die
             //PUT DYING ANIM HERE IN FUTURE

@@ -63,7 +63,7 @@ public class BuilderWorld extends SuperWorld
         addObject(marmButton, 650, 400);
         addObject(mlegButton, 550, 500);
         addObject(cloakButton, 508, 200);
-        addObject(vestButton, 508, 350);
+        addObject(vestButton, 508, 300);
         addObject(syringeButton, 650, 350);
         addObject(shieldButton, 370, 400);
         addObject(longarmButton, 370, 350);
