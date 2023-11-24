@@ -96,11 +96,11 @@ public class StartWorld extends World
     }
     
     public void started (){
-        startMusic.playLoop();//on play, play music
+        startMusic.play();//on play, play music
     }
     
     public void stopped (){
-        startMusic.stop();//on pause, pause music
+        startMusic.pause();//on pause, pause music
     }
     
 }
