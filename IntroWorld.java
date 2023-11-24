@@ -11,7 +11,7 @@ public class IntroWorld extends World
     private int acts;
     
     private GreenfootImage scene1, scene2, scene3, scene4, click;
-    private GreenfootSound blast;
+    private GreenfootSound blast, boom;
     /**
      * Constructor for objects of class IntroWorld.
      * 
@@ -26,6 +26,7 @@ public class IntroWorld extends World
         scene4 = new GreenfootImage("takerevengeBg.png");
         click = new GreenfootImage("click.png");
         blast = new GreenfootSound("blaster.mp3");
+        boom = new GreenfootSound("boom.mp3");
     }
     
     public void act() {
@@ -44,6 +45,7 @@ public class IntroWorld extends World
         }
         
         if (acts == (60*2 + 60*3)){
+            boom.play();
             setBackground(scene3);
         }
         
@@ -52,11 +54,10 @@ public class IntroWorld extends World
         }
         
         if (acts > (60*2 + 60*5 + 60*2 + 60*4)){
-            scene4.drawImage(click, 0, 0);
+            scene4.drawImage(click, 0, 0); //display some text to let the user know to click to proceed
         }
         
         if(acts > (60*5 + 60*2 + 60*4)) {
-            //display some text to let the user know to click to go to BuilderWorld
             if(Greenfoot.mouseClicked(null)) {
                 Greenfoot.setWorld(new EnemyWorld());
             }

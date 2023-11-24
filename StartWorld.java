@@ -40,13 +40,12 @@ public class StartWorld extends World
         
         startMusic = new GreenfootSound ("Jaded.mp3"); // add this when added startMusic
         startMusic.setVolume(50);
-        startMusic.play();
     }
     
     public void act (){
         
         acts++;
-        
+        if(acts==1)startMusic.play();
         if(acts > 120 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 2 seconds
             startMusic.stop();//doesnt work??????
             addObject(fadeOut, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
