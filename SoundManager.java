@@ -23,7 +23,15 @@ public class SoundManager extends Actor
         //soundFiles.put("attack", new Sound("attack.wav",12 ));
         //soundFiles.put("takeDamage", new Sound("takeDamage.wav",12 ));
         //soundFiles.put("buttonPress", new Sound("buttonPress.wav",12 ));
-        
+        soundFiles.put("buttonPress", new Sound("buttonclick.mp3",12 ));
+        soundFiles.put("bodySlam", new Sound("attacks/bodyslam.wav",12 ));
+        soundFiles.put("deathRay", new Sound("attacks/deathray.wav",12 ));
+        soundFiles.put("pincer", new Sound("attacks/pincer.wav",12 ));
+        soundFiles.put("plasmaBeam", new Sound("attacks/plasmabeam.wav",12 ));
+        soundFiles.put("boxJab", new Sound("attacks/boxjab.wav",12 ));
+        soundFiles.put("shotgun", new Sound("attacks/shotgun.wav",12 ));
+        soundFiles.put("heal", new Sound("attacks/heal.wav",12 ));
+
         
         
         setImage(new GreenfootImage(1,1));
