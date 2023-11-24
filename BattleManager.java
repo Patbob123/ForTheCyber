@@ -52,7 +52,7 @@ public class BattleManager extends Actor
         while(attackList.size() < setAttackListSize){
             trueTurnNumber++;
             for(int i = entities.size()-1; i >= 0; i--){
-                if(trueTurnNumber%entities.get(i).getSpeed()==0){
+                if(trueTurnNumber%(10-entities.get(i).getSpeed())==0){
                     attackList.add(entities.get(i));
                     if(attackList.size() >= setAttackListSize){
                         break outerloop;
@@ -114,8 +114,12 @@ public class BattleManager extends Actor
         }
     }
     public void act(){
-        if(entireField[0].getEntities().size()==0||entireField[1].getEntities().size()==0){
-            System.out.println("BATTLE ENDED");
+        if(entireField[0].getEntities().size()==0){
+            //((BattleWorld)getWorld()).startBattle();
+            getWorld().removeObject(this);
+        }
+        if(entireField[1].getEntities().size()==0){
+            ((BattleWorld)getWorld()).setupField();
             getWorld().removeObject(this);
         }
         if(curAttacker.isAttackFinished()){

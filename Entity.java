@@ -114,7 +114,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         return allTargets;
     }
     public Attack pickRandomMove(){
-        return attackSet.get(Greenfoot.getRandomNumber(attackSet.size()-1)); // Pick a move out of the arraylist of moves
+        return attackSet.get(Greenfoot.getRandomNumber(attackSet.size())); // Pick a move out of the arraylist of moves
     }
     public void executeAttack(){
         attackTime--;

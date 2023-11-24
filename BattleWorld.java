@@ -93,7 +93,7 @@ public class BattleWorld extends World
         addObject(aq, 140*Constants.IMAGE_SCALING+aq.getImage().getWidth()/2,7*Constants.IMAGE_SCALING+aq.getImage().getHeight()/2);
         
         this.stages = stages;
-        this.wave = 0;
+        this.wave = -1;
         
         setupField();
         // sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
@@ -102,6 +102,8 @@ public class BattleWorld extends World
     }
     
     public void setupField(){
+        wave++;
+        
         userSide = new Side(0, 1);
         enemySide = new Side(1, 6);
         

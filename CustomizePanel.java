@@ -58,7 +58,7 @@ public class CustomizePanel extends Actor
         movesetDescs = new TextPlace[totalMoveset.size()];
         int i = 0;
         for(Map.Entry<String, Attack> set: totalMoveset.entrySet()){
-            Presser move = new Presser(setMoveset, "augmentbutton.png", "augmentbutton.png", set.getKey());
+            Presser move = new Presser(setMoveset, "augmentbutton.png", "augmentbuttonFlashed.png", set.getKey());
             movesetButtons[i] = move;
             
             TextPlace attackDesc = initTextDisplay("Select Augment", getX()+50, getY() - 20 - getImage().getHeight()/3 + i * 75 , 180);
@@ -124,6 +124,15 @@ public class CustomizePanel extends Actor
         }else{
             if(moveset.size() >= 3) return;
             moveset.add(totalMoveset.get(move));
+        }
+        int i = 0;
+        for(Map.Entry<String, Attack> set: totalMoveset.entrySet()){
+            if(moveset.contains(set.getValue())){
+                movesetDescs[i].setColour(Constants.DARK_BLUE, Constants.LIME_GREEN, Constants.NEON_GREEN);
+            }else{
+                movesetDescs[i].setColour(Constants.DARK_BLUE, Constants.LIGHT_AQUA, Constants.AQUA);
+            }
+            i++;
         }
         System.out.println(moveset);
     }

@@ -33,7 +33,7 @@ public class StartWorld extends World
         bgImage = startBg.getCurrentImage();
         
         setBackground (transparentBg);
-        fade = new Fader (600, false);
+        fade = new Fader (300, false);
         playingLoopedAnim = true;
         addObject(fade, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
         /**
