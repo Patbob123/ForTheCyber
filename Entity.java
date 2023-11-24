@@ -45,6 +45,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected boolean onSlot;
     protected double ImageSizeScale;
     protected double toSlotSpeed;
+    protected double meleeSpeed;
     protected int filterActs;
     
     protected boolean stunner;
@@ -189,20 +190,20 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
     }
     public void meleeAttackAnimation(Entity target){
-        System.out.println("T: " +target);
+        double distance = getDistance(target);
+        meleeSpeed = 1;
         meleeTarget = target;
     }
     public void hitMeleeTarget(){
-        
         int targetX = meleeTarget.getX(); //gets target x-coord
         int targetY = meleeTarget.getY(); //gets target y-coord
         double distance = getDistance(meleeTarget);
         
         turnTowards(targetX, targetY);
         if(distance > 0) {
-            move(distance < toSlotSpeed ? 1 : toSlotSpeed);
+            meleeSpeed*=1.1;
+            move(distance < meleeSpeed ? 1 : meleeSpeed);
         }else if(distance == 0){
-            System.out.println("ASDASD");
             meleeTarget = null;
             initToSlot(this.slot);
         }
