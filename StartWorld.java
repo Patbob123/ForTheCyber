@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartWorld extends World
 {
-    private int acts, markActs, currActs;
-    private static GreenfootSound startMusic;
+    private int acts, currActs;
+    private SoundManager sm;
     private boolean mouseIsClicked, playLoopedAnim;
     private static GifImage startBg;
     private GreenfootImage bgImage, transparentBg, whiteBg;
@@ -35,33 +35,31 @@ public class StartWorld extends World
         
         setBackground (transparentBg);
         fade = new Fader ((60*4), false); //60 acts = 1 second, so 4 seconds for fader
-        fadeOut = new Fader ((60*6), true);
+        fadeOut = new Fader ((60*2), true);
         playLoopedAnim = true;
         mouseIsClicked = false;
-        addObject(fade, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
+        currActs = 0;
+        addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
         
-        startMusic = new GreenfootSound ("Jaded.mp3"); // add this when added startMusic
-        startMusic.setVolume(50);
+        sm = new SoundManager();
+        addObject(sm, 0, 0);
     }
     
     public void act (){
         
         acts++;
         
-        if(acts==1)startMusic.play();
+        if(acts==1)sm.playSoundLoop("Jaded");
         
         if(acts > 240 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 4 seconds
             mouseIsClicked = true;
-            markActs = acts;
         }
         
         if(mouseIsClicked){
-            addObject(fadeOut, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
+            addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
             currActs++;
-            if (currActs - markActs >= (60*4)){
-                startMusic.stop();
-                mouseIsClicked = false;
-                currActs = 0;
+            if (currActs >= fadeOut.getMaxDuration()){
+                sm.stopSounds();
                 Greenfoot.setWorld(new IntroWorld());
             }
         }
@@ -110,12 +108,12 @@ public class StartWorld extends World
         return(logoF1);
     }
     
-    public void started (){
-        startMusic.play();//on play, play music
+    public void started(){
+        sm.resumeSounds();
     }
     
-    public void stopped (){
-        startMusic.pause();//on pause, pause music
+    public void stopped(){
+        sm.pauseSounds();
     }
     
 }

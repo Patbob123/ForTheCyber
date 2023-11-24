@@ -23,7 +23,6 @@ public class BuilderWorld extends World
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     private GreenfootImage builderBgImage = new GreenfootImage("builderworldbg.png");
-    private GreenfootSound builderMusic = new GreenfootSound("builderMusic.mp3");
 
     private SoundManager sm;
     /**
