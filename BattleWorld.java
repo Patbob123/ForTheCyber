@@ -17,7 +17,7 @@ import java.io.IOException;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BattleWorld extends World
+public class BattleWorld extends SuperWorld
 {
     private UserChar uc;
     private ArrayList<ArrayList<Enemy>> stages;
@@ -40,7 +40,6 @@ public class BattleWorld extends World
     private GreenfootImage bgImage;
     private GreenfootImage bg1 = new GreenfootImage("bg1.png");
   
-    private SoundManager sm;
     
     public BattleWorld()
     {    
@@ -59,8 +58,6 @@ public class BattleWorld extends World
         } catch (FontFormatException e) {
             e.printStackTrace();
         }
-        sm = new SoundManager();
-        addObject(sm, 0, 0);
         
         
         actCounter = 0;
@@ -72,12 +69,6 @@ public class BattleWorld extends World
         
         //sm = new SoundManager();
         
-    }
-    public void started(){
-        //sm.playSoundLoop("backbmsuci.mp3");
-    }
-    public void stopped(){
-        //sm.pauseLoop("backbmsuci.mp3");
     }
     public void act(){
         actCounter++;
@@ -167,9 +158,7 @@ public class BattleWorld extends World
     public TextManager getTM(){
         return tm;
     }
-    public SoundManager getSM(){
-        return sm;
-    }
+
     public AttackQueue getAttackQueue(){
         return aq;
     }

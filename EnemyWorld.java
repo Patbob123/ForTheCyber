@@ -23,7 +23,7 @@ import java.io.IOException;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EnemyWorld extends World
+public class EnemyWorld extends SuperWorld
 {
     private int enemyPerWave;
     private HashMap<Integer, Enemy> enemyDict;

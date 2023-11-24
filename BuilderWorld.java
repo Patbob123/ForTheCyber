@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BuilderWorld extends World
+public class BuilderWorld extends SuperWorld
 {
     private boolean doneMaking;
     private int maxPoints;
@@ -24,7 +24,7 @@ public class BuilderWorld extends World
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     private GreenfootImage builderBgImage = new GreenfootImage("builderworldbg.png");
 
-    private SoundManager sm;
+    
     /**
      * Constructor for objects of class StatWorld.
      * 
@@ -100,8 +100,7 @@ public class BuilderWorld extends World
         
         //builderMusic.playLoop();
         
-        sm = new SoundManager();
-        addObject(sm, 0, 0);
+        
         sm.playSoundLoop("builderMusic");
         
         setBackground(builderBgImage);
@@ -162,12 +161,7 @@ public class BuilderWorld extends World
         cp.goToAugment();
     }
         
-    public void started(){
-        sm.resumeSounds();
-    }
-    public void stopped(){
-        sm.pauseSounds();
-    }
+
     
     public UserChar getUserChar() {
         return userCharInstance;

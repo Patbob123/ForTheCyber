@@ -6,10 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Edmond 
  * @version nov2023
  */
-public class StartWorld extends World
+public class StartWorld extends SuperWorld
 {
     private int acts, currActs;
-    private SoundManager sm;
     private boolean mouseIsClicked, playLoopedAnim;
     private static GifImage startBg;
     private GreenfootImage bgImage, transparentBg, whiteBg;
@@ -41,8 +40,7 @@ public class StartWorld extends World
         currActs = 0;
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
         
-        sm = new SoundManager();
-        addObject(sm, 0, 0);
+
     }
     
     public void act (){
@@ -108,12 +106,6 @@ public class StartWorld extends World
         return(logoF1);
     }
     
-    public void started(){
-        sm.resumeSounds();
-    }
     
-    public void stopped(){
-        sm.pauseSounds();
-    }
     
 }

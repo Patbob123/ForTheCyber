@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class IntroWorld extends World
+public class IntroWorld extends SuperWorld
 {
     private int acts;
     
