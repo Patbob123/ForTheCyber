@@ -20,6 +20,9 @@ public class Pincer extends Attack
         
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
         firstTarget.takeDamage(attacker.getAttack()*2);
+        
+        attacker.meleeAttackAnimation(target);
+        
         return targets;
     } 
    

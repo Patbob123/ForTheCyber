@@ -32,6 +32,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected String name;
     protected int side;
     protected Slot slot;
+    protected Entity meleeTarget;
     
     protected String entityImageUrl;
     protected GreenfootImage entityImage;
@@ -89,6 +90,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
 
         breathe();
+        if(meleeTarget != null){
+            hitMeleeTarget();
+        }
         if(!onSlot) {
             toSlot();
         }else {
@@ -182,6 +186,27 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
             getImage().scale(getImage().getWidth()+1, getImage().getHeight()-1);
             inhaling  = getImage().getHeight() < height * (1-ImageSizeScale);
         }
+    }
+    public void meleeAttackAnimation(Entity target){
+        meleeTarget = target;
+    }
+    public void hitMeleeTarget(){
+        
+        int targetX = meleeTarget.getX(); //gets slot x-coord
+        int targetY = meleeTarget.getY(); //gets slot x-coord
+        double distance = getDistance();
+        
+        turnTowards(targetX, targetY);
+        if(distance > 0) {
+            move(distance < toSlotSpeed ? 1 : toSlotSpeed);
+            distance = getDistance();
+        }else if(distance == 0){
+            initToSlot(this.slot);
+            meleeTarget = null;
+        }
+        
+        setRotation(0); 
+
     }
     public int compareTo(Entity e)
     {
