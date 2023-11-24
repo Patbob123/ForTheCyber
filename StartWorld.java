@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class StartWorld extends World
 {
     private int acts, frameCount;
-    private GreenfootSound startMusic;
+    private static GreenfootSound startMusic;
     private boolean playLoopedAnim;
     private static GifImage startBg;
     private GreenfootImage bgImage, transparentBg;
@@ -39,6 +39,7 @@ public class StartWorld extends World
         
         startMusic = new GreenfootSound ("Jaded.mp3"); // add this when added startMusic
         startMusic.setVolume(50);
+        startMusic.play();
     }
     
     public void act (){
@@ -78,8 +79,7 @@ public class StartWorld extends World
         if(acts >= (60*30)){ //if wait 30 sec, easter egg (logo dies)
             playLoopedAnim = false;
         }
-        
-        startMusic.play();
+
     }
     
     private GreenfootImage getLogoImg(){
