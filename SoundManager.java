@@ -61,9 +61,9 @@ public class SoundManager extends Actor
         }
     }
     public void resumeSounds(){
-        for(Sound s: playingSounds){
-            s.playSoundLoop();
-            playingSounds.remove(s);
+        for(int i = 0; i < playingSounds.size(); i++){
+            playingSounds.get(i).playSoundLoop();
+            playingSounds.remove(playingSounds.get(i));
         }
     }
     public void stopSounds(){
