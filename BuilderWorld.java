@@ -170,7 +170,7 @@ public class BuilderWorld extends World
     }
     
     public void stopped (){
-        builderMusic.stop();//on pause, pause music
+        builderMusic.pause();//on pause, pause music
     }
     
     public AugmentFunction setAugment = (augment) -> setAugment(augment);

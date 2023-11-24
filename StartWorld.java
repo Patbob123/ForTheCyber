@@ -15,7 +15,7 @@ public class StartWorld extends World
     private GreenfootImage bgImage, transparentBg;
     private GreenfootImage logoF1, logoF2, logoF3;
     private GreenfootImage currImg;
-    private Fader fade;
+    private Fader fade, fadeOut;
     /**
      * Constructor for objects of class StartWorld.
      * 
@@ -34,6 +34,7 @@ public class StartWorld extends World
         
         setBackground (transparentBg);
         fade = new Fader ((60*4), false); //60 acts = 1 second, so 4 seconds for fader
+        fadeOut = new Fader ((60*4), true);
         playLoopedAnim = true;
         addObject(fade, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
         
@@ -48,6 +49,8 @@ public class StartWorld extends World
         
         if(acts > 120 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 2 seconds
             startMusic.stop();//doesnt work??????
+            addObject(fadeOut, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
+            
             Greenfoot.setWorld(new IntroWorld());
         }
         
