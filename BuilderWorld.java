@@ -23,7 +23,6 @@ public class BuilderWorld extends World
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     private GreenfootImage builderBgImage = new GreenfootImage("builderworldbg.png");
-    private GreenfootSound builderMusic = new GreenfootSound("builderMusic.mp3");
 
     private SoundManager sm;
     /**
@@ -173,7 +172,7 @@ public class BuilderWorld extends World
         if(cp.getMoveset().size()==0) return;
         userCharInstance.getAugment().activateInitial();
         userCharInstance.setMoveset(cp.getMoveset());
-        //userCharInstance.setMoveset(cp.getMoveset());
+        sm.stopSounds();
         Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
     }
     

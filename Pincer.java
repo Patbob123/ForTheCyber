@@ -16,6 +16,8 @@ public class Pincer extends Attack
         return entireField[1-side].getEntities();
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
+        ((BattleWorld)attacker.getWorld()).getSM().playSound("pincer");
+        
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
         firstTarget.takeDamage(attacker.getAttack()*2);
         return targets;

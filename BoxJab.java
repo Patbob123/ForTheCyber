@@ -16,6 +16,8 @@ public class BoxJab extends Attack
         return entireField[1-side].getEntities();
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
+        ((BattleWorld)attacker.getWorld()).getSM().playSound("boxJab");
+        
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
         
         if(checkIfCrit()){

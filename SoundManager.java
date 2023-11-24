@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import greenfoot.GreenfootSound;
@@ -12,18 +13,28 @@ import greenfoot.GreenfootSound;
 public class SoundManager extends Actor
 {
     
-    HashMap<String, Sound> soundFiles = new HashMap<>();
+    private HashMap<String, Sound> soundFiles = new HashMap<>();
+    private ArrayList<Sound> playingSounds = new ArrayList<>();
     
     private GreenfootSound[] sounds;
     private int soundsIndex;
     //private Arr
     public SoundManager()
     {
-        soundFiles.put("builderMusic", new Sound("builderMusic.mp3",100 ));
+        soundFiles.put("builderMusic", new Sound("builderMusic.mp3",50 ));
+        soundFiles.put("Jaded", new Sound("Jaded.mp3",50 ));
         //soundFiles.put("attack", new Sound("attack.wav",12 ));
         //soundFiles.put("takeDamage", new Sound("takeDamage.wav",12 ));
         //soundFiles.put("buttonPress", new Sound("buttonPress.wav",12 ));
-        
+        //soundFiles.put("buttonPress", new Sound("buttonclick.mp3",12 ));
+        soundFiles.put("bodySlam", new Sound("attacks/bodyslam.wav",100 ));
+        soundFiles.put("deathRay", new Sound("attacks/deathray.wav",100 ));
+        soundFiles.put("pincer", new Sound("attacks/pincer.wav",100 ));
+        soundFiles.put("plasmaBeam", new Sound("attacks/plasmabeam.wav",100));
+        soundFiles.put("boxJab", new Sound("attacks/boxjab.wav",100 ));
+        soundFiles.put("shotgun", new Sound("attacks/shotgun.wav",100 ));
+        soundFiles.put("heal", new Sound("attacks/heal.wav",100 ));
+
         
         
         setImage(new GreenfootImage(1,1));
@@ -42,12 +53,22 @@ public class SoundManager extends Actor
     }
     public void pauseSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
-            set.getValue().pauseSoundLoop();
+            if(set.getValue().isPlaying()){
+                playingSounds.add(set.getValue());
+                set.getValue().pauseSoundLoop();
+            }
+            
         }
     }
     public void resumeSounds(){
+        for(Sound s: playingSounds){
+            s.playSoundLoop();
+            playingSounds.remove(s);
+        }
+    }
+    public void stopSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
-            set.getValue().playSoundLoop();
+            set.getValue().stopSoundLoop();
         }
     }
     

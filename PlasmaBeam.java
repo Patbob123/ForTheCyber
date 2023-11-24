@@ -22,6 +22,8 @@ public class PlasmaBeam extends Attack
         return entireField[1-side].getEntities();
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
+        ((BattleWorld)attacker.getWorld()).getSM().playSound("plasmaBeam");
+        
         for(Entity e: targets){
             e.takeDamage(attacker.getAttack());
         }

@@ -32,5 +32,8 @@ public class Fader extends Popup
         
     }
     
+    public int getMaxDuration(){
+        return maxDuration;
+    }
     
 }

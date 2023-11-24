@@ -59,6 +59,8 @@ public class BattleWorld extends World
         } catch (FontFormatException e) {
             e.printStackTrace();
         }
+        sm = new SoundManager();
+        addObject(sm, 0, 0);
         
         
         actCounter = 0;
@@ -164,6 +166,9 @@ public class BattleWorld extends World
     }
     public TextManager getTM(){
         return tm;
+    }
+    public SoundManager getSM(){
+        return sm;
     }
     public AttackQueue getAttackQueue(){
         return aq;

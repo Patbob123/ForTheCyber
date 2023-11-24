@@ -42,5 +42,8 @@ public class Sound extends Actor
     public int getSoundIndex(){
         return soundIndex;
     }
+    public boolean isPlaying(){
+        return sounds[soundIndex].isPlaying();
+    }
 
 }

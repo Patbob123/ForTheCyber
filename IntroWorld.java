@@ -53,7 +53,7 @@ public class IntroWorld extends World
             setBackground(scene4);
         }
         
-        if (acts > (60*2 + 60*5 + 60*2 + 60*4)){
+        if (acts == (60*2 + 60*5 + 60*2 + 60*4)){
             scene4.drawImage(click, 0, 0); //display some text to let the user know to click to proceed
         }
         
