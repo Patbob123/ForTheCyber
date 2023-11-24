@@ -23,6 +23,7 @@ public class BuilderWorld extends World
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     private GreenfootImage builderBgImage = new GreenfootImage("builderworldbg.png");
+    private GreenfootSound builderMusic = new GreenfootSound("builderMusic.mp3");
 
     private SoundManager sm;
     /**
@@ -98,6 +99,8 @@ public class BuilderWorld extends World
         curPoints = 0;
         setPaintOrder(Popup.class);
         
+        builderMusic.playLoop();
+        
         //sm = new SoundManager();
         //sm.playSoundLoop("backbmsuci.mp3"); 
         setBackground(builderBgImage);
@@ -166,7 +169,13 @@ public class BuilderWorld extends World
         Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
     }
     
+    public void started (){
+        builderMusic.playLoop();//on play, play music
+    }
     
+    public void stopped (){
+        builderMusic.pause();//on pause, pause music
+    }
     
     public AugmentFunction setAugment = (augment) -> setAugment(augment);
         

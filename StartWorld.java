@@ -9,13 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class StartWorld extends World
 {
     private int acts, frameCount;
-    private GreenfootSound startMusic;
-    private boolean playingLoopedAnim;
+    private static GreenfootSound startMusic;
+    private boolean playLoopedAnim;
     private static GifImage startBg;
     private GreenfootImage bgImage, transparentBg;
     private GreenfootImage logoF1, logoF2, logoF3;
     private GreenfootImage currImg;
-    private Fader fade;
+    private Fader fade, fadeOut;
     /**
      * Constructor for objects of class StartWorld.
      * 
@@ -34,11 +34,13 @@ public class StartWorld extends World
         
         setBackground (transparentBg);
         fade = new Fader ((60*4), false); //60 acts = 1 second, so 4 seconds for fader
-        playingLoopedAnim = true;
+        fadeOut = new Fader ((60*4), true);
+        playLoopedAnim = true;
         addObject(fade, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
         
         startMusic = new GreenfootSound ("Jaded.mp3"); // add this when added startMusic
         startMusic.setVolume(50);
+        startMusic.play();
     }
     
     public void act (){
@@ -47,6 +49,8 @@ public class StartWorld extends World
         
         if(acts > 120 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 2 seconds
             startMusic.stop();//doesnt work??????
+            addObject(fadeOut, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
+            
             Greenfoot.setWorld(new IntroWorld());
         }
         
@@ -55,19 +59,30 @@ public class StartWorld extends World
         bgImage = startBg.getCurrentImage();
         transparentBg.drawImage(bgImage, 0, 0);
         
-        if(playingLoopedAnim){
-            if(Greenfoot.getRandomNumber(50) > 1){
-                    transparentBg.drawImage(currImg, 0, 0);
+        if(playLoopedAnim){
+            if(acts < (60*2)){
+                if(Greenfoot.getRandomNumber(20) > 1){
+                        transparentBg.drawImage(currImg, 0, 0);
+                }
+            } else if (acts < (60*5)){
+                if(Greenfoot.getRandomNumber(50) > 1){
+                        transparentBg.drawImage(currImg, 0, 0);
+                }
+            } else if (acts < (60*8)){
+                if(Greenfoot.getRandomNumber(80) > 1){
+                        transparentBg.drawImage(currImg, 0, 0);
+                }
             } else {
-                //put flickering sound here
+                if(Greenfoot.getRandomNumber(200) > 1){
+                        transparentBg.drawImage(currImg, 0, 0);
+                }
             }
         } //draw logo img ontop
         
-        if(acts >= 3600){ //if wait 1 min, easter egg (logo dies)
-            playingLoopedAnim = false;
+        if(acts >= (60*30)){ //if wait 30 sec, easter egg (logo dies)
+            playLoopedAnim = false;
         }
-        
-        startMusic.play();
+
     }
     
     private GreenfootImage getLogoImg(){
@@ -84,11 +99,11 @@ public class StartWorld extends World
     }
     
     public void started (){
-        startMusic.playLoop();//on play, play music
+        startMusic.play();//on play, play music
     }
     
     public void stopped (){
-        startMusic.stop();//on pause, pause music
+        startMusic.pause();//on pause, pause music
     }
     
 }
