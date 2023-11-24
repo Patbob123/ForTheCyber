@@ -36,6 +36,9 @@ public abstract class Enemy extends Entity
     public Enemy cloneEnemy(){
         return new Gunner();
     }
+    public GreenfootImage getEnemyPortrait(){
+        return portraitImage;
+    }
     
 
 }

@@ -36,4 +36,7 @@ public class Sound
     public int getSoundIndex(){
         return soundIndex;
     }
+    public void pauseSoundLoop(){
+        sounds[0].pause();
+    }
 }

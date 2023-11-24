@@ -59,13 +59,6 @@ public class TextPlace extends TextManager
         String multiLineString = "";
         String[] multiLine;
         for(String s: words){
-            //ratio = stringWidth/textBoxWidth;
-            //if(ratio <= 0){
-            //    multiLineString += curString;
-            //    multiLine = multiLineString.split("`");
-            //    return multiLine;
-            //}
-            //System.out.println(s);
             if(s.equals("/n")){
                 multiLineString += curString +"`";
                 curString = "";
@@ -86,7 +79,6 @@ public class TextPlace extends TextManager
         }
         multiLineString += curString;
         multiLine = multiLineString.split("`");
-        //System.out.println(Arrays.toString(multiLine));
         return multiLine;
     }
 }

@@ -32,4 +32,7 @@ public class SoundManager
     public void playSoundLoop(String sound){
         soundFiles.get(sound).playSoundLoop();        
     }
+    public void pauseLoop(String sound){
+        soundFiles.get(sound).pauseSoundLoop();
+    }
 }

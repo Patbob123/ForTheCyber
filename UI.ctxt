@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=UI
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ UI\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ UI\ here.\r\n\ \r\n\ @Rex\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=width\ height
 comment1.target=UI(int,\ int)
-comment2.params=image
-comment2.target=UI(greenfoot.GreenfootImage)
+comment2.params=image\ scale
+comment2.target=UI(greenfoot.GreenfootImage,\ boolean)
 comment3.params=
 comment3.target=void\ act()
 comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ UI\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n

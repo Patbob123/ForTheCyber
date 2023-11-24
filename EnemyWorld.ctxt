@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=java.util.ArrayList\ getStages()
 comment4.params=
 comment4.target=void\ goToBuilderWorld()
-numComments=5
+comment5.params=wave\ height
+comment5.target=void\ displayEnemies(java.util.ArrayList,\ int)
+numComments=6
