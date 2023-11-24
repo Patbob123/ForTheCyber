@@ -129,30 +129,35 @@ public class BuilderWorld extends World
     //set hp private methods for builderworld
     
     private void setHp(double hp){
+        sm.playSound("click");
         if(!checkPoints(getUserChar().getHp()/10, hp/10)) return;
         getUserChar().setHp(hp);
         hpSetter.update(hp/10);
     }
     
     private void setDef(double def){
+        sm.playSound("click");
         if(!checkPoints(getUserChar().getDef(), def)) return;
         getUserChar().setDef(def);
         defSetter.update(def);
     }
     
     private void setAttack(double attk){
+        sm.playSound("click");
         if(!checkPoints(getUserChar().getAttack(), attk)) return;
         getUserChar().setAttack(attk);
         attackSetter.update(attk);
     }
     
     private void setSpeed(double speed){
+        sm.playSound("click");
         if(!checkPoints(getUserChar().getSpeed(), speed)) return;
         getUserChar().setSpeed(speed);
         speedSetter.update(speed);
     }
     
     private void setAugment(String augment){
+        sm.playSound("click");
         userCharInstance.setAugment(Augment.getAugment(augment));
         cp.goToAugment();
     }
