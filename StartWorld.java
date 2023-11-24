@@ -65,9 +65,9 @@ public class StartWorld extends SuperWorld
         //playLogoAnim();
         currImg = getLogoImg();
         bgImage = startBg.getCurrentImage();
+        transparentBg.drawImage(bgImage, 0, 0);
         
         if(playLoopedAnim){
-            transparentBg.drawImage(bgImage, 0, 0);
             if(acts < (60*2)){
                 if(Greenfoot.getRandomNumber(20) > 1){
                         transparentBg.drawImage(currImg, 0, 0);
