@@ -29,7 +29,7 @@ public class EnemyWorld extends SuperWorld
     private boolean goingToBuilderWorld;
     private HashMap<Integer, Enemy> enemyDict;
     private ArrayList<ArrayList<Enemy>> waves;
-    private GreenfootImage title;
+    private GreenfootImage enemyBg;
     private Fader fade,fadeOut;
 
     public EnemyWorld()
@@ -57,12 +57,14 @@ public class EnemyWorld extends SuperWorld
         Presser nextButton = new Presser(goBuilderWorld, "ready.png", "ready.png");
         addObject(nextButton, 800, 700);
         
-        title = new GreenfootImage("enemyWaveText.png");
+        enemyBg = new GreenfootImage("enemyWaveText.png");
+        enemyBg.scale(enemyBg.getWidth()*Constants.IMAGE_SCALING, enemyBg.getHeight()*Constants.IMAGE_SCALING);
+        
         displayEnemies(getStages().get(0), 200);
         displayEnemies(getStages().get(1), 350);
         displayEnemies(getStages().get(2), 500);    
         displayEnemies(getStages().get(3), 650);
-        setBackground(title); 
+        setBackground(enemyBg); 
         
         fade = new Fader ((60*2), false); //60 acts = 1 second, so 4 seconds for fader
         fadeOut = new Fader ((60*2), true);
@@ -115,6 +117,7 @@ public class EnemyWorld extends SuperWorld
     }
     public void goToBuilderWorld(){
         goingToBuilderWorld = true;
+        sm.playSound("blip");
         addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     public void displayEnemies(ArrayList<Enemy> wave, int height){

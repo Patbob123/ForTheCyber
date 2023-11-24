@@ -27,6 +27,8 @@ public class SoundManager extends Actor
         //soundFiles.put("takeDamage", new Sound("takeDamage.wav",12 ));
         //soundFiles.put("buttonPress", new Sound("buttonPress.wav",12 ));
         //soundFiles.put("buttonPress", new Sound("buttonclick.mp3",12 ));
+        soundFiles.put("blast", new Sound("blaster.mp3",50 ));
+        soundFiles.put("boom", new Sound("boom.mp3",60 ));
         soundFiles.put("bodySlam", new Sound("attacks/bodyslam.wav",100 ));
         soundFiles.put("deathRay", new Sound("attacks/deathray.wav",100 ));
         soundFiles.put("pincer", new Sound("attacks/pincer.wav",100 ));
@@ -35,7 +37,7 @@ public class SoundManager extends Actor
         soundFiles.put("shotgun", new Sound("attacks/shotgun.wav",100 ));
         soundFiles.put("heal", new Sound("attacks/heal.wav",100 ));
         soundFiles.put("click", new Sound("buttonclick.wav",100 ));
-        soundFiles.put("blip", new Sound("blip.wav",100));
+        soundFiles.put("blip", new Sound("blip.wav",80));
         soundFiles.put("rain", new Sound("rainambient.mp3",50));
         
         
@@ -61,12 +63,14 @@ public class SoundManager extends Actor
             }
             
         }
+        
     }
     public void resumeSounds(){
+        
         for(int i = 0; i < playingSounds.size(); i++){
             playingSounds.get(i).playSoundLoop();
-            playingSounds.remove(playingSounds.get(i));
         }
+        playingSounds.clear();
     }
     public void stopSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){

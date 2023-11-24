@@ -94,8 +94,6 @@ public class BattleWorld extends SuperWorld
         this.wave = -1;
         
         setupField();
-        // sidebar = new SuperTextBox ("Testing 123",  funFont, 236);
-        // addObject(sidebar, 150,100);
                 
     }
     

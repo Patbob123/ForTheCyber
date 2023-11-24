@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class IntroWorld extends SuperWorld
 {
     private GreenfootImage scene1, scene2, scene3, scene4, click;
-    private GreenfootSound blast, boom;
     private int acts, currActs;
     private boolean mouseIsClicked;
     private Fader fade, fadeOut;
@@ -26,8 +25,6 @@ public class IntroWorld extends SuperWorld
         scene3 = new GreenfootImage("deaddogBg.png");
         scene4 = new GreenfootImage("takerevengeBg.png");
         click = new GreenfootImage("click.png");
-        blast = new GreenfootSound("blaster.mp3");
-        boom = new GreenfootSound("boom.mp3");
         fade = new Fader(60*2,false);
         fadeOut = new Fader(60*2,true);
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
@@ -42,7 +39,7 @@ public class IntroWorld extends SuperWorld
         }
         
         if (acts == 90){
-            blast.play();
+            sm.playSound("blast");
         }
         
         if (acts == (100)){
@@ -50,7 +47,7 @@ public class IntroWorld extends SuperWorld
         }
         
         if (acts == (60*2 + 60*3)){
-            boom.play();
+            sm.playSound("boom");
             setBackground(scene3);
         }
         
@@ -65,6 +62,7 @@ public class IntroWorld extends SuperWorld
         if(acts > (60*5 + 60*2 + 60*4)) {
             if(Greenfoot.mouseClicked(null)){ //if mouse click and more than 4 seconds
                 mouseIsClicked = true;
+                sm.playSound("blip");
             }
         }
         
