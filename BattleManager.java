@@ -45,21 +45,36 @@ public class BattleManager extends Actor
         createAttackOrder();
     }
     public void createAttackOrder(){
-        attackList = new LinkedList<Entity>();
+        Queue<Entity> tempAttackList = new LinkedList<Entity>();
+        
         int entityIndex = 0;
-        int setAttackListSize = 20;
+        int setAttackListSize = 40;
+        
+        if(attackList != null){
+            for(int i = 0; i < setAttackListSize/4; i+=0){
+                Entity e = attackList.poll();
+                if(entities.contains(e)) {
+                    i++;
+                    tempAttackList.add(e);
+                }else{
+                    i--;
+                }
+            }
+        }
         outerloop:
-        while(attackList.size() < setAttackListSize){
+        while(tempAttackList.size() < setAttackListSize){
             trueTurnNumber++;
             for(int i = entities.size()-1; i >= 0; i--){
                 if(trueTurnNumber%(10-entities.get(i).getSpeed())==0){
-                    attackList.add(entities.get(i));
-                    if(attackList.size() >= setAttackListSize){
+                    tempAttackList.add(entities.get(i));
+                    if(tempAttackList.size() >= setAttackListSize){
                         break outerloop;
                     }
                 }
             }
         }
+        
+        attackList = tempAttackList;
        
     }
     public void nextTurn(){
@@ -104,7 +119,7 @@ public class BattleManager extends Actor
         //logMessage += augmentMessage;
         ((BattleWorld)getWorld()).getTM().addSentence(logMessage);
         
-        if(attackList.size() < 10){
+        if(attackList.size() < 20){
             createAttackOrder();
         }
          ((BattleWorld)getWorld()).getAttackQueue().updateQueue((LinkedList<Entity>)attackList);

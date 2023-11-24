@@ -23,7 +23,7 @@ public class Sound extends Actor
     }
     public void playSound(){
         sounds[soundIndex].play();
-        if(soundIndex > sounds.length-1){
+        if(soundIndex >= sounds.length-1){
             soundIndex = 0;
         } else {
             soundIndex++;    

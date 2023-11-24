@@ -112,7 +112,7 @@ public class BattleWorld extends World
         wave++;
         
         userSide = new Side(0, 1);
-        enemySide = new Side(1, 6);
+        enemySide = new Side(1, stages.get(wave).size());
         
         entireField = new Side[]{userSide, enemySide};
         attackSlots = new Slot[]{new Slot(550, 450), new Slot(625, 375)};
