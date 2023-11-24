@@ -69,9 +69,14 @@ public class BattleWorld extends World
         setPaintOrder(SuperTextBox.class);
         
         //sm = new SoundManager();
+        
+    }
+    public void started(){
         //sm.playSoundLoop("backbmsuci.mp3");
     }
-    
+    public void stopped(){
+        //sm.pauseLoop("backbmsuci.mp3");
+    }
     public void act(){
         actCounter++;
     }

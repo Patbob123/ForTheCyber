@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class UI here.
  * 
- * @author (your name) 
+ * @Rex (your name) 
  * @version (a version number or a date)
  */
 public class UI extends Actor
@@ -14,10 +14,13 @@ public class UI extends Actor
         rectangleImage.fill();
         setImage(rectangleImage);
     }
-    public UI(GreenfootImage image) {
-        image.scale(image.getWidth()*Constants.IMAGE_SCALING, image.getHeight()*Constants.IMAGE_SCALING);
+    public UI(GreenfootImage image, boolean scale) {
+        if(scale){
+            image.scale(image.getWidth()*Constants.IMAGE_SCALING, image.getHeight()*Constants.IMAGE_SCALING);
+        }
         setImage(image);
     }
+    
     /**
      * Act - do whatever the UI wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

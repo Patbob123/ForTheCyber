@@ -36,7 +36,7 @@ public class BuilderWorld extends World
         
         this.stages = stages;
         
-        UI builderUI = new UI(builderImage);
+        UI builderUI = new UI(builderImage,true);
         UI eblackRectangle = new UI(200, 800);
         addObject(builderUI, getWidth()/2, getHeight()/2);
         //addObject(blackRectangle, 100, 400);
