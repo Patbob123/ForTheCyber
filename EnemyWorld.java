@@ -57,7 +57,7 @@ public class EnemyWorld extends SuperWorld
         Presser nextButton = new Presser(goBuilderWorld, "ready.png", "ready.png");
         addObject(nextButton, 800, 700);
         
-        enemyBg = new GreenfootImage("enemyWaveText.png");
+        enemyBg = new GreenfootImage("enemyBg.png");
         enemyBg.scale(enemyBg.getWidth()*Constants.IMAGE_SCALING, enemyBg.getHeight()*Constants.IMAGE_SCALING);
         
         displayEnemies(getStages().get(0), 200);
