@@ -27,7 +27,7 @@ public class UserChar extends Entity
         
         side = 0;
         name = "ssundee";
-        addAttack(new DeathRay());
+        addMoveset(new DeathRay());
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();

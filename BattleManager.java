@@ -52,7 +52,7 @@ public class BattleManager extends Actor
         while(attackList.size() < setAttackListSize){
             trueTurnNumber++;
             for(int i = entities.size()-1; i >= 0; i--){
-                if(trueTurnNumber%entities.get(i).getSpeed()==0){
+                if(trueTurnNumber%(10-entities.get(i).getSpeed())==0){
                     attackList.add(entities.get(i));
                     if(attackList.size() >= setAttackListSize){
                         break outerloop;
@@ -84,10 +84,8 @@ public class BattleManager extends Actor
         else{
             ArrayList<Entity> allTargets = curAttacker.attack(move, entireField);
             logMessage += " /n !"+curAttacker+" performed @"+ move.getName()+" on: ";
-            System.out.println("ASDA");
             for(int i = 0; i < allTargets.size(); i++){
                 logMessage += "!"+allTargets.get(i)+" ";
-                System.out.println(allTargets.get(i)+": "+allTargets.get(i).isDead());
                 if(allTargets.get(i).isDead()){
                     
                     if(curAttacker.getAugment()!=null) {
@@ -116,8 +114,13 @@ public class BattleManager extends Actor
         }
     }
     public void act(){
-        if(entireField[0].getEntities().size()==0||entireField[1].getEntities().size()==0){
-            System.out.println("BATTLE ENDED");
+        if(entireField[0].getEntities().size()==0){
+            //((BattleWorld)getWorld()).startBattle();
+            getWorld().removeObject(this);
+        }
+        if(entireField[1].getEntities().size()==0){
+            ((BattleWorld)getWorld()).setupField();
+            getWorld().addObject(new NextWave(), getWorld().getWidth()/2, getWorld().getHeight()/2);
             getWorld().removeObject(this);
         }
         if(curAttacker.isAttackFinished()){

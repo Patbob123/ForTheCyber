@@ -26,6 +26,8 @@ public class StatSetter extends Actor
         
         addButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png",  increment);
         subButton = new Presser(buttonAction, "arrow.png", "arrowclicked.png", -increment);
+        
+        setImage(new GreenfootImage(1,1));
     }
     public void addedToWorld(World w){
         amountDisplay = initTextDisplay("Select Augment", x+length/2, y+10, 100);

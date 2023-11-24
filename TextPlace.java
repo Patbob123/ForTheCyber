@@ -31,6 +31,11 @@ public class TextPlace extends TextManager
     private int y;
     private int textBoxWidth; 
     private int borderThickness;
+    private String sentence;
+    private Color bgColour = Constants.DARK_BLUE;
+    private Color textColour = Constants.LIGHT_AQUA;
+    private Color borderColour = Constants.AQUA;
+    
     public TextPlace(String sentence, int x, int y, int textBoxWidth) throws FontFormatException, IOException {
         this.x = x;
         this.y = y;
@@ -39,13 +44,24 @@ public class TextPlace extends TextManager
         
         this.textBoxWidth = textBoxWidth; 
         borderThickness = 4;
+        sentence = "NPEIDK";
         
-        text = new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA);
+        text = new SuperTextBox(splitSentence(sentence), bgColour, textColour, pixel, false, textBoxWidth, borderThickness, borderColour);
         setImage(new GreenfootImage(1,1));
     }
     public void setSentence(String sentence){
+        this.sentence = sentence;  
+        refresh();
+    }
+    public void setColour(Color bgCol, Color textCol, Color borderCol){
+        bgColour = bgCol;
+        textColour = textCol;
+        borderColour = borderCol;
+        refresh();
+    }
+    public void refresh(){
         getWorld().removeObject(text);
-        text = new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA);
+        text = new SuperTextBox(splitSentence(sentence), bgColour, textColour, pixel, false, textBoxWidth, borderThickness, borderColour);
         getWorld().addObject(text,x,y+text.getImage().getHeight()/2);
     }
     public void removeSentence(){
@@ -59,13 +75,6 @@ public class TextPlace extends TextManager
         String multiLineString = "";
         String[] multiLine;
         for(String s: words){
-            //ratio = stringWidth/textBoxWidth;
-            //if(ratio <= 0){
-            //    multiLineString += curString;
-            //    multiLine = multiLineString.split("`");
-            //    return multiLine;
-            //}
-            //System.out.println(s);
             if(s.equals("/n")){
                 multiLineString += curString +"`";
                 curString = "";
@@ -86,7 +95,6 @@ public class TextPlace extends TextManager
         }
         multiLineString += curString;
         multiLine = multiLineString.split("`");
-        //System.out.println(Arrays.toString(multiLine));
         return multiLine;
     }
 }

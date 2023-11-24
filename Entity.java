@@ -57,9 +57,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         maxDefense = 9;
         maxAttack = 9;
         
-        stunner = false;;
-        stunned = false;;
-        wideRange = false;;
+        stunner = false;
+        stunned = false;
+        wideRange = false;
         dodge = false;
         //attack = maxAttack;
         //speed = maxSpeed;
@@ -114,7 +114,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         return allTargets;
     }
     public Attack pickRandomMove(){
-        return attackSet.get(Greenfoot.getRandomNumber(attackSet.size()-1)); // Pick a move out of the arraylist of moves
+        return attackSet.get(Greenfoot.getRandomNumber(attackSet.size())); // Pick a move out of the arraylist of moves
     }
     public void executeAttack(){
         attackTime--;
@@ -189,7 +189,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         if (this.speed > e.speed) return 1;
         return 0;
     }
-    public void addAttack(Attack attackMove){
+    public void addMoveset(Attack attackMove){
+        System.out.println("AYA");
         attackSet.add(attackMove);
     }
     
@@ -271,7 +272,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         this.stunned = stunned;
     }
     public void takeDamage(double damage) {
-        if(getDodge() && Greenfoot.getRandomNumber(10)==1) return;
+        if(getDodge() && Greenfoot.getRandomNumber(2)==1) return;
         setHp(this.hp - damage);
 
         filteredImage = createDuplicateImage();

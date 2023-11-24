@@ -23,6 +23,8 @@ public class Syringe extends Augment
     }
 
     public String activateLevelUp(){
+        owner.getWorld().addObject(new Levelup(), owner.getWorld().getWidth()/2, owner.getWorld().getHeight()/2);
+        
         owner.setAttack(owner.getAttack()+4);
         return owner+" gained 4 attack and 1 speed from "+getName();
     }

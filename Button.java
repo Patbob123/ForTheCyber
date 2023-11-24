@@ -37,16 +37,12 @@ public class Button extends Actor
             UserChar user = ((BuilderWorld)getWorld()).getUserChar();
             if (attributeType.equals("life")) {
                 user.setHp(user.getHp() + 1);
-                System.out.println("life: " + user.getHp());
             } else if (attributeType.equals("speed")) {
                 user.setSpeed(user.getSpeed() + 1);
-                System.out.println("speed: " + user.getSpeed());
             } else if (attributeType.equals("strength")) {
                 user.setAttack(user.getAttack() + 1);
-                System.out.println("strength: " + user.getAttack());
             } else if (attributeType.equals("defense")) {
                 user.setDef(user.getDef() + 1);
-                System.out.println("defense: " + user.getDef());
             } else if (attributeType.equals("Robotic arm")) {
                 if (Value == 0) {
                     Value = 1;
@@ -57,8 +53,7 @@ public class Button extends Actor
                     user.setDef(user.getDef() - 2);
                     Value = 0;
                 }
-                System.out.println("strength: " + user.getAttack());
-                System.out.println("defense: " + user.getDef());
+
             }
         }
     }

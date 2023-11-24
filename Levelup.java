@@ -17,8 +17,11 @@ public class Levelup extends Popup
         flashDuration = 60;
         flashTime = 10;
         popupImage = new GreenfootImage("levelup.png");
-        
         altImage = new GreenfootImage("levelup2.png");
+        
+        popupImage.scale(popupImage.getWidth()*Constants.IMAGE_SCALING, popupImage.getHeight()*Constants.IMAGE_SCALING);
+        altImage.scale(altImage.getWidth()*Constants.IMAGE_SCALING, altImage.getHeight()*Constants.IMAGE_SCALING);
+        
         setImage(popupImage);
     }
     

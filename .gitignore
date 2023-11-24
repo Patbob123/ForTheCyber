@@ -1,12 +1,4 @@
-.class
-.ctxt
+*.class
+*.ctxt
 project.greenfoot
-Ability.class
-Attack.class
-*.class
-*.class
-Attack.class
-*.class
-StartWorld.java
-StartWorld.class
-IntroWorld.class
+

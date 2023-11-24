@@ -22,6 +22,7 @@ public class BuilderWorld extends World
     private StatSetter hpSetter;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
+    private GreenfootImage builderBgImage = new GreenfootImage("builderworldbg.png");
     private GreenfootSound builderMusic = new GreenfootSound("builderMusic.mp3");
 
     private SoundManager sm;
@@ -51,14 +52,14 @@ public class BuilderWorld extends World
         addObject(speedSetter, 0, 0);
         addObject(hpSetter, 0, 0);
         
-        Presser marmButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Robot Arm");
-        Presser mlegButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Robot Leg");
-        Presser cloakButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Stealth Cloak");
-        Presser vestButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Kevlar Vest");
-        Presser syringeButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Syringe");
-        Presser shieldButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Shield");
-        Presser longarmButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Long Arm");
-        Presser taserButton = new Presser(setAugment, "augmentbutton.png", "augmentbutton.png", "Taser");
+        Presser marmButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Robot Arm");
+        Presser mlegButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Robot Leg");
+        Presser cloakButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Stealth Cloak");
+        Presser vestButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Kevlar Vest");
+        Presser syringeButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Syringe");
+        Presser shieldButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Shield");
+        Presser longarmButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Long Arm");
+        Presser taserButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Taser");
         
         addObject(marmButton, 650, 400);
         addObject(mlegButton, 550, 500);
@@ -102,6 +103,7 @@ public class BuilderWorld extends World
         
         //sm = new SoundManager();
         //sm.playSoundLoop("backbmsuci.mp3"); 
+        setBackground(builderBgImage);
     }
     
     public void act(){
@@ -160,7 +162,9 @@ public class BuilderWorld extends World
     }
     public void goToBattleWorld(){
         if(userCharInstance.getAugment()==null) return;
+        if(cp.getMoveset().size()==0) return;
         userCharInstance.getAugment().activateInitial();
+        userCharInstance.setMoveset(cp.getMoveset());
         //userCharInstance.setMoveset(cp.getMoveset());
         Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
     }

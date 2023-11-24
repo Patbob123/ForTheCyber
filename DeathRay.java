@@ -17,12 +17,13 @@ public class DeathRay extends Attack
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
-        firstTarget.takeDamage(attacker.getAttack());
+        firstTarget.takeDamage(attacker.getAttack()*2);
         for(Entity e: targets){
             if(e!=firstTarget){
-                e.takeDamage(attacker.getAttack()/6);
+                e.takeDamage(attacker.getAttack()/2);
             }
         }
+        attacker.takeDamage(attacker.getAttack()/3);
         return targets;
     } 
     public void act()
