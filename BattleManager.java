@@ -120,6 +120,7 @@ public class BattleManager extends Actor
         }
         if(entireField[1].getEntities().size()==0){
             ((BattleWorld)getWorld()).setupField();
+            getWorld().addObject(new NextWave(), getWorld().getWidth()/2, getWorld().getHeight()/2);
             getWorld().removeObject(this);
         }
         if(curAttacker.isAttackFinished()){

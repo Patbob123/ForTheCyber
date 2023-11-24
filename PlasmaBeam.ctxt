@@ -3,12 +3,10 @@ comment0.target=PlasmaBeam
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ PlasmaMissile\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=PlasmaBeam()
-comment1.text=\r\n\ \ \ \ public\ PlasmaBeam\ (Entity\ attacker){\r\n\ \ \ \ \ \ \ \ super(attacker);\r\n\ \ \ \ \ \ \ \ moveDamage\ \=\ calculateDamage();\r\n\ \ \ \ }\r\n
 comment2.params=attacker
 comment2.target=double\ calculateDamage(Entity)
 comment3.params=attacker\ entireField\ side
 comment3.target=java.util.ArrayList\ target(Entity,\ Side[],\ int)
-comment3.text=\r\n\ \ \ \ public\ void\ updateMove(){\r\n\ \ \ \ \ \ \ \ moveDamage\ \=\ calculateDamage();\r\n\ \ \ \ }\r\n
 comment4.params=targets\ attacker
 comment4.target=java.util.ArrayList\ performMove(java.util.ArrayList,\ Entity)
 numComments=5
