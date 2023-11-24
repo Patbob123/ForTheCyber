@@ -8,11 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartWorld extends World
 {
-    private int acts, frameCount;
+    private int acts, markActs, currActs;
     private static GreenfootSound startMusic;
-    private boolean playLoopedAnim;
+    private boolean mouseIsClicked, playLoopedAnim;
     private static GifImage startBg;
-    private GreenfootImage bgImage, transparentBg;
+    private GreenfootImage bgImage, transparentBg, whiteBg;
     private GreenfootImage logoF1, logoF2, logoF3;
     private GreenfootImage currImg;
     private Fader fade, fadeOut;
@@ -30,12 +30,14 @@ public class StartWorld extends World
         logoF1 = new GreenfootImage("logof1.png");
         logoF2 = new GreenfootImage("logof2.png");
         logoF3 = new GreenfootImage("logof3.png");
+        whiteBg = new GreenfootImage("whiteBg.png");
         bgImage = startBg.getCurrentImage();
         
         setBackground (transparentBg);
         fade = new Fader ((60*4), false); //60 acts = 1 second, so 4 seconds for fader
-        fadeOut = new Fader ((60*4), true);
+        fadeOut = new Fader ((60*6), true);
         playLoopedAnim = true;
+        mouseIsClicked = false;
         addObject(fade, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
         
         startMusic = new GreenfootSound ("Jaded.mp3"); // add this when added startMusic
@@ -45,20 +47,31 @@ public class StartWorld extends World
     public void act (){
         
         acts++;
+        
         if(acts==1)startMusic.play();
-        if(acts > 120 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 2 seconds
-            startMusic.stop();//doesnt work??????
+        
+        if(acts > 240 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 4 seconds
+            mouseIsClicked = true;
+            markActs = acts;
+        }
+        
+        if(mouseIsClicked){
             addObject(fadeOut, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
-            
-            Greenfoot.setWorld(new IntroWorld());
+            currActs++;
+            if (currActs - markActs >= (60*4)){
+                startMusic.stop();
+                mouseIsClicked = false;
+                currActs = 0;
+                Greenfoot.setWorld(new IntroWorld());
+            }
         }
         
         //playLogoAnim();
         currImg = getLogoImg();
         bgImage = startBg.getCurrentImage();
-        transparentBg.drawImage(bgImage, 0, 0);
         
         if(playLoopedAnim){
+            transparentBg.drawImage(bgImage, 0, 0);
             if(acts < (60*2)){
                 if(Greenfoot.getRandomNumber(20) > 1){
                         transparentBg.drawImage(currImg, 0, 0);
