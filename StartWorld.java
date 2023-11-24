@@ -10,7 +10,7 @@ public class StartWorld extends World
 {
     private int acts, frameCount;
     private GreenfootSound startMusic;
-    private boolean playingLoopedAnim;
+    private boolean playLoopedAnim;
     private static GifImage startBg;
     private GreenfootImage bgImage, transparentBg;
     private GreenfootImage logoF1, logoF2, logoF3;
@@ -34,7 +34,7 @@ public class StartWorld extends World
         
         setBackground (transparentBg);
         fade = new Fader ((60*4), false); //60 acts = 1 second, so 4 seconds for fader
-        playingLoopedAnim = true;
+        playLoopedAnim = true;
         addObject(fade, transparentBg.getWidth()/2, transparentBg.getHeight()/2);
         
         startMusic = new GreenfootSound ("Jaded.mp3"); // add this when added startMusic
@@ -55,16 +55,28 @@ public class StartWorld extends World
         bgImage = startBg.getCurrentImage();
         transparentBg.drawImage(bgImage, 0, 0);
         
-        if(playingLoopedAnim){
-            if(Greenfoot.getRandomNumber(50) > 1){
-                    transparentBg.drawImage(currImg, 0, 0);
+        if(playLoopedAnim){
+            if(acts < (60*2)){
+                if(Greenfoot.getRandomNumber(20) > 1){
+                        transparentBg.drawImage(currImg, 0, 0);
+                }
+            } else if (acts < (60*5)){
+                if(Greenfoot.getRandomNumber(50) > 1){
+                        transparentBg.drawImage(currImg, 0, 0);
+                }
+            } else if (acts < (60*8)){
+                if(Greenfoot.getRandomNumber(80) > 1){
+                        transparentBg.drawImage(currImg, 0, 0);
+                }
             } else {
-                //put flickering sound here
+                if(Greenfoot.getRandomNumber(200) > 1){
+                        transparentBg.drawImage(currImg, 0, 0);
+                }
             }
         } //draw logo img ontop
         
-        if(acts >= 3600){ //if wait 1 min, easter egg (logo dies)
-            playingLoopedAnim = false;
+        if(acts >= (60*30)){ //if wait 30 sec, easter egg (logo dies)
+            playLoopedAnim = false;
         }
         
         startMusic.play();
