@@ -45,8 +45,8 @@ public class StartWorld extends World
         
         acts++;
         
-        if(acts > 150 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 2.5 seconds
-            stopped();
+        if(acts > 120 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 2 seconds
+            startMusic.stop();//doesnt work??????
             Greenfoot.setWorld(new IntroWorld());
         }
         
