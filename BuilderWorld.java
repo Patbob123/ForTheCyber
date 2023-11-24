@@ -22,6 +22,7 @@ public class BuilderWorld extends World
     private StatSetter hpSetter;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
+    private GreenfootSound builderMusic = new GreenfootSound("builderMusic.mp3");
 
     private SoundManager sm;
     /**
@@ -96,6 +97,8 @@ public class BuilderWorld extends World
         maxPoints = 18;
         curPoints = 0;
         setPaintOrder(Popup.class);
+        
+        builderMusic.playLoop();
         
         //sm = new SoundManager();
         //sm.playSoundLoop("backbmsuci.mp3"); 

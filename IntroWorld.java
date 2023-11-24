@@ -26,7 +26,6 @@ public class IntroWorld extends World
         scene4 = new GreenfootImage("takerevengeBg.png");
         click = new GreenfootImage("click.png");
         blast = new GreenfootSound("blaster.mp3");
-        blast.setVolume(80);
     }
     
     public void act() {
