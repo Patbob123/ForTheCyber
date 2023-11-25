@@ -20,7 +20,7 @@ public abstract class Attack extends SuperSmoothMover
     protected double HP;
     protected double DEF;
     protected double SPD;
-    protected int duration = 180;
+    protected int duration = 120;
     protected String name;
     protected int critChance;
     

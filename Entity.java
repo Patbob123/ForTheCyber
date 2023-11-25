@@ -56,7 +56,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected boolean wideRange;
     protected boolean dodge;
 
-    protected ArrayList<Attack> attackSet = new ArrayList<Attack>(Arrays.asList(new BodySlam())); 
+    protected ArrayList<Attack> attackSet = new ArrayList<Attack>(); 
     public Entity(){
         maxSpeed = 9;
         maxDefense = 9;
