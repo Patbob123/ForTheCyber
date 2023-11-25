@@ -21,9 +21,13 @@ public class Gunner extends Enemy
         portraitImage = new GreenfootImage("enemy/GunnerPortrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         
+        attack = 2;
+        speed = 2;
+        
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
+    
     }
 
     public Enemy cloneEnemy(){

@@ -20,9 +20,15 @@ public class SkeleCop extends Enemy
         portraitImage = new GreenfootImage("enemy/SkelecopPortrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
     
+        attack = 2;
+        speed = 3;
+        maxHp = 25;
+        hp = maxHp;
+        
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
+        
     }
     public Enemy cloneEnemy(){
         return new SkeleCop();
