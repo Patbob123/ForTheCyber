@@ -114,7 +114,7 @@ public class BattleManager extends Actor
                 logMessage += "!"+allTargets.get(i)+" ";
                 if(allTargets.get(i).isDead()){
                     
-                    if(curAttacker.getAugment()!=null) {
+                    if(curAttacker.getAugment()!=null && Greenfoot.getRandomNumber(10) < 5) {
                         augmentMessage+=curAttacker.getAugment().activateLevelUp()+" /n ";
                     }
                     

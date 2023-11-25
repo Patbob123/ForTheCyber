@@ -13,8 +13,11 @@ import java.util.ArrayList;
  */
 public class DeathRay extends Attack
 {
+    private String projectileImageUrl;
+    
     public DeathRay(){
         name = "DeathRay";
+        projectileImageUrl = "attack/deathray.png";
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
         return entireField[1-side].getEntities();
@@ -30,6 +33,7 @@ public class DeathRay extends Attack
             }
         }
         attacker.takeDamage(attacker.getAttack()/3);
+        attacker.rangeAttackAnimation(projectileImageUrl, firstTarget);
         return targets;
     } 
     public void act()
