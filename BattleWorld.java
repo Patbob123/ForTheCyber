@@ -210,7 +210,7 @@ public class BattleWorld extends SuperWorld
     private AttackQueue aq;
     
     private GreenfootImage bgImage;
-    private GreenfootImage bg1 = new GreenfootImage("bg1.png");
+    private GreenfootImage bg1 = new GreenfootImage("wave1Bg.png");
   
     
     public BattleWorld()
