@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * World to display the forestory and set the tone of the game
+ * THE SECOND WORLD: Used to display the opening story for the simulation
  * 
  * @author Edmond
  * @version nov2023
@@ -14,17 +14,18 @@ public class IntroWorld extends SuperWorld
     private Fader fade, fadeOut;
     /**
      * Constructor for objects of class IntroWorld.
-     * 
      */
     public IntroWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1); 
+        
+        // Story Board Images
         scene1 = new GreenfootImage("transparentBg.png");
         scene2 = new GreenfootImage("ohnoBg.png");
         scene3 = new GreenfootImage("deaddogBg.png");
         scene4 = new GreenfootImage("takerevengeBg.png");
         click = new GreenfootImage("click.png");
+        
         fade = new Fader(60*2,false);
         fadeOut = new Fader(60*2,true);
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
@@ -32,6 +33,9 @@ public class IntroWorld extends SuperWorld
         setBackground(scene1);
     }
     
+    /**
+     * Act method controls the timming of the story board and the sound effects
+     */
     public void act() {
         super.act();
         acts++;

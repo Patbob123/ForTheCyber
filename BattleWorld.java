@@ -181,11 +181,16 @@ import java.io.IOException;
  * <ul>
  * - Sometimes Supertextbox incorrectly spaces out words
  * </ul>
-
-
- * @author Dawson Li
+ * 
+ * 
  * <p>
- * Modified by: Rex Xu
+ * THE FIFTH WORLD: The main world where the simulation is run 
+ * </p>
+
+
+ * @author Dawson 
+ * <p>
+ * Modified by: Rex 
  * </p>
  * @version November, 24, 2023
  */
@@ -210,15 +215,14 @@ public class BattleWorld extends SuperWorld
     private AttackQueue aq;
     
     private GreenfootImage bgImage;
-    private GreenfootImage bg1 = new GreenfootImage("bg1.png");
+    private GreenfootImage bg1 = new GreenfootImage("wave1Bg.png");
   
     
     public BattleWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1); 
         
-        // Spawning TextManager requires error handling for reading files (See textmanager class)
+        // Spawning TextManager requires error handling for reading files (See TextManager.class)
         try{
             tm = new TextManager();
             addObject(tm, tm.getImage().getWidth()/2,tm.getImage().getHeight()/2);
@@ -229,17 +233,11 @@ public class BattleWorld extends SuperWorld
             e.printStackTrace();
         } catch (FontFormatException e) {
             e.printStackTrace();
-        }
-        
-        
+        }        
         actCounter = 0;
         
         bgImage = new GreenfootImage(getWidth(), getHeight());
         setBackground(bgImage);
-        
-        
-        //sm = new SoundManager();
-        
     }
     public void act(){
         super.act();
@@ -254,7 +252,6 @@ public class BattleWorld extends SuperWorld
     }
     public BattleWorld(UserChar u, ArrayList<ArrayList<Enemy>> stages)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         this();
         uc = u;
         sb = new StatBar(uc);
@@ -271,13 +268,20 @@ public class BattleWorld extends SuperWorld
         addObject(new Rain(), Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     
+    /**
+     * Generate all of the set postions for entites in the simulation 
+     */
     public void setupField(){
         wave++;
+        
+        //Game Over Victory Method
         if(wave == stages.size()){
             Greenfoot.setWorld(new WinWorld());
             return;
         }
         
+        // First Parameter of Side is 0 for user, 1 for enemy
+        // Second Paremter of Side is for number of entites on each side
         userSide = new Side(0, 1);
         enemySide = new Side(1, stages.get(wave).size());
         
@@ -297,12 +301,16 @@ public class BattleWorld extends SuperWorld
         startBattle();
     }
     
+    /**
+     *  Start the main loop of the simulation
+     */
     public void startBattle(){
         entities = new ArrayList<Entity>();
         
         Coordinate userSideSpawn = new Coordinate(800, 800);
         Coordinate enemySideSpawn = new Coordinate(400, 0);
-
+        
+        //Spawn all entities on the world at their designated slot
         for(Slot slot: userSide.getSlots()){
             addObject(uc, userSideSpawn.getX(), userSideSpawn.getY());
             uc.initToSlot(slot);
@@ -325,6 +333,10 @@ public class BattleWorld extends SuperWorld
         BattleManager bm = new BattleManager(entities, entireField);
         addObject(bm, 0, 0);
     }
+    
+    /**
+     * Remove and reslot all the entities 
+     */
     public void refreshEntities(){
         removeObjects(getObjects(Entity.class));
         for(Entity e: entities){

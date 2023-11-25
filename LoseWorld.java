@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * World to display the Lose Screen when you die
+ * THE LAST WORLD: Displays the game over screen when the user dies
  * 
  * @author Dawson 
  * <p>
@@ -13,12 +13,14 @@ public class LoseWorld extends SuperWorld
 {
     private GreenfootImage bgImage;
     
+    /**
+     * Constructor for the LoseWorld
+     */
     public LoseWorld()
     {
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1);  
         
-        
+        // Set the buttons for restart and return to menu screen
         Presser restartButton = new Presser(goEnemyWorld, "restartimg.png", "restartimg.png");
         addObject(restartButton, Constants.WORLD_WIDTH/2, 2*Constants.WORLD_HEIGHT/3);
         

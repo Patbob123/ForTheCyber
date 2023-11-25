@@ -1,7 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * World to display the win screen when you beat all the levels
+ * 
+ * THE LAST WORLD: Displays the win screen when you beat all the waves
  * 
  * @author Dawson 
  * <p>
@@ -13,12 +14,14 @@ public class WinWorld extends SuperWorld
 {
     private GreenfootImage bgImage;
     
+    /**
+     * Constructor for the WinWorld
+     */
     public WinWorld()
     {
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1);  
         
-        
+        // Set the buttons for restart and return to menu screen
         Presser restartButton = new Presser(goEnemyWorld, "restartimg.png", "restartimg.png");
         addObject(restartButton, Constants.WORLD_WIDTH/2, 2*Constants.WORLD_HEIGHT/3);
         
@@ -34,14 +37,11 @@ public class WinWorld extends SuperWorld
     public void goToEnemyWorld(){
         Greenfoot.setWorld(new EnemyWorld());
     }
-    
     public void goToStartWorld(){
         Greenfoot.setWorld(new StartWorld());
     }
     
     public Function goEnemyWorld = () -> goToEnemyWorld();
     public Function goStartWorld = () -> goToStartWorld();
-    
-    
     
 }

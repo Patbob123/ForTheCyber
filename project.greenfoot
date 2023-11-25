@@ -1,7 +1,8 @@
 #Greenfoot project file
-dependency1.from=SuperWorld
-dependency1.to=SoundManager
+dependency1.from=TextManager
+dependency1.to=SuperTextBox
 dependency1.type=UsesDependency
+<<<<<<< HEAD
 dependency10.from=SuperWorld
 dependency10.to=HPBar
 dependency10.type=UsesDependency
@@ -160,6 +161,166 @@ dependency146.to=AugmentFunction
 dependency146.type=UsesDependency
 dependency147.from=Presser
 dependency147.to=SetterFunction
+=======
+dependency10.from=NextWave
+dependency10.to=Constants
+dependency10.type=UsesDependency
+dependency100.from=Mech57
+dependency100.to=PlasmaBeam
+dependency100.type=UsesDependency
+dependency101.from=IntroWorld
+dependency101.to=Fader
+dependency101.type=UsesDependency
+dependency102.from=IntroWorld
+dependency102.to=EnemyWorld
+dependency102.type=UsesDependency
+dependency103.from=IntroWorld
+dependency103.to=Constants
+dependency103.type=UsesDependency
+dependency104.from=LoseWorld
+dependency104.to=Presser
+dependency104.type=UsesDependency
+dependency105.from=LoseWorld
+dependency105.to=EnemyWorld
+dependency105.type=UsesDependency
+dependency106.from=LoseWorld
+dependency106.to=StartWorld
+dependency106.type=UsesDependency
+dependency107.from=LoseWorld
+dependency107.to=Function
+dependency107.type=UsesDependency
+dependency108.from=LoseWorld
+dependency108.to=Constants
+dependency108.type=UsesDependency
+dependency109.from=StartWorld
+dependency109.to=GifImage
+dependency109.type=UsesDependency
+dependency11.from=Rain
+dependency11.to=Constants
+dependency11.type=UsesDependency
+dependency110.from=StartWorld
+dependency110.to=Fader
+dependency110.type=UsesDependency
+dependency111.from=StartWorld
+dependency111.to=IntroWorld
+dependency111.type=UsesDependency
+dependency112.from=StartWorld
+dependency112.to=Constants
+dependency112.type=UsesDependency
+dependency113.from=Attack
+dependency113.to=Entity
+dependency113.type=UsesDependency
+dependency114.from=HPBar
+dependency114.to=Entity
+dependency114.type=UsesDependency
+dependency115.from=HPBar
+dependency115.to=UserChar
+dependency115.type=UsesDependency
+dependency116.from=HPBar
+dependency116.to=Enemy
+dependency116.type=UsesDependency
+dependency117.from=HPBar
+dependency117.to=Constants
+dependency117.type=UsesDependency
+dependency118.from=Sustainer
+dependency118.to=Heal
+dependency118.type=UsesDependency
+dependency119.from=Sustainer
+dependency119.to=Constants
+dependency119.type=UsesDependency
+dependency12.from=Entity
+dependency12.to=HPBar
+dependency12.type=UsesDependency
+dependency120.from=AttackQueue
+dependency120.to=Entity
+dependency120.type=UsesDependency
+dependency121.from=BodySlam
+dependency121.to=Entity
+dependency121.type=UsesDependency
+dependency122.from=BodySlam
+dependency122.to=BattleWorld
+dependency122.type=UsesDependency
+dependency123.from=BuilderWorld
+dependency123.to=UserChar
+dependency123.type=UsesDependency
+dependency124.from=BuilderWorld
+dependency124.to=Enemy
+dependency124.type=UsesDependency
+dependency125.from=BuilderWorld
+dependency125.to=CustomizePanel
+dependency125.type=UsesDependency
+dependency126.from=BuilderWorld
+dependency126.to=StatSetter
+dependency126.type=UsesDependency
+dependency127.from=BuilderWorld
+dependency127.to=UI
+dependency127.type=UsesDependency
+dependency128.from=BuilderWorld
+dependency128.to=Presser
+dependency128.type=UsesDependency
+dependency129.from=BuilderWorld
+dependency129.to=Function
+dependency129.type=UsesDependency
+dependency13.from=Entity
+dependency13.to=Slot
+dependency13.type=UsesDependency
+dependency130.from=BuilderWorld
+dependency130.to=BattleWorld
+dependency130.type=UsesDependency
+dependency131.from=BuilderWorld
+dependency131.to=AugmentFunction
+dependency131.type=UsesDependency
+dependency132.from=BuilderWorld
+dependency132.to=SetterFunction
+dependency132.type=UsesDependency
+dependency133.from=BuilderWorld
+dependency133.to=Constants
+dependency133.type=UsesDependency
+dependency134.from=BuilderWorld
+dependency134.to=Augment
+dependency134.type=UsesDependency
+dependency135.from=CustomizePanel
+dependency135.to=Attack
+dependency135.type=UsesDependency
+dependency136.from=CustomizePanel
+dependency136.to=BodySlam
+dependency136.type=UsesDependency
+dependency137.from=CustomizePanel
+dependency137.to=BoxJab
+dependency137.type=UsesDependency
+dependency138.from=CustomizePanel
+dependency138.to=DeathRay
+dependency138.type=UsesDependency
+dependency139.from=CustomizePanel
+dependency139.to=Pincer
+dependency139.type=UsesDependency
+dependency14.from=Entity
+dependency14.to=Attack
+dependency14.type=UsesDependency
+dependency140.from=CustomizePanel
+dependency140.to=PlasmaBeam
+dependency140.type=UsesDependency
+dependency141.from=CustomizePanel
+dependency141.to=ShotGun
+dependency141.type=UsesDependency
+dependency142.from=CustomizePanel
+dependency142.to=Heal
+dependency142.type=UsesDependency
+dependency143.from=CustomizePanel
+dependency143.to=Presser
+dependency143.type=UsesDependency
+dependency144.from=CustomizePanel
+dependency144.to=Augment
+dependency144.type=UsesDependency
+dependency145.from=CustomizePanel
+dependency145.to=BuilderWorld
+dependency145.type=UsesDependency
+dependency146.from=CustomizePanel
+dependency146.to=AugmentFunction
+dependency146.type=UsesDependency
+dependency147.from=CustomizePanel
+dependency147.to=Constants
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency147.type=UsesDependency
 dependency148.from=Presser
 dependency148.to=Function
@@ -167,8 +328,13 @@ dependency148.type=UsesDependency
 dependency149.from=Presser
 dependency149.to=SuperWorld
 dependency149.type=UsesDependency
+<<<<<<< HEAD
 dependency15.from=SuperWorld
 dependency15.to=Attack
+=======
+dependency15.from=Entity
+dependency15.to=BattleWorld
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency15.type=UsesDependency
 dependency150.from=Presser
 dependency150.to=Constants
@@ -200,8 +366,13 @@ dependency158.type=UsesDependency
 dependency159.from=HPBar
 dependency159.to=Enemy
 dependency159.type=UsesDependency
+<<<<<<< HEAD
 dependency16.from=SuperWorld
 dependency16.to=Enemy
+=======
+dependency16.from=Entity
+dependency16.to=Augment
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency16.type=UsesDependency
 dependency160.from=HPBar
 dependency160.to=Constants
@@ -233,8 +404,13 @@ dependency168.type=UsesDependency
 dependency169.from=CustomizePanel
 dependency169.to=Heal
 dependency169.type=UsesDependency
+<<<<<<< HEAD
 dependency17.from=EnemyWorld
 dependency17.to=Enemy
+=======
+dependency17.from=SuperWorld
+dependency17.to=SoundManager
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency17.type=UsesDependency
 dependency170.from=CustomizePanel
 dependency170.to=TextPlace
@@ -266,8 +442,13 @@ dependency178.type=UsesDependency
 dependency179.from=Augment
 dependency179.to=Vest
 dependency179.type=UsesDependency
+<<<<<<< HEAD
 dependency18.from=EnemyWorld
 dependency18.to=Fader
+=======
+dependency18.from=SuperWorld
+dependency18.to=Cursor
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency18.type=UsesDependency
 dependency180.from=Augment
 dependency180.to=Syringe
@@ -284,6 +465,7 @@ dependency183.type=UsesDependency
 dependency184.from=Augment
 dependency184.to=Entity
 dependency184.type=UsesDependency
+<<<<<<< HEAD
 dependency185.from=Augment
 dependency185.to=Levelup
 dependency185.type=UsesDependency
@@ -382,10 +564,105 @@ dependency45.to=Slot
 dependency45.type=UsesDependency
 dependency46.from=BattleWorld
 dependency46.to=Coordinate
+=======
+dependency19.from=SuperWorld
+dependency19.to=Presser
+dependency19.type=UsesDependency
+dependency2.from=TextManager
+dependency2.to=Constants
+dependency2.type=UsesDependency
+dependency20.from=SuperWorld
+dependency20.to=CustomizePanel
+dependency20.type=UsesDependency
+dependency21.from=SuperWorld
+dependency21.to=AttackQueue
+dependency21.type=UsesDependency
+dependency22.from=SuperWorld
+dependency22.to=HPBar
+dependency22.type=UsesDependency
+dependency23.from=SuperWorld
+dependency23.to=Effect
+dependency23.type=UsesDependency
+dependency24.from=SuperWorld
+dependency24.to=StatBar
+dependency24.type=UsesDependency
+dependency25.from=SuperWorld
+dependency25.to=UserChar
+dependency25.type=UsesDependency
+dependency26.from=SuperWorld
+dependency26.to=Attack
+dependency26.type=UsesDependency
+dependency27.from=SuperWorld
+dependency27.to=Enemy
+dependency27.type=UsesDependency
+dependency28.from=BattleManager
+dependency28.to=Entity
+dependency28.type=UsesDependency
+dependency29.from=BattleManager
+dependency29.to=Slot
+dependency29.type=UsesDependency
+dependency3.from=TextPlace
+dependency3.to=SuperTextBox
+dependency3.type=UsesDependency
+dependency30.from=BattleManager
+dependency30.to=Attack
+dependency30.type=UsesDependency
+dependency31.from=BattleManager
+dependency31.to=BattleWorld
+dependency31.type=UsesDependency
+dependency32.from=BattleManager
+dependency32.to=LoseWorld
+dependency32.type=UsesDependency
+dependency33.from=EnemyWorld
+dependency33.to=Enemy
+dependency33.type=UsesDependency
+dependency34.from=EnemyWorld
+dependency34.to=Gunner
+dependency34.type=UsesDependency
+dependency35.from=EnemyWorld
+dependency35.to=Melee
+dependency35.type=UsesDependency
+dependency36.from=EnemyWorld
+dependency36.to=Sustainer
+dependency36.type=UsesDependency
+dependency37.from=EnemyWorld
+dependency37.to=Juggernaut
+dependency37.type=UsesDependency
+dependency38.from=EnemyWorld
+dependency38.to=Mech57
+dependency38.type=UsesDependency
+dependency39.from=EnemyWorld
+dependency39.to=SkeleCop
+dependency39.type=UsesDependency
+dependency4.from=TextPlace
+dependency4.to=Constants
+dependency4.type=UsesDependency
+dependency40.from=EnemyWorld
+dependency40.to=Boss
+dependency40.type=UsesDependency
+dependency41.from=EnemyWorld
+dependency41.to=Presser
+dependency41.type=UsesDependency
+dependency42.from=EnemyWorld
+dependency42.to=BuilderWorld
+dependency42.type=UsesDependency
+dependency43.from=Juggernaut
+dependency43.to=BodySlam
+dependency43.type=UsesDependency
+dependency44.from=DeathRay
+dependency44.to=Entity
+dependency44.type=UsesDependency
+dependency45.from=DeathRay
+dependency45.to=BattleWorld
+dependency45.type=UsesDependency
+dependency46.from=Augment
+dependency46.to=Shield
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency46.type=UsesDependency
-dependency47.from=BattleWorld
-dependency47.to=Rain
+dependency47.from=Augment
+dependency47.to=LongArm
 dependency47.type=UsesDependency
+<<<<<<< HEAD
 dependency48.from=BattleWorld
 dependency48.to=BattleManager
 dependency48.type=UsesDependency
@@ -469,55 +746,146 @@ dependency71.to=SetterFunction
 dependency71.type=UsesDependency
 dependency72.from=BuilderWorld
 dependency72.to=Constants
+=======
+dependency48.from=Augment
+dependency48.to=Entity
+dependency48.type=UsesDependency
+dependency49.from=UserChar
+dependency49.to=Augment
+dependency49.type=UsesDependency
+dependency5.from=Projectile
+dependency5.to=Constants
+dependency5.type=UsesDependency
+dependency50.from=UserChar
+dependency50.to=StatBar
+dependency50.type=UsesDependency
+dependency51.from=UserChar
+dependency51.to=DeathRay
+dependency51.type=UsesDependency
+dependency52.from=UserChar
+dependency52.to=HPBar
+dependency52.type=UsesDependency
+dependency53.from=UserChar
+dependency53.to=Enemy
+dependency53.type=UsesDependency
+dependency54.from=WinWorld
+dependency54.to=Presser
+dependency54.type=UsesDependency
+dependency55.from=WinWorld
+dependency55.to=EnemyWorld
+dependency55.type=UsesDependency
+dependency56.from=WinWorld
+dependency56.to=StartWorld
+dependency56.type=UsesDependency
+dependency57.from=Boss
+dependency57.to=ShotGun
+dependency57.type=UsesDependency
+dependency58.from=Boss
+dependency58.to=DeathRay
+dependency58.type=UsesDependency
+dependency59.from=Boss
+dependency59.to=Heal
+dependency59.type=UsesDependency
+dependency6.from=Container
+dependency6.to=Constants
+dependency6.type=UsesDependency
+dependency60.from=BoxJab
+dependency60.to=Entity
+dependency60.type=UsesDependency
+dependency61.from=BoxJab
+dependency61.to=BattleWorld
+dependency61.type=UsesDependency
+dependency62.from=Enemy
+dependency62.to=HPBar
+dependency62.type=UsesDependency
+dependency63.from=Enemy
+dependency63.to=Augment
+dependency63.type=UsesDependency
+dependency64.from=Enemy
+dependency64.to=Gunner
+dependency64.type=UsesDependency
+dependency65.from=ShotGun
+dependency65.to=Entity
+dependency65.type=UsesDependency
+dependency66.from=ShotGun
+dependency66.to=BattleWorld
+dependency66.type=UsesDependency
+dependency67.from=Heal
+dependency67.to=Entity
+dependency67.type=UsesDependency
+dependency68.from=Heal
+dependency68.to=BattleWorld
+dependency68.type=UsesDependency
+dependency69.from=PlasmaBeam
+dependency69.to=Entity
+dependency69.type=UsesDependency
+dependency7.from=UI
+dependency7.to=Constants
+dependency7.type=UsesDependency
+dependency70.from=PlasmaBeam
+dependency70.to=BattleWorld
+dependency70.type=UsesDependency
+dependency71.from=Gunner
+dependency71.to=ShotGun
+dependency71.type=UsesDependency
+dependency72.from=Melee
+dependency72.to=Pincer
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency72.type=UsesDependency
-dependency73.from=BuilderWorld
-dependency73.to=Augment
+dependency73.from=Slot
+dependency73.to=Entity
 dependency73.type=UsesDependency
-dependency74.from=TextManager
-dependency74.to=SuperTextBox
+dependency74.from=Pincer
+dependency74.to=Entity
 dependency74.type=UsesDependency
-dependency75.from=TextManager
-dependency75.to=Constants
+dependency75.from=Pincer
+dependency75.to=BattleWorld
 dependency75.type=UsesDependency
-dependency76.from=TextPlace
-dependency76.to=SuperTextBox
+dependency76.from=SkeleCop
+dependency76.to=DeathRay
 dependency76.type=UsesDependency
-dependency77.from=TextPlace
-dependency77.to=Constants
+dependency77.from=StatSetter
+dependency77.to=Presser
 dependency77.type=UsesDependency
-dependency78.from=BattleManager
-dependency78.to=Entity
+dependency78.from=StatSetter
+dependency78.to=SetterFunction
 dependency78.type=UsesDependency
-dependency79.from=BattleManager
-dependency79.to=Slot
+dependency79.from=Presser
+dependency79.to=AugmentFunction
 dependency79.type=UsesDependency
+<<<<<<< HEAD
 dependency8.from=SuperWorld
 dependency8.to=AttackQueue
+=======
+dependency8.from=Levelup
+dependency8.to=Constants
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency8.type=UsesDependency
-dependency80.from=BattleManager
-dependency80.to=Attack
+dependency80.from=Presser
+dependency80.to=SetterFunction
 dependency80.type=UsesDependency
-dependency81.from=BattleManager
-dependency81.to=BattleWorld
+dependency81.from=Presser
+dependency81.to=SuperWorld
 dependency81.type=UsesDependency
-dependency82.from=BattleManager
-dependency82.to=LoseWorld
+dependency82.from=Side
+dependency82.to=Entity
 dependency82.type=UsesDependency
-dependency83.from=BattleManager
-dependency83.to=NextWave
+dependency83.from=Side
+dependency83.to=Slot
 dependency83.type=UsesDependency
-dependency84.from=Entity
-dependency84.to=HPBar
+dependency84.from=BattleWorld
+dependency84.to=UserChar
 dependency84.type=UsesDependency
-dependency85.from=Entity
-dependency85.to=Slot
+dependency85.from=BattleWorld
+dependency85.to=Enemy
 dependency85.type=UsesDependency
-dependency86.from=Entity
-dependency86.to=Attack
+dependency86.from=BattleWorld
+dependency86.to=Entity
 dependency86.type=UsesDependency
-dependency87.from=Entity
-dependency87.to=BattleWorld
+dependency87.from=BattleWorld
+dependency87.to=SuperTextBox
 dependency87.type=UsesDependency
+<<<<<<< HEAD
 dependency88.from=Entity
 dependency88.to=SuperWorld
 dependency88.type=UsesDependency
@@ -556,14 +924,59 @@ dependency98.to=HPBar
 dependency98.type=UsesDependency
 dependency99.from=Enemy
 dependency99.to=Augment
+=======
+dependency88.from=BattleWorld
+dependency88.to=Side
+dependency88.type=UsesDependency
+dependency89.from=BattleWorld
+dependency89.to=TextManager
+dependency89.type=UsesDependency
+dependency9.from=Fader
+dependency9.to=Constants
+dependency9.type=UsesDependency
+dependency90.from=BattleWorld
+dependency90.to=StatBar
+dependency90.type=UsesDependency
+dependency91.from=BattleWorld
+dependency91.to=AttackQueue
+dependency91.type=UsesDependency
+dependency92.from=BattleWorld
+dependency92.to=WinWorld
+dependency92.type=UsesDependency
+dependency93.from=BattleWorld
+dependency93.to=Slot
+dependency93.type=UsesDependency
+dependency94.from=BattleWorld
+dependency94.to=Coordinate
+dependency94.type=UsesDependency
+dependency95.from=BattleWorld
+dependency95.to=Rain
+dependency95.type=UsesDependency
+dependency96.from=BattleWorld
+dependency96.to=BattleManager
+dependency96.type=UsesDependency
+dependency97.from=StatBar
+dependency97.to=Container
+dependency97.type=UsesDependency
+dependency98.from=StatBar
+dependency98.to=HPBar
+dependency98.type=UsesDependency
+dependency99.from=StatBar
+dependency99.to=UserChar
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 dependency99.type=UsesDependency
 editor.fx.0.height=739
 editor.fx.0.width=816
 editor.fx.0.x=312
 editor.fx.0.y=54
 height=916
+<<<<<<< HEAD
 package.numDependencies=186
 package.numTargets=72
+=======
+package.numDependencies=147
+package.numTargets=69
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -691,42 +1104,66 @@ target23.width=120
 target23.x=0
 target23.y=0
 target24.height=70
+<<<<<<< HEAD
 target24.name=Levelup
+=======
+target24.name=LongArm
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target24.showInterface=false
 target24.type=ClassTarget
 target24.width=120
 target24.x=0
 target24.y=0
 target25.height=70
+<<<<<<< HEAD
 target25.name=Ability
+=======
+target25.name=ShotGun
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target25.showInterface=false
 target25.type=ClassTarget
 target25.width=120
 target25.x=0
 target25.y=0
 target26.height=70
+<<<<<<< HEAD
 target26.name=LongArm
+=======
+target26.name=Heal
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target26.showInterface=false
 target26.type=ClassTarget
 target26.width=120
 target26.x=0
 target26.y=0
 target27.height=70
+<<<<<<< HEAD
 target27.name=ShotGun
+=======
+target27.name=Sound
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target27.showInterface=false
 target27.type=ClassTarget
 target27.width=120
 target27.x=0
 target27.y=0
 target28.height=70
+<<<<<<< HEAD
 target28.name=Heal
+=======
+target28.name=GifImage
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target28.showInterface=false
 target28.type=ClassTarget
 target28.width=120
 target28.x=0
 target28.y=0
 target29.height=70
+<<<<<<< HEAD
 target29.name=Sound
+=======
+target29.name=RobotArm
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target29.showInterface=false
 target29.type=ClassTarget
 target29.width=120
@@ -740,61 +1177,95 @@ target3.width=120
 target3.x=0
 target3.y=0
 target30.height=70
+<<<<<<< HEAD
 target30.name=GifImage
+=======
+target30.name=NameBar
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target30.showInterface=false
 target30.type=ClassTarget
 target30.width=120
 target30.x=0
 target30.y=0
 target31.height=70
+<<<<<<< HEAD
 target31.name=RobotArm
+=======
+target31.name=Coordinate
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target31.showInterface=false
 target31.type=ClassTarget
 target31.width=120
 target31.x=0
 target31.y=0
 target32.height=70
+<<<<<<< HEAD
 target32.name=NameBar
+=======
+target32.name=PlasmaBeam
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target32.showInterface=false
 target32.type=ClassTarget
 target32.width=120
 target32.x=0
 target32.y=0
 target33.height=70
+<<<<<<< HEAD
 target33.name=Coordinate
+=======
+target33.name=Gunner
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target33.showInterface=false
 target33.type=ClassTarget
 target33.width=120
 target33.x=0
 target33.y=0
 target34.height=70
+<<<<<<< HEAD
 target34.name=PlasmaBeam
+=======
+target34.name=Melee
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target34.showInterface=false
 target34.type=ClassTarget
 target34.width=120
 target34.x=0
 target34.y=0
 target35.height=70
+<<<<<<< HEAD
 target35.name=Gunner
+=======
+target35.name=SuperTextBox
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target35.showInterface=false
 target35.type=ClassTarget
 target35.width=120
 target35.x=0
 target35.y=0
+<<<<<<< HEAD
 target36.height=70
 target36.name=Melee
+=======
+target36.height=50
+target36.name=Slot
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target36.showInterface=false
 target36.type=ClassTarget
-target36.width=120
+target36.width=80
 target36.x=0
 target36.y=0
 target37.height=70
+<<<<<<< HEAD
 target37.name=SuperTextBox
+=======
+target37.name=Effect
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target37.showInterface=false
 target37.type=ClassTarget
 target37.width=120
 target37.x=0
 target37.y=0
+<<<<<<< HEAD
 target38.height=50
 target38.name=Slot
 target38.showInterface=false
@@ -804,6 +1275,17 @@ target38.x=0
 target38.y=0
 target39.height=70
 target39.name=Effect
+=======
+target38.height=70
+target38.name=SetterFunction
+target38.showInterface=false
+target38.type=InterfaceTarget
+target38.width=120
+target38.x=0
+target38.y=0
+target39.height=70
+target39.name=Pincer
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target39.showInterface=false
 target39.type=ClassTarget
 target39.width=120
@@ -817,47 +1299,72 @@ target4.width=120
 target4.x=0
 target4.y=0
 target40.height=70
+<<<<<<< HEAD
 target40.name=SetterFunction
+=======
+target40.name=SkeleCop
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target40.showInterface=false
 target40.type=InterfaceTarget
 target40.width=120
 target40.x=0
 target40.y=0
 target41.height=70
+<<<<<<< HEAD
 target41.name=Pincer
+=======
+target41.name=StatSetter
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target41.showInterface=false
 target41.type=ClassTarget
 target41.width=120
 target41.x=0
 target41.y=0
 target42.height=70
+<<<<<<< HEAD
 target42.name=SkeleCop
+=======
+target42.name=Presser
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target42.showInterface=false
 target42.type=ClassTarget
 target42.width=120
 target42.x=0
 target42.y=0
 target43.height=70
+<<<<<<< HEAD
 target43.name=StatSetter
+=======
+target43.name=Side
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target43.showInterface=false
 target43.type=ClassTarget
 target43.width=120
 target43.x=0
 target43.y=0
 target44.height=70
+<<<<<<< HEAD
 target44.name=Presser
+=======
+target44.name=Function
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target44.showInterface=false
-target44.type=ClassTarget
+target44.type=InterfaceTarget
 target44.width=120
 target44.x=0
 target44.y=0
 target45.height=70
+<<<<<<< HEAD
 target45.name=Side
+=======
+target45.name=Cloak
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target45.showInterface=false
 target45.type=ClassTarget
 target45.width=120
 target45.x=0
 target45.y=0
+<<<<<<< HEAD
 target46.height=70
 target46.name=Function
 target46.showInterface=false
@@ -867,12 +1374,24 @@ target46.x=0
 target46.y=0
 target47.height=70
 target47.name=Cloak
+=======
+target46.height=50
+target46.name=BattleWorld
+target46.showInterface=false
+target46.type=ClassTarget
+target46.width=90
+target46.x=0
+target46.y=0
+target47.height=70
+target47.name=Vest
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target47.showInterface=false
 target47.type=ClassTarget
 target47.width=120
 target47.x=0
 target47.y=0
 target48.height=50
+<<<<<<< HEAD
 target48.name=BattleWorld
 target48.showInterface=false
 target48.type=ClassTarget
@@ -881,6 +1400,16 @@ target48.x=0
 target48.y=0
 target49.height=70
 target49.name=Vest
+=======
+target48.name=StatBar
+target48.showInterface=false
+target48.type=ClassTarget
+target48.width=80
+target48.x=0
+target48.y=0
+target49.height=70
+target49.name=Mech57
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target49.showInterface=false
 target49.type=ClassTarget
 target49.width=120
@@ -893,71 +1422,116 @@ target5.type=ClassTarget
 target5.width=120
 target5.x=0
 target5.y=0
+<<<<<<< HEAD
 target50.height=50
 target50.name=StatBar
+=======
+target50.height=70
+target50.name=Fader
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target50.showInterface=false
 target50.type=ClassTarget
 target50.width=80
 target50.x=0
 target50.y=0
 target51.height=70
+<<<<<<< HEAD
 target51.name=Mech57
+=======
+target51.name=RobotLeg
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target51.showInterface=false
 target51.type=ClassTarget
 target51.width=120
 target51.x=0
 target51.y=0
 target52.height=70
+<<<<<<< HEAD
 target52.name=Fader
+=======
+target52.name=Constants
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target52.showInterface=false
 target52.type=ClassTarget
 target52.width=120
 target52.x=0
 target52.y=0
+<<<<<<< HEAD
 target53.height=70
 target53.name=RobotLeg
+=======
+target53.height=50
+target53.name=IntroWorld
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target53.showInterface=false
 target53.type=ClassTarget
-target53.width=120
+target53.width=80
 target53.x=0
 target53.y=0
 target54.height=70
+<<<<<<< HEAD
 target54.name=Constants
+=======
+target54.name=LoseWorld
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target54.showInterface=false
 target54.type=ClassTarget
 target54.width=120
 target54.x=0
 target54.y=0
 target55.height=50
+<<<<<<< HEAD
 target55.name=IntroWorld
+=======
+target55.name=StartWorld
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target55.showInterface=false
 target55.type=ClassTarget
 target55.width=80
 target55.x=0
 target55.y=0
 target56.height=70
+<<<<<<< HEAD
 target56.name=LoseWorld
+=======
+target56.name=Fonts
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target56.showInterface=false
 target56.type=ClassTarget
 target56.width=120
 target56.x=0
 target56.y=0
 target57.height=50
+<<<<<<< HEAD
 target57.name=StartWorld
 target57.showInterface=false
 target57.type=ClassTarget
+=======
+target57.name=Attack
+target57.showInterface=false
+target57.type=AbstractTarget
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target57.width=80
 target57.x=0
 target57.y=0
 target58.height=70
+<<<<<<< HEAD
 target58.name=Fonts
+=======
+target58.name=NextWave
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target58.showInterface=false
 target58.type=ClassTarget
 target58.width=120
 target58.x=0
 target58.y=0
+<<<<<<< HEAD
 target59.height=50
 target59.name=Attack
+=======
+target59.height=70
+target59.name=Projectile
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target59.showInterface=false
 target59.type=AbstractTarget
 target59.width=80
@@ -971,33 +1545,50 @@ target6.width=120
 target6.x=0
 target6.y=0
 target60.height=70
+<<<<<<< HEAD
 target60.name=NextWave
+=======
+target60.name=HPBar
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target60.showInterface=false
 target60.type=ClassTarget
 target60.width=120
 target60.x=0
 target60.y=0
 target61.height=70
+<<<<<<< HEAD
 target61.name=Projectile
+=======
+target61.name=Sustainer
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target61.showInterface=false
 target61.type=ClassTarget
 target61.width=120
 target61.x=0
 target61.y=0
 target62.height=70
+<<<<<<< HEAD
 target62.name=HPBar
+=======
+target62.name=AttackQueue
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target62.showInterface=false
 target62.type=ClassTarget
-target62.width=120
+target62.width=130
 target62.x=0
 target62.y=0
 target63.height=70
+<<<<<<< HEAD
 target63.name=Sustainer
+=======
+target63.name=BodySlam
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target63.showInterface=false
 target63.type=ClassTarget
 target63.width=120
 target63.x=0
 target63.y=0
+<<<<<<< HEAD
 target64.height=70
 target64.name=AttackQueue
 target64.showInterface=false
@@ -1007,34 +1598,62 @@ target64.x=0
 target64.y=0
 target65.height=70
 target65.name=BodySlam
+=======
+target64.height=50
+target64.name=BuilderWorld
+target64.showInterface=false
+target64.type=ClassTarget
+target64.width=90
+target64.x=0
+target64.y=0
+target65.height=70
+target65.name=ChatBox
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target65.showInterface=false
 target65.type=ClassTarget
 target65.width=120
 target65.x=0
 target65.y=0
+<<<<<<< HEAD
 target66.height=50
 target66.name=BuilderWorld
+=======
+target66.height=70
+target66.name=CustomizePanel
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target66.showInterface=false
 target66.type=ClassTarget
 target66.width=90
 target66.x=0
 target66.y=0
 target67.height=70
+<<<<<<< HEAD
 target67.name=Cube
+=======
+target67.name=Syringe
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target67.showInterface=false
 target67.type=ClassTarget
 target67.width=120
 target67.x=0
 target67.y=0
 target68.height=70
+<<<<<<< HEAD
 target68.name=ChatBox
+=======
+target68.name=TextPlace
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target68.showInterface=false
 target68.type=ClassTarget
 target68.width=120
 target68.x=0
 target68.y=0
 target69.height=70
+<<<<<<< HEAD
 target69.name=CustomizePanel
+=======
+target69.name=Taser
+>>>>>>> b29bcadc8ef8164a6c5ccc75b779e30c0b4a931d
 target69.showInterface=false
 target69.type=ClassTarget
 target69.width=120
@@ -1082,7 +1701,7 @@ target9.type=ClassTarget
 target9.width=120
 target9.x=0
 target9.y=0
-version=3.1.0
+version=3.0.0
 width=1456
 world.lastInstantiated=EnemyWorld
 xPosition=0

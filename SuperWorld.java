@@ -10,7 +10,11 @@ public class SuperWorld extends World
 {
 
     protected SoundManager sm;
-    
+    /**
+     * Constructor for SuperWorld
+     * 
+     * 
+     */
     public SuperWorld(int width, int height, int pixel)
     {    
         super(width, height, pixel); 
@@ -39,8 +43,7 @@ public class SuperWorld extends World
         );
         
     }
-    
-    
+       
     public void started(){
         sm.resumeSounds();
     }
@@ -50,6 +53,10 @@ public class SuperWorld extends World
     public SoundManager getSM(){
         return sm;
     }
+    
+    /**
+     * Track mouse info for annimations
+     */
     public void act(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(mouse == null) return;
