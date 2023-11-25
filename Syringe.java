@@ -19,7 +19,7 @@ public class Syringe extends Augment
         scaleImage(portraitImage);
         
         name = "Adrenaline Syringe";
-        desc = "Go invis";
+        desc = "An elixir that grants /n you power, at the /n cost of your health. /n Level Up: /n Strength +4 /n Speed +1";
     }
 
     public String activateLevelUp(){

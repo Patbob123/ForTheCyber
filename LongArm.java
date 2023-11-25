@@ -19,7 +19,7 @@ public class LongArm extends Augment
         scaleImage(portraitImage);
         
         name = "Wick's Stick";
-        desc = "IM fgoing to make this description super super super long so i can test stuff";
+        desc = "Attacks all enemies. Enemies will get hit 6 times.";
     }
 
     public void activateInitial(){

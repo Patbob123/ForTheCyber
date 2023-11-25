@@ -18,6 +18,8 @@ public class Presser extends Actor
     private GreenfootImage buttonImage;
     private GreenfootImage hoverButtonImage;
     
+    private boolean hovering;
+    
     private int increment;
     private String augment;
     
@@ -109,6 +111,17 @@ public class Presser extends Actor
                 setImage(hoverButtonImage); //Moves the button up
             }else{
                 setImage(buttonImage); //Moves the button back to starting position
+            }
+        }
+        if (Greenfoot.mouseMoved(null)) 
+        {
+            if (hovering != Greenfoot.mouseMoved(this)) 
+            {
+                hovering = !hovering; 
+                if (hovering) 
+                {
+                    ((SuperWorld)getWorld()).getSM().playSound("hover");
+                }
             }
         }
     }

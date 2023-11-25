@@ -18,8 +18,8 @@ public class Shield extends Augment
         portraitImage = new GreenfootImage("augment/shield.png");
         scaleImage(portraitImage);
         
-        name = "Epic Wick's Shield";
-        desc = "Go invis";
+        name = "Epick Wick's Shield";
+        desc = "Reduce the damage you take and strike back /n with some force. /n Level Up: /n Strength +2 /n Defense +1";
     }
 
     public String activateLevelUp(){

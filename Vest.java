@@ -19,7 +19,7 @@ public class Vest extends Augment
         scaleImage(portraitImage);
         
         name = "Kevlar Armor";
-        desc = "Go invis";
+        desc = "The armor made for healing and /n withstanding anything /n that comes your way. /n Level Up: /n Defense +1";
     }
 
     public String activateLevelUp(){

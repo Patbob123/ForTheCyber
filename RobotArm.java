@@ -19,7 +19,7 @@ public class RobotArm extends Augment
         scaleImage(portraitImage);
         
         name = "Robot Arm";
-        desc = "Go invis";
+        desc = "Gain a powerful arm to destroy your enemies. /n Level Up: /n Strength + 2 /n Speed +1";
     }
 
     public String activateLevelUp(){
