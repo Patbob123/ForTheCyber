@@ -10,6 +10,7 @@ public class Sustainer extends Enemy
 {
     public Sustainer(){
         name = "Sustainer";
+        addMoveset(new Heal());
         
         entityImageUrl = "enemy/sustainer.png";
         entityImage = createDuplicateImage();

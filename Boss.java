@@ -10,6 +10,9 @@ public class Boss extends Enemy
 {
     public Boss(){
         name = "Boss";
+        addMoveset(new ShotGun());
+        addMoveset(new DeathRay());
+        addMoveset(new Heal());
         
         entityImageUrl = "enemy/boss.png";
         entityImage = createDuplicateImage();

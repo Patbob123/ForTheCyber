@@ -10,6 +10,7 @@ public class Mech57 extends Enemy
 {
     public Mech57(){
         name = "Mech57";
+        addMoveset(new PlasmaBeam());
         
         entityImageUrl = "enemy/mech57.png";
         entityImage = createDuplicateImage();

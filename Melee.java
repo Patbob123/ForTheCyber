@@ -10,6 +10,7 @@ public class Melee extends Enemy
 {
     public Melee(){
         name = "Melee";
+        addMoveset(new Pincer());
         
         entityImageUrl = "enemy/melee.png";
         entityImage = createDuplicateImage();

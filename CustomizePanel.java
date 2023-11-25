@@ -27,6 +27,7 @@ public class CustomizePanel extends Actor
             put("Pincer", new Pincer());
             put("PlasmaBeam", new PlasmaBeam());
             put("ShotGun", new ShotGun());
+            put("Heal", new Heal());
         }};;
     
     private TextPlace nameDisplay;

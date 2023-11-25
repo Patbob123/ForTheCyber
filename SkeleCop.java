@@ -10,6 +10,7 @@ public class SkeleCop extends Enemy
 {
     public SkeleCop(){
         name = "SkeleCop";
+        addMoveset(new DeathRay());
         
         entityImageUrl = "enemy/skelecop.png";
         entityImage = createDuplicateImage();

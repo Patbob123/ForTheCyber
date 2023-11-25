@@ -10,6 +10,7 @@ public class Juggernaut extends Enemy
 {
     public Juggernaut(){
         name = "Juggernaut";
+        addMoveset(new BodySlam());
  
         entityImageUrl = "enemy/juggernaut.png";
         entityImage = createDuplicateImage();

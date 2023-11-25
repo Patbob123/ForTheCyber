@@ -10,6 +10,7 @@ public class Gunner extends Enemy
 {
     public Gunner(){
         name = "Gunner";
+        addMoveset(new ShotGun());
         
         entityImageUrl = "enemy/gunner.png";
         entityImage = createDuplicateImage();
