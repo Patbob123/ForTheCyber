@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=DeathRay
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DeathRay\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Death\ Ray\ does\ Massive\ AOE\ damage\ but\ at\ the\ cost\ of\ some\ self\ inflicted\ damage\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=DeathRay()
 comment2.params=attacker\ entireField\ side

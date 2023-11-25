@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Juggernaut
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Juggernaut\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Juggernaut\ is\ a\ difficult\ enemy\ that\ uses\ BodySlam\r\n\ \r\n\ @author\ Jaiden\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=Juggernaut()
 comment2.params=

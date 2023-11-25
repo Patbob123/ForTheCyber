@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=RobotLeg
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ RobotLeg\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ RobotLeg\ increases\ the\ user's\ speed\ and\ attack\ per\ levelup.\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=RobotLeg()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ RobotLeg\r\n

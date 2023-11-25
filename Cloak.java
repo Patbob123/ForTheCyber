@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class Cloak here.
+ * Gives the user the chance to dodge attacks
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class Cloak extends Augment 
 {

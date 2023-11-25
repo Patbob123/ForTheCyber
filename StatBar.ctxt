@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StatBar
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ StatBar\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Display\ the\ sprites\ for\ the\ stats\ the\ user\ has\ in\ battle\ world\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
 comment1.params=uc
 comment1.target=StatBar(UserChar)
 comment2.params=w

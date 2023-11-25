@@ -1,10 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class PlasmaMissile here.
+ * Plasma Beam deals medium damage to two random targets
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Jaiden, Dawson
+ * </p>
+ * 
+ * @version November 2023
  */
 public class PlasmaBeam extends Attack
 {

@@ -1,11 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RoboCop here.
+ * SkeleCop is a difficult enemy that uses DeathRay
  * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+ * @author Jaiden
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * @version November 2023 */
 public class SkeleCop extends Enemy
 {
     public SkeleCop(){

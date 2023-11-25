@@ -1,10 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Levelup here.
+ * Creates fade in and fade out screen
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jaiden
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * @version November 2023
  */
 public class Fader extends Popup
 {

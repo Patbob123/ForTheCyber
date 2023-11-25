@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class RobotArm here.
+ * Increases the user's attack and speed each time they level up
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class RobotArm extends Augment 
 {

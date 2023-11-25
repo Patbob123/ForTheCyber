@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Gunner
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Gunner\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Gunner\ enemy\ is\ a\ basic\ enemy\ that\ uses\ ShotGun\r\n\ \r\n\ @author\ Jaiden\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=Gunner()
 comment2.params=

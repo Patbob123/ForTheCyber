@@ -1,10 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DeathRay here.
+ * Mech57 is a difficult enemy that uses PlasmaBeam
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jaiden
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * @version November 2023
  */
 public class Mech57 extends Enemy
 {

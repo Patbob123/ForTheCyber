@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=LongArm
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ LongArm\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Allows\ the\ user\ to\ attack\ multiple\ targets\ in\ one\ turn\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=LongArm()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ LongArm\r\n

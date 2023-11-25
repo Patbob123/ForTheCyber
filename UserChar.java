@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.util.Arrays;
 /**
- * This is the UserChar class. It 
+ * UserChar holds all the information for the user's character in builder world and battle world
  * 
  * @author Edmond
  * <p>
@@ -46,6 +46,8 @@ public class UserChar extends Entity
             getWorld().removeObject(this);
         }
     }
+    
+    // Getter and Setter Methods for the Userchar's stats
     public void assignHpBar(HPBar hpBar){
         this.hpBar = hpBar;
     }

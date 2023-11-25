@@ -1,10 +1,10 @@
 import java.util.HashMap;
 import greenfoot.*;
 /**
- * Write a description of class Augment here.
+ * Adds the Augment to the User's Character
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public abstract class Augment  
 {

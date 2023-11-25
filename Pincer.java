@@ -2,10 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class Pincer here.
+ * Pincer deals medium single target damage to one enemy
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Jaiden
+ * </p>
+ * 
+ * @version November 2023
  */
 public class Pincer extends Attack
 {

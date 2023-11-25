@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Slot here.
+ * Base code for creating set positions for all the entities
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class Slot extends Actor
 {

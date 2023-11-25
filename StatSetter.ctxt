@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StatSetter
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ StatSetters\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Adds\ stats\ to\ the\ user\ character\ after\ selecting\ stats\ in\ the\ battle\ world\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
 comment1.params=buttonAction\ increment\ text\ x\ y
 comment1.target=StatSetter(SetterFunction,\ int,\ java.lang.String,\ int,\ int)
 comment2.params=w

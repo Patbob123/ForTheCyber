@@ -12,10 +12,10 @@ import java.util.Arrays;
 
 
 /**
- * Write a description of class TextManager here.
+ * Add customizability to TextManager
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class TextPlace extends TextManager
 {

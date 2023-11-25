@@ -4,6 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * World to display the win screen when you beat all the levels
  * 
  * @author Dawson 
+ * <p>
+ * Modified by: Edmond
+ * </p>
  * @version nov2023
  */
 public class WinWorld extends SuperWorld

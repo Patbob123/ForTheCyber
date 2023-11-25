@@ -12,16 +12,21 @@ import java.util.Arrays;
 
 
 /**
- * Write a description of class TextManager here.
+ * TextManger class is in charge of converting all string into SuperTextBox Objects to display to the world
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * 
+ * @version November 2023
  */
 public class TextManager extends Actor
 {
     private int spacing;
     private ArrayList<SuperTextBox> text;
-    //private Font funFont = new Font ("Comic Sans MS", false, false, 16);
+    
+    // Custom imported font
     private File fontFile = new File("cheeseFont.tty");
     private Font pixelFont, pixelFont32;
     private FileInputStream in;
@@ -45,6 +50,8 @@ public class TextManager extends Actor
         
     }
     public greenfoot.Font addFont(Font theFont) {
+        
+        // Code to get Java to read the .ttf file that stores the Font
         try {
             //Read the .ttf file containing the font
             fontFile = new File("cheeseFont.ttf");
@@ -73,12 +80,13 @@ public class TextManager extends Actor
     public void addedToWorld(World w){
         initPlaceY = getY()+getImage().getHeight()/2-50;
     }
+    
     public void addSentence(String sentence){
-        //splitSentence(sentence);
-        //new SuperTextBox(splitSentence(sentence),pixel,1,false);
         text.add(0,new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA));
         displayText();
     }
+    
+    // Algorithm to split words to next line if it crosses over the length of the textbox
     public String[] splitSentence (String sentence){
         int stringWidth= SuperTextBox.getStringWidth(pixel,sentence);
         String[] words = sentence.split(" ");
@@ -93,11 +101,11 @@ public class TextManager extends Actor
                 curLength = 0;
                 continue;
             }
+            
+            // Check if the next word will cross over the textbox
             if((curLength += SuperTextBox.getStringWidth(pixel,s)) > textBoxWidth){
-                
                 multiLineString += curString +"`";
                 curString = s+" ";
-                //stringWidth -= curLength;
                 curLength = SuperTextBox.getStringWidth(pixel,s);
             }
             else{
@@ -109,12 +117,13 @@ public class TextManager extends Actor
         multiLine = multiLineString.split("`");
         return multiLine;
     }
+    
+    // Algorithm for displaying textboxes from newest to oldest (bottom to top), as well as making older textboxes transparent and fade away
     public void displayText(){
         if(getWorld().getObjects((SuperTextBox.class)) != null){
             getWorld().removeObjects(text);
         }
-        int placeY = 0;
-        //-((textBoxHeight+spacing)*(i)+80)    
+        int placeY = 0; // Variable for determining where the next textbox goes
         for(int i = 0; i < text.size(); i++){
             int textBoxHeight = text.get(i).getImage().getHeight();
             int opacity = 255-((textBoxHeight+spacing)*(i))/2;

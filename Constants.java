@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class Constants here.
+ * Keeps all useful constant values in this class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class Constants  
 {

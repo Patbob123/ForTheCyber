@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SoundManager
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ SoundManager\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Sound\ Manager\ is\ reponsible\ for\ storing\ and\ retreving\ all\ the\ sound\ files\ to\ allow\ modular\ and\ reusable\ code\ in\ other\ classes\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=SoundManager()
 comment2.params=w

@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class Vest here.
+ * Vest gives the user regeneration on every turn
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class Vest extends Augment 
 {
