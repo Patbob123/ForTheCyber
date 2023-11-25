@@ -19,7 +19,7 @@ public class Cloak extends Augment
         scaleImage(portraitImage);
         
         name = "Stealth Cloak";
-        desc = "Go invis";
+        desc = "Dodge chance of 30%";
     }
 
     public void activateInitial(){

@@ -19,7 +19,7 @@ public class Taser extends Augment
         scaleImage(portraitImage);
         
         name = "Taser";
-        desc = "Go invis";
+        desc = "The enemy's turn will /n be skipped due to the taser's shock.";
     }
 
     public void activateInitial(){
