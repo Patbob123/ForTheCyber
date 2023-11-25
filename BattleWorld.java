@@ -249,7 +249,7 @@ public class BattleWorld extends SuperWorld
         return actCounter;
     }
     public void setBg(GreenfootImage bg){
-        bg.scale(bg.getWidth()*Constants.IMAGE_SCALING, bg.getHeight()*Constants.IMAGE_SCALING);
+        
         bgImage.drawImage(bg1, 250, 0);
     }
     public BattleWorld(UserChar u, ArrayList<ArrayList<Enemy>> stages)
@@ -265,14 +265,17 @@ public class BattleWorld extends SuperWorld
         this.stages = stages;
         this.wave = -1;
         
+        bg1.scale(bg1.getWidth()*Constants.IMAGE_SCALING, bg1.getHeight()*Constants.IMAGE_SCALING);
         setupField();
-                
+        
+        
     }
     
     public void setupField(){
         wave++;
         if(wave == stages.size()){
             Greenfoot.setWorld(new WinWorld());
+            return;
         }
         
         userSide = new Side(0, 1);
@@ -318,6 +321,7 @@ public class BattleWorld extends SuperWorld
         
         addObject(new Rain(), Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
         
+
         setBg(bg1);
     }
     public void refreshEntities(){

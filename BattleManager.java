@@ -143,6 +143,7 @@ public class BattleManager extends Actor
         if(entireField[0].getEntities().size()==0){
             Greenfoot.setWorld(new LoseWorld());
             getWorld().removeObject(this);
+            return;
         }
         if(entireField[1].getEntities().size()==0){
             ((BattleWorld)getWorld()).setupField();

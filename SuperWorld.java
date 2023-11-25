@@ -17,22 +17,27 @@ public class SuperWorld extends World
         
         sm = new SoundManager();
         addObject(sm, 0, 0);
-        /*
-        setPaintOrder(          
+        
+        setPaintOrder(  
             Popup.class,
             Presser.class,
+            SuperTextBox.class,
+            TextManager.class,
+            CustomizePanel.class,
             AttackQueue.class,
             Container.class,
             HPBar.class,
             Effect.class,
-            SuperTextBox.class,
-            CustomizePanel.class,
-            TextManager.class,
+            
+            
             
             StatBar.class,
-            SuperSmoothMover.class
+            SuperSmoothMover.class,
+            UserChar.class,
+            Attack.class,
+            Enemy.class
         );
-        */
+        
     }
     
     
@@ -44,6 +49,14 @@ public class SuperWorld extends World
     }
     public SoundManager getSM(){
         return sm;
+    }
+    public void act(){
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(mouse == null) return;
+        if(Greenfoot.mouseClicked(null)){
+            Cursor cursorAnim = new Cursor();
+            addObject(cursorAnim, mouse.getX(), mouse.getY());
+        }
     }
     
 }

@@ -27,13 +27,14 @@ public class PlasmaBeam extends Attack
         ArrayList<Entity> potentialTargets = entireField[1-side].getEntities();
         
         ArrayList<Entity> targets = new ArrayList<Entity>();
-        Entity firstTarget = potentialTargets.get(Greenfoot.getRandomNumber(potentialTargets.size()));
-        targets.add(firstTarget);
-        potentialTargets.remove(firstTarget);
         
-        Entity secondTarget = potentialTargets.get(Greenfoot.getRandomNumber(potentialTargets.size()));
-        targets.add(secondTarget);
-        potentialTargets.remove(secondTarget);
+        int potentialTargetsNumber = potentialTargets.size();
+        for(int i = 0; i < potentialTargetsNumber; i++){
+            Entity firstTarget = potentialTargets.get(i);
+            targets.add(firstTarget);
+            if(i==1) break;
+        }
+        System.out.println();
         
         return targets;
     }
@@ -42,8 +43,9 @@ public class PlasmaBeam extends Attack
         
         for(Entity e: targets){
             e.takeDamage(attacker.getAttack()/2);
+            attacker.rangeAttackAnimation(projectileImageUrl, e);
         }
-        attacker.rangeAttackAnimation(projectileImageUrl, targets.get(0));
+        
         return targets;
     } 
 }

@@ -49,6 +49,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected double ImageSizeScale;
     protected double toSlotSpeed;
     protected double meleeSpeed;
+    protected int targetedX;
+    protected int targetedY;
     protected int filterActs;
     
     protected boolean stunner;
@@ -182,6 +184,14 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         double distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance); //calculate distance to the slot
         return distance;
     }
+    public double getDistance(int x, int y){
+        int targetX = x; //gets slot x-coord
+        int targetY = y; //gets slot x-coord
+        int xDistance = targetX - getX(); //gets x distance to the slot
+        int yDistance = targetY - getY(); //gets y distance to the slot
+        double distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance); //calculate distance to the slot
+        return distance;
+    }
     
     //Idle animation
     private void breathe(){
@@ -200,13 +210,15 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         double distance = getDistance(target);
         meleeSpeed = 1;
         meleeTarget = target;
+        targetedX = meleeTarget.getX();
+        targetedY = meleeTarget.getY();
     }
     
     //Character movement for attack animations
     public void hitMeleeTarget(){
-        int targetX = meleeTarget.getX(); //gets target x-coord
-        int targetY = meleeTarget.getY(); //gets target y-coord
-        double distance = getDistance(meleeTarget);
+        int targetX = getTargetedX(); //gets target x-coord
+        int targetY = getTargetedY(); //gets target y-coord
+        double distance = getDistance(targetX, targetY);
         
         turnTowards(targetX, targetY);
         if(distance > 0) {
@@ -222,7 +234,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     public void rangeAttackAnimation(String projectileImageUrl, Entity target){
         Projectile p = new Projectile(projectileImageUrl); 
-        getWorld().addObject(p, getX() + p.getImage().getWidth()/2, getY() - p.getImage().getHeight()/2);
+        getWorld().addObject(p, getX() + p.getImage().getWidth()/2, 0);
         p.turnTowards(target.getX(), target.getY());
     }
     public int compareTo(Entity e)
@@ -264,7 +276,12 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public String toString(){
         return this.name;
     }
-    
+    public int getTargetedX(){
+        return targetedX;
+    }
+    public int getTargetedY(){
+        return targetedY;
+    }
     //setters for attack, speed, hp, defense
     public void setAttack(double setattack){
         //set attack... attack == dmg for now

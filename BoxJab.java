@@ -17,12 +17,17 @@ public class BoxJab extends Attack
         critChance = 7;
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
-        return entireField[1-side].getEntities();
+        ArrayList<Entity> potentialTargets = entireField[1-side].getEntities();
+        
+        ArrayList<Entity> targets = new ArrayList<Entity>();
+        targets.add(potentialTargets.get(Greenfoot.getRandomNumber(potentialTargets.size())));
+        
+        return targets;
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
         ((BattleWorld)attacker.getWorld()).getSM().playSound("boxJab");
         
-        Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
+        Entity firstTarget = targets.get(0);
         firstTarget.stun(true);
         if(checkIfCrit()){
             firstTarget.takeDamage(attacker.getAttack()*4); // 2x Damage
