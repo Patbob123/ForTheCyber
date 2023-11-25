@@ -17,7 +17,7 @@ public class SuperWorld extends World
         
         sm = new SoundManager();
         addObject(sm, 0, 0);
-        setPaintOrder(  
+        setPaintOrder(          
             Popup.class,
             Presser.class,
             AttackQueue.class,
