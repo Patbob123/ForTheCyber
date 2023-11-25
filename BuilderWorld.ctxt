@@ -1,15 +1,17 @@
 #BlueJ class context
 comment0.target=BuilderWorld
-comment0.text=\r\n\ The\ world\ where\ the\ user\ can\ customize\ their\ character\ before\ the\ simulation\ starts\r\n\ \r\n\ @author\ Rex\ Xu\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\ Li\r\n\ </p>\r\n\ @version\ November,\ 24,\ 2023\r\n
+comment0.text=\r\n\ THE\ FOURTH\ WORLD\:\ The\ world\ where\ the\ user\ can\ customize\ their\ character\ before\ the\ simulation\ starts\r\n\ \r\n\ @author\ Rex\ \r\n\ <p>\r\n\ Modified\ by\:\ Dawson\ \r\n\ </p>\r\n\ @version\ November,\ 24,\ 2023\r\n
 comment1.params=stages
 comment1.target=BuilderWorld(java.util.ArrayList)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ StatWorld.\r\n\ \r\n
+comment1.text=\r\n\ Constructor\ for\ creating\ BuilderWorld.\r\n\ \r\n
 comment10.params=
 comment10.target=void\ goToBattleWorld()
+comment10.text=\r\n\ Check\ if\ user\ has\ selected\ an\ augment\ and\ move,\ before\ switching\ to\ the\ next\ world\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=prevAmount\ postAmount
 comment3.target=boolean\ checkPoints(double,\ double)
+comment3.text=\r\n\ Calculate\ how\ many\ points\ the\ user\ has\ for\ stats\r\n
 comment4.params=hp
 comment4.target=void\ setHp(double)
 comment5.params=def

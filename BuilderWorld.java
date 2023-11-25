@@ -1,11 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * The world where the user can customize their character before the simulation starts
+ * THE FOURTH WORLD: The world where the user can customize their character before the simulation starts
  * 
- * @author Rex Xu
+ * @author Rex 
  * <p>
- * Modified by: Dawson Li
+ * Modified by: Dawson 
  * </p>
  * @version November, 24, 2023
  */
@@ -29,7 +29,7 @@ public class BuilderWorld extends SuperWorld
 
     
     /**
-     * Constructor for objects of class StatWorld.
+     * Constructor for creating BuilderWorld.
      * 
      */
     public BuilderWorld(ArrayList<ArrayList<Enemy>> stages)
@@ -41,7 +41,8 @@ public class BuilderWorld extends SuperWorld
         UI builderUI = new UI(builderImage,true);
         UI eblackRectangle = new UI(200, 800);
         addObject(builderUI, getWidth()/2, getHeight()/2);
-
+        
+        // Add stat options to the world
         attackSetter = new StatSetter(setAttackFunc, 1 , "atk", 50, 170);  
         defSetter = new StatSetter(setDefFunc, 1 , "def", 50, 310);  
         speedSetter = new StatSetter(setSpeedFunc, 1 , "speed", 50, 450);  
@@ -100,7 +101,9 @@ public class BuilderWorld extends SuperWorld
         super.act();
     }
 
-    // Calculate how many points the user has for stats
+    /**
+     * Calculate how many points the user has for stats
+     */ 
     private boolean checkPoints(double prevAmount, double postAmount){
         if(prevAmount < postAmount){
             if(curPoints < maxPoints && postAmount < 10){
@@ -116,7 +119,7 @@ public class BuilderWorld extends SuperWorld
         return false;
     }
     
-    //set hp private methods for builderworld
+    
     private void setHp(double hp){
         sm.playSound("click");
         if(!checkPoints(getUserChar().getHp()/10, hp/10)) return;
@@ -152,10 +155,13 @@ public class BuilderWorld extends SuperWorld
     }
         
 
-    
     public UserChar getUserChar() {
         return userCharInstance;
     }
+    
+    /**
+     * Check if user has selected an augment and move, before switching to the next world
+     */
     public void goToBattleWorld(){
         if(userCharInstance.getAugment()==null) return;
         if(cp.getMoveset().size()==0) return;

@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /**
- * Enemy World Generates an unique Enemy Lineup for each wave
+ * THE THIRD WORLD: Generates and displays the Enemy Lineup for each simulation 
  * 
  * @author Vincent Li
  * @version November, 24, 2023
@@ -58,7 +58,7 @@ public class EnemyWorld extends SuperWorld
         displayEnemies(getStages().get(3), 650);
         setBackground(enemyBg); 
         
-        fade = new Fader ((60*2), false); //60 acts = 1 second, so 4 seconds for fader
+        fade = new Fader ((60*2), false); 
         fadeOut = new Fader ((60*2), true);
         
         goingToBuilderWorld = false;
@@ -78,7 +78,9 @@ public class EnemyWorld extends SuperWorld
         }
     }
     
-    // Method for generating enemies in each wave
+    /**
+     *  Generate a set of enemies for each wave
+     */
     public void generateEnemies(int difficulty){
         ArrayList <Enemy> waveEnemies = new ArrayList <Enemy>();
         int random;
@@ -107,6 +109,18 @@ public class EnemyWorld extends SuperWorld
         }
         waves.add(waveEnemies);
     }
+    
+    /**
+     * Displays the enemy lineup the user will face
+     */
+    public void displayEnemies(ArrayList<Enemy> wave, int height){
+        for (int i = 0; i< wave.size(); i++){
+            GreenfootImage img = wave.get(i).getPortrait();
+            UI portrait = new UI(img,false);
+            addObject(portrait, (i*50)+450, height);
+        }   
+    }
+    
     public ArrayList<ArrayList<Enemy>> getStages(){
         return waves;
     }
@@ -116,14 +130,7 @@ public class EnemyWorld extends SuperWorld
         addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     
-    // Method for displaying enemies
-    public void displayEnemies(ArrayList<Enemy> wave, int height){
-        for (int i = 0; i< wave.size(); i++){
-            GreenfootImage img = wave.get(i).getPortrait();
-            UI portrait = new UI(img,false);
-            addObject(portrait, (i*50)+450, height);
-        }   
-    }
+    
 
     public Function goBuilderWorld = () -> goToBuilderWorld();
 }

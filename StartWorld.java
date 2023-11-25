@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Simulation start screen with music, animated Logo, animated bg, and faders
+ * THE FIRST WORLD: Simulation start screen with music, animated Logo, animated bg, and faders
  * <p>
  * Click to proceed
- * 
+ * </p>
  * @author Edmond 
  * @version 2023 Nov 24
  */
@@ -20,7 +20,7 @@ public class StartWorld extends SuperWorld
     private Fader fade, fadeOut;
     
     /**
-     * Constructor for objects of class StartWorld
+     * Constructor for the StartWorld
      */
     public StartWorld()
     {
@@ -51,8 +51,13 @@ public class StartWorld extends SuperWorld
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
 
     }
+    
+    /**
+     * Main act method loops through all the music and ambient sounds
+     */
     public void act (){
         super.act();
+        
         //keep track of acts, animate bg
         acts++;
         animateBg();
