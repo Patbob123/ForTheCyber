@@ -26,6 +26,7 @@ public class BoxJab extends Attack
         else{
             firstTarget.takeDamage(attacker.getAttack()*3);
         }
+        attacker.meleeAttackAnimation(firstTarget);
         return targets;
     } 
 }

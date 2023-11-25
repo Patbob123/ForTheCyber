@@ -17,6 +17,19 @@ public class SuperWorld extends World
         
         sm = new SoundManager();
         addObject(sm, 0, 0);
+        setPaintOrder(  
+            Popup.class,
+            Presser.class,
+            AttackQueue.class,
+            Container.class,
+            HPBar.class,
+            SuperSmoothMover.class,
+            SuperTextBox.class,
+            TextManager.class,
+            CustomizePanel.class,
+            StatBar.class
+            
+        );
     }
     
     public void started(){
@@ -28,4 +41,5 @@ public class SuperWorld extends World
     public SoundManager getSM(){
         return sm;
     }
+    
 }
