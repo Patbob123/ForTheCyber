@@ -7,19 +7,19 @@ import java.awt.FontFormatException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /**
- * Write a description of class AugmentPanel here.
+ * Give functionality to buttons and tabs in Builder World (Make the UI work)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class CustomizePanel extends Actor
 {
-    //private TextPlace augmentName;
-    //private TextPlace augmentDesc;
     private GreenfootImage augmentPanelImg;
     private GreenfootImage movesetPanelImg;
     private boolean onAugment;
     private ArrayList <Attack> moveset;
+    
+    // All the attacks are stored in a Hashmap for easy retrivability 
     private static Map<String, Attack> totalMoveset = new HashMap<String, Attack>(){{
             put("BodySlam", new BodySlam());
             put("BoxJab", new BoxJab());
@@ -68,6 +68,8 @@ public class CustomizePanel extends Actor
             i++;
         }
     }
+    
+    // Switch to Augment Tab
     public void goToAugment(){
         onAugment = true;
         if(movesetButtons[0]!=null){
@@ -88,6 +90,8 @@ public class CustomizePanel extends Actor
         
        
     }
+    
+    // Switch to Moveset Tab
     public void goToMoveset(){
         onAugment = false;
         nameDisplay.removeSentence();
@@ -100,6 +104,7 @@ public class CustomizePanel extends Actor
         }
         setImage(movesetPanelImg);
     }
+    
     public TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
         try{
             TextPlace textDisplay = new TextPlace(text, x, y, textBoxWidth);

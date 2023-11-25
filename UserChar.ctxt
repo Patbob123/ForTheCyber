@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=UserChar
-comment0.text=\r\n\ <p>This\ is\ the\ UserChar\ class.\ It\ \r\n\ \r\n\ @Edmond\r\n\ @Nov\ 7\ 2023\r\n
+comment0.text=\r\n\ This\ is\ the\ UserChar\ class.\ It\ \r\n\ \r\n\ @author\ Edmond\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ Nov\ 7\ 2023\r\n
 comment1.params=
 comment1.target=UserChar()
 comment10.params=

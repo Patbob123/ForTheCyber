@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class SuperWorld here.
+ * Superworld is a wrapper class of all the worlds 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson Li
+ * @version November, 24, 2023
  */
 public class SuperWorld extends World
 {
@@ -25,12 +25,14 @@ public class SuperWorld extends World
             HPBar.class,
             Effect.class,
             SuperTextBox.class,
-            TextManager.class,
-            StatBar.class,
             CustomizePanel.class,
+            TextManager.class,
+            
+            StatBar.class,
             SuperSmoothMover.class
         );
     }
+    
     
     public void started(){
         sm.resumeSounds();

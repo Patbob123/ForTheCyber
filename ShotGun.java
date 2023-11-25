@@ -12,7 +12,7 @@ public class ShotGun extends Attack
     
     public ShotGun(){
         name = "ShotGun";
-        critChance = 5;
+        critChance = 3;
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
         return entireField[1-side].getEntities();

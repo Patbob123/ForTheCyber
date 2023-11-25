@@ -1,10 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class StatWorld here.
+ * The world where the user can customize their character before the simulation starts
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rex Xu
+ * <p>
+ * Modified by: Dawson Li
+ * </p>
+ * @version November, 24, 2023
  */
 public class BuilderWorld extends SuperWorld
 {
@@ -38,9 +41,7 @@ public class BuilderWorld extends SuperWorld
         UI builderUI = new UI(builderImage,true);
         UI eblackRectangle = new UI(200, 800);
         addObject(builderUI, getWidth()/2, getHeight()/2);
-        //addObject(blackRectangle, 100, 400);
-        //addObject(eblackRectangle, 924, 400);
-        
+
         attackSetter = new StatSetter(setAttackFunc, 1 , "atk", 50, 170);  
         defSetter = new StatSetter(setDefFunc, 1 , "def", 50, 310);  
         speedSetter = new StatSetter(setSpeedFunc, 1 , "speed", 50, 450);  
@@ -51,6 +52,7 @@ public class BuilderWorld extends SuperWorld
         addObject(speedSetter, 0, 0);
         addObject(hpSetter, 0, 0);
         
+        // Add Buttons on the Screen
         Presser marmButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Robot Arm");
         Presser mlegButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Robot Leg");
         Presser cloakButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Stealth Cloak");
@@ -81,16 +83,7 @@ public class BuilderWorld extends SuperWorld
 
         
         Presser nextButton = new Presser(goBattleWorld, "ready.png", "ready.png");
-        addObject(nextButton, 500, 700);
-        // Button hpButton = new Button("life");
-        // Button speedButton = new Button("speed");
-        // Button attackButton = new Button("strength");
-        // Button defenseButton = new Button("defense");
-
-        // addObject(hpButton, 100, 100);
-        // addObject(speedButton, 100, 200);
-        // addObject(attackButton, 100, 300);
-        // addObject(defenseButton, 100, 400);       
+        addObject(nextButton, 500, 700);  
         
         userCharInstance = new UserChar();
         doneMaking = false;
@@ -98,9 +91,7 @@ public class BuilderWorld extends SuperWorld
         curPoints = 0;
         setPaintOrder(Popup.class);
         
-        //builderMusic.playLoop();
-        
-        
+
         sm.playSoundLoop("builderMusic");
         
         setBackground(builderBgImage);
@@ -110,7 +101,7 @@ public class BuilderWorld extends SuperWorld
 
     }
 
-    
+    // Calculate how many points the user has for stats
     private boolean checkPoints(double prevAmount, double postAmount){
         if(prevAmount < postAmount){
             if(curPoints < maxPoints && postAmount < 10){
@@ -125,8 +116,8 @@ public class BuilderWorld extends SuperWorld
         }
         return false;
     }
-    //set hp private methods for builderworld
     
+    //set hp private methods for builderworld
     private void setHp(double hp){
         sm.playSound("click");
         if(!checkPoints(getUserChar().getHp()/10, hp/10)) return;

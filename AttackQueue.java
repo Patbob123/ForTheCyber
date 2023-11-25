@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.LinkedList;
 /**
-* Write a description of class attackQueue here.
+* Displays the generated attack queue, (created from BattleManager.class)
 * 
-* @author (your name) 
-* @version (a version number or a date)
+* @author Dawson
+* @version November 24, 2023
 */
 public class AttackQueue extends Actor
 {

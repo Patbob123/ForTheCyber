@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartWorld here.
+ * World to display the win screen when you beat all the levels
  * 
  * @author Dawson 
  * @version nov2023

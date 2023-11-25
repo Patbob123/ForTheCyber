@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=BuilderWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ StatWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ world\ where\ the\ user\ can\ customize\ their\ character\ before\ the\ simulation\ starts\r\n\ \r\n\ @author\ Rex\ Xu\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\ Li\r\n\ </p>\r\n\ @version\ November,\ 24,\ 2023\r\n
 comment1.params=stages
 comment1.target=BuilderWorld(java.util.ArrayList)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ StatWorld.\r\n\ \r\n

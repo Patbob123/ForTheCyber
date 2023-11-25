@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartWorld here.
+ * World to display the Lose Screen when you die
  * 
  * @author Dawson 
  * @version nov2023

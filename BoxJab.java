@@ -10,7 +10,7 @@ public class BoxJab extends Attack
 {
     public BoxJab(){
         name ="BoxJab";
-        critChance = 3;
+        critChance = 7;
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
         return entireField[1-side].getEntities();
@@ -21,7 +21,7 @@ public class BoxJab extends Attack
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
         
         if(checkIfCrit()){
-            firstTarget.takeDamage(attacker.getAttack()*6); // 2x Damage
+            firstTarget.takeDamage(attacker.getAttack()*4); // 2x Damage
         }
         else{
             firstTarget.takeDamage(attacker.getAttack()*3);

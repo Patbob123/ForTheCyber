@@ -10,12 +10,178 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /**
- * Battle World Controls:
+ * Battle Simulation: Epick Wick
  * 
+ * <p>Set in the futuristic undercity of 2145, Epick Wick embarks on a grueling journey to take revenge against the robot gang that brutally assassinated his only companion, Bark the dog. 
+ * With nothing left to lose, Epick Wick cybernetically augments himself to become more durable, faster and stronger so that he can stand a chance to take down the mechanical menaces. </p>
  * 
+ * <p>
+ * Key Features:
+ * <ul>
+ * - All choosble attacks and augments are original 
+ * </ul>
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * <ul>
+ * - Randomly generated waves of enemies 
+ * </ul>
+ * 
+ * <ul>
+ * - Customizable stats and abilities for the user
+ * </ul>
+ * 
+ * <ul>
+ * - A self generating turn based simulator, that chooses the order in which entities attack 
+ * </ul>
+ * 
+ * <ul>
+ * - All of the pixel art is hand made 
+ * </ul>
+ * 
+ * <ul>
+ * - Unique Art work for UI, animations, characters, Start Screen, and Gifs
+ * </ul>
+ * 
+ * <ul>
+ * - A live textbox feed with custom font, colourable text, and automatic resizablity
+ * </ul>
+ * 
+ * <ul>
+ * - Lots of code is handled in a Manager Class to create modular and reusable code
+ * </ul>
+ * </p>
+ * 
+ * <p>
+ * Credits:
+ * 
+ * <p>
+ * Code:-------------------------------------------------------------
+ * 
+ * <ul>
+ * Code for importing Custom Font:
+ * - Written by: crissty21
+ * - Link: https://www.greenfoot.org/topics/65058/0
+ * </ul>
+ * 
+ * <ul>
+ * Code for SuperTextBox and ImageManipulatorStarterCode:
+ * - Written by: Mr. Cohen
+ * </ul>
+ * 
+ * <ul>
+ * Colour code for image tinting:
+ * - Written by: Yusuf Shakeel
+ * - Link: https://www.youtube.com/watch?v=oHPegWucwEo
+ * </ul>
+ * 
+ * <ul>
+ * Detect Hovering Movement Code:
+ * - Written by: arw90
+ * - Link: https://www.greenfoot.org/topics/55324/0
+ * </ul>
+ * </p>
+ * 
+ * <p>
+ * Music:-------------------------------------------------------------
+ * <ul>
+ * Jaded by LONE
+ * Copyright: R&S Records 2014
+ * Link: https://www.youtube.com/watch?v=nettIPeJauM&ab_channel=Lone-Topic 
+ * </ul>
+ * </p>
+ * 
+ * <p>
+ * Sound Effects:-------------------------------------------------------------
+ * <ul>
+ * Click:
+ * By: 666Herohero
+ * Link: https://pixabay.com/sound-effects/click-21156/ 
+ * </ul>
+ * 
+ * <ul>
+ * Blaster Sound:
+ * By: Pixabay
+ * Link: https://pixabay.com/sound-effects/blaster-103340/
+ * </ul>
+ * 
+ * <ul>
+ * Boom Sound:
+ * By: SUMBORITY
+ * Link: https://pixabay.com/sound-effects/boom-geomorphism-cinematic-trailer-sound-effects-123876/
+ * </ul>
+ * 
+ * <ul>
+ * Body Slam Sound:
+ * By: Pixabay
+ * Link: https://pixabay.com/sound-effects/hard-slap-46388/
+ * </ul>
+ * 
+ * <ul>
+ * Death Ray Sound:
+ * By: Pixabay
+ * Link: https://pixabay.com/sound-effects/search/beam/ 
+ * </ul>
+ * 
+ * <ul>
+ * Pincer Sound:
+ * By: Pixabay
+ * Link: https://pixabay.com/sound-effects/knife-stab-sound-effect-36354/ 
+ * </ul>
+ * 
+ * <ul>
+ * Plasma Beam Sound:
+ * By: Pixabay
+ * Link: https://pixabay.com/sound-effects/beam-8-43831/ 
+ * </ul>
+ * 
+ * <ul>
+ * Punch Sound:
+ * By: floraphonic
+ * https://pixabay.com/sound-effects/punch-6-166699/ 
+ * </ul>
+ * 
+ * <ul>
+ * Shotgun Sound:
+ * By: Pixabay
+ * https://pixabay.com/sound-effects/shotgun-firing-4-6746/ 
+ * </ul>
+ * 
+ * <ul>
+ * Heal Sound:
+ * By: Pixabay
+ * https://pixabay.com/sound-effects/084373-heal-36672/ 
+ * </ul>
+ * 
+ * <ul>
+ * Pixel Sound:
+ * By: Pixabay
+ * https://pixabay.com/sound-effects/pixel-sound-effect-5-103221/ 
+ * </ul>
+ * 
+ * <ul>
+ * Rain Ambient Sound:
+ * By: SoundsForYou
+ * https://pixabay.com/sound-effects/soft-rain-ambient-111154/
+ * </ul>
+ * 
+ * <ul>
+ * Hover Sound
+ * By: Pixabay
+ * https://pixabay.com/sound-effects/fairy-sound-6469/ 
+ * </ul>
+ * </p>
+ * 
+ * <p> 
+ * Known Bugs:
+ * <ul>
+ * - Sometimes Supertextbox incorrectly spaces out words
+ * </ul>
+
+
+ * @author Dawson Li
+ * <p>
+ * Modified by: Rex Xu
+ * </p>
+ * @version November, 24, 2023
  */
 public class BattleWorld extends SuperWorld
 {

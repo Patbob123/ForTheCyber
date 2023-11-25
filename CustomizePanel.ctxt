@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CustomizePanel
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ AugmentPanel\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Give\ functionality\ to\ buttons\ and\ tabs\ in\ Builder\ World\ (Make\ the\ UI\ work)\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=CustomizePanel()
 comment2.params=w

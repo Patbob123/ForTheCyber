@@ -8,20 +8,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /**
- * Enemies
+ * Enemy World Generates an unique Enemy Lineup for each wave
  * 
- * Tier 1 Mobs
- * - Gunner 
- * - Melee 
- * - Buffer 
- * 
- * Tier 2 Mobs
- * - Juggernaut 
- * - Deathray 
- * - Skelecop 
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent Li
+ * @version November, 24, 2023
  */
 public class EnemyWorld extends SuperWorld
 {
@@ -34,9 +24,9 @@ public class EnemyWorld extends SuperWorld
 
     public EnemyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1);
         
+        // Dictonary of all the Enemies 
         enemyDict = new HashMap<Integer, Enemy>(){{
             put(0,new Gunner());
             put(1,new Melee());
@@ -46,7 +36,8 @@ public class EnemyWorld extends SuperWorld
             put(5,new SkeleCop());
             put(6, new Boss());
         }};
-
+        
+        // Generate the enemy lineup when world is generated
         waves = new ArrayList<ArrayList<Enemy>>();
         enemyPerWave = 6;
         generateEnemies(0);
@@ -60,6 +51,7 @@ public class EnemyWorld extends SuperWorld
         enemyBg = new GreenfootImage("enemyBg.png");
         enemyBg.scale(enemyBg.getWidth()*Constants.IMAGE_SCALING, enemyBg.getHeight()*Constants.IMAGE_SCALING);
         
+        // Display the enemy icons
         displayEnemies(getStages().get(0), 200);
         displayEnemies(getStages().get(1), 350);
         displayEnemies(getStages().get(2), 500);    
@@ -84,6 +76,8 @@ public class EnemyWorld extends SuperWorld
             }
         }
     }
+    
+    // Method for generating enemies in each wave
     public void generateEnemies(int difficulty){
         ArrayList <Enemy> waveEnemies = new ArrayList <Enemy>();
         int random;
@@ -94,17 +88,17 @@ public class EnemyWorld extends SuperWorld
                 waveEnemies.add(enemyDict.get(random));
             }
 
-        } else if (difficulty == 1){ // Tier 2 enemies
+        } else if (difficulty == 1){ // Tier 1 and Tier 2 enemies
             for(int i = 0; i < enemyPerWave; i++){
                 random = Greenfoot.getRandomNumber(6);
                 waveEnemies.add(enemyDict.get(random));
             }
-        } else if (difficulty == 2){
+        } else if (difficulty == 2){ // Tier 2 enemies
             for(int i = 0; i < enemyPerWave; i++){
                 random = Greenfoot.getRandomNumber(3);
                 waveEnemies.add(enemyDict.get(random+3));
             }
-        } else if (difficulty == 3){
+        } else if (difficulty == 3){ // Boss
            enemyPerWave = 1; 
            for(int i = 0; i < enemyPerWave; i++){
                 waveEnemies.add(enemyDict.get(6));
@@ -120,6 +114,8 @@ public class EnemyWorld extends SuperWorld
         sm.playSound("blip");
         addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
+    
+    // Method for displaying enemies
     public void displayEnemies(ArrayList<Enemy> wave, int height){
         for (int i = 0; i< wave.size(); i++){
             GreenfootImage img = wave.get(i).getPortrait();
