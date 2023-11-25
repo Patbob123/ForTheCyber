@@ -91,7 +91,7 @@ public class StartWorld extends SuperWorld
             }
         } //draw logo img ontop
         
-        if(acts >= (60*30)){ //if wait 30 sec, easter egg (logo dies)
+        if(acts >= (60*60)){ //if wait 1 min, easter egg (logo dies)
             playLoopedAnim = false;
         }
 
