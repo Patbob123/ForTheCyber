@@ -237,12 +237,12 @@ public class BattleWorld extends SuperWorld
         bgImage = new GreenfootImage(getWidth(), getHeight());
         setBackground(bgImage);
         
-        setPaintOrder(SuperTextBox.class);
         
         //sm = new SoundManager();
         
     }
     public void act(){
+        super.act();
         actCounter++;
     }
     public int getAct(){
@@ -315,14 +315,13 @@ public class BattleWorld extends SuperWorld
         }
         
         Collections.sort(entities);
-        BattleManager bm = new BattleManager(entities, entireField);
-        addObject(bm, 0, 0);
-        bm.nextTurn();
+        
         
         addObject(new Rain(), Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
-        
-
         setBg(bg1);
+        
+        BattleManager bm = new BattleManager(entities, entireField);
+        addObject(bm, 0, 0);
     }
     public void refreshEntities(){
         removeObjects(getObjects(Entity.class));

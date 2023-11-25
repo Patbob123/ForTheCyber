@@ -28,7 +28,9 @@ public class LoseWorld extends SuperWorld
         bgImage = new GreenfootImage("youdiedBg.png");
         setBackground(bgImage);
     }
-    
+    public void act(){
+        super.act();
+    }
     public void goToEnemyWorld(){
         Greenfoot.setWorld(new EnemyWorld());
     }

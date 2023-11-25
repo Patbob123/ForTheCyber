@@ -26,6 +26,7 @@ public class BattleManager extends Actor
     private int curAttackerIndex;
     private Entity curAttacker;
     
+    private int initialWaitTime;
      
     private Slot originalAttackerSlot;
     public BattleManager(ArrayList<Entity> entities, Side[] entireField)
@@ -37,7 +38,7 @@ public class BattleManager extends Actor
         this.trueTurnNumber = 1;
         this.curAttackerIndex = 0;
         
-        
+        this.initialWaitTime = 300;
         
         setImage(new GreenfootImage(1,1));
     }
@@ -140,19 +141,27 @@ public class BattleManager extends Actor
         }
     }
     public void act(){
-        if(entireField[0].getEntities().size()==0){
-            Greenfoot.setWorld(new LoseWorld());
-            getWorld().removeObject(this);
-            return;
+        if(initialWaitTime < 0){
+            if(entireField[0].getEntities().size()==0){
+                Greenfoot.setWorld(new LoseWorld());
+                getWorld().removeObject(this);
+                return;
+            }
+            if(entireField[1].getEntities().size()==0){
+                ((BattleWorld)getWorld()).setupField();
+                getWorld().addObject(new NextWave(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+                getWorld().removeObject(this);
+            }
+            if(curAttacker.isAttackFinished()){
+                curAttacker.initToSlot(originalAttackerSlot);
+                nextTurn();
+            }
         }
-        if(entireField[1].getEntities().size()==0){
-            ((BattleWorld)getWorld()).setupField();
-            getWorld().addObject(new NextWave(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-            getWorld().removeObject(this);
-        }
-        if(curAttacker.isAttackFinished()){
-            curAttacker.initToSlot(originalAttackerSlot);
+        if(initialWaitTime > 0){
+            initialWaitTime--;
+        }else if(initialWaitTime == 0){
             nextTurn();
+            initialWaitTime--;
         }
     }
 }

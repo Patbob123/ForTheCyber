@@ -29,14 +29,12 @@ public class IntroWorld extends SuperWorld
         fadeOut = new Fader(60*2,true);
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
         sm.stopSounds();
+        setBackground(scene1);
     }
     
     public void act() {
+        super.act();
         acts++;
-        
-        if (acts == 0){
-            setBackground(scene1);
-        }
         
         if (acts == 90){
             sm.playSound("blast");

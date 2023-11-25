@@ -89,7 +89,6 @@ public class BuilderWorld extends SuperWorld
         doneMaking = false;
         maxPoints = 18;
         curPoints = 0;
-        setPaintOrder(Popup.class);
         
 
         sm.playSoundLoop("builderMusic");
@@ -98,7 +97,7 @@ public class BuilderWorld extends SuperWorld
     }
     
     public void act(){
-
+        super.act();
     }
 
     // Calculate how many points the user has for stats

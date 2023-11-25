@@ -28,7 +28,9 @@ public class WinWorld extends SuperWorld
         bgImage = new GreenfootImage("youwinBg.png");
         setBackground(bgImage);
     }
-    
+    public void act(){
+        super.act();
+    }
     public void goToEnemyWorld(){
         Greenfoot.setWorld(new EnemyWorld());
     }

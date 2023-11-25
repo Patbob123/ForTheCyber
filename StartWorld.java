@@ -51,8 +51,8 @@ public class StartWorld extends SuperWorld
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
 
     }
-    
     public void act (){
+        super.act();
         //keep track of acts, animate bg
         acts++;
         animateBg();

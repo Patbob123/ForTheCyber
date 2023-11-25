@@ -18,7 +18,7 @@ public class Cursor extends Popup
         frames = 5;
         curFrame = 0;
         acts = 0;
-        actsPerFrame = 8;
+        actsPerFrame = 2;
         
         cursorImages = new GreenfootImage[frames];
         for(int i = 0; i < frames; i++){
