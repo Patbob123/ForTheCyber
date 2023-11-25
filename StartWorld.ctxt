@@ -1,11 +1,15 @@
 #BlueJ class context
 comment0.target=StartWorld
-comment0.text=\r\n\ Simulation\ start\ screen\ with\ music\ \r\n\ \r\n\ @author\ Edmond\ \r\n\ @version\ nov2023\r\n
+comment0.text=\r\n\ Simulation\ start\ screen\ with\ music,\ animated\ Logo,\ animated\ bg,\ and\ faders\r\n\ <p>\r\n\ Click\ to\ proceed\r\n\ \r\n\ @author\ Edmond\ \r\n\ @version\ 2023\ Nov\ 24\r\n
 comment1.params=
 comment1.target=StartWorld()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ StartWorld.\r\n\ \r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ StartWorld\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
-comment3.target=greenfoot.GreenfootImage\ getLogoImg()
-numComments=4
+comment3.target=void\ animateBg()
+comment4.params=
+comment4.target=greenfoot.GreenfootImage\ getLogoImg()
+comment5.params=max
+comment5.target=int\ randNum(int)
+numComments=6
