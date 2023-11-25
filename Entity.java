@@ -49,6 +49,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected double ImageSizeScale;
     protected double toSlotSpeed;
     protected double meleeSpeed;
+    protected String queuedMeleeSound;
     protected int targetedX;
     protected int targetedY;
     protected int filterActs;
@@ -112,7 +113,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         
         ArrayList<Entity> allTargets = move.target(this, entireField, this.side); // Call move.target, which gets all targets affected by this move, then pass to performMove(), which executes the effects on targets
         if(getWideRange()) allTargets = entireField[1-getSide()].getEntities();
-        if(getStunner()){
+        if(getStunner() && Greenfoot.getRandomNumber(7) < 10){
             for(Entity e: allTargets) e.stun(true);
         }
         move.performMove(allTargets,this);
@@ -204,12 +205,13 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     
     // Attack animations
-    public void meleeAttackAnimation(Entity target){
+    public void meleeAttackAnimation(Entity target, String meleeSound){
         double distance = getDistance(target);
         meleeSpeed = 1;
         meleeTarget = target;
         targetedX = meleeTarget.getX();
         targetedY = meleeTarget.getY();
+        queuedMeleeSound = meleeSound;
     }
     
     //Character movement for attack animations
@@ -224,6 +226,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
             move(distance < meleeSpeed ? 1 : meleeSpeed);
         }else if(distance == 0) {
             meleeTarget = null;
+            ((SuperWorld)getWorld()).getSM().playSound(queuedMeleeSound);
             initToSlot(this.slot);   
         }
         

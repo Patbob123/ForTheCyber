@@ -24,9 +24,7 @@ public class BoxJab extends Attack
         
         return targets;
     }
-    public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
-        ((BattleWorld)attacker.getWorld()).getSM().playSound("boxJab");
-        
+    public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){ 
         Entity firstTarget = targets.get(0);
         firstTarget.stun(true);
         if(checkIfCrit()){
@@ -35,7 +33,7 @@ public class BoxJab extends Attack
         else{
             firstTarget.takeDamage(attacker.getAttack()*2);
         }
-        attacker.meleeAttackAnimation(firstTarget);
+        attacker.meleeAttackAnimation(firstTarget, "boxJab");
         return targets;
     } 
 }

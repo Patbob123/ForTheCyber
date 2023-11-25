@@ -34,7 +34,6 @@ public class PlasmaBeam extends Attack
             targets.add(firstTarget);
             if(i==1) break;
         }
-        System.out.println();
         
         return targets;
     }

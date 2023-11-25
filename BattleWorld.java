@@ -194,7 +194,7 @@ public class BattleWorld extends SuperWorld
     private UserChar uc;
     private ArrayList<ArrayList<Enemy>> stages;
     
-    private ArrayList<Entity> entities = new ArrayList<Entity>();
+    private ArrayList<Entity> entities;
     private ArrayList<SuperTextBox> text = new ArrayList<SuperTextBox>();
     private Side userSide;
     private Side enemySide;
@@ -268,7 +268,7 @@ public class BattleWorld extends SuperWorld
         bg1.scale(bg1.getWidth()*Constants.IMAGE_SCALING, bg1.getHeight()*Constants.IMAGE_SCALING);
         setupField();
         
-        
+        addObject(new Rain(), Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     
     public void setupField(){
@@ -298,6 +298,8 @@ public class BattleWorld extends SuperWorld
     }
     
     public void startBattle(){
+        entities = new ArrayList<Entity>();
+        
         Coordinate userSideSpawn = new Coordinate(800, 800);
         Coordinate enemySideSpawn = new Coordinate(400, 0);
 
@@ -317,7 +319,7 @@ public class BattleWorld extends SuperWorld
         Collections.sort(entities);
         
         
-        addObject(new Rain(), Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
+        
         setBg(bg1);
         
         BattleManager bm = new BattleManager(entities, entireField);

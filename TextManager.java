@@ -82,6 +82,7 @@ public class TextManager extends Actor
     }
     
     public void addSentence(String sentence){
+        System.out.println(text);
         text.add(0,new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA));
         displayText();
     }
@@ -126,7 +127,7 @@ public class TextManager extends Actor
         int placeY = 0; // Variable for determining where the next textbox goes
         for(int i = 0; i < text.size(); i++){
             int textBoxHeight = text.get(i).getImage().getHeight();
-            int opacity = 255-((textBoxHeight+spacing)*(i))/2;
+            int opacity = 255-(int)(((double)(placeY)/(getImage().getHeight()-100))*255);
             if(opacity < 0) {
                 text.remove(text.get(i));
                 continue;
