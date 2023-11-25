@@ -2,10 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class ShotGun here.
+ * ShotGun is a single target attack that does Massive damage if it is a critcal strike, otherwise deal medium damage
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Jaiden
+ * </p>
+ * 
+ * @version November 2023
  */
 public class ShotGun extends Attack
 {

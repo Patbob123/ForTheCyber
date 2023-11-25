@@ -2,10 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class DeathRay here.
+ * Death Ray does Massive AOE damage but at the cost of some self inflicted damage
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Jaiden
+ * </p>
+ * 
+ * @version November 2023
  */
 public class DeathRay extends Attack
 {

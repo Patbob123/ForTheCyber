@@ -3,10 +3,10 @@ import java.awt.FontFormatException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /**
- * Write a description of class StatSetters here.
+ * Adds stats to the user character after selecting stats in the battle world
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class StatSetter extends Actor
 {

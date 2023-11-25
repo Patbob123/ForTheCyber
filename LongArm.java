@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class LongArm here.
+ * Allows the user to attack multiple targets in one turn
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class LongArm extends Augment 
 {

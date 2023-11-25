@@ -4,6 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * World to display the Lose Screen when you die
  * 
  * @author Dawson 
+ * <p>
+ * Modified by: Edmond
+ * </p>
  * @version nov2023
  */
 public class LoseWorld extends SuperWorld

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Heal
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Heal\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Heal\ the\ attacker\ for\ a\ large\ amount\ and\ all\ other\ allies\ for\ a\ small\ amount\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=Heal()
 comment2.params=attacker\ entireField\ side

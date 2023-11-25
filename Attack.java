@@ -1,10 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class Attack here.
+ * Attack super class that stores the abstract methods for all subclasses of attack
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Jaiden, Dawson
+ * </p>
+ * 
+ * @version November 2023
  */
 public abstract class Attack extends SuperSmoothMover
 {
@@ -23,14 +27,16 @@ public abstract class Attack extends SuperSmoothMover
     public Attack (){
         
     }
-    public abstract ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker);
-    public abstract ArrayList<Entity> target(Entity attacker, Side[] entireField, int side);
+    public abstract ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker); //Action when attack is perform
+    public abstract ArrayList<Entity> target(Entity attacker, Side[] entireField, int side); // Targeting system for the attack
     public int getDuration(){
         return duration;
     }
     public String getName(){
         return name;
     }
+    
+    // Check if attack was a critical hit or not
     public boolean checkIfCrit(){
         int luck = Greenfoot.getRandomNumber(10);
         if(critChance >= luck){

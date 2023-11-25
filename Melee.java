@@ -1,10 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Melee here.
+ * Melee is a basic enemy that uses Pincer
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jaiden
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * @version November 2023
  */
 public class Melee extends Enemy
 {

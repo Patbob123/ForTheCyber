@@ -1,10 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Gunner here.
+ * The boss is the final enemy to be defeated before the user wins, the boss has ShotGun, DeathRay and Heal
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jaiden
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * @version November 2023
  */
 public class Boss extends Enemy
 {

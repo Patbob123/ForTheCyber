@@ -78,6 +78,12 @@ import java.io.IOException;
  * - Written by: arw90
  * - Link: https://www.greenfoot.org/topics/55324/0
  * </ul>
+ * 
+ * <ul>
+ * Gif Image:
+ * - Michael Berry, Neil Brown Copyright (c) 2011,2013,2014,2018,2021
+ * - Greenfoot Imported Code
+ * </ul>
  * </p>
  * 
  * <p>

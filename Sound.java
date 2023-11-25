@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class Sound here.
+ * Converts GreenfootSounds into ArrayLists to ensure sounds can be repeated multiple times without cooldown
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * @version November 2023
  */
 public class Sound extends Actor
 {
@@ -21,13 +21,14 @@ public class Sound extends Actor
         volume = defaultVolume;
         soundIndex = 0;
         sounds = new GreenfootSound[20];
+        // Generate Arraylist for each sound created
         for(int i = 0; i < sounds.length; i++){
             sounds[i] = new GreenfootSound(soundFile);
             sounds[i].setVolume(defaultVolume);
         }
     }
     public void playSound(){
-        
+        // Loop through the arraylist, keep track of the current index
         sounds[soundIndex].play();
         if(soundIndex >= sounds.length-1){
             soundIndex = 0;

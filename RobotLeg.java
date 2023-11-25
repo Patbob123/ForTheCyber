@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class RobotLeg here.
+ * RobotLeg increases the user's speed and attack per levelup.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class RobotLeg extends Augment 
 {

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=TextManager
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ TextManager\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ TextManger\ class\ is\ in\ charge\ of\ converting\ all\ string\ into\ SuperTextBox\ Objects\ to\ display\ to\ the\ world\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=TextManager()
 comment2.params=theFont

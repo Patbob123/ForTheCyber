@@ -5,10 +5,13 @@ import java.util.Map;
 import greenfoot.GreenfootSound;
 
 /**
- * Write a description of class SoundManager here.
+ * Sound Manager is reponsible for storing and retreving all the sound files to allow modular and reusable code in other classes
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * @version November 2023
  */
 public class SoundManager extends Actor
 {
@@ -18,15 +21,11 @@ public class SoundManager extends Actor
     
     private GreenfootSound[] sounds;
     private int soundsIndex;
-    //private Arr
     public SoundManager()
     {
+        //Store all sound files into a HashMap for easy retrevial 
         soundFiles.put("builderMusic", new Sound("builderMusic.mp3",50 ));
         soundFiles.put("Jaded", new Sound("Jaded.mp3",50 ));
-        //soundFiles.put("attack", new Sound("attack.wav",12 ));
-        //soundFiles.put("takeDamage", new Sound("takeDamage.wav",12 ));
-        //soundFiles.put("buttonPress", new Sound("buttonPress.wav",12 ));
-        //soundFiles.put("buttonPress", new Sound("buttonclick.mp3",12 ));
         soundFiles.put("blast", new Sound("blaster.mp3",50 ));
         soundFiles.put("boom", new Sound("boom.mp3",60 ));
         soundFiles.put("bodySlam", new Sound("attacks/bodyslam.wav",100 ));
@@ -50,6 +49,8 @@ public class SoundManager extends Actor
             getWorld().addObject(set.getValue(), getX(), getY());
         }
     }
+    
+    // Methods to acess Sound Objects to play sounds
     public void playSound(String sound){
         soundFiles.get(sound).playSound();
     }

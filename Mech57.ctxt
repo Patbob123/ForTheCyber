@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Mech57
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DeathRay\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Mech57\ is\ a\ difficult\ enemy\ that\ uses\ PlasmaBeam\r\n\ \r\n\ @author\ Jaiden\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=Mech57()
 comment2.params=

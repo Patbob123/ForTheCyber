@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class Shield here.
+ * Shield increases the user's attack and defence each time they level up
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class Shield extends Augment 
 {

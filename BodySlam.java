@@ -2,10 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class BodySlam here.
+ * Body slam big damage to the primary target, and aoe damage to all other targets 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Jaiden
+ * </p>
+ * 
+ * @version November 2023
  */
 public class BodySlam extends Attack
 {

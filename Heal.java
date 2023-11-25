@@ -2,10 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class Heal here.
+ * Heal the attacker for a large amount and all other allies for a small amount
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent
+ * <p>
+ * Modified by: Jaiden
+ * </p>
+ * 
+ * @version November 2023
  */
 public class Heal extends Attack
 {

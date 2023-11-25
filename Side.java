@@ -4,8 +4,8 @@ import java.util.ArrayList;
  * (User or Enemy) Side Class
  * - Sets up the user and enemy idle positions 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class Side extends Actor//
 {

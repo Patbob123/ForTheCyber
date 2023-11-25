@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class UI here.
+ * UI class converts GreenfootImages into Objects so that they can be added to the world
  * 
- * @Rex (your name) 
- * @version (a version number or a date)
+ * @author Rex
+ * @version November 2023
  */
 public class UI extends Actor
 {

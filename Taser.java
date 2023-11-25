@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Write a description of class Taser here.
+ * Gives the user the ability to stun on it's attack
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 2023
  */
 public class Taser extends Augment 
 {
