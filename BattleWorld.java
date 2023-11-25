@@ -18,7 +18,7 @@ import java.io.IOException;
  * <p>
  * Key Features:
  * <ul>
- * - All choosble attacks and augments are original 
+ * - All choosable attacks and augments are original 
  * </ul>
  * 
  * <ul>
@@ -34,7 +34,7 @@ import java.io.IOException;
  * </ul>
  * 
  * <ul>
- * - All of the pixel art is hand made 
+ * - All of the pixel art is created by group members, except the rain in battle world
  * </ul>
  * 
  * <ul>
@@ -48,6 +48,12 @@ import java.io.IOException;
  * <ul>
  * - Lots of code is handled in a Manager Class to create modular and reusable code
  * </ul>
+ * 
+ * Miscellaneous Features: 
+ * <ul>
+ * - Run StartWorld and wait 30 seconds to experience a small easter egg
+ * </ul>
+ * 
  * </p>
  * 
  * <p>
@@ -83,6 +89,17 @@ import java.io.IOException;
  * Gif Image:
  * - Michael Berry, Neil Brown Copyright (c) 2011,2013,2014,2018,2021
  * - Greenfoot Imported Code
+ * </ul>
+ * </p>
+ * 
+ * <p>
+ * Graphics:----------------------------------------------------------
+ * <ul>
+ * BattleWorld Rain
+ * <ul>
+ * Pixel Rain Sticker By Douglas Schatz
+ * Link: https://giphy.com/stickers/nostalgia-bling-3ohhwutQL0CDTq3kKA 
+ * </ul>
  * </ul>
  * </p>
  * 
@@ -173,6 +190,11 @@ import java.io.IOException;
  * Hover Sound
  * By: Pixabay
  * https://pixabay.com/sound-effects/fairy-sound-6469/ 
+ * 
+ * <ul>
+ * Electric Shock Sound
+ * By: Pixabay
+ * Link: https://pixabay.com/sound-effects/075681-electric-shock-33018/ 
  * </ul>
  * </p>
  * 
@@ -244,6 +266,10 @@ public class BattleWorld extends SuperWorld
     public void act(){
         super.act();
         actCounter++;
+        if(actCounter==1){
+            sm.playSoundLoop("rain");
+            sm.fadeIn("rain");
+        }
     }
     public int getAct(){
         return actCounter;

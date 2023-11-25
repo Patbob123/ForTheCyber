@@ -68,12 +68,14 @@ public class StartWorld extends SuperWorld
             sm.playSoundLoop("rain");
         }
         
+        if(Greenfoot.mouseClicked(null)){
+            //click sound
+            sm.playSound("blip");
+        }
+        
         if(acts > 240 && Greenfoot.mouseClicked(null)){ //if mouse clicked and more than 4 seconds
             //tells everyone that the mouse has been clicked, so get ready to switch worlds
             mouseIsClicked = true;
-            
-            //click sound
-            sm.playSound("blip");
             
             //fade out music + ambience
             sm.fadeOut("Jaded");
@@ -115,8 +117,9 @@ public class StartWorld extends SuperWorld
             }
         } 
         
-        if(acts >= (60*60)){ //if wait 1 min, easter egg (logo dies)
+        if(acts == (60*30)){ //if wait 30 sec, easter egg (logo dies)
             playLoopedAnim = false;
+            sm.playSound("electricshock");
         }
 
     }

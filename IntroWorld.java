@@ -36,6 +36,11 @@ public class IntroWorld extends SuperWorld
         super.act();
         acts++;
         
+        if(Greenfoot.mouseClicked(null)){
+            //click sound
+            sm.playSound("blip");
+        }
+        
         if (acts == 90){
             sm.playSound("blast");
         }
@@ -60,7 +65,6 @@ public class IntroWorld extends SuperWorld
         if(acts > (60*5 + 60*2 + 60*4)) {
             if(Greenfoot.mouseClicked(null)){ //if mouse click and more than 4 seconds
                 mouseIsClicked = true;
-                sm.playSound("blip");
             }
         }
         

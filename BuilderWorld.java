@@ -98,6 +98,11 @@ public class BuilderWorld extends SuperWorld
     
     public void act(){
         super.act();
+        
+        if(Greenfoot.mouseClicked(null)){
+            //click sound
+            sm.playSound("blip");
+        }
     }
 
     // Calculate how many points the user has for stats
