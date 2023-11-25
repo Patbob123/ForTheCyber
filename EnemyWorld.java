@@ -68,6 +68,12 @@ public class EnemyWorld extends SuperWorld
     public void act(){
         super.act();
         acts++;
+        
+        if(Greenfoot.mouseClicked(null)){
+            //click sound
+            sm.playSound("blip");
+        }
+        
         if(goingToBuilderWorld){
             currActs++;
             if (currActs >= fadeOut.getMaxDuration()){
