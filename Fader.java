@@ -18,7 +18,7 @@ public class Fader extends Popup
         fadeDuration = reverse ? maxDuration: 0;
         popupImage = new GreenfootImage(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT);
         popupImage.fill();
-        
+        popupImage.setTransparency(255-(int)(((double)fadeDuration/maxDuration)*255));
         setImage(popupImage);
     }
     

@@ -25,6 +25,7 @@ public class BodySlam extends Attack
                 e.takeDamage(attacker.getAttack()/6);
             }
         }
+        attacker.meleeAttackAnimation(firstTarget);
         return targets;
     } 
     public void act()
