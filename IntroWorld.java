@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class IntroWorld here.
+ * World to display the forestory and set the tone of the game
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Edmond
+ * @version nov2023
  */
 public class IntroWorld extends SuperWorld
 {

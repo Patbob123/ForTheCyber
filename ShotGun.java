@@ -9,10 +9,10 @@ import java.util.ArrayList;
  */
 public class ShotGun extends Attack
 {
-    
+    private String projectileImageUrl;
     public ShotGun(){
         name = "ShotGun";
-        critChance = 5;
+        critChance = 3;
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
         return entireField[1-side].getEntities();
@@ -25,7 +25,7 @@ public class ShotGun extends Attack
             firstTarget.takeDamage(attacker.getAttack()*6); // 2x Damage
         }
         else {
-            firstTarget.takeDamage(attacker.getAttack()*3);
+            firstTarget.takeDamage(attacker.getAttack());
         }
         return targets;
     } 

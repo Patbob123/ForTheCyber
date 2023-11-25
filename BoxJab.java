@@ -10,7 +10,7 @@ public class BoxJab extends Attack
 {
     public BoxJab(){
         name ="BoxJab";
-        critChance = 3;
+        critChance = 7;
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
         return entireField[1-side].getEntities();
@@ -19,12 +19,12 @@ public class BoxJab extends Attack
         ((BattleWorld)attacker.getWorld()).getSM().playSound("boxJab");
         
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
-        
+        firstTarget.stun(true);
         if(checkIfCrit()){
-            firstTarget.takeDamage(attacker.getAttack()*6); // 2x Damage
+            firstTarget.takeDamage(attacker.getAttack()*4); // 2x Damage
         }
         else{
-            firstTarget.takeDamage(attacker.getAttack()*3);
+            firstTarget.takeDamage(attacker.getAttack()*2);
         }
         attacker.meleeAttackAnimation(firstTarget);
         return targets;

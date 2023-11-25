@@ -2,10 +2,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.util.Arrays;
 /**
- * <p>This is the UserChar class. It 
+ * This is the UserChar class. It 
  * 
- * @Edmond
- * @Nov 7 2023
+ * @author Edmond
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * @version Nov 7 2023
  */
 public class UserChar extends Entity
 {    

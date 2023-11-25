@@ -23,7 +23,7 @@ public class Pincer extends Attack
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
         ((BattleWorld)attacker.getWorld()).getSM().playSound("pincer");
         
-        targets.get(0).takeDamage(attacker.getAttack()*2);
+        targets.get(0).takeDamage(attacker.getAttack()*3);
         attacker.meleeAttackAnimation(targets.get(0));
         
         return targets;

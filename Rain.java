@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Rain here.
+ * Generate rain effect
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jaiden
+ * @version November, 2023
  */
 public class Rain extends Effect
 {

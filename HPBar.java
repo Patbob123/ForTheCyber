@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Container here.
+ * Display Enemy Hp Bars and periodically updates the values
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson 
+ * @version November 2023
  */
 public class HPBar extends Actor
 {

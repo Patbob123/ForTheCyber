@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Container here.
+ * Draws out the box that contains the user's stats in BattleWorld
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jaiden
+ * @version november, 2023
  */
 public class Container extends Actor
 {

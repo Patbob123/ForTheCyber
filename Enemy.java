@@ -38,6 +38,4 @@ public abstract class Enemy extends Entity
     public GreenfootImage getEnemyPortrait(){
         return portraitImage;
     }
-    
-
 }

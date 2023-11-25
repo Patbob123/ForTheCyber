@@ -5,12 +5,15 @@ import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
 import java.awt.AlphaComposite;
 /**
- * Write a description of class Character here.
+ * Base Template for all the characters, handles attacks, stores and sorts battle field information.  
+ * Borrowed Mr.Cohen's for Image Manipulation
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jaiden
+ * <p>
+ * Modified by: Dawson
+ * </p>
+ * @version November 2023
  * 
- * MAKE WOBBLE IDLE AND WALK SMOOTHLY TO SLOT
  * 
  */
 public abstract class Entity extends SuperSmoothMover implements Comparable<Entity>
@@ -76,6 +79,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
 
         
     }
+    
+    // Create deep copy of entity's sprite
     public GreenfootImage createDuplicateImage(){
         GreenfootImage image = new GreenfootImage(entityImageUrl);
         image.scale(image.getWidth()*Constants.IMAGE_SCALING, image.getHeight()*Constants.IMAGE_SCALING);
@@ -99,7 +104,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
     }    
     
-
+    // Attack 
     public ArrayList<Entity> attack(Attack move,Side[] entireField){
         if(attackSet.size() <= 0) return null;
         this.finishedAttack = false;
@@ -189,11 +194,15 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
             inhaling  = getImage().getHeight() < height * (1-ImageSizeScale);
         }
     }
+    
+    // Attack animations
     public void meleeAttackAnimation(Entity target){
         double distance = getDistance(target);
         meleeSpeed = 1;
         meleeTarget = target;
     }
+    
+    //Character movement for attack animations
     public void hitMeleeTarget(){
         int targetX = meleeTarget.getX(); //gets target x-coord
         int targetY = meleeTarget.getY(); //gets target y-coord
@@ -210,6 +219,11 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         
         setRotation(0); 
 
+    }
+    public void rangeAttackAnimation(String projectileImageUrl, Entity target){
+        Projectile p = new Projectile(projectileImageUrl); 
+        getWorld().addObject(p, getX() + p.getImage().getWidth()/2, getY() - p.getImage().getHeight()/2);
+        p.turnTowards(target.getX(), target.getY());
     }
     public int compareTo(Entity e)
     {

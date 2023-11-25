@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartWorld here.
+ * Simulation start screen with music 
  * 
  * @author Edmond 
  * @version nov2023

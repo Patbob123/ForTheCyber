@@ -19,7 +19,7 @@ public class RobotLeg extends Augment
         scaleImage(portraitImage);
         
         name = "Robot Leg";
-        desc = "Go invis";
+        desc = "Gain a powerful leg to destroy your enemies. /n Level Up: /n Strength + 1 /n Speed +2";
     }
 
     public String activateLevelUp(){

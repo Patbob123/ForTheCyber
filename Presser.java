@@ -101,8 +101,7 @@ public class Presser extends Actor
     }
     
     /**
-     * Checks if the mouse is hovering over the button, if so, move the button up for a visual effect
-     * KNOWN ISSUE: if the mouse is on the bottom of the button, then it will start jittering due to the mouse rapidly entering and leaving the button
+     * Checks if the mouse is hovering over the button, if so, change button image for visual effect
      */
     private void detectHover(){
         MouseInfo mouse = Greenfoot.getMouseInfo();

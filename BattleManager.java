@@ -10,17 +10,17 @@ import java.io.IOException;
 
 
 /**
- * Write a description of class BattleManager here.
+ * Battle Manger creates the order of turns for each entity, creates a textlog for TextManager.class and excutes each move
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 24, 2023
  */
 public class BattleManager extends Actor
 {
     private ArrayList<Entity> entities;
     private Queue<Entity> attackList;
     private Side[] entireField;
-    private double turnSpeed; //multiplier
+    private double turnSpeed; 
     private int turnNumber; 
     private int trueTurnNumber;
     private int curAttackerIndex;
@@ -44,11 +44,17 @@ public class BattleManager extends Actor
     public void addedToWorld(World w){
         createAttackOrder();
     }
+    
+    /*
+     * Creates a queue that is ordered based on the speed of every entity on the battlefield. 
+     * Order is calculated in a way to allow fast entities to attack multiple times before slow entities attack.
+     * When the queue is almost finished or an entity, it refreshes a new queue. 
+     */
     public void createAttackOrder(){
         Queue<Entity> tempAttackList = new LinkedList<Entity>();
         
         int entityIndex = 0;
-        int setAttackListSize = 40;
+        int setAttackListSize = 40; 
         
         if(attackList != null){
             for(int i = 0; i < setAttackListSize/4; i+=0){
@@ -73,10 +79,15 @@ public class BattleManager extends Actor
                 }
             }
         }
-        
         attackList = tempAttackList;
-       
     }
+    
+    /*
+     * Main loop of the simulation. 
+     * - Increments turn number.
+     * - Selects an entity on the battle to perform their move.
+     * - Updates the text log when a move is performed.
+     */
     public void nextTurn(){
         
         turnNumber++;
@@ -103,7 +114,7 @@ public class BattleManager extends Actor
                 logMessage += "!"+allTargets.get(i)+" ";
                 if(allTargets.get(i).isDead()){
                     
-                    if(curAttacker.getAugment()!=null) {
+                    if(curAttacker.getAugment()!=null && Greenfoot.getRandomNumber(10) < 5) {
                         augmentMessage+=curAttacker.getAugment().activateLevelUp()+" /n ";
                     }
                     
