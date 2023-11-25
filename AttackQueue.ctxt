@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=AttackQueue
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ attackQueue\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Displays\ the\ generated\ attack\ queue,\ (created\ from\ BattleManager.class)\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 24,\ 2023\r\n
 comment1.params=entities
 comment1.target=AttackQueue(java.util.LinkedList)
 comment2.params=entities

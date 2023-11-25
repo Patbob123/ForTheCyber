@@ -93,7 +93,7 @@ public class BuilderWorld extends SuperWorld
         
 
         sm.playSoundLoop("builderMusic");
-        
+        builderBgImage.scale(builderBgImage.getWidth()*Constants.IMAGE_SCALING, builderBgImage.getHeight()*Constants.IMAGE_SCALING);
         setBackground(builderBgImage);
     }
     

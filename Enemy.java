@@ -12,9 +12,9 @@ public abstract class Enemy extends Entity
     public Enemy(){
         side = 1;
         attack = 1;
-        maxHp = 100;
+        maxHp = 30;
         hp = maxHp;
-        speed = 5;
+        speed = 3;
         hpBar = new HPBar(this);
         assignHpBar(hpBar);
     }

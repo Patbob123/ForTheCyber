@@ -271,6 +271,9 @@ public class BattleWorld extends SuperWorld
     
     public void setupField(){
         wave++;
+        if(wave == stages.size()){
+            Greenfoot.setWorld(new WinWorld());
+        }
         
         userSide = new Side(0, 1);
         enemySide = new Side(1, stages.get(wave).size());
@@ -294,7 +297,7 @@ public class BattleWorld extends SuperWorld
     public void startBattle(){
         Coordinate userSideSpawn = new Coordinate(800, 800);
         Coordinate enemySideSpawn = new Coordinate(400, 0);
-        
+
         for(Slot slot: userSide.getSlots()){
             addObject(uc, userSideSpawn.getX(), userSideSpawn.getY());
             uc.initToSlot(slot);
