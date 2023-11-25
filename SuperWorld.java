@@ -17,6 +17,7 @@ public class SuperWorld extends World
         
         sm = new SoundManager();
         addObject(sm, 0, 0);
+        /*
         setPaintOrder(          
             Popup.class,
             Presser.class,
@@ -31,6 +32,7 @@ public class SuperWorld extends World
             StatBar.class,
             SuperSmoothMover.class
         );
+        */
     }
     
     

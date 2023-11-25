@@ -220,6 +220,11 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         setRotation(0); 
 
     }
+    public void rangeAttackAnimation(String projectileImageUrl, Entity target){
+        Projectile p = new Projectile(projectileImageUrl); 
+        getWorld().addObject(p, getX() + p.getImage().getWidth()/2, getY() - p.getImage().getHeight()/2);
+        p.turnTowards(target.getX(), target.getY());
+    }
     public int compareTo(Entity e)
     {
         if (this.speed < e.speed) return -1;
