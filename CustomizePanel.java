@@ -50,8 +50,8 @@ public class CustomizePanel extends Actor
         //addObject
     }
     public void addedToWorld(World w){
-        nameDisplay = initTextDisplay("Select Augment", getX(), getY());
-        descDisplay = initTextDisplay("Select Augment", getX(), getY()+50);
+        nameDisplay = TextPlace.initTextDisplay("Select Augment", getX(), getY(), true);
+        descDisplay = TextPlace.initTextDisplay("Select Augment", getX(), getY()+50);
         
         getWorld().addObject(nameDisplay, getX(), getY());
         getWorld().addObject(descDisplay, getX(), getY());
@@ -62,7 +62,7 @@ public class CustomizePanel extends Actor
             Presser move = new Presser(setMoveset, "augmentbutton.png", "augmentbuttonFlashed.png", set.getKey());
             movesetButtons[i] = move;
             
-            TextPlace attackDesc = initTextDisplay("Select Augment", getX()+50, getY() - 20 - getImage().getHeight()/3 + i * 75 , 180);
+            TextPlace attackDesc = TextPlace.initTextDisplay("Select Augment", getX()+50, getY() - 20 - getImage().getHeight()/3 + i * 75 , 180);
             movesetDescs[i] = attackDesc;
             getWorld().addObject(movesetDescs[i], getX(), getY());
             i++;
@@ -105,22 +105,6 @@ public class CustomizePanel extends Actor
         setImage(movesetPanelImg);
     }
     
-    public TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
-        try{
-            TextPlace textDisplay = new TextPlace(text, x, y, textBoxWidth);
-            return textDisplay;
-        }catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    public TextPlace initTextDisplay(String text, int x, int y){
-        return initTextDisplay(text, x, y, 236);
-    }
     public ArrayList<Attack> getMoveset(){
         return moveset;
     }

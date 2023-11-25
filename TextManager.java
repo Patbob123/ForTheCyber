@@ -82,7 +82,6 @@ public class TextManager extends Actor
     }
     
     public void addSentence(String sentence){
-        System.out.println(text);
         text.add(0,new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA));
         displayText();
     }

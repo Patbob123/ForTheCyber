@@ -31,18 +31,21 @@ public class TextPlace extends TextManager
     private int y;
     private int textBoxWidth; 
     private int borderThickness;
+    private boolean centered;
     private String sentence;
     private Color bgColour = Constants.DARK_BLUE;
     private Color textColour = Constants.LIGHT_AQUA;
     private Color borderColour = Constants.AQUA;
     
-    public TextPlace(String sentence, int x, int y, int textBoxWidth) throws FontFormatException, IOException {
+    public TextPlace(String sentence, int x, int y, int textBoxWidth, boolean centered) throws FontFormatException, IOException {
         this.x = x;
         this.y = y;
         
         pixel = addFont(ourFont);
         
-        this.textBoxWidth = textBoxWidth; 
+        this.textBoxWidth = textBoxWidth;
+        this.centered = centered;
+        
         borderThickness = 4;
         sentence = "NPEIDK";
         
@@ -61,7 +64,7 @@ public class TextPlace extends TextManager
     }
     public void refresh(){
         getWorld().removeObject(text);
-        text = new SuperTextBox(splitSentence(sentence), bgColour, textColour, pixel, false, textBoxWidth, borderThickness, borderColour);
+        text = new SuperTextBox(splitSentence(sentence), bgColour, textColour, pixel, centered, textBoxWidth, borderThickness, borderColour);
         getWorld().addObject(text,x,y+text.getImage().getHeight()/2);
     }
     public void removeSentence(){
@@ -96,5 +99,27 @@ public class TextPlace extends TextManager
         multiLineString += curString;
         multiLine = multiLineString.split("`");
         return multiLine;
+    }
+    public static TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth, boolean centered){
+        try{
+            TextPlace textDisplay = new TextPlace(text, x, y, textBoxWidth, centered);
+            return textDisplay;
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static TextPlace initTextDisplay(String text, int x, int y){
+        return initTextDisplay(text, x, y, 236, false);
+    }
+    public static TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
+        return initTextDisplay(text, x, y, textBoxWidth, false);
+    }
+    public static TextPlace initTextDisplay(String text, int x, int y, boolean centered){
+        return initTextDisplay(text, x, y, 236, centered);
     }
 }
