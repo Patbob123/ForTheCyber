@@ -21,9 +21,15 @@ public class Melee extends Enemy
         portraitImage = new GreenfootImage("enemy/MeleePortrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
     
+        speed = 5;
+        attack = 1;
+        maxHp = 25;
+        hp = maxHp;
+        
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
+        
     }
     public Enemy cloneEnemy(){
         return new Melee();

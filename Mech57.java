@@ -20,10 +20,16 @@ public class Mech57 extends Enemy
         
         portraitImage = new GreenfootImage("enemy/Mech57Portrait.png");
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
-    
+            
+        attack = 4;
+        speed = 2;
+        maxHp = 20;
+        hp = maxHp;
+        
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
+
     }
     public Enemy cloneEnemy(){
         return new Mech57();

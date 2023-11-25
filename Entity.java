@@ -76,8 +76,6 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         breathEveryAct = 3;
         
         ImageSizeScale = 0.02;
-
-        
     }
     
     // Create deep copy of entity's sprite
@@ -212,14 +210,14 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         if(distance > 0) {
             meleeSpeed*=1.1;
             move(distance < meleeSpeed ? 1 : meleeSpeed);
-        }else if(distance == 0){
+        }else if(distance == 0) {
             meleeTarget = null;
-            initToSlot(this.slot);
+            initToSlot(this.slot);   
         }
         
         setRotation(0); 
-
     }
+        
     public void rangeAttackAnimation(String projectileImageUrl, Entity target){
         Projectile p = new Projectile(projectileImageUrl); 
         getWorld().addObject(p, getX() + p.getImage().getWidth()/2, getY() - p.getImage().getHeight()/2);
