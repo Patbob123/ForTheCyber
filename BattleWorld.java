@@ -141,6 +141,8 @@ public class BattleWorld extends SuperWorld
         addObject(bm, 0, 0);
         bm.nextTurn();
         
+        addObject(new Rain(), Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
+        
         setBg(bg1);
     }
     public void refreshEntities(){
