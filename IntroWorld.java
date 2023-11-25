@@ -20,7 +20,7 @@ public class IntroWorld extends SuperWorld
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1); 
-        scene1 = new GreenfootImage("whiteBg.png");
+        scene1 = new GreenfootImage("transparentBg.png");
         scene2 = new GreenfootImage("ohnoBg.png");
         scene3 = new GreenfootImage("deaddogBg.png");
         scene4 = new GreenfootImage("takerevengeBg.png");
