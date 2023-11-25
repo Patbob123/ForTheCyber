@@ -9,7 +9,9 @@ import java.util.ArrayList;
  */
 public class Heal extends Attack
 {
-    
+    public Heal(){
+        name = "Heal";
+    }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
         return entireField[side].getEntities();
     }

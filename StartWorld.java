@@ -46,7 +46,11 @@ public class StartWorld extends SuperWorld
         
         acts++;
         
-        if(acts==1)sm.playSoundLoop("Jaded");
+        if(acts==1){
+            sm.playSoundLoop("Jaded");
+            sm.fadeIn("Jaded");
+            
+        }
         
         if (acts == 10){
             sm.playSoundLoop("rain");
@@ -55,6 +59,8 @@ public class StartWorld extends SuperWorld
         if(acts > 240 && Greenfoot.mouseClicked(null)){ //if mouse click and more than 4 seconds
             mouseIsClicked = true;
             sm.playSound("blip");
+            sm.fadeOut("Jaded");
+            sm.fadeOut("rain");
         }
         
         if(mouseIsClicked){

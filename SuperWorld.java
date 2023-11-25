@@ -23,12 +23,12 @@ public class SuperWorld extends World
             AttackQueue.class,
             Container.class,
             HPBar.class,
-            SuperSmoothMover.class,
+            Effect.class,
             SuperTextBox.class,
             TextManager.class,
+            StatBar.class,
             CustomizePanel.class,
-            StatBar.class
-            
+            SuperSmoothMover.class
         );
     }
     

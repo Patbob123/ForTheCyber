@@ -77,5 +77,11 @@ public class SoundManager extends Actor
             set.getValue().stopSoundLoop();
         }
     }
+    public void fadeIn(String sound){
+        soundFiles.get(sound).soundFadeIn();
+    }
+    public void fadeOut(String sound){
+        soundFiles.get(sound).soundFadeOut();
+    }
     
 }

@@ -94,7 +94,7 @@ public class CustomizePanel extends Actor
         descDisplay.removeSentence();
         int i = 0;
         for(Map.Entry<String, Attack> set: totalMoveset.entrySet()){
-            getWorld().addObject(movesetButtons[i], getX()-getImage().getWidth()/4, getY() - getImage().getHeight()/3 + i * 75);
+            getWorld().addObject(movesetButtons[i], getX()-getImage().getWidth()/3, getY() - getImage().getHeight()/3 + i * 75);
             movesetDescs[i].setSentence(set.getKey());
             i++;
         }
