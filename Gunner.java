@@ -13,12 +13,14 @@ public class Gunner extends Enemy
 {
     public Gunner(){
         name = "Gunner";
+        
         addMoveset(new ShotGun());
         
         entityImageUrl = "enemy/gunner.png";
         entityImage = createDuplicateImage();
         
-        portraitImage = new GreenfootImage("enemy/GunnerPortrait.png");
+        portraitImageUrl = "enemy/GunnerPortrait.png";
+        portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         
         attack = 3;

@@ -33,6 +33,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected boolean finishedAttack;
     
     protected String name;
+    protected String desc;
     protected int side;
     protected Slot slot;
     protected Entity meleeTarget;
@@ -40,6 +41,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected String entityImageUrl;
     protected GreenfootImage entityImage;
     protected GreenfootImage filteredImage;
+    protected String portraitImageUrl;
     protected GreenfootImage portraitImage;
     protected int width;
     protected int height;
@@ -61,6 +63,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
 
     protected ArrayList<Attack> attackSet = new ArrayList<Attack>(); 
     public Entity(){
+        desc = "DESC \n DIE";
+        
         maxSpeed = 9;
         maxDefense = 9;
         maxAttack = 9;
@@ -144,8 +148,20 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public int getSide(){
         return this.side;
     }
+    public String getName(){
+        return this.name;
+    }
+    public String getDesc(){
+        return this.desc;
+    }
     public GreenfootImage getPortrait(){
         return this.portraitImage;
+    }
+    public String getPortraitUrl(){
+        return this.portraitImageUrl;
+    }
+    public String getImageUrl(){
+        return this.entityImageUrl;
     }
     
     public void initToSlot(Slot slot){

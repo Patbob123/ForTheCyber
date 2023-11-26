@@ -19,7 +19,8 @@ public class UserChar extends Entity
         entityImageUrl = "epickwick.png";
         entityImage = createDuplicateImage();
         
-        portraitImage = new GreenfootImage("epickwickPortrait.png");
+        portraitImageUrl = "epickwickPortrait.png";
+        portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         //set hp to max at beginning
         maxHp = 10;

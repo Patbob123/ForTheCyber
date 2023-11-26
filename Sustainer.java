@@ -18,7 +18,8 @@ public class Sustainer extends Enemy
         entityImageUrl = "enemy/sustainer.png";
         entityImage = createDuplicateImage();
         
-        portraitImage = new GreenfootImage("enemy/SustainerPortrait.png");
+        portraitImageUrl = "enemy/SustainerPortrait.png";
+        portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
     
         maxHp = 15;

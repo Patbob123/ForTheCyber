@@ -10,7 +10,7 @@ import java.util.LinkedList;
 */
 public class AttackQueue extends Actor
 {
-    private Queue<Entity> entities;
+    protected Queue<Entity> entities;
     
     /**
      * Constructor for the AttackQueue
@@ -22,7 +22,7 @@ public class AttackQueue extends Actor
         setImage(queueImage);
     }
     public void updateQueue(LinkedList<Entity> entities){
-        this.entities = (Queue<Entity>)entities.clone();;
+        this.entities = (Queue<Entity>)entities.clone();
         displayQueue();
     }
     

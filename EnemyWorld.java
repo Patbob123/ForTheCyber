@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.Arrays;
 import java.awt.FontFormatException;
@@ -50,17 +51,14 @@ public class EnemyWorld extends SuperWorld
         enemyBg.scale(enemyBg.getWidth()*Constants.IMAGE_SCALING, enemyBg.getHeight()*Constants.IMAGE_SCALING);
         
         // Display the enemy icons
-        displayEnemies(getStages().get(0), 200);
-        displayEnemies(getStages().get(1), 350);
-        displayEnemies(getStages().get(2), 500);    
-        displayEnemies(getStages().get(3), 650);
+        displayEnemies(200);
+
         setBackground(enemyBg); 
 
     }
     public void act(){
         super.act();
         acts++;
-    
     }
     
     /**
@@ -98,16 +96,39 @@ public class EnemyWorld extends SuperWorld
     /**
      * Displays the enemy lineup the user will face
      */
-    public void displayEnemies(ArrayList<Enemy> wave, int height){
-        for (int i = 0; i< wave.size(); i++){
-            GreenfootImage img = wave.get(i).getPortrait();
-            UI portrait = new UI(img,false);
-            addObject(portrait, (i*50)+450, height);
-        }   
+    public void displayEnemies(int height){
+        for(int i = 0; i < getStages().size(); i++){
+            ArrayList<Enemy> wave = getStages().get(i);
+            TextPlace waveNumber = TextPlace.initTextDisplay("Select Augment", getWidth()/6, height+i*125, 90, true);
+            addObject(waveNumber, 0, 0);
+            if(i == getStages().size()-1){
+                waveNumber.setSentence("!BOSS");
+            }else{
+                waveNumber.setSentence("WAVE "+(i+1));
+            }
+            waveNumber.multiplyScale(3);
+            
+            LinkedList<Entity> enemies = new LinkedList<Entity>();
+            for (Enemy e: wave){
+                enemies.add(e);
+                
+                // GreenfootImage img = wave.get(i).getPortrait();
+                // UI portrait = new UI(img,false);
+                // addObject(portrait, (i*50)+450, height);
+            }   
+            EnemyPreview enemyPreview = new EnemyPreview(enemies, 2);
+            addObject(enemyPreview, getWidth()/3, height+10+i*125);
+            enemyPreview.displayQueue();
+        }
+        
     }
     
     public ArrayList<ArrayList<Enemy>> getStages(){
         return waves;
+    }
+    public void showEnemyInfo(Enemy e){
+        EnemyDisplay ed = new EnemyDisplay(e);
+        addObject(ed, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     public void goToBuilderWorld(){
         goToWorld(new BuilderWorld(getStages()));

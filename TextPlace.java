@@ -67,8 +67,14 @@ public class TextPlace extends TextManager
         text = new SuperTextBox(splitSentence(sentence), bgColour, textColour, pixel, centered, textBoxWidth, borderThickness, borderColour);
         getWorld().addObject(text,x,y+text.getImage().getHeight()/2);
     }
+    public void multiplyScale(int scale){
+        text.getImage().scale(text.getImage().getWidth()*scale, text.getImage().getHeight()*scale);
+    }
     public void removeSentence(){
         getWorld().removeObject(text);
+    }
+    public SuperTextBox getText(){
+        return text;
     }
     public String[] splitSentence (String sentence){
         int stringWidth= SuperTextBox.getStringWidth(pixel,sentence);

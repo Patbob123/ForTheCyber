@@ -17,7 +17,8 @@ public class SkeleCop extends Enemy
         entityImageUrl = "enemy/skelecop.png";
         entityImage = createDuplicateImage();
         
-        portraitImage = new GreenfootImage("enemy/SkelecopPortrait.png");
+        portraitImageUrl = "enemy/SkelecopPortrait.png";
+        portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
     
         attack = 2;

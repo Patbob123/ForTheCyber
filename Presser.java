@@ -12,6 +12,7 @@ public class Presser extends Actor
     private int startX;
     private int startY;
     
+    private EnemyFunction enemyAction;
     private AugmentFunction augmentAction;
     private SetterFunction setterAction;
     private Function action;
@@ -22,6 +23,7 @@ public class Presser extends Actor
     
     private int increment;
     private String augment;
+    private Enemy enemy;
     
     /**
      * Standard Constructor
@@ -70,6 +72,19 @@ public class Presser extends Actor
         this.augment = augment;
         augmentAction = buttonAction;
     }
+    /**
+     * Constructor for Enemy Preview Buttons
+     */
+    public Presser(EnemyFunction buttonAction, String buttonFile, String hoverButtonFile, Enemy enemy){
+        buttonImage = new GreenfootImage(buttonFile);
+        hoverButtonImage = new GreenfootImage(hoverButtonFile);
+        buttonImage.scale(buttonImage.getWidth()*Constants.IMAGE_SCALING, buttonImage.getHeight()*Constants.IMAGE_SCALING);
+        hoverButtonImage.scale(hoverButtonImage.getWidth()*Constants.IMAGE_SCALING, hoverButtonImage.getHeight()*Constants.IMAGE_SCALING);
+        setImage(buttonImage);
+        
+        this.enemy = enemy;
+        enemyAction = buttonAction;
+    }
     
     /**
      * Act method
@@ -96,17 +111,23 @@ public class Presser extends Actor
      * Running the Function object's function
      */
     public void runAction() {
+        if(enemyAction != null) enemyAction.applyEnemy(enemy);
         if(augmentAction != null) augmentAction.applyAugment(augment);
         if(setterAction != null) setterAction.applySetter(increment);
         if(action != null) action.apply();
     }
     
+    public void setButtonImage(GreenfootImage image){
+        buttonImage = image;
+        hoverButtonImage = image;
+        setImage(image);
+    }
     /**
      * Checks if the mouse is hovering over the button, if so, change button image for visual effect
      */
     private void detectHover(){
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(mouse!=null&&hoverButtonImage!=null){
+        if(mouse!=null&&hoverButtonImage!=null&&getWorld()!=null){
             List hovering = getWorld().getObjectsAt(mouse.getX(), mouse.getY(), Presser.class);
             if(hovering.contains(this)){
                 setImage(hoverButtonImage); //Moves the button up

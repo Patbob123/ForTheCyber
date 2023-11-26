@@ -33,6 +33,8 @@ public class SuperWorld extends World
         setPaintOrder(  
             Popup.class,
             Presser.class,
+            EnemyDisplay.class,
+            Pusher.class,
             SuperTextBox.class,
             TextManager.class,
             CustomizePanel.class,

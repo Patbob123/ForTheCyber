@@ -18,7 +18,8 @@ public class Mech57 extends Enemy
         entityImageUrl = "enemy/mech57.png";
         entityImage = createDuplicateImage();
         
-        portraitImage = new GreenfootImage("enemy/Mech57Portrait.png");
+        portraitImageUrl = "enemy/Mech57Portrait.png";
+        portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
             
         attack = 4;

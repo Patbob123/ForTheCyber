@@ -25,7 +25,8 @@ public class Boss extends Enemy
         entityImageUrl = "enemy/boss.png";
         entityImage = createDuplicateImage();
         
-        portraitImage = new GreenfootImage("enemy/BossPortrait.png");
+        portraitImageUrl = "enemy/BossPortrait.png";
+        portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         
         setImage(entityImage);
