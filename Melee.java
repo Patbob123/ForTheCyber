@@ -22,9 +22,9 @@ public class Melee extends Enemy
         portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
     
-        speed = 9;
-        attack = 0.25;
-        maxHp = 25;
+        speed = 8;
+        attack = 0.5;
+        maxHp = 20;
         hp = maxHp;
         
         setImage(entityImage);
