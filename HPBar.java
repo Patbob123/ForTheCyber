@@ -14,6 +14,8 @@ public class HPBar extends Actor
     
     /**
      * Constructor for the User's Health Bar
+     * 
+     * @param uc        User character
      */
     public HPBar(UserChar uc){
         hpImage = new GreenfootImage(80, 2);
@@ -30,6 +32,8 @@ public class HPBar extends Actor
     
     /**
      * Constructor for the Enemy's Health Bar
+     * 
+     * @param uc        Enemy 
      */
     public HPBar(Enemy enemy){
         hpImage = new GreenfootImage(30, 2);
@@ -45,7 +49,7 @@ public class HPBar extends Actor
     }
     
     /**
-     * Method to visuals to match the Entity's current HP values
+     * Method for visuals to match the Entity's current HP values
      */
     public void refresh(){
         if((int)(maxHpWidth*(e.getHp()/e.getMaxHp())) <= 0) return;

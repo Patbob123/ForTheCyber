@@ -72,6 +72,8 @@ public class SuperWorld extends World
     }
     /**
      * Gets Sound Manager
+     * 
+     * @return Sound Manager 
      */
     public SoundManager getSM(){
         return sm;

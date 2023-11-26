@@ -124,6 +124,8 @@ public class BuilderWorld extends SuperWorld
      * 
      * @param prevAmount        Previous amount of stat points 
      * @param postAmount        Post amount of stat points
+     * 
+     * @return True or false
      */ 
     private boolean checkPoints(double prevAmount, double postAmount){
         if(prevAmount < postAmount){
@@ -201,7 +203,11 @@ public class BuilderWorld extends SuperWorld
         cp.goToAugment();
     }
         
-    
+    /**
+     * Get User char
+     * 
+     * @return User character
+     */
     public UserChar getUserChar() {
         return userCharInstance;
     }
@@ -217,14 +223,13 @@ public class BuilderWorld extends SuperWorld
         goToWorld(new BattleWorld(userCharInstance, stages));
     }
     
-  
-    public AugmentFunction setAugment = (augment) -> setAugment(augment);
-        
+    /**
+     * Lambdas functions for presser
+     */
+    public AugmentFunction setAugment = (augment) -> setAugment(augment);    
     public SetterFunction setHpFunc = (increment) -> setHp(getUserChar().getHp()+increment);
     public SetterFunction setDefFunc = (increment) -> setDef(getUserChar().getDef()+increment);
     public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()-3+increment);
     public SetterFunction setSpeedFunc = (increment) -> setSpeed(getUserChar().getSpeed()+increment);
-    
-    
     public Function goBattleWorld = () -> goToBattleWorld();
 }

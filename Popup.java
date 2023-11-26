@@ -10,6 +10,10 @@ public abstract class Popup extends Actor
 {
     protected GreenfootImage popupImage;
     protected GreenfootImage altImage;
+    
+    /**
+     * Constructor for Popup
+     */
     public Popup() {
         
     }
