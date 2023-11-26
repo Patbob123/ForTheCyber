@@ -78,7 +78,7 @@ public class BattleManager extends Actor
         while(tempAttackList.size() < setAttackListSize){
             trueTurnNumber++;
             for(int i = entities.size()-1; i >= 0; i--){
-                if(trueTurnNumber%(10-entities.get(i).getSpeed()/2)==0){
+                if(trueTurnNumber%((int)(10-entities.get(i).getSpeed()/2))==0){
                     tempAttackList.add(entities.get(i));
                     if(tempAttackList.size() >= setAttackListSize){
                         break outerloop;

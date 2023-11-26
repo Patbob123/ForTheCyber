@@ -28,13 +28,13 @@ public class EnemyPreview extends AttackQueue
         while(!entities.isEmpty()){
             Enemy enemy = (Enemy)entities.poll();
             String headImageUrl = enemy.getPortraitUrl();
-            if(enemy.getName().equals("Boss")) headImageUrl = enemy.getImageUrl();
+            if(enemy.getName().equals("Reddy")) headImageUrl = enemy.getImageUrl();
             GreenfootImage headImage = new GreenfootImage(headImageUrl);
             headImage.scale(headImage.getWidth()*Constants.IMAGE_SCALING*scale, headImage.getHeight()*Constants.IMAGE_SCALING*scale);
             
             Pusher enemyInfoButton = new Pusher(viewEnemyInfo, "augmentbutton.png", "augmentbutton.png", enemy);
             enemyInfoButton.setButtonImage(headImage);
-            if(enemy.getName().equals("Boss")){
+            if(enemy.getName().equals("Reddy")){
                 getWorld().addObject(enemyInfoButton, getX()+60*scale, getY()+60*scale);
             }else{
                 getWorld().addObject(enemyInfoButton, getX()+i*40*scale, getY());
