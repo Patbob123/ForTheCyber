@@ -332,7 +332,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     public void takeDamage(double damage) {
         if(getDodge() && Greenfoot.getRandomNumber(2)==1) return;
-        setHp(this.hp - damage);
+        setHp(this.hp - damage/(1+this.defense/3));
 
         filteredImage = createDuplicateImage();
         changeColour(filteredImage.getAwtImage(), +2, -1, -1, 40);

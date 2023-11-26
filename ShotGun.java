@@ -29,15 +29,17 @@ public class ShotGun extends Attack
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
         ((BattleWorld)attacker.getWorld()).getSM().playSound("shotgun");
         
-        Entity firstTarget = targets.get(0);
+        for(Entity e: targets){
+            if(checkIfCrit()){
+                e.takeDamage(attacker.getAttack()*6); // 6x Damage
+            }
+            else {
+                e.takeDamage(attacker.getAttack());
+            }
+        }
         
         //Check if ShotGun was a critical attack
-        if(checkIfCrit()){
-            firstTarget.takeDamage(attacker.getAttack()*6); // 6x Damage
-        }
-        else {
-            firstTarget.takeDamage(attacker.getAttack());
-        }
+        
         return targets;
     } 
 }

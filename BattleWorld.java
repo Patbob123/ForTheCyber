@@ -288,7 +288,7 @@ public class BattleWorld extends SuperWorld
         this.stages = stages;
         this.wave = -1;
         
-        bg1.scale(bg1.getWidth()*Constants.IMAGE_SCALING, bg1.getHeight()*Constants.IMAGE_SCALING);
+        
         setupField();
         
         addObject(new Rain(), Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
@@ -299,7 +299,8 @@ public class BattleWorld extends SuperWorld
      */
     public void setupField(){
         wave++;
-        
+        bg1 = new GreenfootImage("wave"+(wave+1)+"Bg.png");
+        bg1.scale(bg1.getWidth()*Constants.IMAGE_SCALING, bg1.getHeight()*Constants.IMAGE_SCALING);
         //Game Over Victory Method
         if(wave == stages.size()){
             goToWorld(new WinWorld());
