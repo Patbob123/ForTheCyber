@@ -79,6 +79,9 @@ public class UserChar extends Entity
     public double getMaxHp(){
         return this.maxHp;
     }
+    public double getAttack(){
+        return this.attack + 3; // 3 is the base damage for userchar, for balancing
+    }
     public void setAugment(Augment augment){
         augment.setOwner(this);
         this.augment = augment;

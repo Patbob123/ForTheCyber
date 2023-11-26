@@ -20,8 +20,6 @@ public class BodySlam extends Attack
         return entireField[1-side].getEntities();
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
-        ((BattleWorld)attacker.getWorld()).getSM().playSound("bodySlam");
-        
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
         
         // Deal Full Damage to the Primary Target
@@ -33,7 +31,7 @@ public class BodySlam extends Attack
                 e.takeDamage(attacker.getAttack()/3);
             }
         }
-        attacker.meleeAttackAnimation(firstTarget);
+        attacker.meleeAttackAnimation(firstTarget, "bodySlam");
         return targets;
     } 
 }

@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=TextPlace
 comment0.text=\r\n\ Add\ customizability\ to\ TextManager\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
-comment1.params=sentence\ x\ y\ textBoxWidth
-comment1.target=TextPlace(java.lang.String,\ int,\ int,\ int)
+comment1.params=sentence\ x\ y\ textBoxWidth\ centered
+comment1.target=TextPlace(java.lang.String,\ int,\ int,\ int,\ boolean)
+comment10.params=text\ x\ y\ centered
+comment10.target=TextPlace\ initTextDisplay(java.lang.String,\ int,\ int,\ boolean)
 comment2.params=sentence
 comment2.target=void\ setSentence(java.lang.String)
 comment3.params=bgCol\ textCol\ borderCol
@@ -13,4 +15,10 @@ comment5.params=
 comment5.target=void\ removeSentence()
 comment6.params=sentence
 comment6.target=java.lang.String[]\ splitSentence(java.lang.String)
-numComments=7
+comment7.params=text\ x\ y\ textBoxWidth\ centered
+comment7.target=TextPlace\ initTextDisplay(java.lang.String,\ int,\ int,\ int,\ boolean)
+comment8.params=text\ x\ y
+comment8.target=TextPlace\ initTextDisplay(java.lang.String,\ int,\ int)
+comment9.params=text\ x\ y\ textBoxWidth
+comment9.target=TextPlace\ initTextDisplay(java.lang.String,\ int,\ int,\ int)
+numComments=11

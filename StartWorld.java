@@ -77,9 +77,6 @@ public class StartWorld extends SuperWorld
             //tells everyone that the mouse has been clicked, so get ready to switch worlds
             mouseIsClicked = true;
             
-            //click sound
-            sm.playSound("blip");
-            
             //fade out music + ambience
             sm.fadeOut("Jaded");
             sm.fadeOut("rain");
@@ -94,8 +91,7 @@ public class StartWorld extends SuperWorld
             
             if (currActs >= fadeOut.getMaxDuration()){
                 //when fader is done, stop sounds and switch worlds
-                sm.stopSounds();
-                Greenfoot.setWorld(new IntroWorld());
+                goToWorld(new IntroWorld());
             }
         }
         
@@ -120,8 +116,9 @@ public class StartWorld extends SuperWorld
             }
         } 
         
-        if(acts >= (60*60)){ //if wait 1 min, easter egg (logo dies)
+        if(acts == (60*30)){ //if wait 30 sec, easter egg (logo dies)
             playLoopedAnim = false;
+            sm.playSound("electricshock");
         }
 
     }

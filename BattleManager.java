@@ -39,6 +39,7 @@ public class BattleManager extends Actor
         this.turnNumber = 0;
         this.trueTurnNumber = 1;
         this.curAttackerIndex = 0;
+        this.attackList = new LinkedList<Entity>();
         
         this.initialWaitTime = 300;
         
@@ -59,7 +60,7 @@ public class BattleManager extends Actor
         int entityIndex = 0;
         int setAttackListSize = 40; 
         
-        if(attackList != null){
+        if(this.attackList.size()!=0){
             for(int i = 0; i < setAttackListSize/4; i+=0){
                 Entity e = attackList.poll();
                 if(entities.contains(e)) {
@@ -83,6 +84,7 @@ public class BattleManager extends Actor
             }
         }
         attackList = tempAttackList;
+        ((BattleWorld)getWorld()).getAttackQueue().updateQueue((LinkedList<Entity>)attackList);
     }
     
     /**
@@ -139,7 +141,6 @@ public class BattleManager extends Actor
         if(attackList.size() < 20){
             createAttackOrder();
         }
-         ((BattleWorld)getWorld()).getAttackQueue().updateQueue((LinkedList<Entity>)attackList);
         curAttackerIndex++;
         if(curAttackerIndex >= attackList.size()){
             curAttackerIndex = 0;
@@ -149,7 +150,7 @@ public class BattleManager extends Actor
     public void act(){
         if(initialWaitTime < 0){
             if(entireField[0].getEntities().size()==0){
-                Greenfoot.setWorld(new LoseWorld());
+                ((SuperWorld)getWorld()).goToWorld(new LoseWorld());
                 getWorld().removeObject(this);
                 return;
             }
@@ -163,9 +164,13 @@ public class BattleManager extends Actor
                 nextTurn();
             }
         }
+        if(initialWaitTime == 300){
+            ((BattleWorld)getWorld()).getTM().addSentence("BATTLE START");
+        }
         if(initialWaitTime > 0){
             initialWaitTime--;
         }else if(initialWaitTime == 0){
+            
             nextTurn();
             initialWaitTime--;
         }

@@ -68,12 +68,12 @@ public class EnemyWorld extends SuperWorld
     public void act(){
         super.act();
         acts++;
+        
         if(goingToBuilderWorld){
             currActs++;
             if (currActs >= fadeOut.getMaxDuration()){
-                sm.stopSounds();
-                goingToBuilderWorld = false;
-                Greenfoot.setWorld(new BuilderWorld(getStages()));
+                goToWorld(new BuilderWorld(getStages()));
+                return;
             }
         }
     }

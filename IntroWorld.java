@@ -64,7 +64,6 @@ public class IntroWorld extends SuperWorld
         if(acts > (60*5 + 60*2 + 60*4)) {
             if(Greenfoot.mouseClicked(null)){ //if mouse click and more than 4 seconds
                 mouseIsClicked = true;
-                sm.playSound("blip");
             }
         }
         
@@ -72,7 +71,7 @@ public class IntroWorld extends SuperWorld
             addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
             currActs++;
             if (currActs >= fadeOut.getMaxDuration()){
-                Greenfoot.setWorld(new EnemyWorld());
+                goToWorld(new EnemyWorld());
             }
         }
     }

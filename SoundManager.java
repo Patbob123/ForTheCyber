@@ -39,6 +39,7 @@ public class SoundManager extends Actor
         soundFiles.put("hover", new Sound("buttonhover.wav",100 ));
         soundFiles.put("blip", new Sound("blip.wav",80));
         soundFiles.put("rain", new Sound("rainambient.mp3",50));
+        soundFiles.put("electricshock", new Sound("lightsout.mp3",50));
         
         
         setImage(new GreenfootImage(1,1));
@@ -77,6 +78,16 @@ public class SoundManager extends Actor
     public void stopSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
             set.getValue().stopSoundLoop();
+        }
+    }
+    public void fadeInSounds(){
+        for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
+            set.getValue().soundFadeIn();
+        }
+    }
+    public void fadeOutSounds(){
+        for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
+            set.getValue().soundFadeOut();
         }
     }
     public void fadeIn(String sound){

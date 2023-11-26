@@ -23,6 +23,7 @@ public class BuilderWorld extends SuperWorld
     private StatSetter defSetter;
     private StatSetter speedSetter;
     private StatSetter hpSetter;
+    private TextPlace pointsLeftDisplay;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     private GreenfootImage builderBgImage = new GreenfootImage("builderworldbg.png");
@@ -37,6 +38,8 @@ public class BuilderWorld extends SuperWorld
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1); 
         
         this.stages = stages;
+        maxPoints = 18;
+        curPoints = 0;
         
         UI builderUI = new UI(builderImage,true);
         UI eblackRectangle = new UI(200, 800);
@@ -48,10 +51,16 @@ public class BuilderWorld extends SuperWorld
         speedSetter = new StatSetter(setSpeedFunc, 1 , "speed", 50, 450);  
         hpSetter = new StatSetter(setHpFunc, 10 , "hp", 50, 590);  
         
+        pointsLeftDisplay = TextPlace.initTextDisplay(String.valueOf(maxPoints-curPoints), 150, 720, 100, true);
+        
+        
         addObject(attackSetter, 0, 0);
         addObject(defSetter, 0, 0);
         addObject(speedSetter, 0, 0);
         addObject(hpSetter, 0, 0);
+        
+        addObject(pointsLeftDisplay, 50, 620);
+        pointsLeftDisplay.setSentence(String.valueOf(maxPoints-curPoints));
         
         // Add Buttons on the Screen
         Presser marmButton = new Presser(setAugment, "augmentbutton.png", "augmentbuttonFlashed.png", "Robot Arm");
@@ -88,8 +97,7 @@ public class BuilderWorld extends SuperWorld
         
         userCharInstance = new UserChar();
         doneMaking = false;
-        maxPoints = 18;
-        curPoints = 0;
+
         
 
         sm.playSoundLoop("builderMusic");
@@ -99,6 +107,11 @@ public class BuilderWorld extends SuperWorld
     
     public void act(){
         super.act();
+        
+        if(Greenfoot.mouseClicked(null)){
+            //click sound
+            sm.playSound("blip");
+        }
     }
 
     /**
@@ -108,11 +121,13 @@ public class BuilderWorld extends SuperWorld
         if(prevAmount < postAmount){
             if(curPoints < maxPoints && postAmount < 10){
                 curPoints++;
+                pointsLeftDisplay.setSentence(String.valueOf(maxPoints-curPoints));
                 return true;
             }
         }else{
             if(postAmount > 0){
                 curPoints--;
+                pointsLeftDisplay.setSentence(String.valueOf(maxPoints-curPoints));
                 return true;
             }
         }
@@ -136,7 +151,7 @@ public class BuilderWorld extends SuperWorld
     
     private void setAttack(double attk){
         sm.playSound("click");
-        if(!checkPoints(getUserChar().getAttack(), attk)) return;
+        if(!checkPoints(getUserChar().getAttack()-3, attk)) return;
         getUserChar().setAttack(attk);
         attackSetter.update(attk);
     }
@@ -167,8 +182,7 @@ public class BuilderWorld extends SuperWorld
         if(cp.getMoveset().size()==0) return;
         userCharInstance.getAugment().activateInitial();
         userCharInstance.setMoveset(cp.getMoveset());
-        sm.stopSounds();
-        Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
+        goToWorld(new BattleWorld(userCharInstance, stages));
     }
     
   
@@ -176,7 +190,7 @@ public class BuilderWorld extends SuperWorld
         
     public SetterFunction setHpFunc = (increment) -> setHp(getUserChar().getHp()+increment);
     public SetterFunction setDefFunc = (increment) -> setDef(getUserChar().getDef()+increment);
-    public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()+increment);
+    public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()-3+increment);
     public SetterFunction setSpeedFunc = (increment) -> setSpeed(getUserChar().getSpeed()+increment);
     
     
