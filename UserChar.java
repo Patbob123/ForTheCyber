@@ -30,7 +30,7 @@ public class UserChar extends Entity
         defense = 1;
         
         side = 0;
-        name = "Epick Wick";
+        name = "EpickWick";
         addMoveset(new DeathRay());
         setImage(entityImage);
         width = getImage().getWidth();
