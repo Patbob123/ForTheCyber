@@ -112,15 +112,19 @@ import java.io.IOException;
  * </ul>
  * 
  * <ul>
- * Emerald by Eldunn
- * Link: https://pixabay.com/music/beats-emerald-21054/ 
+ * Aerial City, Chika - Menu Music by Tetr.io
+ * Link: https://www.youtube.com/watch?v=A-5G0bhqjbo&list=PLaFmyK0hSlVD_a98eL1BcGMOTblz8kQ0h
  * </ul>
  * 
  * <ul>
- * Password Infinity by Evgeny_Bardyuzha
- * Link: https://pixabay.com/music/beats-password-infinity-123276/ 
+ * Risky Area, Mikiya Komaba - Battle BGM by Tetr.io
+ * Link: https://www.youtube.com/watch?v=bZGCkpHczPc&list=PLaFmyK0hSlVD_a98eL1BcGMOTblz8kQ0h&index=28
  * </ul>
  * 
+ * <ul>
+ * The Time is Now, Tomoki - Battle BGM by Tetr.io
+ * Link: https://www.youtube.com/watch?v=I6KZJAi3xSQ&list=PLaFmyK0hSlVD_a98eL1BcGMOTblz8kQ0h&index=26
+ * </ul>
  * 
  * </p>
  * 
