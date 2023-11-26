@@ -302,7 +302,7 @@ public class BattleWorld extends SuperWorld
         
         //Game Over Victory Method
         if(wave == stages.size()){
-            Greenfoot.setWorld(new WinWorld());
+            goToWorld(new WinWorld());
             return;
         }
         
@@ -380,5 +380,6 @@ public class BattleWorld extends SuperWorld
     public AttackQueue getAttackQueue(){
         return aq;
     }
+
     
 }

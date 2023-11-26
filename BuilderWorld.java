@@ -151,7 +151,7 @@ public class BuilderWorld extends SuperWorld
     
     private void setAttack(double attk){
         sm.playSound("click");
-        if(!checkPoints(getUserChar().getAttack(), attk)) return;
+        if(!checkPoints(getUserChar().getAttack()-3, attk)) return;
         getUserChar().setAttack(attk);
         attackSetter.update(attk);
     }
@@ -182,8 +182,7 @@ public class BuilderWorld extends SuperWorld
         if(cp.getMoveset().size()==0) return;
         userCharInstance.getAugment().activateInitial();
         userCharInstance.setMoveset(cp.getMoveset());
-        sm.stopSounds();
-        Greenfoot.setWorld(new BattleWorld(userCharInstance, stages));
+        goToWorld(new BattleWorld(userCharInstance, stages));
     }
     
   
@@ -191,7 +190,7 @@ public class BuilderWorld extends SuperWorld
         
     public SetterFunction setHpFunc = (increment) -> setHp(getUserChar().getHp()+increment);
     public SetterFunction setDefFunc = (increment) -> setDef(getUserChar().getDef()+increment);
-    public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()+increment);
+    public SetterFunction setAttackFunc = (increment) -> setAttack(getUserChar().getAttack()-3+increment);
     public SetterFunction setSpeedFunc = (increment) -> setSpeed(getUserChar().getSpeed()+increment);
     
     

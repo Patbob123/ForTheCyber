@@ -70,6 +70,8 @@ public class Sound extends Actor
         }else if(fadeIn == 2){
             if(volume > 0){
                 volume--;
+            }else{
+                stopSoundLoop();
             }
         }
         sounds[soundIndex].setVolume(volume);
