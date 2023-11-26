@@ -21,7 +21,7 @@ public class SkeleCop extends Enemy
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
     
         attack = 2;
-        speed = 3;
+        speed = 6;
         maxHp = 25;
         hp = maxHp;
         

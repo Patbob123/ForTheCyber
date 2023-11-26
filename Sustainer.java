@@ -23,7 +23,7 @@ public class Sustainer extends Enemy
     
         maxHp = 15;
         hp = maxHp;
-        
+        speed = 3;
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();

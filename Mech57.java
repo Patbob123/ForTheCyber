@@ -22,8 +22,8 @@ public class Mech57 extends Enemy
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
             
         attack = 4;
-        speed = 2;
-        maxHp = 20;
+        speed = 5;
+        maxHp = 55;
         hp = maxHp;
         
         setImage(entityImage);
