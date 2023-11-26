@@ -136,6 +136,7 @@ public class BattleManager extends Actor
         if(attackList.size() < 20){
             createAttackOrder();
         }
+        ((BattleWorld)getWorld()).getAttackQueue().updateQueue((LinkedList<Entity>)attackList);
         curAttackerIndex++;
         if(curAttackerIndex >= attackList.size()){
             curAttackerIndex = 0;
