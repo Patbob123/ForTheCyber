@@ -16,7 +16,7 @@ public class ShotGun extends Attack
     private String projectileImageUrl;
     public ShotGun(){
         name = "ShotGun";
-        critChance = 3;
+        critChance = 2;
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
         ArrayList<Entity> potentialTargets = entireField[1-side].getEntities();
@@ -31,7 +31,7 @@ public class ShotGun extends Attack
         
         for(Entity e: targets){
             if(checkIfCrit()){
-                e.takeDamage(attacker.getAttack()*6); // 6x Damage
+                e.takeDamage(attacker.getAttack()*5); // 6x Damage
             }
             else {
                 e.takeDamage(attacker.getAttack());

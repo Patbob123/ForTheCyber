@@ -23,7 +23,7 @@ public class Gunner extends Enemy
         portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         
-        attack = 3;
+        attack = 2;
         speed = 5;
         maxHp = 50;
         hp = maxHp;
