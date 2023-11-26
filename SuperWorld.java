@@ -26,7 +26,6 @@ public class SuperWorld extends World
         //setting initial values for variables
         currActs = 0;
         goingToWorld = false;
-        System.out.println("F");
         
         sm = new SoundManager();
         addObject(sm, 0, 0);
