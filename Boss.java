@@ -12,7 +12,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Boss extends Enemy
 {
     public Boss(){
-        name = "Boss";
+        name = "Reddy";
         addMoveset(new ShotGun());
         addMoveset(new DeathRay());
         addMoveset(new Heal());
