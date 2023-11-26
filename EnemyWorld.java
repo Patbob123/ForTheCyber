@@ -15,12 +15,10 @@ import java.io.IOException;
  */
 public class EnemyWorld extends SuperWorld
 {
-    private int enemyPerWave, acts, currActs;
-    private boolean goingToBuilderWorld;
+    private int enemyPerWave, acts;
     private HashMap<Integer, Enemy> enemyDict;
     private ArrayList<ArrayList<Enemy>> waves;
     private GreenfootImage enemyBg;
-    private Fader fade,fadeOut;
 
     public EnemyWorld()
     {    
@@ -57,25 +55,12 @@ public class EnemyWorld extends SuperWorld
         displayEnemies(getStages().get(2), 500);    
         displayEnemies(getStages().get(3), 650);
         setBackground(enemyBg); 
-        
-        fade = new Fader ((60*2), false); 
-        fadeOut = new Fader ((60*2), true);
-        
-        goingToBuilderWorld = false;
-        
-        addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
+
     }
     public void act(){
         super.act();
         acts++;
-        
-        if(goingToBuilderWorld){
-            currActs++;
-            if (currActs >= fadeOut.getMaxDuration()){
-                goToWorld(new BuilderWorld(getStages()));
-                return;
-            }
-        }
+    
     }
     
     /**
@@ -125,9 +110,7 @@ public class EnemyWorld extends SuperWorld
         return waves;
     }
     public void goToBuilderWorld(){
-        goingToBuilderWorld = true;
-        sm.playSound("blip");
-        addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
+        goToWorld(new BuilderWorld(getStages()));
     }
     
     

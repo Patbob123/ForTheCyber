@@ -9,9 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class IntroWorld extends SuperWorld
 {
     private GreenfootImage scene1, scene2, scene3, scene4, click;
-    private int acts, currActs;
-    private boolean mouseIsClicked;
-    private Fader fade, fadeOut;
+    private int acts;
+  
     /**
      * Constructor for objects of class IntroWorld.
      */
@@ -26,10 +25,6 @@ public class IntroWorld extends SuperWorld
         scene4 = new GreenfootImage("takerevengeBg.png");
         click = new GreenfootImage("click.png");
         
-        fade = new Fader(60*2,false);
-        fadeOut = new Fader(60*2,true);
-        addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
-        sm.stopSounds();
         setBackground(scene1);
     }
     
@@ -63,16 +58,9 @@ public class IntroWorld extends SuperWorld
         
         if(acts > (60*5 + 60*2 + 60*4)) {
             if(Greenfoot.mouseClicked(null)){ //if mouse click and more than 4 seconds
-                mouseIsClicked = true;
-            }
-        }
-        
-        if(mouseIsClicked){
-            addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
-            currActs++;
-            if (currActs >= fadeOut.getMaxDuration()){
                 goToWorld(new EnemyWorld());
             }
         }
+        
     }
 }

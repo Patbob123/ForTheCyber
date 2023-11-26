@@ -10,6 +10,10 @@ public class SuperWorld extends World
 {
 
     protected SoundManager sm;
+    protected Fader fade, fadeOut;
+    protected int currActs;
+    protected boolean goingToWorld;
+    private World world;
     /**
      * Constructor for SuperWorld
      * 
@@ -18,6 +22,10 @@ public class SuperWorld extends World
     public SuperWorld(int width, int height, int pixel)
     {    
         super(width, height, pixel); 
+        
+        //setting initial values for variables
+        currActs = 0;
+        goingToWorld = false;
         
         sm = new SoundManager();
         addObject(sm, 0, 0);
@@ -43,8 +51,14 @@ public class SuperWorld extends World
             Enemy.class
         );
         
+        //faders
+        fade = new Fader ((60*3), false); //60 acts = 1 second, so 3 seconds for fader
+        fadeOut = new Fader ((60*2), true);
+        
+        //add fader object to fade in on creation
+        addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
-       
+    
     public void started(){
         sm.resumeSounds();
     }
@@ -66,10 +80,21 @@ public class SuperWorld extends World
             Cursor cursorAnim = new Cursor();
             addObject(cursorAnim, mouse.getX(), mouse.getY());
         }
+        if(goingToWorld){
+            currActs++;
+            //when fader is done, stop sounds and switch worlds
+            if(currActs >= fadeOut.getMaxDuration()){
+                sm.stopSounds();
+                Greenfoot.setWorld(world);
+            }
+        }
     }
     public void goToWorld(World w){
-        sm.stopSounds();
-        Greenfoot.setWorld(w);
+        goingToWorld = true;
+        sm.playSound("transition");
+        //add fade out object
+        addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
+        world = w;
     }
     
 }

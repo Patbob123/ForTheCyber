@@ -10,14 +10,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartWorld extends SuperWorld
 {
-    private int acts, currActs;
-    private boolean mouseIsClicked, playLoopedAnim;
+    private int acts;
+    private boolean playLoopedAnim;
     
     private static GifImage startBg;
     private GreenfootImage bgImage, transparentBg, whiteBg;
     private GreenfootImage logoF1, logoF2, logoF3;
     private GreenfootImage currImg;
-    private Fader fade, fadeOut;
+    
     
     /**
      * Constructor for the StartWorld
@@ -38,17 +38,13 @@ public class StartWorld extends SuperWorld
         whiteBg = new GreenfootImage("whiteBg.png");
         bgImage = startBg.getCurrentImage();
 
-        //faders
-        fade = new Fader ((60*4), false); //60 acts = 1 second, so 4 seconds for fader
-        fadeOut = new Fader ((60*2), true);
+        
 
         //setting initial values for variables
         playLoopedAnim = true;
-        mouseIsClicked = false;
-        currActs = 0;
-
-        //add fader object to fade in on creation
-        addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
+ 
+        
+        
 
     }
     
@@ -73,24 +69,12 @@ public class StartWorld extends SuperWorld
             sm.playSoundLoop("rain");
         }
         
-        if(acts > 240 && Greenfoot.mouseClicked(null)){ //if mouse clicked and more than 4 seconds
+        if(acts > 60*3 && Greenfoot.mouseClicked(null)){ //if mouse clicked and more than 4 seconds
             //tells everyone that the mouse has been clicked, so get ready to switch worlds
-            mouseIsClicked = true;
+            goToWorld(new IntroWorld());
             
         }
         
-        if(mouseIsClicked){
-            //add fade out object
-            addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
-            
-            //mark how many acts has passed
-            currActs++;
-            
-            if (currActs >= fadeOut.getMaxDuration()){
-                //when fader is done, stop sounds and switch worlds
-                goToWorld(new IntroWorld());
-            }
-        }
         
         //logo "glitches" out a lot at beginnning, but becomes fairly solid as time passes
         if(playLoopedAnim){
