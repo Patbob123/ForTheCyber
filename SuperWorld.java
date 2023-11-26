@@ -61,12 +61,18 @@ public class SuperWorld extends World
         addObject(fade, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     
+    /**
+     * Play and stop music
+     */
     public void started(){
         sm.resumeSounds();
     }
     public void stopped(){
         sm.pauseSounds();
     }
+    /**
+     * Gets Sound Manager
+     */
     public SoundManager getSM(){
         return sm;
     }
@@ -92,6 +98,10 @@ public class SuperWorld extends World
         }
         
     }
+    
+    /**
+     * Adds a transition (fade out of world)
+     */
     public void goToWorld(World w){
         goingToWorld = true;
         sm.playSound("transition");

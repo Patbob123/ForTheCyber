@@ -23,7 +23,7 @@ public class UserChar extends Entity
         portraitImage = new GreenfootImage(portraitImageUrl);
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         //set hp to max at beginning
-        maxHp = 10;
+        maxHp = 15;
         hp = maxHp;
         speed = 1;
         attack = 1;
