@@ -37,6 +37,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected int side;
     protected Slot slot;
     protected Entity meleeTarget;
+    protected Entity rangedTarget;
     
     protected String entityImageUrl;
     protected GreenfootImage entityImage;
@@ -52,6 +53,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected double toSlotSpeed;
     protected double meleeSpeed;
     protected String queuedMeleeSound;
+    protected String projectileImageUrl;
     protected int targetedX;
     protected int targetedY;
     protected int filterActs;
@@ -131,9 +133,10 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     public void executeAttack(){
         attackTime--;
-        if(meleeTarget != null){
-            hitMeleeTarget();
-        }
+        if(meleeTarget != null) hitMeleeTarget();
+        if(rangedTarget != null) useRangeAttack();
+            
+        
         if(attackTime <= 0){
             finishedAttack = true;
         }
@@ -250,10 +253,15 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
         
     public void rangeAttackAnimation(String projectileImageUrl, Entity target){
+        this.projectileImageUrl = projectileImageUrl;
+        rangedTarget = target;
+    }
+    public void useRangeAttack(){
         Projectile p = new Projectile(projectileImageUrl); 
         getWorld().addObject(p, getX(), getY());
-        p.turnTowards(target.getX(), target.getY());
+        p.turnTowards(rangedTarget.getX(), rangedTarget.getY());
         p.move(p.getImage().getWidth()/2);
+        rangedTarget = null;
     }
     public int compareTo(Entity e)
     {

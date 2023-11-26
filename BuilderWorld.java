@@ -24,9 +24,12 @@ public class BuilderWorld extends SuperWorld
     private StatSetter speedSetter;
     private StatSetter hpSetter;
     private TextPlace pointsLeftDisplay;
+    private Presser nextButton;
     
     private GreenfootImage builderImage = new GreenfootImage("builderworld.png");
     private GreenfootImage builderBgImage = new GreenfootImage("builderworldbg.png");
+    private GreenfootImage readyImage = new GreenfootImage("ready.png");
+    private GreenfootImage notReadyImage = new GreenfootImage("builderworldbg.png");
 
     
     /**
@@ -92,8 +95,11 @@ public class BuilderWorld extends SuperWorld
         addObject(toAugmentButton, 240*Constants.IMAGE_SCALING+toAugmentButton.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+toAugmentButton.getImage().getHeight()/2);
         addObject(toMovesetButton, 287*Constants.IMAGE_SCALING+toMovesetButton.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+toMovesetButton.getImage().getHeight()/2);
 
-        
-        Presser nextButton = new Presser(goBattleWorld, "ready.png", "ready.png");
+        readyImage = new GreenfootImage("ready.png");
+        readyImage.scale(readyImage.getWidth()*Constants.IMAGE_SCALING, readyImage.getHeight()*Constants.IMAGE_SCALING);
+        notReadyImage = new GreenfootImage("notready.png");
+        notReadyImage.scale(notReadyImage.getWidth()*Constants.IMAGE_SCALING, notReadyImage.getHeight()*Constants.IMAGE_SCALING);
+        nextButton = new Presser(goBattleWorld, "notready.png", "notready.png");
         addObject(nextButton, 500, 700);  
         
         userCharInstance = new UserChar();
@@ -117,6 +123,12 @@ public class BuilderWorld extends SuperWorld
             //click sound
             sm.playSound("blip");
         }
+        if(userCharInstance.getAugment()==null||cp.getMoveset().size()==0){
+            nextButton.setButtonImage(notReadyImage);
+        }else{
+            nextButton.setButtonImage(readyImage);
+        }
+        
     }
 
     /**

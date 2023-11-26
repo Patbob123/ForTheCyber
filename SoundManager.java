@@ -21,6 +21,10 @@ public class SoundManager extends Actor
     
     private GreenfootSound[] sounds;
     private int soundsIndex;
+    
+    /**
+     * Constructor for Sound Manager
+     */
     public SoundManager()
     {
         //Store all sound files into a HashMap for easy retrevial 
@@ -49,6 +53,12 @@ public class SoundManager extends Actor
         
         setImage(new GreenfootImage(1,1));
     }
+    
+    /**
+     * Method to add sound manager to world
+     * 
+     * @param w    World it gets added to
+     */
     public void addedToWorld(World w){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
             set.getValue().setImage(new GreenfootImage(1,1));
@@ -56,13 +66,19 @@ public class SoundManager extends Actor
         }
     }
     
-    // Methods to acess Sound Objects to play sounds
+    /**
+     * Methods to access Sound Objects to play sounds
+     */
     public void playSound(String sound){
         soundFiles.get(sound).playSound();
     }
     public void playSoundLoop(String sound){
         soundFiles.get(sound).playSoundLoop();        
     }
+    
+    /**
+     * Method to pause sounds
+     */
     public void pauseSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
             if(set.getValue().isPlaying()){
@@ -73,6 +89,10 @@ public class SoundManager extends Actor
         }
         
     }
+    
+    /**
+     * Method to resume sounds
+     */
     public void resumeSounds(){
         
         for(int i = 0; i < playingSounds.size(); i++){
@@ -80,24 +100,48 @@ public class SoundManager extends Actor
         }
         playingSounds.clear();
     }
+    
+    /**
+     * Method to stop sounds
+     */
     public void stopSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
             set.getValue().stopSoundLoop();
         }
     }
+    
+    /**
+     * Method to fade in sounds
+     */
     public void fadeInSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
             set.getValue().soundFadeIn();
         }
     }
+    
+    /**
+     * Method to fade out sounds
+     */
     public void fadeOutSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
             set.getValue().soundFadeOut();
         }
     }
+    
+    /**
+     * Method to play fade in sounds
+     * 
+     * @param sound     Name of the sound
+     */
     public void fadeIn(String sound){
         soundFiles.get(sound).soundFadeIn();
     }
+    
+    /**
+     * Method to play fade out sounds
+     * 
+     * @param sound     Name of the sound
+     */
     public void fadeOut(String sound){
         soundFiles.get(sound).soundFadeOut();
     }
