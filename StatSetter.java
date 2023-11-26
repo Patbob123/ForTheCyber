@@ -19,6 +19,16 @@ public class StatSetter extends Actor
     
     private TextPlace amountDisplay;
     private TextPlace descDisplay;
+    
+    /**
+     * Constructor for StatSetter
+     * 
+     * @param buttonAction              The Function object that will run 
+     * @param increment                 Controls how much stats is added per click
+     * @param text                      The name of the file image
+     * @param x                         X position 
+     * @param y                         Y position
+     */
     public StatSetter(SetterFunction buttonAction, int increment, String text, int x, int y){
         length = 210;
         this.x = x;
@@ -29,6 +39,12 @@ public class StatSetter extends Actor
         
         setImage(new GreenfootImage(1,1));
     }
+    
+    /**
+     * Method to add to world
+     * 
+     * @param w      The world it gets added to
+     */
     public void addedToWorld(World w){
         amountDisplay = TextPlace.initTextDisplay("Select Augment", x+length/2, y+10, 100, true);
         descDisplay = TextPlace.initTextDisplay("Select Augment", getX(), getY()+10);
@@ -39,6 +55,12 @@ public class StatSetter extends Actor
 
         amountDisplay.setSentence("1");
     }
+    
+    /**
+     * Updates the display of the stat
+     * 
+     * @param amount          The amount it gets set to
+     */
     public void update(double amount){
         amountDisplay.setSentence(String.valueOf((int)amount));
     }

@@ -18,5 +18,5 @@ comment5.target=java.util.ArrayList\ getMoveset()
 comment5.text=\r\n\ Get\ method\ to\ retrieve\ moveset\r\n\ \r\n\ @return\ Possible\ moves\r\n
 comment6.params=move
 comment6.target=void\ addToMoveset(java.lang.String)
-comment6.text=\r\n\ Method\ to\ add\ selected\ move\ to\ moveset\r\n\ \r\n\ @\r\n
+comment6.text=\r\n\ Method\ to\ add\ selected\ move\ to\ moveset\r\n\ \r\n\ @param\ move\ \ \ \ \ \ A\ string\ that\ gets\ passed\ into\ the\ method\ and\ is\ the\ move's\ string\r\n
 numComments=7

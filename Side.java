@@ -47,14 +47,25 @@ public class Side extends Actor//
             }
         }
     }
+    
+    /**
+     * Get slots
+     * 
+     * @return slots
+     */
     public Slot[] getSlots(){
         return slots;
     }
-    public Entity getRandomEntity(){ //Get one entity from array slot
+    /**
+     * Get one entity from array slot
+     */
+    public Entity getRandomEntity(){ 
         return getEntities().get(Greenfoot.getRandomNumber(getEntities().size()));
     }
-    
-    public ArrayList<Entity> getEntities(){ //Get all entities from slot array list
+    /**
+     * Get all entities from slot array list
+     */
+    public ArrayList<Entity> getEntities(){ 
         if(entities == null){
             entities = new ArrayList<Entity>();
             for(Slot slot: slots){

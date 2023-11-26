@@ -24,16 +24,26 @@ public abstract class Attack extends SuperSmoothMover
     protected String name;
     protected int critChance;
     
+    /**
+     * Constructor for Attack
+     */
     public Attack (){
         
     }
     /**
      * Action when attack is perform
+     * 
+     * @param targets     An arraylist for attackers targets
+     * @param attacker    The attacker
      */
     public abstract ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker); 
     
     /**
      * Targeting system for the attack
+     * 
+     * @param attacker          The attacker
+     * @param entireField       An array that holds the sides the entities are on
+     * @param side              The side the entity is on
      */
     public abstract ArrayList<Entity> target(Entity attacker, Side[] entireField, int side);  
     
@@ -48,9 +58,20 @@ public abstract class Attack extends SuperSmoothMover
         return false;
     }   
     
+    /**
+     * Method to get duration
+     * 
+     * @return duration
+     */
     public int getDuration(){
         return duration;
     }
+    
+    /**
+     * Method to get name
+     * 
+     * @return name
+     */
     public String getName(){
         return name;
     }

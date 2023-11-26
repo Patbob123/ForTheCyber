@@ -9,5 +9,5 @@ comment2.target=void\ act()
 comment2.text=\r\n\ Act\ method\r\n
 comment3.params=
 comment3.target=int\ getMaxDuration()
-comment3.text=\r\n\ Method\ to\ get\ max\ duration\r\n\ \r\n\ \r\n
+comment3.text=\r\n\ Method\ to\ get\ max\ duration\r\n\ \r\n\ @return\ duration\r\n
 numComments=4

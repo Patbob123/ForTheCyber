@@ -14,6 +14,9 @@ public class Sound extends Actor
     private int fadeIn; //0 = none, 1 = fade in, 2 = fade out
     /**
      * Constructor for objects of class Sound
+     * 
+     * @param soundFile      Directory of the sound
+     * @param defaultVolume  The volume of the sound
      */
     public Sound(String soundFile, int defaultVolume)
     {
@@ -27,6 +30,10 @@ public class Sound extends Actor
             sounds[i].setVolume(defaultVolume);
         }
     }
+    
+    /**
+     * Method to play the sound
+     */
     public void playSound(){
         // Loop through the arraylist, keep track of the current index
         sounds[soundIndex].play();
@@ -36,32 +43,67 @@ public class Sound extends Actor
             soundIndex++;    
         }
     }
+    
+    /**
+     * Method to loop sound
+     */
     public void playSoundLoop(){
          sounds[soundIndex].playLoop();
     }
+    
+    /**
+     * Fade in sound
+     */
     public void soundFadeIn(){
         this.fadeIn = 1;
         volume = 0;
         sounds[soundIndex].setVolume(volume);
     }
+    
+    /**
+     * Fade out sound
+     */
     public void soundFadeOut(){
         this.fadeIn = 2;
         volume = defaultVolume;
         sounds[soundIndex].setVolume(volume);
     }
+    
+    /**
+     * Pause looped sound
+     */
     public void pauseSoundLoop(){
         sounds[soundIndex].pause();
     }
+    
+    /**
+     * Stop looped sound
+     */
     public void stopSoundLoop(){
         sounds[soundIndex].stop();
     }
-
+    
+    /**
+     * Gets the index of the sound 
+     *
+     * @return index number
+     */
     public int getSoundIndex(){
         return soundIndex;
     }
+    
+    /**
+     * Checks if sound is playing
+     * 
+     * @return If playing or not
+     */
     public boolean isPlaying(){
         return sounds[soundIndex].isPlaying();
     }
+    
+    /**
+     * Act method
+     */
     public void act(){
         if(fadeIn == 1){
             if(volume < defaultVolume){
