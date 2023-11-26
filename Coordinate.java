@@ -1,12 +1,12 @@
 /**
- * Write a description of class Coordinate here.
+ * This stores an x and y
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version nov 2023
  */
 public class Coordinate  
 {
-    // instance variables - replace the example below with your own
+    // instance variables
     private int x;
     private int y;
     /**

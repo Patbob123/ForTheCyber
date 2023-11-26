@@ -14,6 +14,7 @@ public class Cursor extends Popup
     private int curFrame;
     private GreenfootImage[] cursorImages;
     
+    
     public Cursor() {
         frames = 5;
         curFrame = 0;
