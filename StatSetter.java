@@ -44,21 +44,5 @@ public class StatSetter extends Actor
         amountDisplay.setSentence(String.valueOf(amount));
     }
     
-    public TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
-        try{
-            TextPlace textDisplay = new TextPlace(text, x, y, textBoxWidth);
-            return textDisplay;
-        }catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    public TextPlace initTextDisplay(String text, int x, int y){
-        return initTextDisplay(text, x, y, 236);
-    }
 
 }

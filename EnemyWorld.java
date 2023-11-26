@@ -126,7 +126,6 @@ public class EnemyWorld extends SuperWorld
     }
     public void goToBuilderWorld(){
         goingToBuilderWorld = true;
-        sm.playSound("blip");
         addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     
