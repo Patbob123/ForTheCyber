@@ -310,13 +310,14 @@ public class BattleWorld extends SuperWorld
      */
     public void setupField(){
         wave++;
-        bg1 = new GreenfootImage("wave"+(wave+1)+"Bg.png");
-        bg1.scale(bg1.getWidth()*Constants.IMAGE_SCALING, bg1.getHeight()*Constants.IMAGE_SCALING);
         //Game Over Victory Method
         if(wave == stages.size()){
             goToWorld(new WinWorld());
             return;
         }
+        bg1 = new GreenfootImage("wave"+(wave+1)+"Bg.png");
+        bg1.scale(bg1.getWidth()*Constants.IMAGE_SCALING, bg1.getHeight()*Constants.IMAGE_SCALING);
+        
         
         // First Parameter of Side is 0 for user, 1 for enemy
         // Second Paremter of Side is for number of entites on each side
