@@ -18,6 +18,11 @@ public class StatBar extends Actor
     private HPBar hpBar;
     private UserChar u;
     
+    /**
+     * Constructor for StatBar
+     * 
+     * @param uc     User character
+     */
     public StatBar(UserChar uc){
         this.u = uc;
         
@@ -34,6 +39,12 @@ public class StatBar extends Actor
         this.u.assignHpBar(hpBar);
         this.u.assignStatBar(this);
     }
+    
+    /**
+     * Adds StatBar to a world
+     * 
+     * @param w       The world it gets added to
+     */
     public void addedToWorld(World w){
         getWorld().addObject(atkContainer, 470+atkContainer.getImage().getWidth()/2, 675);
         getWorld().addObject(defContainer, 470+defContainer.getImage().getWidth()/2, 725);
@@ -41,6 +52,10 @@ public class StatBar extends Actor
         
         getWorld().addObject(hpBar, 180+hpBar.getImage().getWidth()/2, 735);       
     }
+    
+    /**
+     * Refreshes the stat bar
+     */
     public void refresh(){
         atkContainer.setContained((int)u.getAttack()-3);
         defContainer.setContained((int)u.getDef());
