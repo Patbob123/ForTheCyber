@@ -11,10 +11,11 @@ public class Levelup extends Popup
     private int flashTime;
     private int flashDuration;
     
-    
+    /**
+     * Constructor for Levelup
+     */
     public Levelup() {
-        //flash 6 times in 3 seconds
-        flashDuration = 60;
+        flashDuration = 60; // 1 second
         flashTime = 10;
         popupImage = new GreenfootImage("levelup.png");
         altImage = new GreenfootImage("levelup2.png");
@@ -25,8 +26,13 @@ public class Levelup extends Popup
         setImage(popupImage);
     }
     
+    /**
+     * Act method
+     */
     public void act() {
         flashDuration--;
+        
+        //Switches between 2 frames
         if(flashDuration % flashTime == 0) {
             //switch to another frame
             setImage(altImage);
@@ -35,6 +41,7 @@ public class Levelup extends Popup
             }
         }
         
+        //removes object
         if(flashDuration <= 0) {
             getWorld().removeObject(this);
             return;

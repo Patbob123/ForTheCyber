@@ -371,6 +371,8 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         return this.hp == 0;
     }
     public void removeFromWorld(){
+        //play enemy death sound
+        ((SuperWorld)getWorld()).getSM().playSound("enemydeath");
         getWorld().removeObject(getHpBar());
         getWorld().removeObject(this);
     }

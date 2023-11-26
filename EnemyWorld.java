@@ -21,6 +21,9 @@ public class EnemyWorld extends SuperWorld
     private ArrayList<ArrayList<Enemy>> waves;
     private GreenfootImage enemyBg;
 
+    /**
+     * Constructor for Enemy World
+     */
     public EnemyWorld()
     {    
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1);
@@ -56,6 +59,9 @@ public class EnemyWorld extends SuperWorld
         setBackground(enemyBg); 
 
     }
+    /**
+     * Act method
+     */
     public void act(){
         super.act();
         acts++;
@@ -63,6 +69,8 @@ public class EnemyWorld extends SuperWorld
     
     /**
      *  Generate a set of enemies for each wave
+     *  
+     *  @param difficulty       The stage of the battle
      */
     public void generateEnemies(int difficulty){
         ArrayList <Enemy> waveEnemies = new ArrayList <Enemy>();
@@ -95,6 +103,8 @@ public class EnemyWorld extends SuperWorld
     
     /**
      * Displays the enemy lineup the user will face
+     * 
+     * @param height         Height of the enemies
      */
     public void displayEnemies(int height){
         for(int i = 0; i < getStages().size(); i++){
@@ -111,10 +121,6 @@ public class EnemyWorld extends SuperWorld
             LinkedList<Entity> enemies = new LinkedList<Entity>();
             for (Enemy e: wave){
                 enemies.add(e);
-                
-                // GreenfootImage img = wave.get(i).getPortrait();
-                // UI portrait = new UI(img,false);
-                // addObject(portrait, (i*50)+450, height);
             }   
             EnemyPreview enemyPreview = new EnemyPreview(enemies, 2);
             addObject(enemyPreview, getWidth()/3, height+10+i*125);
@@ -123,18 +129,35 @@ public class EnemyWorld extends SuperWorld
         
     }
     
+    /**
+     * Gets enemies in that stage
+     * 
+     * @param getStages        An arraylist that stores enemies in that stage
+     * @return                 List of enemies
+     */
     public ArrayList<ArrayList<Enemy>> getStages(){
         return waves;
     }
+    
+    /**
+     * Adds enemy image to the world 
+     * 
+     * @param e                An enemy object 
+     */
     public void showEnemyInfo(Enemy e){
         EnemyDisplay ed = new EnemyDisplay(e);
         addObject(ed, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
+    
+    /**
+     * Method to go to Builder World
+     */
     public void goToBuilderWorld(){
         goToWorld(new BuilderWorld(getStages()));
     }
     
-    
-
+    /**
+     * Lambdas functions for presser
+     */
     public Function goBuilderWorld = () -> goToBuilderWorld();
 }

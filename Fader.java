@@ -15,7 +15,12 @@ public class Fader extends Popup
     private int maxDuration;
     private boolean reverse;
     
-    
+    /**
+     * Constructor for Fader 
+     * 
+     * @param maxDuration          Length of fader 
+     * @param reverse              Boolean to determine whether to fade in or out
+     */
     public Fader(int maxDuration, boolean reverse) {
         this.reverse = reverse;
         this.maxDuration = maxDuration;
@@ -26,6 +31,9 @@ public class Fader extends Popup
         setImage(popupImage);
     }
     
+    /**
+     * Act method
+     */
     public void act() {
         // Check whether or not to fade in or fade out
         fadeDuration += reverse ? -1 : 1;
@@ -38,6 +46,11 @@ public class Fader extends Popup
         
     }
     
+    /**
+     * Method to get max duration
+     * 
+     * @return duration
+     */
     public int getMaxDuration(){
         return maxDuration;
     }
