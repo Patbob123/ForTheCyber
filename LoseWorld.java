@@ -20,6 +20,9 @@ public class LoseWorld extends SuperWorld
     {
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1);  
         
+        //user death sound
+        sm.playSound("youdied");
+        
         // Set the buttons for restart and return to menu screen
         Presser restartButton = new Presser(goEnemyWorld, "restartimg.png", "restartimg.png");
         addObject(restartButton, Constants.WORLD_WIDTH/2, 2*Constants.WORLD_HEIGHT/3);

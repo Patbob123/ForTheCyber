@@ -43,6 +43,9 @@ public class SoundManager extends Actor
         soundFiles.put("electricshock", new Sound("lightsout.mp3",50));
         soundFiles.put("battlemusic", new Sound("battlemusic.mp3",50));
         soundFiles.put("bossmusic", new Sound("bossmusic.mp3",50));
+        soundFiles.put("enemydeath", new Sound("enemydeath.mp3",50));
+        soundFiles.put("youdied", new Sound("youdied.mp3",50));
+        soundFiles.put("youwin", new Sound("winsound.mp3",50));
         
         setImage(new GreenfootImage(1,1));
     }
