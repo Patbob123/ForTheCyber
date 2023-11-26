@@ -34,7 +34,7 @@ import java.io.IOException;
  * </ul>
  * 
  * <ul>
- * - All of the pixel art is created by group members, except the rain in battle world
+ * - All of the pixel art is created by group members, except the rain and background in battle world
  * </ul>
  * 
  * <ul>
