@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Cloak
+comment0.text=\r\n\ Gives\ the\ user\ the\ chance\ to\ dodge\ attacks\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=Cloak()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Cloak\r\n
+comment2.params=
+comment2.target=void\ activateInitial()
+numComments=3

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=EnemyWorld
+comment0.text=\r\n\ THE\ THIRD\ WORLD\:\ Generates\ and\ displays\ the\ Enemy\ Lineup\ for\ each\ simulation\ \r\n\ \r\n\ @author\ Vincent\ Li\r\n\ @version\ November,\ 24,\ 2023\r\n
+comment1.params=
+comment1.target=EnemyWorld()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=difficulty
+comment3.target=void\ generateEnemies(int)
+comment3.text=\r\n\ \ Generate\ a\ set\ of\ enemies\ for\ each\ wave\r\n
+comment4.params=wave\ height
+comment4.target=void\ displayEnemies(java.util.ArrayList,\ int)
+comment4.text=\r\n\ Displays\ the\ enemy\ lineup\ the\ user\ will\ face\r\n
+comment5.params=
+comment5.target=java.util.ArrayList\ getStages()
+comment6.params=
+comment6.target=void\ goToBuilderWorld()
+numComments=7

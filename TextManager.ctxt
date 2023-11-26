@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=TextManager
+comment0.text=\r\n\ TextManger\ class\ is\ in\ charge\ of\ converting\ all\ string\ into\ SuperTextBox\ Objects\ to\ display\ to\ the\ world\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=TextManager()
+comment2.params=theFont
+comment2.target=greenfoot.Font\ addFont(java.awt.Font)
+comment3.params=w
+comment3.target=void\ addedToWorld(greenfoot.World)
+comment4.params=sentence
+comment4.target=void\ addSentence(java.lang.String)
+comment5.params=sentence
+comment5.target=java.lang.String[]\ splitSentence(java.lang.String)
+comment6.params=
+comment6.target=void\ displayText()
+comment7.params=
+comment7.target=greenfoot.Font\ getFont()
+comment8.params=
+comment8.target=void\ act()
+numComments=9

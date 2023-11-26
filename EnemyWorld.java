@@ -55,7 +55,7 @@ public class EnemyWorld extends SuperWorld
         displayEnemies(getStages().get(0), 200);
         displayEnemies(getStages().get(1), 350);
         displayEnemies(getStages().get(2), 500);    
-        displayEnemies(getStages().get(3), 690);
+        displayEnemies(getStages().get(3), 650);
         setBackground(enemyBg); 
         
         fade = new Fader ((60*2), false); 

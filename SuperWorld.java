@@ -68,7 +68,7 @@ public class SuperWorld extends World
         }
     }
     public void goToWorld(World w){
-        sm.fadeOutSounds();
+        sm.stopSounds();
         Greenfoot.setWorld(w);
     }
     

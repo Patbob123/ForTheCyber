@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Attack
+comment0.text=\r\n\ Attack\ super\ class\ that\ stores\ the\ abstract\ methods\ for\ all\ subclasses\ of\ attack\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden,\ Dawson\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=Attack()
+comment2.params=targets\ attacker
+comment2.target=java.util.ArrayList\ performMove(java.util.ArrayList,\ Entity)
+comment2.text=\r\n\ Action\ when\ attack\ is\ perform\r\n
+comment3.params=attacker\ entireField\ side
+comment3.target=java.util.ArrayList\ target(Entity,\ Side[],\ int)
+comment3.text=\r\n\ Targeting\ system\ for\ the\ attack\r\n
+comment4.params=
+comment4.target=boolean\ checkIfCrit()
+comment4.text=\r\n\ Check\ if\ attack\ was\ a\ critical\ hit\ or\ not\r\n
+comment5.params=
+comment5.target=int\ getDuration()
+comment6.params=
+comment6.target=java.lang.String\ getName()
+numComments=7

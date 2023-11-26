@@ -17,9 +17,9 @@ public class Boss extends Enemy
         addMoveset(new DeathRay());
         addMoveset(new Heal());
         
-        maxHp = 250;
+        maxHp = 300;
         hp = maxHp;
-        speed = 8;
+        speed = 7;
         attack = 3;
         
         entityImageUrl = "enemy/boss.png";

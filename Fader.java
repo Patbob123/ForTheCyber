@@ -15,6 +15,7 @@ public class Fader extends Popup
     private int maxDuration;
     private boolean reverse;
     
+    
     public Fader(int maxDuration, boolean reverse) {
         this.reverse = reverse;
         this.maxDuration = maxDuration;
@@ -26,7 +27,9 @@ public class Fader extends Popup
     }
     
     public void act() {
+        // Check whether or not to fade in or fade out
         fadeDuration += reverse ? -1 : 1;
+        
         if(fadeDuration > maxDuration || fadeDuration < 0){
             getWorld().removeObject(this);
             return;

@@ -25,14 +25,10 @@ public class Pincer extends Attack
         return targets;
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
+        // Deal medium single target damage
         targets.get(0).takeDamage(attacker.getAttack()*3);
         attacker.meleeAttackAnimation(targets.get(0), "pincer");
         
         return targets;
     } 
-   
-    public void act()
-    {
-        // Add your action code here.
-    }
 }

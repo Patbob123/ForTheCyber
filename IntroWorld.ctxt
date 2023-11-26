@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=IntroWorld
+comment0.text=\r\n\ THE\ SECOND\ WORLD\:\ Used\ to\ display\ the\ opening\ story\ for\ the\ simulation\r\n\ \r\n\ @author\ Edmond\r\n\ @version\ nov2023\r\n
+comment1.params=
+comment1.target=IntroWorld()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ IntroWorld.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ method\ controls\ the\ timming\ of\ the\ story\ board\ and\ the\ sound\ effects\r\n
+numComments=3

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Side
+comment0.text=\r\n\ (User\ or\ Enemy)\ Side\ Class\r\n\ -\ Sets\ up\ the\ user\ and\ enemy\ idle\ positions\ \r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
+comment1.params=side\ slotAmount
+comment1.target=Side(int,\ int)
+comment1.text=\r\n\ Concstructor\ for\ Side\r\n\ \r\n\ @param\ side\ ~\ 0\ is\ user\ side,\ 1\ is\ enemy\ side\r\n\ @param\ slotAmount\ -\ Choose\ how\ many\ entities\ at\ the\ choosen\ side\r\n
+comment2.params=
+comment2.target=Slot[]\ getSlots()
+comment3.params=
+comment3.target=Entity\ getRandomEntity()
+comment4.params=
+comment4.target=java.util.ArrayList\ getEntities()
+comment5.params=
+comment5.target=void\ act()
+numComments=6

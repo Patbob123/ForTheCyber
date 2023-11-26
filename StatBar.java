@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Display the sprites for the stats the user has in battle world
+ * HELPER CLASS: Display the sprites for the stats the user has in battle world
  * 
  * @author Dawson
  * @version November 2023
@@ -42,7 +42,7 @@ public class StatBar extends Actor
         getWorld().addObject(hpBar, 180+hpBar.getImage().getWidth()/2, 735);       
     }
     public void refresh(){
-        atkContainer.setContained((int)u.getAttack());
+        atkContainer.setContained((int)u.getAttack()-3);
         defContainer.setContained((int)u.getDef());
         speedContainer.setContained((int)u.getSpeed());
     }

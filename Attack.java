@@ -27,21 +27,31 @@ public abstract class Attack extends SuperSmoothMover
     public Attack (){
         
     }
-    public abstract ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker); //Action when attack is perform
-    public abstract ArrayList<Entity> target(Entity attacker, Side[] entireField, int side); // Targeting system for the attack
-    public int getDuration(){
-        return duration;
-    }
-    public String getName(){
-        return name;
-    }
+    /**
+     * Action when attack is perform
+     */
+    public abstract ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker); 
     
-    // Check if attack was a critical hit or not
+    /**
+     * Targeting system for the attack
+     */
+    public abstract ArrayList<Entity> target(Entity attacker, Side[] entireField, int side);  
+    
+    /**
+     * Check if attack was a critical hit or not
+     */
     public boolean checkIfCrit(){
         int luck = Greenfoot.getRandomNumber(10);
         if(critChance >= luck){
             return true;
         }
         return false;
-    }       
+    }   
+    
+    public int getDuration(){
+        return duration;
+    }
+    public String getName(){
+        return name;
+    }
 }

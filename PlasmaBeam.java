@@ -29,6 +29,8 @@ public class PlasmaBeam extends Attack
         ArrayList<Entity> targets = new ArrayList<Entity>();
         
         int potentialTargetsNumber = potentialTargets.size();
+        
+        // Select two targets from an ArrayList of all enemies
         for(int i = 0; i < potentialTargetsNumber; i++){
             Entity firstTarget = potentialTargets.get(i);
             targets.add(firstTarget);

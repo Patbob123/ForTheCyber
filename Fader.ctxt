@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Fader
+comment0.text=\r\n\ Creates\ fade\ in\ and\ fade\ out\ screen\r\n\ \r\n\ @author\ Jaiden\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ November\ 2023\r\n
+comment1.params=maxDuration\ reverse
+comment1.target=Fader(int,\ boolean)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=int\ getMaxDuration()
+numComments=4

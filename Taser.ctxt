@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Taser
+comment0.text=\r\n\ Gives\ the\ user\ the\ ability\ to\ stun\ on\ it's\ attack\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=Taser()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Taser\r\n
+comment2.params=
+comment2.target=void\ activateInitial()
+numComments=3

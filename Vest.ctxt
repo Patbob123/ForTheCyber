@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Vest
+comment0.text=\r\n\ Vest\ gives\ the\ user\ regeneration\ on\ every\ turn\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=Vest()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Vest\r\n
+comment2.params=
+comment2.target=java.lang.String\ activateLevelUp()
+comment3.params=
+comment3.target=java.lang.String\ activateOwnerTurn()
+numComments=4

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * BoxJab stuns the target
+ * BoxJab is a single target attack that can stun, with a chance to deal bonus damage
  * 
  * @author Vincent
  * <p>
@@ -26,7 +26,11 @@ public class BoxJab extends Attack
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){ 
         Entity firstTarget = targets.get(0);
+        
+        //Stun the Enemy
         firstTarget.stun(true);
+        
+        // Check if it was a critical attack
         if(checkIfCrit()){
             firstTarget.takeDamage(attacker.getAttack()*4); // 2x Damage
         }

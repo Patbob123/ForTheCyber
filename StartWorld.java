@@ -77,9 +77,6 @@ public class StartWorld extends SuperWorld
             //tells everyone that the mouse has been clicked, so get ready to switch worlds
             mouseIsClicked = true;
             
-            //fade out music + ambience
-            sm.fadeOut("Jaded");
-            sm.fadeOut("rain");
         }
         
         if(mouseIsClicked){

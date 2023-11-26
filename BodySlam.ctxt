@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=BodySlam
+comment0.text=\r\n\ Body\ slam\ big\ damage\ to\ the\ primary\ target,\ and\ aoe\ damage\ to\ all\ other\ targets\ \r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=BodySlam()
+comment2.params=attacker\ entireField\ side
+comment2.target=java.util.ArrayList\ target(Entity,\ Side[],\ int)
+comment3.params=targets\ attacker
+comment3.target=java.util.ArrayList\ performMove(java.util.ArrayList,\ Entity)
+numComments=4

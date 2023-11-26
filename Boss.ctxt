@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Boss
+comment0.text=\r\n\ The\ boss\ is\ the\ final\ enemy\ to\ be\ defeated\ before\ the\ user\ wins,\ the\ boss\ has\ ShotGun,\ DeathRay\ and\ Heal\r\n\ \r\n\ @author\ Jaiden\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=Boss()
+comment2.params=
+comment2.target=Enemy\ cloneEnemy()
+numComments=3

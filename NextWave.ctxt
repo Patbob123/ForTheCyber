@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=NextWave
+comment0.text=\r\n\ Create\ next\ wave\ display\ image\r\n\ \r\n\ @author\ Jaiden\r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=NextWave()
+comment2.params=
+comment2.target=void\ act()
+numComments=3

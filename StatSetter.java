@@ -32,19 +32,16 @@ public class StatSetter extends Actor
     public void addedToWorld(World w){
         amountDisplay = TextPlace.initTextDisplay("Select Augment", x+length/2, y+10, 100, true);
         descDisplay = TextPlace.initTextDisplay("Select Augment", getX(), getY()+10);
-        
-        // getWorld().addObject(amountDisplay, getX(), getY());
-        // getWorld().addObject(descDisplay, getX(), getY());
-    
+
         getWorld().addObject(subButton, x, y);
         getWorld().addObject(amountDisplay, x+length/2, y);
         getWorld().addObject(addButton, x+length, y); 
-        
+
         amountDisplay.setSentence("1");
     }
     public void update(double amount){
         amountDisplay.setSentence(String.valueOf((int)amount));
     }
-    
+
 
 }

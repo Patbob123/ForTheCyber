@@ -22,9 +22,10 @@ public class Heal extends Attack
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
         ((BattleWorld)attacker.getWorld()).getSM().playSound("heal");
         
+        // Heal the main user for a large amount
         attacker.heal(attacker.getAttack());
-        //Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
-        //firstTarget.takeDamage(attacker.getAttack()/2);
+        
+        // Heal all other allies for a small amount
         for(Entity e: targets){
             if(e!=attacker){
                 e.heal(attacker.getAttack()/6);
@@ -32,9 +33,4 @@ public class Heal extends Attack
         }
         return targets;
     } 
-    
-    public void act()
-    {
-            // Add your action code here.
-    }
 }

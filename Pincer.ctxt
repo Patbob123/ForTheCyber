@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Pincer
+comment0.text=\r\n\ Pincer\ deals\ medium\ single\ target\ damage\ to\ one\ enemy\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=Pincer()
+comment2.params=attacker\ entireField\ side
+comment2.target=java.util.ArrayList\ target(Entity,\ Side[],\ int)
+comment3.params=targets\ attacker
+comment3.target=java.util.ArrayList\ performMove(java.util.ArrayList,\ Entity)
+numComments=4

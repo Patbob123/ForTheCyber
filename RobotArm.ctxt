@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=RobotArm
+comment0.text=\r\n\ Increases\ the\ user's\ attack\ and\ speed\ each\ time\ they\ level\ up\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
+comment1.params=
+comment1.target=RobotArm()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ RobotArm\r\n
+comment2.params=
+comment2.target=java.lang.String\ activateLevelUp()
+numComments=3

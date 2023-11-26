@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * ShotGun is a single target attack that does Massive damage if it is a critcal strike, otherwise deal medium damage
+ * ShotGun is a single target attack that does MASSIVE DAMAGE if it is a critcal strike, otherwise deal medium damage
  * 
  * @author Vincent
  * <p>
@@ -30,8 +30,10 @@ public class ShotGun extends Attack
         ((BattleWorld)attacker.getWorld()).getSM().playSound("shotgun");
         
         Entity firstTarget = targets.get(0);
+        
+        //Check if ShotGun was a critical attack
         if(checkIfCrit()){
-            firstTarget.takeDamage(attacker.getAttack()*6); // 2x Damage
+            firstTarget.takeDamage(attacker.getAttack()*6); // 6x Damage
         }
         else {
             firstTarget.takeDamage(attacker.getAttack());

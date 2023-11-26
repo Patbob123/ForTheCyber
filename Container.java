@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Draws out the box that contains the user's stats in BattleWorld
+ * HELPER CLASS: Draws out the box that contains the user's stats in BattleWorld
  * 
  * @author Jaiden
  * @version november, 2023
@@ -29,7 +29,6 @@ public class Container extends Actor
         return curContained;
     }
     public void refresh(){
-        //containerImage.clear();
         for(int i = 0; i < curContained; i++){
             containerImage.drawImage(image, (image.getWidth()+spacing)*i, 0);
         }

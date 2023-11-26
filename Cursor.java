@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Create next wave display image
+ * Creates animation display for cursor clicks
  * 
  * @author Jaiden
  * @version November 2023

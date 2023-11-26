@@ -21,17 +21,17 @@ public class BodySlam extends Attack
     }
     public ArrayList<Entity> performMove(ArrayList<Entity> targets, Entity attacker){
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
+        
+        // Deal Full Damage to the Primary Target
         firstTarget.takeDamage(attacker.getAttack());
+        
+        //Deal Less Damage to all other targets
         for(Entity e: targets){
             if(e!=firstTarget){
-                e.takeDamage(attacker.getAttack()/6);
+                e.takeDamage(attacker.getAttack()/3);
             }
         }
         attacker.meleeAttackAnimation(firstTarget, "bodySlam");
         return targets;
     } 
-    public void act()
-    {
-        // Add your action code here.
-    }
 }
