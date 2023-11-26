@@ -8,6 +8,7 @@ import greenfoot.*;
  */
 public abstract class Augment  
 {
+    //Hashmap to store all availible augments
     private static HashMap<String, Augment> augmentMap = new HashMap<String, Augment>(){{
             put("Robot Arm", new RobotArm());
             put("Robot Leg", new RobotLeg());
@@ -25,7 +26,7 @@ public abstract class Augment
     
     public Augment()
     {
-        
+       //Empty constructor for now 
     }
     public void setOwner(Entity owner){
         this.owner = owner;

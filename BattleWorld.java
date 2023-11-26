@@ -315,6 +315,8 @@ public class BattleWorld extends SuperWorld
         if(actCounter==1){
             sm.playSoundLoop("rain");
             sm.fadeIn("rain");
+            sm.playSoundLoop("battlemusic");
+            sm.fadeIn("battlemusic");
         }
     }
     
@@ -341,6 +343,10 @@ public class BattleWorld extends SuperWorld
         if(wave == stages.size()){
             goToWorld(new WinWorld());
             return;
+        }else if(wave == stages.size()-1){
+            sm.stopSounds();
+            sm.playSoundLoop("bossmusic");
+            sm.fadeIn("bossmusic");
         }
         bg1 = new GreenfootImage("wave"+(wave+1)+"Bg.png");
         bg1.scale(bg1.getWidth()*Constants.IMAGE_SCALING, bg1.getHeight()*Constants.IMAGE_SCALING);
