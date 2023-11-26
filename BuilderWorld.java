@@ -32,6 +32,7 @@ public class BuilderWorld extends SuperWorld
     /**
      * Constructor for creating BuilderWorld.
      * 
+     * @param stages        An array list that stores all enemies that are added to the stages
      */
     public BuilderWorld(ArrayList<ArrayList<Enemy>> stages)
     {
@@ -106,6 +107,9 @@ public class BuilderWorld extends SuperWorld
         setBackground(builderBgImage);
     }
     
+    /**
+     * Act method
+     */
     public void act(){
         super.act();
         
@@ -117,6 +121,9 @@ public class BuilderWorld extends SuperWorld
 
     /**
      * Calculate how many points the user has for stats
+     * 
+     * @param prevAmount        Previous amount of stat points 
+     * @param postAmount        Post amount of stat points
      */ 
     private boolean checkPoints(double prevAmount, double postAmount){
         if(prevAmount < postAmount){
@@ -135,7 +142,11 @@ public class BuilderWorld extends SuperWorld
         return false;
     }
     
-    
+    /**
+     * Sets User char HP
+     * 
+     * @param hp     The hp of the user character
+     */
     private void setHp(double hp){
         sm.playSound("click");
         if(!checkPoints(getUserChar().getHp()/10, hp/10)) return;
@@ -143,6 +154,11 @@ public class BuilderWorld extends SuperWorld
         hpSetter.update(hp/10);
     }
     
+    /**
+     * Sets User char defense
+     * 
+     * @param def     The def of the user character
+     */
     private void setDef(double def){
         sm.playSound("click");
         if(!checkPoints(getUserChar().getDef(), def)) return;
@@ -150,6 +166,11 @@ public class BuilderWorld extends SuperWorld
         defSetter.update(def);
     }
     
+    /**
+     * Sets User char attack
+     * 
+     * @param attk     The attack of the user character
+     */
     private void setAttack(double attk){
         sm.playSound("click");
         if(!checkPoints(getUserChar().getAttack()-3, attk)) return;
@@ -157,6 +178,11 @@ public class BuilderWorld extends SuperWorld
         attackSetter.update(attk);
     }
     
+    /**
+     * Sets User char speed
+     * 
+     * @param speed     The speed of the user character
+     */
     private void setSpeed(double speed){
         sm.playSound("click");
         if(!checkPoints(getUserChar().getSpeed(), speed)) return;
@@ -164,13 +190,18 @@ public class BuilderWorld extends SuperWorld
         speedSetter.update(speed);
     }
     
+    /**
+     * Sets User char augment
+     * 
+     * @param augment     The augment of the user character
+     */    
     private void setAugment(String augment){
         sm.playSound("click");
         userCharInstance.setAugment(Augment.getAugment(augment));
         cp.goToAugment();
     }
         
-
+    
     public UserChar getUserChar() {
         return userCharInstance;
     }

@@ -34,7 +34,7 @@ import java.io.IOException;
  * </ul>
  * 
  * <ul>
- * - All of the pixel art is created by group members, except the rain and background in battle world
+ * - All of the pixel art is created by group members
  * </ul>
  * 
  * <ul>
@@ -121,6 +121,7 @@ import java.io.IOException;
  * Link: https://pixabay.com/music/beats-password-infinity-123276/ 
  * </ul>
  * 
+ * 
  * </p>
  * 
  * <p>
@@ -198,6 +199,12 @@ import java.io.IOException;
  * </ul>
  * 
  * <ul>
+ * Battle World Rain:
+ * By: Douglas Schatz
+ * https://giphy.com/stickers/nostalgia-bling-3ohhwutQL0CDTq3kKA 
+ * </ul>
+ * 
+ * <ul>
  * Hover Sound
  * By: Pixabay
  * https://pixabay.com/sound-effects/fairy-sound-6469/ 
@@ -250,7 +257,9 @@ public class BattleWorld extends SuperWorld
     private GreenfootImage bgImage;
     private GreenfootImage bg1 = new GreenfootImage("wave1Bg.png");
   
-    
+    /**
+     * Constructor for BattleWorld
+     */
     public BattleWorld()
     {    
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1); 
@@ -272,21 +281,13 @@ public class BattleWorld extends SuperWorld
         bgImage = new GreenfootImage(getWidth(), getHeight());
         setBackground(bgImage);
     }
-    public void act(){
-        super.act();
-        actCounter++;
-        if(actCounter==1){
-            sm.playSoundLoop("rain");
-            sm.fadeIn("rain");
-        }
-    }
-    public int getAct(){
-        return actCounter;
-    }
-    public void setBg(GreenfootImage bg){
-        
-        bgImage.drawImage(bg1, 250, 0);
-    }
+    
+    /**
+     * Constructor for Battle World
+     * 
+     * @param u        User character that gets passed through from Builder World
+     * @param stages   An array list that stores all enemies that are added to the stages
+     */
     public BattleWorld(UserChar u, ArrayList<ArrayList<Enemy>> stages)
     {    
         this();
@@ -306,6 +307,34 @@ public class BattleWorld extends SuperWorld
     }
     
     /**
+     * Act method
+     */
+    public void act(){
+        super.act();
+        actCounter++;
+        if(actCounter==1){
+            sm.playSoundLoop("rain");
+            sm.fadeIn("rain");
+            sm.playSoundLoop("battlemusic");
+            sm.fadeIn("battlemusic");
+        }
+    }
+    
+    /**
+     * Gets act counter
+     */
+    public int getAct(){
+        return actCounter;
+    }
+    
+    /**
+     * Sets background image
+     */
+    public void setBg(GreenfootImage bg){
+        bgImage.drawImage(bg1, 250, 0);
+    }
+    
+    /**
      * Generate all of the set positions for entites in the simulation 
      */
     public void setupField(){
@@ -314,6 +343,10 @@ public class BattleWorld extends SuperWorld
         if(wave == stages.size()){
             goToWorld(new WinWorld());
             return;
+        }else if(wave == stages.size()-1){
+            sm.stopSounds();
+            sm.playSoundLoop("bossmusic");
+            sm.fadeIn("bossmusic");
         }
         bg1 = new GreenfootImage("wave"+(wave+1)+"Bg.png");
         bg1.scale(bg1.getWidth()*Constants.IMAGE_SCALING, bg1.getHeight()*Constants.IMAGE_SCALING);
@@ -383,13 +416,15 @@ public class BattleWorld extends SuperWorld
         }
     }
     
+    /**
+     * Get methods for slots, text manager and attack queue
+     */
     public Slot[] getAttackSlots(){
         return attackSlots;
     }
     public TextManager getTM(){
         return tm;
     }
-
     public AttackQueue getAttackQueue(){
         return aq;
     }

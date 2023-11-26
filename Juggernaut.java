@@ -23,7 +23,7 @@ public class Juggernaut extends Enemy
         portraitImage.scale(portraitImage.getWidth()*Constants.PORTRAIT_SCALING, portraitImage.getHeight()*Constants.PORTRAIT_SCALING);
         
         attack = 3;
-        speed = 4;
+        speed = 3;
         maxHp = 70;
         hp = maxHp;
         

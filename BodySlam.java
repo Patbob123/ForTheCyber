@@ -23,12 +23,13 @@ public class BodySlam extends Attack
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
         
         // Deal Full Damage to the Primary Target
-        firstTarget.takeDamage(attacker.getAttack());
+        double scaledDamage = attacker.getAttack()*((attacker.getHp()/attacker.getMaxHp())*3);
+        firstTarget.takeDamage(scaledDamage);
         
         //Deal Less Damage to all other targets
         for(Entity e: targets){
             if(e!=firstTarget){
-                e.takeDamage(attacker.getAttack()/3);
+                e.takeDamage(scaledDamage/3);
             }
         }
         attacker.meleeAttackAnimation(firstTarget, "bodySlam");

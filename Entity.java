@@ -251,8 +251,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         
     public void rangeAttackAnimation(String projectileImageUrl, Entity target){
         Projectile p = new Projectile(projectileImageUrl); 
-        getWorld().addObject(p, getX() + p.getImage().getWidth()/2, 0);
+        getWorld().addObject(p, getX(), getY());
         p.turnTowards(target.getX(), target.getY());
+        p.move(p.getImage().getWidth()/2);
     }
     public int compareTo(Entity e)
     {
@@ -317,7 +318,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
             getHpBar().refresh();
         }else{
             maxHp = hp;
-        }
+        } 
     }
     public boolean getStunner(){
         return this.stunner;
