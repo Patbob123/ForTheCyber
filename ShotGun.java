@@ -16,6 +16,7 @@ public class ShotGun extends Attack
     private String projectileImageUrl;
     public ShotGun(){
         name = "ShotGun";
+        projectileImageUrl = "attack/shotgun.png";
         critChance = 2;
     }
     public ArrayList<Entity> target(Entity attacker, Side[] entireField, int side){
@@ -36,6 +37,7 @@ public class ShotGun extends Attack
             else {
                 e.takeDamage(attacker.getAttack());
             }
+            attacker.rangeAttackAnimation(projectileImageUrl, e);
         }
         
         //Check if ShotGun was a critical attack
