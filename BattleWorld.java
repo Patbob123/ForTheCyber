@@ -110,6 +110,17 @@ import java.io.IOException;
  * Copyright: R&S Records 2014
  * Link: https://www.youtube.com/watch?v=nettIPeJauM&ab_channel=Lone-Topic 
  * </ul>
+ * 
+ * <ul>
+ * Emerald by Eldunn
+ * Link: https://pixabay.com/music/beats-emerald-21054/ 
+ * </ul>
+ * 
+ * <ul>
+ * Password Infinity by Evgeny_Bardyuzha
+ * Link: https://pixabay.com/music/beats-password-infinity-123276/ 
+ * </ul>
+ * 
  * </p>
  * 
  * <p>
