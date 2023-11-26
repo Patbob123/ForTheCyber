@@ -31,7 +31,8 @@ public class Gunner extends Enemy
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
-    
+        
+        desc = "Don't underestimate this robot's firepower.";
     }
 
     public Enemy cloneEnemy(){

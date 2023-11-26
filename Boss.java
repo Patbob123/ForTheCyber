@@ -20,7 +20,7 @@ public class Boss extends Enemy
         maxHp = 300;
         hp = maxHp;
         speed = 7;
-        attack = 3;
+        attack = 4;
         
         entityImageUrl = "enemy/boss.png";
         entityImage = createDuplicateImage();
@@ -32,6 +32,8 @@ public class Boss extends Enemy
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
+        
+        desc = "Reddy is a tough enemy to beat with his unmatched stats... ";
     }
 
     public Enemy cloneEnemy(){

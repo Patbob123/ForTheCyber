@@ -35,7 +35,7 @@ public class EnemyDisplay extends Actor
         setImage(enemyDisplayImage);
         
         //creates temp textplace objects, gets its image, and adds draws it on enemy display
-        TextPlace enemyName = TextPlace.initTextDisplay("Select Augment", 0, 0, 120, true);
+        TextPlace enemyName = TextPlace.initTextDisplay("Select Augment", 0, 0, 130, true);
         getWorld().addObject(enemyName, 0, 0);
         System.out.println(enemy);
         enemyName.setSentence(String.valueOf(enemy));
@@ -43,7 +43,7 @@ public class EnemyDisplay extends Actor
         GreenfootImage enemyNameImage = enemyName.getText().getImage();
         enemyDisplayImage.drawImage(enemyNameImage, enemyDisplayImage.getWidth()/2-enemyNameImage.getWidth()/2, enemyDisplayImage.getHeight()/4-enemyNameImage.getHeight()/2);
            
-        TextPlace enemyDesc = TextPlace.initTextDisplay("Select Augment", 0, 0, 90, true);
+        TextPlace enemyDesc = TextPlace.initTextDisplay("Select Augment", 0, 0, 700, true);
         getWorld().addObject(enemyDesc, 0, 0);
         enemyDesc.setSentence(enemy.getDesc());
         enemyDesc.removeSentence();

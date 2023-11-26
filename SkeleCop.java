@@ -30,6 +30,7 @@ public class SkeleCop extends Enemy
         width = getImage().getWidth();
         height = getImage().getHeight();
         
+        desc = "The punishing enforcer with devastating damage"; 
     }
     public Enemy cloneEnemy(){
         return new SkeleCop();

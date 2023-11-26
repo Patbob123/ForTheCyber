@@ -29,6 +29,7 @@ public class Sustainer extends Enemy
         width = getImage().getWidth();
         height = getImage().getHeight();
         
+        desc = "The critical support that keeps all the fighters alive"; 
     }
     public Enemy cloneEnemy(){
         return new Sustainer();

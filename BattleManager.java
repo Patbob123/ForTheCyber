@@ -128,8 +128,15 @@ public class BattleManager extends Actor
         else{
             ArrayList<Entity> allTargets = curAttacker.attack(move, entireField);
             logMessage += " /n !"+curAttacker+" performed @"+ move.getName()+" on: ";
+            
+            // Check if this is the last target, if not add a comma behind
             for(int i = 0; i < allTargets.size(); i++){
-                logMessage += "!"+allTargets.get(i)+" ";
+                if(i < allTargets.size() -1){
+                    logMessage += "$"+allTargets.get(i)+", ";
+                }
+                else{
+                    logMessage += "$"+allTargets.get(i)+" ";
+                }
                 
                 // If target dies, recalculate the attack order
                 if(allTargets.get(i).isDead()){

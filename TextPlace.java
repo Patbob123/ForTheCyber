@@ -20,7 +20,6 @@ import java.util.Arrays;
 public class TextPlace extends TextManager
 {
     private SuperTextBox text;
-    //private Font funFont = new Font ("Comic Sans MS", false, false, 16);
     private File fontFile = new File("cheeseFont.tty");
     private Font pixelFont, pixelFont32;
     private FileInputStream in;
@@ -90,11 +89,10 @@ public class TextPlace extends TextManager
                 curLength = 0;
                 continue;
             }
-            if(curLength + SuperTextBox.getStringWidth(pixel,s)  > textBoxWidth - borderThickness * 3){
+            if(curLength + SuperTextBox.getStringWidth(pixel,s)  > textBoxWidth - (borderThickness * 5)){
                 
                 multiLineString += curString +"`";
                 curString = s+" ";
-                //stringWidth -= curLength;
                 curLength = SuperTextBox.getStringWidth(pixel,s);
             }
             else{

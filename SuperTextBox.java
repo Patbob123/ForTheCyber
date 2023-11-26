@@ -255,6 +255,10 @@ public class SuperTextBox extends Actor
                         image.setColor(Color.BLUE);
                         words[j] = words[j].substring(1,words[j].length());
                         break;
+                    case "$":
+                        image.setColor(Constants.LIGHT_YELLOW);
+                        words[j] = words[j].substring(1,words[j].length());
+                        break;
                     default:
                         image.setColor(foreColor);
                         break;

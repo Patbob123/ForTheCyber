@@ -31,6 +31,7 @@ public class Melee extends Enemy
         width = getImage().getWidth();
         height = getImage().getHeight();
         
+        desc = "A swift fighter that attacks rapidly"; 
     }
     public Enemy cloneEnemy(){
         return new Melee();

@@ -30,7 +30,8 @@ public class Mech57 extends Enemy
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
-
+        
+        desc = "A menacing robot with an even more menacing weapon of destruction";
     }
     public Enemy cloneEnemy(){
         return new Mech57();

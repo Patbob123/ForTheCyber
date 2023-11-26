@@ -30,6 +30,8 @@ public class Juggernaut extends Enemy
         setImage(entityImage);
         width = getImage().getWidth();
         height = getImage().getHeight();
+ 
+        desc = "A beefy fighter with respectable damage";  
     }
     public Enemy cloneEnemy(){
         return new Juggernaut();
