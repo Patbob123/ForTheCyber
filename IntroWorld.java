@@ -40,6 +40,11 @@ public class IntroWorld extends SuperWorld
         super.act();
         acts++;
         
+        if(Greenfoot.mouseClicked(null)){
+            //click sound
+            sm.playSound("blip");
+        }
+        
         if (acts == 90){
             sm.playSound("blast");
         }
@@ -71,7 +76,7 @@ public class IntroWorld extends SuperWorld
             addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
             currActs++;
             if (currActs >= fadeOut.getMaxDuration()){
-                goToWorld(new EnemyWorld());
+                Greenfoot.setWorld(new EnemyWorld());
             }
         }
     }

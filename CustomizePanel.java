@@ -35,9 +35,6 @@ public class CustomizePanel extends Actor
     private Presser[] movesetButtons;
     private TextPlace[] movesetDescs;
     
-    /**
-     * Basic Constructor 
-     */
     public CustomizePanel(){
         augmentPanelImg = new GreenfootImage("augmentpanel.png");
         movesetPanelImg = new GreenfootImage("movesetpanel.png");
@@ -52,13 +49,9 @@ public class CustomizePanel extends Actor
         
         //addObject
     }
-    
-    /**
-     * Adds all the customizable features of BuilderWorld 
-     */
     public void addedToWorld(World w){
-        nameDisplay = initTextDisplay("Select Augment", getX(), getY());
-        descDisplay = initTextDisplay("Select Augment", getX(), getY()+50);
+        nameDisplay = TextPlace.initTextDisplay("Select Augment", getX(), getY(), true);
+        descDisplay = TextPlace.initTextDisplay("Select Augment", getX(), getY()+50);
         
         getWorld().addObject(nameDisplay, getX(), getY());
         getWorld().addObject(descDisplay, getX(), getY());
@@ -69,16 +62,14 @@ public class CustomizePanel extends Actor
             Presser move = new Presser(setMoveset, "augmentbutton.png", "augmentbuttonFlashed.png", set.getKey());
             movesetButtons[i] = move;
             
-            TextPlace attackDesc = initTextDisplay("Select Augment", getX()+50, getY() - 20 - getImage().getHeight()/3 + i * 75 , 180);
+            TextPlace attackDesc = TextPlace.initTextDisplay("Select Augment", getX()+50, getY() - 20 - getImage().getHeight()/3 + i * 75 , 180);
             movesetDescs[i] = attackDesc;
             getWorld().addObject(movesetDescs[i], getX(), getY());
             i++;
         }
     }
     
-    /**
-     * Switch from Moveset Tab to Augment Tab
-     */ 
+    // Switch to Augment Tab
     public void goToAugment(){
         onAugment = true;
         if(movesetButtons[0]!=null){
@@ -100,9 +91,7 @@ public class CustomizePanel extends Actor
        
     }
     
-    /**
-     * Switch from Augment Tab to Moveset Tab 
-     */ 
+    // Switch to Moveset Tab
     public void goToMoveset(){
         onAugment = false;
         nameDisplay.removeSentence();
@@ -116,9 +105,9 @@ public class CustomizePanel extends Actor
         setImage(movesetPanelImg);
     }
     
-    /**
-     * Adds the User's selected Moves to their moveset Arraylist  
-     */
+    public ArrayList<Attack> getMoveset(){
+        return moveset;
+    }
     public void addToMoveset(String move){
         if(moveset.contains(totalMoveset.get(move))){
             moveset.remove(totalMoveset.get(move));
@@ -136,26 +125,5 @@ public class CustomizePanel extends Actor
             i++;
         }
     }
-    
-    public TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
-        try{
-            TextPlace textDisplay = new TextPlace(text, x, y, textBoxWidth);
-            return textDisplay;
-        }catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    public TextPlace initTextDisplay(String text, int x, int y){
-        return initTextDisplay(text, x, y, 236);
-    }
-    public ArrayList<Attack> getMoveset(){
-        return moveset;
-    }
-    
     public AugmentFunction setMoveset = (move) -> addToMoveset(move);
 }

@@ -78,6 +78,7 @@ public class Presser extends Actor
     public void act()
     {
         if(Greenfoot.mouseClicked(this)){
+            ((SuperWorld)getWorld()).getSM().playSound("click");
             runAction();
         }
         detectHover();

@@ -78,6 +78,5 @@ public class Sound extends Actor
     public boolean isPlaying(){
         return sounds[soundIndex].isPlaying();
     }
-    
 
 }

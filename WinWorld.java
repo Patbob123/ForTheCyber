@@ -35,10 +35,10 @@ public class WinWorld extends SuperWorld
         super.act();
     }
     public void goToEnemyWorld(){
-        goToWorld(new EnemyWorld());
+        Greenfoot.setWorld(new EnemyWorld());
     }
     public void goToStartWorld(){
-        goToWorld(new StartWorld());
+        Greenfoot.setWorld(new StartWorld());
     }
     
     public Function goEnemyWorld = () -> goToEnemyWorld();

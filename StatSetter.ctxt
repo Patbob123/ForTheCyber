@@ -1,14 +1,10 @@
 #BlueJ class context
 comment0.target=StatSetter
-comment0.text=\r\n\ HELPER\ CLASS\:\ Adds\ stats\ to\ the\ user\ character\ after\ selecting\ stats\ in\ the\ battle\ world\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 2023\r\n
+comment0.text=\r\n\ \r\nAdds\ stats\ to\ the\ user\ character\ after\ selecting\ stats\ in\ the\ battle\ world\r\n@author\ Dawson\r\n@version\ November\ 2023\r\n
 comment1.params=buttonAction\ increment\ text\ x\ y
 comment1.target=StatSetter(SetterFunction,\ int,\ java.lang.String,\ int,\ int)
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=amount
 comment3.target=void\ update(double)
-comment4.params=text\ x\ y\ textBoxWidth
-comment4.target=TextPlace\ initTextDisplay(java.lang.String,\ int,\ int,\ int)
-comment5.params=text\ x\ y
-comment5.target=TextPlace\ initTextDisplay(java.lang.String,\ int,\ int)
-numComments=6
+numComments=4

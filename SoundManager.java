@@ -80,16 +80,6 @@ public class SoundManager extends Actor
             set.getValue().stopSoundLoop();
         }
     }
-    public void fadeInSounds(){
-        for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
-            set.getValue().soundFadeIn();
-        }
-    }
-    public void fadeOutSounds(){
-        for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
-            set.getValue().soundFadeOut();
-        }
-    }
     public void fadeIn(String sound){
         soundFiles.get(sound).soundFadeIn();
     }
