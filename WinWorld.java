@@ -19,7 +19,10 @@ public class WinWorld extends SuperWorld
      */
     public WinWorld()
     {
-        super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1);  
+        super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1); 
+        
+        //you win sound
+        sm.playSound("youwin");
         
         // Set the buttons for restart and return to menu screen
         Presser restartButton = new Presser(goEnemyWorld, "restartimg.png", "restartimg.png");
@@ -31,16 +34,30 @@ public class WinWorld extends SuperWorld
         bgImage = new GreenfootImage("youwinBg.png");
         setBackground(bgImage);
     }
+    
+    /**
+     * Act method
+     */
     public void act(){
         super.act();
     }
+    /**
+     * Method to go to Enemy World
+     */
     public void goToEnemyWorld(){
         goToWorld(new EnemyWorld());
     }
+    
+    /**
+     * Method to go to Enemy World
+     */
     public void goToStartWorld(){
         goToWorld(new StartWorld());
     }
     
+    /**
+     * Lambdas for presser 
+     */
     public Function goEnemyWorld = () -> goToEnemyWorld();
     public Function goStartWorld = () -> goToStartWorld();
     

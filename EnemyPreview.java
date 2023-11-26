@@ -11,6 +11,13 @@ import java.util.LinkedList;
 public class EnemyPreview extends AttackQueue
 {
     private int scale;
+    
+    /**
+     * Constructor for EnemyPreview
+     * 
+     * @param entities     A queue that gives the next entity turn
+     * @param 
+     */
     public EnemyPreview(LinkedList<Entity> entities, int scale){
         super(entities);
         this.scale = scale;

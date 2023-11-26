@@ -32,7 +32,7 @@ public class ShotGun extends Attack
         
         for(Entity e: targets){
             if(checkIfCrit()){
-                e.takeDamage(attacker.getAttack()*5); // 6x Damage
+                e.takeDamage(attacker.getAttack()*5); // 5x Damage
             }
             else {
                 e.takeDamage(attacker.getAttack());

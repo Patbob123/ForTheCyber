@@ -19,22 +19,25 @@ public class CustomizePanel extends Actor
     private boolean onAugment;
     private ArrayList <Attack> moveset;
     
-    // All the attacks are stored in a Hashmap for easy retrivability 
+    // All the attacks are stored in a Hashmap for easy retrievability 
     private static Map<String, Attack> totalMoveset = new HashMap<String, Attack>(){{
-            put("BodySlam", new BodySlam());
-            put("BoxJab", new BoxJab());
-            put("DeathRay", new DeathRay());
-            put("Pincer", new Pincer());
-            put("PlasmaBeam", new PlasmaBeam());
-            put("ShotGun", new ShotGun());
-            put("Heal", new Heal());
-        }};;
+        put("BodySlam", new BodySlam());
+        put("BoxJab", new BoxJab());
+        put("DeathRay", new DeathRay());
+        put("Pincer", new Pincer());
+        put("PlasmaBeam", new PlasmaBeam());
+        put("ShotGun", new ShotGun());
+        put("Heal", new Heal());
+    }};;
     
     private TextPlace nameDisplay;
     private TextPlace descDisplay;
     private Presser[] movesetButtons;
     private TextPlace[] movesetDescs;
     
+    /**
+     * Constructor for CustomizePanel
+     */
     public CustomizePanel(){
         augmentPanelImg = new GreenfootImage("augmentpanel.png");
         movesetPanelImg = new GreenfootImage("movesetpanel.png");
@@ -47,8 +50,13 @@ public class CustomizePanel extends Actor
         
         setImage(augmentPanelImg);
         
-        //addObject
     }
+    
+    /**
+     * Method to add augment information 
+     * 
+     * @param w              A world that gets passed into the method
+     */
     public void addedToWorld(World w){
         nameDisplay = TextPlace.initTextDisplay("Select Augment", getX(), getY(), true);
         descDisplay = TextPlace.initTextDisplay("Select Augment", getX(), getY()+50);
@@ -69,7 +77,9 @@ public class CustomizePanel extends Actor
         }
     }
     
-    // Switch to Augment Tab
+    /**
+     * Switch to Augment Tab
+     */
     public void goToAugment(){
         onAugment = true;
         if(movesetButtons[0]!=null){
@@ -91,7 +101,9 @@ public class CustomizePanel extends Actor
        
     }
     
-    // Switch to Moveset Tab
+    /**
+     * Switch to Moveset Tab
+     */
     public void goToMoveset(){
         onAugment = false;
         nameDisplay.removeSentence();
@@ -105,9 +117,20 @@ public class CustomizePanel extends Actor
         setImage(movesetPanelImg);
     }
     
+    /**
+     * Get method to retrieve moveset
+     * 
+     * @return Possible moves
+     */
     public ArrayList<Attack> getMoveset(){
         return moveset;
     }
+    
+    /**
+     * Method to add selected move to moveset
+     * 
+     * @param move      A string that gets passed into the method and is the move's string
+     */
     public void addToMoveset(String move){
         if(moveset.contains(totalMoveset.get(move))){
             moveset.remove(totalMoveset.get(move));
@@ -125,5 +148,9 @@ public class CustomizePanel extends Actor
             i++;
         }
     }
+    
+    /**
+     * Lambdas function to add selected move into the moveset
+     */
     public AugmentFunction setMoveset = (move) -> addToMoveset(move);
 }

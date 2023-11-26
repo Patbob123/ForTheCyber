@@ -14,6 +14,8 @@ public class AttackQueue extends Actor
     
     /**
      * Constructor for the AttackQueue
+     * 
+     * @param entities     A queue that gives the next entity turn
      */
     public AttackQueue(LinkedList<Entity> entities){
         this.entities = (Queue<Entity>)entities.clone();
@@ -21,6 +23,12 @@ public class AttackQueue extends Actor
         GreenfootImage queueImage = new GreenfootImage(500, 40);
         setImage(queueImage);
     }
+    
+    /**
+     * Method to update the queue bar
+     * 
+     * @param entities     A queue that gives the next entity turn
+     */
     public void updateQueue(LinkedList<Entity> entities){
         this.entities = (Queue<Entity>)entities.clone();
         displayQueue();

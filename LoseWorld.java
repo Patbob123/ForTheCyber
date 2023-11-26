@@ -20,6 +20,9 @@ public class LoseWorld extends SuperWorld
     {
         super(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT, 1);  
         
+        //user death sound
+        sm.playSound("youdied");
+        
         // Set the buttons for restart and return to menu screen
         Presser restartButton = new Presser(goEnemyWorld, "restartimg.png", "restartimg.png");
         addObject(restartButton, Constants.WORLD_WIDTH/2, 2*Constants.WORLD_HEIGHT/3);
@@ -30,16 +33,31 @@ public class LoseWorld extends SuperWorld
         bgImage = new GreenfootImage("youdiedBg.png");
         setBackground(bgImage);
     }
+    
+    /**
+     * Act method
+     */
     public void act(){
         super.act();
     }
+    
+    /**
+     * Go to enemy world
+     */
     public void goToEnemyWorld(){
         goToWorld(new EnemyWorld());
     }
+    
+    /**
+     * Go to start world
+     */
     public void goToStartWorld(){
         goToWorld(new StartWorld());
     }
     
+    /**
+     * Lambdas functions for presser
+     */
     public Function goEnemyWorld = () -> goToEnemyWorld();
     public Function goStartWorld = () -> goToStartWorld();
     

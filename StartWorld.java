@@ -104,12 +104,20 @@ public class StartWorld extends SuperWorld
 
     }
     
+    /**
+     * Method to animate the background
+     */
     private void animateBg(){
         currImg = getLogoImg();
         bgImage = startBg.getCurrentImage();
         transparentBg.drawImage(bgImage, 0, 0);
     }
     
+    /**
+     * Method to get the current logo frame
+     * 
+     * @return Image
+     */
     private GreenfootImage getLogoImg(){
         //return current frame of logo animation
         if (acts % 3 == 0){
@@ -124,6 +132,11 @@ public class StartWorld extends SuperWorld
         return logoF1;
     }
     
+    /**
+     * Method to get random number
+     * 
+     * @param max     Max possible number of random number 
+     */
     private int randNum(int max){
         return Greenfoot.getRandomNumber(max);
     }
