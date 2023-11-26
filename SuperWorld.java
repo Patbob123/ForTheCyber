@@ -26,6 +26,7 @@ public class SuperWorld extends World
         //setting initial values for variables
         currActs = 0;
         goingToWorld = false;
+        System.out.println("F");
         
         sm = new SoundManager();
         addObject(sm, 0, 0);
@@ -75,13 +76,6 @@ public class SuperWorld extends World
      * Track mouse info for animations
      */
     public void act(){
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(mouse == null) return;
-        if(Greenfoot.mouseClicked(null)){
-            sm.playSound("blip");//click sound
-            Cursor cursorAnim = new Cursor();
-            addObject(cursorAnim, mouse.getX(), mouse.getY());
-        }
         if(goingToWorld){
             currActs++;
             //when fader is done, stop sounds and switch worlds
@@ -90,6 +84,14 @@ public class SuperWorld extends World
                 Greenfoot.setWorld(world);
             }
         }
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(mouse == null) return;
+        if(Greenfoot.mouseClicked(null)){
+            sm.playSound("blip");//click sound
+            Cursor cursorAnim = new Cursor();
+            addObject(cursorAnim, mouse.getX(), mouse.getY());
+        }
+        
     }
     public void goToWorld(World w){
         goingToWorld = true;
