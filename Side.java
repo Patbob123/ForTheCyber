@@ -31,8 +31,13 @@ public class Side extends Actor//
                 slots[i] = slot;
             }
         }else if(side == 1){
+            if(slotAmount == 1){
+                Slot slot = new Slot(700, 250);
+                slots[0] = slot;
+                return;
+            }
             for(int i = 1; i < slots.length+1; i++){
-                Slot slot = new Slot(600+column*150, 100+column*30+row*150 );
+                Slot slot = new Slot(600+column*150, 100+column*30+row*150);
                 slots[i-1] = slot;
                 column++;
                 if(i%3 == 0){
