@@ -30,5 +30,5 @@ comment8.target=void\ runAction()
 comment8.text=\r\n\ Running\ the\ Function\ object's\ function\r\n
 comment9.params=image
 comment9.target=void\ setButtonImage(greenfoot.GreenfootImage)
-comment9.text=\r\n\ Method\ to\ set\ image\ of\ button\r\n\ \r\n\ @\r\n
+comment9.text=\r\n\ Method\ to\ set\ image\ of\ button\r\n\ \r\n\ @param\ image\ \ \ \ \ \ \ \ \ Image\ of\ button\r\n
 numComments=11
