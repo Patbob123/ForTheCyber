@@ -7,6 +7,4 @@ comment2.params=attacker\ entireField\ side
 comment2.target=java.util.ArrayList\ target(Entity,\ Side[],\ int)
 comment3.params=targets\ attacker
 comment3.target=java.util.ArrayList\ performMove(java.util.ArrayList,\ Entity)
-comment4.params=
-comment4.target=void\ act()
-numComments=5
+numComments=4

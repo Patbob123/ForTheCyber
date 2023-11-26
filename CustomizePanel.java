@@ -35,6 +35,9 @@ public class CustomizePanel extends Actor
     private Presser[] movesetButtons;
     private TextPlace[] movesetDescs;
     
+    /**
+     * Basic Constructor 
+     */
     public CustomizePanel(){
         augmentPanelImg = new GreenfootImage("augmentpanel.png");
         movesetPanelImg = new GreenfootImage("movesetpanel.png");
@@ -49,6 +52,10 @@ public class CustomizePanel extends Actor
         
         //addObject
     }
+    
+    /**
+     * Adds all the customizable features of BuilderWorld 
+     */
     public void addedToWorld(World w){
         nameDisplay = initTextDisplay("Select Augment", getX(), getY());
         descDisplay = initTextDisplay("Select Augment", getX(), getY()+50);
@@ -69,7 +76,9 @@ public class CustomizePanel extends Actor
         }
     }
     
-    // Switch to Augment Tab
+    /**
+     * Switch from Moveset Tab to Augment Tab
+     */ 
     public void goToAugment(){
         onAugment = true;
         if(movesetButtons[0]!=null){
@@ -91,7 +100,9 @@ public class CustomizePanel extends Actor
        
     }
     
-    // Switch to Moveset Tab
+    /**
+     * Switch from Augment Tab to Moveset Tab 
+     */ 
     public void goToMoveset(){
         onAugment = false;
         nameDisplay.removeSentence();
@@ -103,6 +114,27 @@ public class CustomizePanel extends Actor
             i++;
         }
         setImage(movesetPanelImg);
+    }
+    
+    /**
+     * Adds the User's selected Moves to their moveset Arraylist  
+     */
+    public void addToMoveset(String move){
+        if(moveset.contains(totalMoveset.get(move))){
+            moveset.remove(totalMoveset.get(move));
+        }else{
+            if(moveset.size() >= 3) return;
+            moveset.add(totalMoveset.get(move));
+        }
+        int i = 0;
+        for(Map.Entry<String, Attack> set: totalMoveset.entrySet()){
+            if(moveset.contains(set.getValue())){
+                movesetDescs[i].setColour(Constants.DARK_BLUE, Constants.LIME_GREEN, Constants.NEON_GREEN);
+            }else{
+                movesetDescs[i].setColour(Constants.DARK_BLUE, Constants.LIGHT_AQUA, Constants.AQUA);
+            }
+            i++;
+        }
     }
     
     public TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
@@ -124,22 +156,6 @@ public class CustomizePanel extends Actor
     public ArrayList<Attack> getMoveset(){
         return moveset;
     }
-    public void addToMoveset(String move){
-        if(moveset.contains(totalMoveset.get(move))){
-            moveset.remove(totalMoveset.get(move));
-        }else{
-            if(moveset.size() >= 3) return;
-            moveset.add(totalMoveset.get(move));
-        }
-        int i = 0;
-        for(Map.Entry<String, Attack> set: totalMoveset.entrySet()){
-            if(moveset.contains(set.getValue())){
-                movesetDescs[i].setColour(Constants.DARK_BLUE, Constants.LIME_GREEN, Constants.NEON_GREEN);
-            }else{
-                movesetDescs[i].setColour(Constants.DARK_BLUE, Constants.LIGHT_AQUA, Constants.AQUA);
-            }
-            i++;
-        }
-    }
+    
     public AugmentFunction setMoveset = (move) -> addToMoveset(move);
 }

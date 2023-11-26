@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=BoxJab
-comment0.text=\r\n\ BoxJab\ stuns\ the\ target\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
+comment0.text=\r\n\ BoxJab\ is\ a\ single\ target\ attack\ that\ can\ stun,\ with\ a\ chance\ to\ deal\ bonus\ damage\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=BoxJab()
 comment2.params=attacker\ entireField\ side

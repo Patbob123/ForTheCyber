@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Generate rain effect
+ * Generate rain effect 
  * 
  * @author Jaiden
  * @version November, 2023
@@ -14,6 +14,9 @@ public class Rain extends Effect
     private int curFrame;
     private GreenfootImage[] rainImages;
     
+    /**
+     * Basic constructor
+     */
     public Rain() {
         frames = 3;
         curFrame = 0;

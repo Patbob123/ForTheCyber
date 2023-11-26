@@ -24,6 +24,7 @@ public class Presser extends Actor
     private String augment;
     
     /**
+     * Standard Constructor
      * @param buttonAction  The Function object that will run
      * @param buttonFile    The image of the button's directory
      */
@@ -46,22 +47,22 @@ public class Presser extends Actor
     public Presser(Function buttonAction, String buttonFile, String hoverButtonFile){
         buttonImage = new GreenfootImage(buttonFile);
         hoverButtonImage = new GreenfootImage(hoverButtonFile);
-        //buttonImage = new GreenfootImage(buttonFile);
         buttonImage.scale(buttonImage.getWidth()*Constants.IMAGE_SCALING, buttonImage.getHeight()*Constants.IMAGE_SCALING);
         hoverButtonImage.scale(hoverButtonImage.getWidth()*Constants.IMAGE_SCALING, hoverButtonImage.getHeight()*Constants.IMAGE_SCALING);
         setImage(buttonImage);
         action = buttonAction;
     }
     public Presser(Function buttonAction, GreenfootImage buttonImage){
-        //buttonImage = new GreenfootImage(buttonFile);
         buttonImage.scale(buttonImage.getWidth()*Constants.IMAGE_SCALING, buttonImage.getHeight()*Constants.IMAGE_SCALING);
         setImage(buttonImage);
         action = buttonAction;
     }
+    /**
+     * Constructor for Augment Buttons
+     */
     public Presser(AugmentFunction buttonAction, String buttonFile, String hoverButtonFile, String augment){
         buttonImage = new GreenfootImage(buttonFile);
         hoverButtonImage = new GreenfootImage(hoverButtonFile);
-        //buttonImage = new GreenfootImage(buttonFile);
         buttonImage.scale(buttonImage.getWidth()*Constants.IMAGE_SCALING, buttonImage.getHeight()*Constants.IMAGE_SCALING);
         hoverButtonImage.scale(hoverButtonImage.getWidth()*Constants.IMAGE_SCALING, hoverButtonImage.getHeight()*Constants.IMAGE_SCALING);
         setImage(buttonImage);

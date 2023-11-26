@@ -3,6 +3,7 @@ comment0.target=BattleManager
 comment0.text=\r\n\ Battle\ Manger\ creates\ the\ order\ of\ turns\ for\ each\ entity,\ creates\ a\ textlog\ for\ TextManager.class\ and\ excutes\ each\ move\r\n\ \r\n\ @author\ Dawson\r\n\ @version\ November\ 24,\ 2023\r\n
 comment1.params=entities\ entireField
 comment1.target=BattleManager(java.util.ArrayList,\ Side[])
+comment1.text=\r\n\ Constructor\ for\ BattleManger\r\n
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=

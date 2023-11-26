@@ -3,6 +3,7 @@ import greenfoot.*;
  * Converts GreenfootSounds into ArrayLists to ensure sounds can be repeated multiple times without cooldown
  * 
  * @author Vincent
+ * <p> Modified by: Dawson </p>
  * @version November 2023
  */
 public class Sound extends Actor
@@ -27,6 +28,21 @@ public class Sound extends Actor
             sounds[i].setVolume(defaultVolume);
         }
     }
+    
+    public void act(){
+        if(fadeIn == 1){
+            if(volume < defaultVolume){
+                volume++;
+            }
+        }else if(fadeIn == 2){
+            if(volume > 0){
+                volume--;
+            }
+        }
+        sounds[soundIndex].setVolume(volume);
+
+    }
+    
     public void playSound(){
         // Loop through the arraylist, keep track of the current index
         sounds[soundIndex].play();
@@ -62,18 +78,6 @@ public class Sound extends Actor
     public boolean isPlaying(){
         return sounds[soundIndex].isPlaying();
     }
-    public void act(){
-        if(fadeIn == 1){
-            if(volume < defaultVolume){
-                volume++;
-            }
-        }else if(fadeIn == 2){
-            if(volume > 0){
-                volume--;
-            }
-        }
-        sounds[soundIndex].setVolume(volume);
-
-    }
+    
 
 }

@@ -7,6 +7,7 @@ comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=sound
 comment3.target=void\ playSound(java.lang.String)
+comment3.text=\r\n\ Methods\ to\ acess\ Sound\ Objects\ to\ play\ sounds\r\n
 comment4.params=sound
 comment4.target=void\ playSoundLoop(java.lang.String)
 comment5.params=

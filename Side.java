@@ -12,7 +12,13 @@ public class Side extends Actor//
     private Slot[] slots;
     private ArrayList<Entity> entities;
     
-    public Side(int side, int slotAmount){ //0 is user side, 1 is enemy side
+    /**
+     * Concstructor for Side
+     * 
+     * @param side ~ 0 is user side, 1 is enemy side
+     * @param slotAmount - Choose how many entities at the choosen side
+     */
+    public Side(int side, int slotAmount){
         
         slots = new Slot[slotAmount];
         int row = 0;

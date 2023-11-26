@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ShotGun
-comment0.text=\r\n\ ShotGun\ is\ a\ single\ target\ attack\ that\ does\ Massive\ damage\ if\ it\ is\ a\ critcal\ strike,\ otherwise\ deal\ medium\ damage\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
+comment0.text=\r\n\ ShotGun\ is\ a\ single\ target\ attack\ that\ does\ MASSIVE\ DAMAGE\ if\ it\ is\ a\ critcal\ strike,\ otherwise\ deal\ medium\ damage\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=ShotGun()
 comment2.params=attacker\ entireField\ side

@@ -23,17 +23,17 @@ public class BodySlam extends Attack
         ((BattleWorld)attacker.getWorld()).getSM().playSound("bodySlam");
         
         Entity firstTarget = targets.get(Greenfoot.getRandomNumber(targets.size()));
+        
+        // Deal Full Damage to the Primary Target
         firstTarget.takeDamage(attacker.getAttack());
+        
+        //Deal Less Damage to all other targets
         for(Entity e: targets){
             if(e!=firstTarget){
-                e.takeDamage(attacker.getAttack()/6);
+                e.takeDamage(attacker.getAttack()/3);
             }
         }
         attacker.meleeAttackAnimation(firstTarget);
         return targets;
     } 
-    public void act()
-    {
-        // Add your action code here.
-    }
 }

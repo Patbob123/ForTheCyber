@@ -1,12 +1,10 @@
 #BlueJ class context
 comment0.target=DeathRay
-comment0.text=\r\n\ Death\ Ray\ does\ Massive\ AOE\ damage\ but\ at\ the\ cost\ of\ some\ self\ inflicted\ damage\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
+comment0.text=\r\n\ Death\ Ray\ does\ Massive\ DAMAGE\ to\ the\ first\ target\ and\ AOE\ damage\ all\ other\ targets,\ but\ at\ the\ cost\ of\ some\ self\ inflicted\ damage\r\n\ \r\n\ @author\ Vincent\r\n\ <p>\r\n\ Modified\ by\:\ Jaiden\r\n\ </p>\r\n\ \r\n\ @version\ November\ 2023\r\n
 comment1.params=
 comment1.target=DeathRay()
 comment2.params=attacker\ entireField\ side
 comment2.target=java.util.ArrayList\ target(Entity,\ Side[],\ int)
 comment3.params=targets\ attacker
 comment3.target=java.util.ArrayList\ performMove(java.util.ArrayList,\ Entity)
-comment4.params=
-comment4.target=void\ act()
-numComments=5
+numComments=4

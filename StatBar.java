@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Display the sprites for the stats the user has in battle world
+ * HELPER CLASS: Display the sprites for the stats the user has in battle world
  * 
  * @author Dawson
  * @version November 2023

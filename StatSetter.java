@@ -3,7 +3,7 @@ import java.awt.FontFormatException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /**
- * Adds stats to the user character after selecting stats in the battle world
+ * HELPER CLASS: Adds stats to the user character after selecting stats in the battle world
  * 
  * @author Dawson
  * @version November 2023
@@ -31,22 +31,19 @@ public class StatSetter extends Actor
     }
     public void addedToWorld(World w){
         amountDisplay = initTextDisplay("Select Augment", x+length/2, y+10, 100);
-        
-        
         descDisplay = initTextDisplay("Select Augment", getX(), getY()+10);
         
-        // getWorld().addObject(amountDisplay, getX(), getY());
-        // getWorld().addObject(descDisplay, getX(), getY());
-    
         getWorld().addObject(subButton, x, y);
         getWorld().addObject(amountDisplay, x+length/2, y);
         getWorld().addObject(addButton, x+length, y); 
         
         amountDisplay.setSentence("1.0");
     }
+    
     public void update(double amount){
         amountDisplay.setSentence(String.valueOf(amount));
     }
+    
     public TextPlace initTextDisplay(String text, int x, int y, int textBoxWidth){
         try{
             TextPlace textDisplay = new TextPlace(text, x, y, textBoxWidth);

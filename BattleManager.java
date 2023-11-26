@@ -7,8 +7,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-
 /**
  * Battle Manger creates the order of turns for each entity, creates a textlog for TextManager.class and excutes each move
  * 
@@ -29,6 +27,10 @@ public class BattleManager extends Actor
     private int initialWaitTime;
      
     private Slot originalAttackerSlot;
+    
+    /**
+     * Constructor for BattleManger
+     */
     public BattleManager(ArrayList<Entity> entities, Side[] entireField)
     {
         this.entities = entities;
@@ -46,7 +48,7 @@ public class BattleManager extends Actor
         createAttackOrder();
     }
     
-    /*
+    /**
      * Creates a queue that is ordered based on the speed of every entity on the battlefield. 
      * Order is calculated in a way to allow fast entities to attack multiple times before slow entities attack.
      * When the queue is almost finished or an entity, it refreshes a new queue. 
@@ -83,7 +85,7 @@ public class BattleManager extends Actor
         attackList = tempAttackList;
     }
     
-    /*
+    /**
      * Main loop of the simulation. 
      * - Increments turn number.
      * - Selects an entity on the battle to perform their move.
@@ -103,7 +105,7 @@ public class BattleManager extends Actor
         Attack move = curAttacker.pickRandomMove();
         String logMessage = "@Turn: @"+turnNumber;
         
-             
+        // Check if the entity is stunned, if so skip their turn     
         if(curAttacker.getStunned()){
             curAttacker.stun(false);
             logMessage += " /n !"+curAttacker+" was STUNNED ";
@@ -113,6 +115,8 @@ public class BattleManager extends Actor
             logMessage += " /n !"+curAttacker+" performed @"+ move.getName()+" on: ";
             for(int i = 0; i < allTargets.size(); i++){
                 logMessage += "!"+allTargets.get(i)+" ";
+                
+                // If target dies, recalculate the attack order
                 if(allTargets.get(i).isDead()){
                     
                     if(curAttacker.getAugment()!=null && Greenfoot.getRandomNumber(10) < 5) {
@@ -128,7 +132,8 @@ public class BattleManager extends Actor
                 }
             }
         }
-        //logMessage += augmentMessage;
+        
+        //Update the battle log with what happened
         ((BattleWorld)getWorld()).getTM().addSentence(logMessage);
         
         if(attackList.size() < 20){
@@ -140,6 +145,7 @@ public class BattleManager extends Actor
             curAttackerIndex = 0;
         }
     }
+    
     public void act(){
         if(initialWaitTime < 0){
             if(entireField[0].getEntities().size()==0){

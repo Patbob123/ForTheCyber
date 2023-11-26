@@ -50,7 +50,9 @@ public class SoundManager extends Actor
         }
     }
     
-    // Methods to acess Sound Objects to play sounds
+    /*
+     * Methods to acess Sound Objects to play sounds
+     */
     public void playSound(String sound){
         soundFiles.get(sound).playSound();
     }
@@ -63,12 +65,10 @@ public class SoundManager extends Actor
                 playingSounds.add(set.getValue());
                 set.getValue().pauseSoundLoop();
             }
-            
         }
         
     }
     public void resumeSounds(){
-        
         for(int i = 0; i < playingSounds.size(); i++){
             playingSounds.get(i).playSoundLoop();
         }

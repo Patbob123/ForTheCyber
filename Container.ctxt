@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Container
-comment0.text=\r\n\ Draws\ out\ the\ box\ that\ contains\ the\ user's\ stats\ in\ BattleWorld\r\n\ \r\n\ @author\ Jaiden\r\n\ @version\ november,\ 2023\r\n
+comment0.text=\r\n\ HELPER\ CLASS\:\ Draws\ out\ the\ box\ that\ contains\ the\ user's\ stats\ in\ BattleWorld\r\n\ \r\n\ @author\ Jaiden\r\n\ @version\ november,\ 2023\r\n
 comment1.params=image\ maxContained\ spacing
 comment1.target=Container(greenfoot.GreenfootImage,\ int,\ int)
 comment2.params=contained

@@ -10,7 +10,7 @@ import java.awt.AlphaComposite;
  * 
  * @author Jaiden
  * <p>
- * Modified by: Dawson
+ * Modified by: Dawson, Vincent
  * </p>
  * @version November 2023
  * 
@@ -80,13 +80,18 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         ImageSizeScale = 0.02;
     }
     
-    // Create deep copy of entity's sprite
+    /**
+     * Create deep copy of entity's sprite
+     */
     public GreenfootImage createDuplicateImage(){
         GreenfootImage image = new GreenfootImage(entityImageUrl);
         image.scale(image.getWidth()*Constants.IMAGE_SCALING, image.getHeight()*Constants.IMAGE_SCALING);
         return image;
     }
     
+    /**
+     * Act method calls the idle animations, check if attacks need to be performed and undos the shaders of takeDamage and Heal for entities
+     */
     public void act() 
     {
         if(filterActs > 0){
@@ -104,7 +109,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
     }    
     
-    // Attack 
+    /**
+     * Perform attack method
+     */ 
     public ArrayList<Entity> attack(Attack move,Side[] entireField){
         if(attackSet.size() <= 0) return null;
         this.finishedAttack = false;
@@ -156,7 +163,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         slot.setEntity(this);
     }
     
-    //Move to correct slot
+    /**
+     * Method to move to correct slot
+     */
     public void toSlot(){
         
         int targetX = slot.getX(); //gets slot x-coord
@@ -191,7 +200,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         return distance;
     }
     
-    //Idle animation
+    /**
+     * Idle animation
+     */
     private void breathe(){
         if(((BattleWorld)getWorld()).getAct()%5!=0) return;
         if(inhaling){ //height increases
@@ -203,7 +214,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
     }
     
-    // Attack animations
+    /**
+     * Attack animations
+     */
     public void meleeAttackAnimation(Entity target){
         double distance = getDistance(target);
         meleeSpeed = 1;
@@ -212,7 +225,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         targetedY = meleeTarget.getY();
     }
     
-    //Character movement for attack animations
+    /**
+     * Character movement for attack animations
+     */
     public void hitMeleeTarget(){
         int targetX = getTargetedX(); //gets target x-coord
         int targetY = getTargetedY(); //gets target y-coord
@@ -245,7 +260,51 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         attackSet.add(attackMove);
     }
     
-    //getter attack, speed, hp, defense
+    public void stun(boolean stunned){
+        this.stunned = stunned;
+    }
+    
+    /**
+     * Method for taking damage, also tints the entity's sprite red briefly
+     */
+    public void takeDamage(double damage) {
+        if(getDodge() && Greenfoot.getRandomNumber(2)==1) return;
+        setHp(this.hp - damage);
+        
+        // When the entity takes damage, shade the entity's sprite red briefly
+        filteredImage = createDuplicateImage();
+        changeColour(filteredImage.getAwtImage(), +2, -1, -1, 40);
+        setImage(filteredImage);
+        filterActs = 50;
+    }
+    
+    /**
+     * Method for recieving heals, also tints the entity's sprite green briefly
+     */
+    public void heal(double healing) {
+        if(this.hp + healing < this.maxHp){
+            setHp(this.hp + healing);
+        }else{
+            setHp(this.maxHp);
+        }
+        
+        // When the entity heals, shade the entity's sprite green briefly
+        filteredImage = createDuplicateImage();
+        changeColour(filteredImage.getAwtImage(), -1, +2, -1, 40);
+        setImage(filteredImage);
+        filterActs = 50;
+    }
+    public boolean isDead() {
+        return this.hp == 0;
+    }
+    public void removeFromWorld(){
+        getWorld().removeObject(getHpBar());
+        getWorld().removeObject(this);
+    }
+    
+    /*
+     * Getter attack, speed, hp, defense
+     */
     public double getAttack(){
         //attack == dmg for now
         return(this.attack);
@@ -280,7 +339,10 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public int getTargetedY(){
         return targetedY;
     }
-    //setters for attack, speed, hp, defense
+    
+    /*
+     * Setters for attack, speed, hp, defense
+     */
     public void setAttack(double setattack){
         //set attack... attack == dmg for now
         this.attack = setattack > maxAttack ? maxAttack : setattack;
@@ -324,36 +386,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     public void setMoveset(ArrayList<Attack> attackSet){
         this.attackSet = attackSet;
     }
-    public void stun(boolean stunned){
-        this.stunned = stunned;
-    }
-    public void takeDamage(double damage) {
-        if(getDodge() && Greenfoot.getRandomNumber(2)==1) return;
-        setHp(this.hp - damage);
 
-        filteredImage = createDuplicateImage();
-        changeColour(filteredImage.getAwtImage(), +2, -1, -1, 40);
-        setImage(filteredImage);
-        filterActs = 50;
-    }
-    public void heal(double healing) {
-        if(this.hp + healing < this.maxHp){
-            setHp(this.hp + healing);
-        }else{
-            setHp(this.maxHp);
-        }
-        filteredImage = createDuplicateImage();
-        changeColour(filteredImage.getAwtImage(), -1, +2, -1, 40);
-        setImage(filteredImage);
-        filterActs = 50;
-    }
-    public boolean isDead() {
-        return this.hp == 0;
-    }
-    public void removeFromWorld(){
-        getWorld().removeObject(getHpBar());
-        getWorld().removeObject(this);
-    }
     /**
      * Example colour altering method by Mr. Cohen. This method will
      * increase the blue value while reducing the red and green values.
@@ -367,8 +400,6 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         // Get image size to use in for loops
         int xSize = bi.getWidth();
         int ySize = bi.getHeight();
-
-        
         
         // Using array size as limit
         for (int y = 0; y < ySize; y++)
@@ -398,13 +429,13 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
                         green += addGreen;
                 }
                 
-
                 int newColour = packagePixel (red, green, blue, alpha);
                 bi.setRGB (x, y, newColour);
             }
         }
 
     }
+    
     /**
      * Takes in an rgb value - the kind that is returned from BufferedImage's
      * getRGB() method - and returns 4 integers for easy manipulation.
