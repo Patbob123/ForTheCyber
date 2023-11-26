@@ -37,7 +37,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected int side;
     protected Slot slot;
     protected Entity meleeTarget;
-    protected Entity rangedTarget;
+    protected Coordinate rangedTarget;
     
     protected String entityImageUrl;
     protected GreenfootImage entityImage;
@@ -254,7 +254,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         
     public void rangeAttackAnimation(String projectileImageUrl, Entity target){
         this.projectileImageUrl = projectileImageUrl;
-        rangedTarget = target;
+        rangedTarget = new Coordinate(target.getX(), target.getY());
     }
     public void useRangeAttack(){
         Projectile p = new Projectile(projectileImageUrl); 
