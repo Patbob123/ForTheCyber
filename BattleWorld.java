@@ -295,14 +295,14 @@ public class BattleWorld extends SuperWorld
     }
     
     /**
-     * Generate all of the set postions for entites in the simulation 
+     * Generate all of the set positions for entites in the simulation 
      */
     public void setupField(){
         wave++;
         
         //Game Over Victory Method
         if(wave == stages.size()){
-            Greenfoot.setWorld(new WinWorld());
+            goToWorld(new WinWorld());
             return;
         }
         
@@ -380,5 +380,6 @@ public class BattleWorld extends SuperWorld
     public AttackQueue getAttackQueue(){
         return aq;
     }
+
     
 }

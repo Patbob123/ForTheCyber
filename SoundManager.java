@@ -51,9 +51,7 @@ public class SoundManager extends Actor
         }
     }
     
-    /*
-     * Methods to acess Sound Objects to play sounds
-     */
+    // Methods to acess Sound Objects to play sounds
     public void playSound(String sound){
         soundFiles.get(sound).playSound();
     }
@@ -66,10 +64,12 @@ public class SoundManager extends Actor
                 playingSounds.add(set.getValue());
                 set.getValue().pauseSoundLoop();
             }
+            
         }
         
     }
     public void resumeSounds(){
+        
         for(int i = 0; i < playingSounds.size(); i++){
             playingSounds.get(i).playSoundLoop();
         }
@@ -78,6 +78,16 @@ public class SoundManager extends Actor
     public void stopSounds(){
         for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
             set.getValue().stopSoundLoop();
+        }
+    }
+    public void fadeInSounds(){
+        for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
+            set.getValue().soundFadeIn();
+        }
+    }
+    public void fadeOutSounds(){
+        for(Map.Entry<String, Sound> set: soundFiles.entrySet()){
+            set.getValue().soundFadeOut();
         }
     }
     public void fadeIn(String sound){

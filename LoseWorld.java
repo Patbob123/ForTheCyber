@@ -34,11 +34,10 @@ public class LoseWorld extends SuperWorld
         super.act();
     }
     public void goToEnemyWorld(){
-        Greenfoot.setWorld(new EnemyWorld());
+        goToWorld(new EnemyWorld());
     }
-    
     public void goToStartWorld(){
-        Greenfoot.setWorld(new StartWorld());
+        goToWorld(new StartWorld());
     }
     
     public Function goEnemyWorld = () -> goToEnemyWorld();

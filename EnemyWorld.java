@@ -69,17 +69,11 @@ public class EnemyWorld extends SuperWorld
         super.act();
         acts++;
         
-        if(Greenfoot.mouseClicked(null)){
-            //click sound
-            sm.playSound("blip");
-        }
-        
         if(goingToBuilderWorld){
             currActs++;
             if (currActs >= fadeOut.getMaxDuration()){
-                sm.stopSounds();
-                goingToBuilderWorld = false;
-                Greenfoot.setWorld(new BuilderWorld(getStages()));
+                goToWorld(new BuilderWorld(getStages()));
+                return;
             }
         }
     }
@@ -132,6 +126,7 @@ public class EnemyWorld extends SuperWorld
     }
     public void goToBuilderWorld(){
         goingToBuilderWorld = true;
+        sm.playSound("blip");
         addObject(fadeOut, Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
     }
     
