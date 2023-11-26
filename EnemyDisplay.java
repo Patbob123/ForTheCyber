@@ -22,6 +22,12 @@ public class EnemyDisplay extends Actor
         enemyDisplayImage.drawImage(enemy.getPortrait(), enemyDisplayImage.getWidth()/2-enemy.getPortrait().getWidth()/2, enemyDisplayImage.getHeight()/8-enemy.getPortrait().getHeight()/2);
        
     }
+    
+    /**
+     * Adds enemy display to the world
+     * 
+     * @param w        The world it is going to get displayed on
+     */
     public void addedToWorld(World w)
     {
         
@@ -48,11 +54,17 @@ public class EnemyDisplay extends Actor
         close = new Presser(closeEnemyInfo, "enemyDisplaybutton.png", "enemyDisplaybuttonhover.png");
         getWorld().addObject(close, getX()+getImage().getWidth()/2-30, getY()-getImage().getHeight()/2+30);
     }
+    
+    /**
+     * Method to remove display from world
+     */
     public void removeFromWorld(){
         getWorld().removeObject(close);
         getWorld().removeObject(this);
-        return;
     }
     
+    /**
+     * Lambdas function to remove enemy info from world
+     */
     public Function closeEnemyInfo = () -> removeFromWorld();
 }

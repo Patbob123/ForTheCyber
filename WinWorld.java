@@ -31,16 +31,30 @@ public class WinWorld extends SuperWorld
         bgImage = new GreenfootImage("youwinBg.png");
         setBackground(bgImage);
     }
+    
+    /**
+     * Act method
+     */
     public void act(){
         super.act();
     }
+    /**
+     * Method to go to Enemy World
+     */
     public void goToEnemyWorld(){
         goToWorld(new EnemyWorld());
     }
+    
+    /**
+     * Method to go to Enemy World
+     */
     public void goToStartWorld(){
         goToWorld(new StartWorld());
     }
     
+    /**
+     * Lambdas for presser 
+     */
     public Function goEnemyWorld = () -> goToEnemyWorld();
     public Function goStartWorld = () -> goToStartWorld();
     

@@ -15,7 +15,7 @@ public class Rain extends Effect
     private GreenfootImage[] rainImages;
     
     /**
-     * Basic constructor
+     * Basic constructor for rain
      */
     public Rain() {
         frames = 3;
@@ -33,8 +33,13 @@ public class Rain extends Effect
         setImage(rainImages[curFrame]);
     }
     
+    /**
+     * Act method
+     */
     public void act() {
         acts++;
+        
+        //Controls frames for rain
         if(acts >= actsPerFrame){
             acts = 0;
             curFrame++;

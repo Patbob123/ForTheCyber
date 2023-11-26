@@ -32,6 +32,9 @@ public class BattleManager extends Actor
     
     /**
      * Constructor for BattleManger
+     * 
+     * @param entities             An arraylist that holds entities 
+     * @param entireField          An array that keep tracks of both sides of the battle
      */
     public BattleManager(ArrayList<Entity> entities, Side[] entireField)
     {
@@ -47,6 +50,10 @@ public class BattleManager extends Actor
         
         setImage(new GreenfootImage(1,1));
     }
+    
+    /**
+     * Method to add the attack order to Battle World
+     */
     public void addedToWorld(World w){
         createAttackOrder();
     }
@@ -154,6 +161,9 @@ public class BattleManager extends Actor
         }
     }
     
+    /**
+     * Act method
+     */
     public void act(){
         if(initialWaitTime < 0){
             if(entireField[0].getEntities().size()==0){
@@ -170,14 +180,15 @@ public class BattleManager extends Actor
                 nextTurn();
             }
         }
+        
         if(initialWaitTime == 300){
             ((BattleWorld)getWorld()).getTM().addSentence("BATTLE START");
             getWorld().addObject(new NextWave(), getWorld().getWidth()/2, getWorld().getHeight()/2);
         }
+        
         if(initialWaitTime > 0){
             initialWaitTime--;
         }else if(initialWaitTime == 0){
-            
             nextTurn();
             initialWaitTime--;
         }

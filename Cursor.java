@@ -14,7 +14,10 @@ public class Cursor extends Popup
     private int curFrame;
     private GreenfootImage[] cursorImages;
     
-    
+    /**
+     * Constructor for Cursor
+     */
+
     public Cursor() {
         frames = 5;
         curFrame = 0;
@@ -31,8 +34,13 @@ public class Cursor extends Popup
         setImage(cursorImages[curFrame]);
     }
     
+    /**
+     * Act method
+     */
     public void act() {
         acts++;
+        
+        //Updates the frames of the image
         if(acts >= actsPerFrame){
             acts = 0;
             curFrame++;

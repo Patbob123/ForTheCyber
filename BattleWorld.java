@@ -214,6 +214,18 @@ import java.io.IOException;
  * By: Pixabay
  * Link: https://pixabay.com/sound-effects/075681-electric-shock-33018/ 
  * </ul>
+ * 
+ * <ul>
+ * User Death Sound
+ * By: Pixabay
+ * Link: https://pixabay.com/sound-effects/spade-hacking-sound-with-gore-effects-96909/
+ * </ul>
+ * 
+ * <ul>
+ * Enemy Death Sound
+ * By: Pixabay
+ * Link: https://pixabay.com/sound-effects/splash-death-splash-46048/
+ * </ul>
  * </p>
  * 
  * <p> 
@@ -322,6 +334,8 @@ public class BattleWorld extends SuperWorld
     
     /**
      * Gets act counter
+     * 
+     * @return Act counter
      */
     public int getAct(){
         return actCounter;
@@ -417,14 +431,27 @@ public class BattleWorld extends SuperWorld
     }
     
     /**
-     * Get methods for slots, text manager and attack queue
+     * Get method for attack slots
+     * 
+     * @return Number of slots
      */
     public Slot[] getAttackSlots(){
         return attackSlots;
     }
+    
+    /**
+     * Get method for text manager
+     * 
+     * @return Text manager
+     */
     public TextManager getTM(){
         return tm;
     }
+    /**
+    * Get method for attack queue
+    * 
+    * @return Attack queue
+    */
     public AttackQueue getAttackQueue(){
         return aq;
     }

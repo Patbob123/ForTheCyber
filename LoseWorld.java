@@ -30,16 +30,31 @@ public class LoseWorld extends SuperWorld
         bgImage = new GreenfootImage("youdiedBg.png");
         setBackground(bgImage);
     }
+    
+    /**
+     * Act method
+     */
     public void act(){
         super.act();
     }
+    
+    /**
+     * Go to enemy world
+     */
     public void goToEnemyWorld(){
         goToWorld(new EnemyWorld());
     }
+    
+    /**
+     * Go to start world
+     */
     public void goToStartWorld(){
         goToWorld(new StartWorld());
     }
     
+    /**
+     * Lambdas functions for presser
+     */
     public Function goEnemyWorld = () -> goToEnemyWorld();
     public Function goStartWorld = () -> goToStartWorld();
     

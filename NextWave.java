@@ -14,6 +14,9 @@ public class NextWave extends Popup
     private int curFrame;
     private GreenfootImage[] nextWaveImages;
     
+    /**
+     * Constructor for NextWave
+     */
     public NextWave() {
         frames = 10;
         curFrame = 0;
@@ -30,8 +33,13 @@ public class NextWave extends Popup
         setImage(nextWaveImages[curFrame]);
     }
     
+    /**
+     * Act method
+     */
     public void act() {
         acts++;
+        
+        //controls frames for next wave
         if(acts >= actsPerFrame){
             acts = 0;
             curFrame++;
