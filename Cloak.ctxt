@@ -6,4 +6,5 @@ comment1.target=Cloak()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Cloak\r\n
 comment2.params=
 comment2.target=void\ activateInitial()
+comment2.text=\r\n\ Methdo\ to\ initialize\ dodge\r\n
 numComments=3

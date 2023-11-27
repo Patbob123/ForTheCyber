@@ -6,4 +6,5 @@ comment1.target=LongArm()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ LongArm\r\n
 comment2.params=
 comment2.target=void\ activateInitial()
+comment2.text=\r\n\ Method\ to\ initialize\ wide\ range\r\n
 numComments=3

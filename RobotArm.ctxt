@@ -6,4 +6,5 @@ comment1.target=RobotArm()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ RobotArm\r\n
 comment2.params=
 comment2.target=java.lang.String\ activateLevelUp()
+comment2.text=\r\n\ Method\ to\ level\ up\ the\ augment\r\n
 numComments=3
