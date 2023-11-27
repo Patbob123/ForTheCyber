@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.AlphaComposite;
 /**
  * Base Template for all the characters, handles attacks, stores and sorts battle field information.  
- * Borrowed Mr.Cohen's for Image Manipulation
+ * Borrowed Mr.Cohen's code for Image Manipulation
  * 
  * @author Jaiden
  * <p>
@@ -64,6 +64,10 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     protected boolean dodge;
 
     protected ArrayList<Attack> attackSet = new ArrayList<Attack>(); 
+    
+    /**
+     * Constructor for Entity
+     */
     public Entity(){
         desc = "DESC \n DIE";
         
@@ -75,7 +79,6 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         stunned = false;
         wideRange = false;
         dodge = false;
-        
         finishedAttack = false;
         onSlot = false;
         
@@ -85,13 +88,18 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         ImageSizeScale = 0.02;
     }
     
-    // Create deep copy of entity's sprite
+    /**
+     * Create deep copy of entity's sprite
+     */
     public GreenfootImage createDuplicateImage(){
         GreenfootImage image = new GreenfootImage(entityImageUrl);
         image.scale(image.getWidth()*Constants.IMAGE_SCALING, image.getHeight()*Constants.IMAGE_SCALING);
         return image;
     }
     
+    /**
+     * Act method
+     */
     public void act() 
     {
         if(filterActs > 0){
@@ -109,7 +117,12 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
     }    
     
-    // Attack 
+    /**
+     * Based on current move, target entities and execute move to all the entities that were targeted. Current attacker goes to designated attacking slot.
+     * 
+     * @param move                      The attack 
+     * @param entireField               List that holds which side entities are on
+     */
     public ArrayList<Entity> attack(Attack move,Side[] entireField){
         if(attackSet.size() <= 0) return null;
         this.finishedAttack = false;
@@ -126,9 +139,19 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         initToSlot(((BattleWorld)getWorld()).getAttackSlots()[getSide()]);
         return allTargets;
     }
+    
+    /**
+     * Method to select a move for attacker
+     * 
+     * @return A move 
+     */
     public Attack pickRandomMove(){
         return attackSet.get(Greenfoot.getRandomNumber(attackSet.size())); // Pick a move out of the arraylist of moves
     }
+    
+    /**
+     * Method to do an attack
+     */
     public void executeAttack(){
         attackTime--;
         if(meleeTarget != null) hitMeleeTarget();
@@ -140,31 +163,66 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
         
     }
+    
+    /**
+     * Check is attack duration is over
+     */
     public boolean isAttackFinished(){
         return this.finishedAttack;
     }
+    
+    /**
+     * Gets the slot
+     */
     public Slot getSlot(){
         return this.slot;
     }
+    
+    /**
+     * Gets side
+     */
     public int getSide(){
         return this.side;
     }
+    
+    /**
+     * Gets name
+     */
     public String getName(){
         return this.name;
     }
+    
+    /**
+     * Gets description
+     */
     public String getDesc(){
         return this.desc;
     }
+    
+    /**
+     * Gets portrait of the entity
+     */
     public GreenfootImage getPortrait(){
         return this.portraitImage;
     }
+    
+    /**
+     * Gets portrait URL of the entity
+     */
     public String getPortraitUrl(){
         return this.portraitImageUrl;
     }
+    
+    /**
+     * Gets image URL of the entity
+     */
     public String getImageUrl(){
         return this.entityImageUrl;
     }
     
+    /**
+     * Method to set entity to start slot
+     */
     public void initToSlot(Slot slot){
         onSlot = false;
         this.slot = slot;
@@ -174,7 +232,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         slot.setEntity(this);
     }
     
-    //Move to correct slot
+    /**
+     * Moves entity to correct slot
+     */
     public void toSlot(){
         
         int targetX = slot.getX(); //gets slot x-coord
@@ -192,14 +252,26 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         setRotation(0); 
 
     }
+    
+    /**
+     * Gets distance to an actor from current position
+     * 
+     * @return Distance to actor
+     */
     public double getDistance(Actor a){
         int targetX = a.getX(); //gets slot x-coord
         int targetY = a.getY(); //gets slot x-coord
-        int xDistance = targetX - getX(); //gets x distance to the slot
-        int yDistance = targetY - getY(); //gets y distance to the slot
-        double distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance); //calculate distance to the slot
+        int xDistance = targetX - getX(); //gets x distance to the actor
+        int yDistance = targetY - getY(); //gets y distance to the actor
+        double distance = Math.sqrt(xDistance * xDistance + yDistance * yDistance); //calculate distance to the actor
         return distance;
     }
+    
+    /**
+     * Gets distance to an actor from current position
+     * 
+     * @return Distance to actor
+     */
     public double getDistance(int x, int y){
         int targetX = x; //gets slot x-coord
         int targetY = y; //gets slot x-coord
@@ -209,7 +281,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         return distance;
     }
     
-    //Idle animation
+    /**
+     * Idle animation for entities 
+     */
     private void breathe(){
         if(((BattleWorld)getWorld()).getAct()%5!=0) return;
         if(inhaling){ //height increases
@@ -221,7 +295,12 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         }
     }
     
-    // Attack animations
+    /**
+     * Sets up attack animation
+     * 
+     * @param target                 The target of the attacker
+     * @param meleesound             Name of the attack sound
+     */
     public void meleeAttackAnimation(Entity target, String meleeSound){
         double distance = getDistance(target);
         meleeSpeed = 1;
@@ -231,7 +310,9 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         queuedMeleeSound = meleeSound;
     }
     
-    //Character movement for attack animations
+    /**
+     * Method for the attack animation movement
+     */
     public void hitMeleeTarget(){
         int targetX = getTargetedX(); //gets target x-coord
         int targetY = getTargetedY(); //gets target y-coord
@@ -250,10 +331,20 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         setRotation(0); 
     }
         
+    /**
+     * Sets up range attack animation
+     * 
+     * @param projectileImageUrl                Url of the projectile
+     * @param target                            The entity that is using the attack
+     */
     public void rangeAttackAnimation(String projectileImageUrl, Entity target){
         this.projectileImageUrl = projectileImageUrl;
         rangedTarget = new Coordinate(target.getX(), target.getY());
     }
+    
+    /**
+     * Method to execute the animation of the projectile
+     */
     public void useRangeAttack(){
         Projectile p = new Projectile(projectileImageUrl); 
         getWorld().addObject(p, getX(), getY());
@@ -261,98 +352,245 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         p.move(p.getImage().getWidth()/2);
         rangedTarget = null;
     }
+    
+    /**
+    * Method to compare two entities speed and return which one is faster
+    * 
+    * @param e                 The entity that is being compared to the first one
+    */
     public int compareTo(Entity e)
     {
         if (this.speed < e.speed) return -1;
         if (this.speed > e.speed) return 1;
         return 0;
     }
+    
+    /**
+     * Method to add a move to the entity's moveset
+     */
     public void addMoveset(Attack attackMove){
         attackSet.add(attackMove);
     }
     
-    //getter attack, speed, hp, defense
+    /**
+     * Method to get attack stat
+     * 
+     * @return the entity's damange
+     */
     public double getAttack(){
-        //attack == dmg for now
         return(this.attack);
     }
+    
+    /**
+     * Method to get speed stat
+     * 
+     * @return the entity's speed
+     */
     public double getSpeed(){
         return(this.speed);
     }
+    
+    /**
+     * Method to get defense stat
+     * 
+     * @return the entity's defense
+     */
     public double getDef(){
         return(this.defense);
     }
+    
+    /**
+     * Method to get hp stat
+     * 
+     * @return the entity's hp
+     */
     public double getHp(){
         return(this.hp);
     } 
+    
+    /**
+     * Method to set according hp to the entity
+     * 
+     * @param hpBar        The hp bar of the entity
+     */
     public void assignHpBar(HPBar hpBar){
         this.hpBar = hpBar;
     }
+    
+    /**
+     * Method to get hp bar
+     * 
+     * @return the entity's hp bar
+     */
     public HPBar getHpBar(){
         return this.hpBar;
     }
+    
+    /**
+     * Method to get max hp stat
+     * 
+     * @return the entity's max hp
+     */
     public double getMaxHp(){
         return this.maxHp;
     }
+    
+    /**
+     * Method to get augment for enemies (none)
+     * 
+     * @return the entity's augment
+     */
     public Augment getAugment(){
         return null;
     }
+    
+    /**
+     * Method to get name
+     * 
+     * @return the entity's name
+     */
     public String toString(){
         return this.name;
     }
+    
+    /**
+     * Method to get entity's x coord
+     * 
+     * @return the entity's x coord
+     */
     public int getTargetedX(){
         return targetedX;
     }
+    
+    /**
+     * Method to get entity's y coord
+     * 
+     * @return the entity's entity's y coord
+     */
     public int getTargetedY(){
         return targetedY;
     }
-    //setters for attack, speed, hp, defense
-    public void setAttack(double setattack){
-        //set attack... attack == dmg for now
-        this.attack = setattack > maxAttack ? maxAttack : setattack;
+    
+    /**
+     * Set attack for entity
+     * 
+     * @param setattack                 Attack value
+     */
+    public void setAttack(double setAttack){
+        this.attack = setAttack > maxAttack ? maxAttack : setAttack;
     }
-    public void setSpeed(double setspeed){
+    
+    /**
+     * Set attack for entity
+     * 
+     * @param setAttack                 Attack value
+     */
+    public void setSpeed(double setSpeed){
         //set speed
-        this.speed = setspeed > maxSpeed ? maxSpeed : setspeed;
+        this.speed = setSpeed > maxSpeed ? maxSpeed : setSpeed;
     }
-    public void setDef(double setdefense){
-        this.defense = setdefense > maxDefense ? maxDefense : setdefense;
+    
+    /**
+     * Set defense for entity
+     * 
+     * @param setDefense                Defense value
+     */
+    public void setDef(double setDefense){
+        this.defense = setDefense > maxDefense ? maxDefense : setDefense;
     }
-    public void setHp(double sethp){
-        this.hp = sethp > 0 ? sethp : 0;
+    
+    /**
+     * Set hp for entity
+     * 
+     * @param setHp                 HP value
+     */
+    public void setHp(double setHp){
+        this.hp = setHp > 0 ? setHp : 0;
         if(getHpBar()!=null){
             getHpBar().refresh();
         }else{
             maxHp = hp;
         } 
     }
+    
+    /**
+     * Gets if stunner
+     * 
+     * @return stunner
+     */
     public boolean getStunner(){
         return this.stunner;
     }
+    
+    /**
+     * Gets if dodge
+     * 
+     * @return dodge
+     */
     public boolean getDodge(){
         return this.dodge;
     }
+    
+    /**
+     * Gets if wide range
+     * 
+     * @return wide range
+     */
     public boolean getWideRange(){
         return this.wideRange;
     }
+    
+    /**
+     * Gets if stunned
+     * 
+     * @return stunned
+     */
     public boolean getStunned(){
         return this.stunned;
     }
+    
+    /**
+     * Sets stunner 
+     */
     public void setStunner(){
         this.stunner = true;
     }
+    
+    /**
+     * Sets dodge
+     */
     public void setDodge(){
         this.dodge = true;
     }
+    
+    /**
+     * Sets wide range
+     */
     public void setWideRange(){
         this.wideRange = true;
     }
+    
+    /**
+     * Sets moveset 
+     * 
+     * @param attackSet               Attack set of entity
+     */
     public void setMoveset(ArrayList<Attack> attackSet){
         this.attackSet = attackSet;
     }
+    
+    /**
+     * Checks if stunned
+     */
     public void stun(boolean stunned){
         this.stunned = stunned;
     }
+    
+    /**
+     * Method for entity to take damage
+     * 
+     * @param damage              Amount entity takes as damage
+     */
     public void takeDamage(double damage) {
         if(getDodge() && Greenfoot.getRandomNumber(2)==1) return;
         setHp(this.hp - damage/(1+this.defense/3));
@@ -362,6 +600,12 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         setImage(filteredImage);
         filterActs = 50;
     }
+    
+    /**
+     * Method for entity to heal
+     * 
+     * @param healing             Amount entity heals
+     */
     public void heal(double healing) {
         if(this.hp + healing < this.maxHp){
             setHp(this.hp + healing);
@@ -373,9 +617,19 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         setImage(filteredImage);
         filterActs = 50;
     }
+    
+    /**
+     * Method to return hp as 0, the entity has died
+     * 
+     * @return 0 hp
+     */
     public boolean isDead() {
         return this.hp == 0;
     }
+    
+    /**
+     * Method to remove entity from a world
+     */
     public void removeFromWorld(){
         //play enemy death sound
         ((SuperWorld)getWorld()).getSM().playSound("enemydeath");
