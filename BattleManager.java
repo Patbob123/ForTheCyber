@@ -153,17 +153,7 @@ public class BattleManager extends Actor
                     
                 }
             }
-            if(curAttacker.isDead()){
-                if(curAttacker.getAugment()!=null && Greenfoot.getRandomNumber(10) < 5) {
-                        augmentMessage+=curAttacker.getAugment().activateLevelUp()+" /n ";
-                    }
-                    
-                entities.remove(curAttacker);
-                curAttacker.removeFromWorld();
-                logMessage+= curAttacker+" !unalived themselves ";
-                entireField[curAttacker.getSide()].getEntities().remove(curAttacker);
-                createAttackOrder();
-            }
+
         }
         
         //Update the battle log with what happened

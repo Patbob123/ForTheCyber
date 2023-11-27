@@ -628,10 +628,20 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
     }
     
     /**
+     * Method to set attack as finished
+     * 
+     * @return the entity's damange
+     */
+    public void setAttackFinished(){
+        this.finishedAttack = true;
+    }
+    
+    /**
      * Method to remove entity from a world
      */
     public void removeFromWorld(){
         //play enemy death sound
+        if(getWorld()==null) return;
         ((SuperWorld)getWorld()).getSM().playSound("enemydeath");
         getWorld().removeObject(getHpBar());
         getWorld().removeObject(this);
