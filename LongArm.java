@@ -22,6 +22,9 @@ public class LongArm extends Augment
         desc = "Attacks all enemies at once when it is your /n turn.";
     }
 
+    /**
+     * Method to initialize wide range
+     */
     public void activateInitial(){
         owner.setWideRange();
     }

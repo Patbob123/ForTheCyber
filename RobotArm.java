@@ -22,6 +22,9 @@ public class RobotArm extends Augment
         desc = "Gain a powerful arm to destroy your enemies. /n Level Up: /n Strength + 2 /n Speed +1";
     }
 
+    /**
+     * Method to level up the augment
+     */
     public String activateLevelUp(){
         addLevelup();
         

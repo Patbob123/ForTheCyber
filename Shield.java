@@ -22,6 +22,9 @@ public class Shield extends Augment
         desc = "Reduce the damage you take and strike back /n with some force. /n Level Up: /n Strength +2 /n Defense +1";
     }
 
+    /**
+     * Method to level up the augment
+     */
     public String activateLevelUp(){
         addLevelup();
         

@@ -22,12 +22,19 @@ public class Syringe extends Augment
         desc = "An elixir that grants /n you power, at the /n cost of your health. /n Level Up: /n Strength +4 /n Speed +1";
     }
 
+    /**
+     * Method to level up the augment
+     */
     public String activateLevelUp(){
         addLevelup();
         
         owner.setAttack(owner.getAttack()+4);
         return owner+" gained 4 attack and 1 speed from "+getName();
     }
+    
+    /**
+     * Method to activate when it is owner's turn
+     */
     public String activateOwnerTurn(){
         owner.takeDamage(2);
         return owner+" took 2 damage from "+getName();

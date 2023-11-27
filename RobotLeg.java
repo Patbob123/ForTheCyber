@@ -22,6 +22,9 @@ public class RobotLeg extends Augment
         desc = "Gain a powerful leg to destroy your enemies. /n Level Up: /n Strength + 1 /n Speed +2";
     }
 
+    /**
+     * Method to level up the augment
+     */
     public String activateLevelUp(){
         addLevelup();
         

@@ -22,6 +22,9 @@ public class Cloak extends Augment
         desc = "Dodge chance of 30%";
     }
 
+    /**
+     * Methdo to initialize dodge
+     */
     public void activateInitial(){
         owner.setDodge();
     }

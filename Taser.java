@@ -22,6 +22,9 @@ public class Taser extends Augment
         desc = "The enemy's turn will /n be skipped due to the taser's shock.";
     }
 
+    /**
+     * Method to initialize stunner
+     */
     public void activateInitial(){
         owner.setStunner();
     }
