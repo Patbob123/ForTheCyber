@@ -301,7 +301,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
      * @param target                 The target of the attacker
      * @param meleesound             Name of the attack sound
      */
-    public void meleeAttackAnimation(Entity target, String meleeSound){
+    public void meleeAttackAnimate(Entity target, String meleeSound){
         double distance = getDistance(target);
         meleeSpeed = 1;
         meleeTarget = target;
@@ -337,7 +337,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
      * @param projectileImageUrl                Url of the projectile
      * @param target                            The entity that is using the attack
      */
-    public void rangeAttackAnimation(String projectileImageUrl, Entity target){
+    public void rangeAttackAnimate(String projectileImageUrl, Entity target){
         this.projectileImageUrl = projectileImageUrl;
         rangedTarget = new Coordinate(target.getX(), target.getY());
     }

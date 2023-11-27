@@ -60,7 +60,7 @@ public class DeathRay extends Attack
         
         //Take Self Inflicted Damage for Using Death Ray
         attacker.takeDamage(attacker.getAttack()/3);
-        attacker.rangeAttackAnimation(projectileImageUrl, firstTarget);
+        attacker.rangeAttackAnimate(projectileImageUrl, firstTarget);
         return targets;
     } 
 }

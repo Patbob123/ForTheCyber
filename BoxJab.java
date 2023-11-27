@@ -59,7 +59,7 @@ public class BoxJab extends Attack
         else{
             firstTarget.takeDamage(attacker.getAttack()*2);
         }
-        attacker.meleeAttackAnimation(firstTarget, "boxJab");
+        attacker.meleeAttackAnimate(firstTarget, "boxJab");
         return targets;
     } 
 }

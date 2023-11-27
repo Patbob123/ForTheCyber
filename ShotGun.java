@@ -60,7 +60,7 @@ public class ShotGun extends Attack
             else {
                 e.takeDamage(attacker.getAttack());
             }
-            attacker.rangeAttackAnimation(projectileImageUrl, e);
+            attacker.rangeAttackAnimate(projectileImageUrl, e);
         }
         
         //Check if ShotGun was a critical attack

@@ -50,7 +50,7 @@ public class Pincer extends Attack
         // Deal medium single target damage
         
         targets.get(0).takeDamage(attacker.getAttack()*3);
-        attacker.meleeAttackAnimation(targets.get(0), "pincer");
+        attacker.meleeAttackAnimate(targets.get(0), "pincer");
         
         return targets;
     } 

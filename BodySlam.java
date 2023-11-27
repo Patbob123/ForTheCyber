@@ -54,7 +54,7 @@ public class BodySlam extends Attack
                 e.takeDamage(scaledDamage/3);
             }
         }
-        attacker.meleeAttackAnimation(firstTarget, "bodySlam");
+        attacker.meleeAttackAnimate(firstTarget, "bodySlam");
         return targets;
     } 
 }

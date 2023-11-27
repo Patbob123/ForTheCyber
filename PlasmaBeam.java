@@ -74,7 +74,7 @@ public class PlasmaBeam extends Attack
         
         for(Entity e: targets){
             e.takeDamage(attacker.getAttack()/2);
-            attacker.rangeAttackAnimation(projectileImageUrl, e);
+            attacker.rangeAttackAnimate(projectileImageUrl, e);
         }
         
         return targets;
