@@ -46,6 +46,10 @@ import java.io.IOException;
  * </ul>
  * 
  * <ul>
+ * - A menu to click through and discover things about enemies
+ * </ul>
+ * 
+ * <ul>
  * - Lots of code is handled in a Manager Class to create modular and reusable code
  * </ul>
  * 
