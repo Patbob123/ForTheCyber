@@ -37,7 +37,6 @@ public class EnemyDisplay extends Actor
         //creates temp textplace objects, gets its image, and adds draws it on enemy display
         TextPlace enemyName = TextPlace.initTextDisplay("Select Augment", 0, 0, 130, true);
         getWorld().addObject(enemyName, 0, 0);
-        System.out.println(enemy);
         enemyName.setSentence(String.valueOf(enemy));
         enemyName.removeSentence();
         GreenfootImage enemyNameImage = enemyName.getText().getImage();
