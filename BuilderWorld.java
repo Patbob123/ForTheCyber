@@ -105,7 +105,7 @@ public class BuilderWorld extends SuperWorld
         userCharInstance = new UserChar();
         doneMaking = false;
 
-        
+        addObject(new Instructions(), Constants.WORLD_WIDTH/2, Constants.WORLD_HEIGHT/2);
 
         sm.playSoundLoop("builderMusic");
         sm.fadeIn("builderMusic");
