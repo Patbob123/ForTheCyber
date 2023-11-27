@@ -153,7 +153,7 @@ public class EnemyWorld extends SuperWorld
      * Method to go to Builder World
      */
     public void goToBuilderWorld(){
-        goToWorld(new BuilderWorld(getStages()));
+        goToWorld(new InstructionWorld(getStages()));
     }
     
     /**

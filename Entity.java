@@ -75,9 +75,7 @@ public abstract class Entity extends SuperSmoothMover implements Comparable<Enti
         stunned = false;
         wideRange = false;
         dodge = false;
-        //attack = maxAttack;
-        //speed = maxSpeed;
-        //defense = maxDefense;
+        
         finishedAttack = false;
         onSlot = false;
         
