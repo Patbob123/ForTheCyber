@@ -85,6 +85,7 @@ public class BuilderWorld extends SuperWorld
         addObject(longarmButton, 370, 350);
         addObject(taserButton, 370, 300);
         
+        //buttons
         cp = new CustomizePanel();
         addObject(cp, 233*Constants.IMAGE_SCALING+cp.getImage().getWidth()/2, 19*Constants.IMAGE_SCALING+cp.getImage().getHeight()/2);
         Function goToAugment = () -> cp.goToAugment();
