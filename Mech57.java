@@ -11,6 +11,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Mech57 extends Enemy
 {
+    /**
+     * Constructor for mech57
+     */
     public Mech57(){
         name = "Mech57";
         addMoveset(new PlasmaBeam());
@@ -33,6 +36,12 @@ public class Mech57 extends Enemy
         
         desc = "A menacing robot with an even more menacing weapon of destruction";
     }
+    
+    /**
+     * Clone this enemy
+     * 
+     * @return new Mech57()
+     */
     public Enemy cloneEnemy(){
         return new Mech57();
     }

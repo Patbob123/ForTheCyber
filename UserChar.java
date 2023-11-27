@@ -15,6 +15,9 @@ public class UserChar extends Entity
     private Augment augment;
     private StatBar statBar;
     
+    /**
+     * Constructor for user character
+     */
     public UserChar(){
         entityImageUrl = "epickwick.png";
         entityImage = createDuplicateImage();
@@ -38,60 +41,118 @@ public class UserChar extends Entity
         
     }
 
+    /**
+     * removes itself when dead
+     */    
     public void act() 
     {
         super.act();
         if (isDead()){
-            //if hp is 0 or less, die
-            //PUT DYING ANIM HERE IN FUTURE
             getWorld().removeObject(this);
         }
     }
     
-    // Getter and Setter Methods for the Userchar's stats
+    /**
+     * Method to assign an hp bar to character
+     * 
+     * @param hpBar
+     */
     public void assignHpBar(HPBar hpBar){
         this.hpBar = hpBar;
     }
+    
+    /**
+     * Method to assign an stat bar to character
+     * 
+     * @param statBar
+     */
     public void assignStatBar(StatBar statBar){
         this.statBar = statBar;
     }
+    
+    /**
+     * Method to set hp for character
+     * 
+     * @param hp
+     */
     public void setHp(double hp){
         super.setHp(hp);
         if(getHpBar()!= null) getHpBar().refresh();
     }
+    
+    /**
+     * Method to set attack for character
+     * 
+     * @param attk
+     */
     public void setAttack(double attk){
         super.setAttack(attk);
         if(getStatBar()!= null) getStatBar().refresh();
     }
+    
+    /**
+     * Method to set defense for character
+     * 
+     * @param def
+     */
     public void setDef(double def){
         super.setDef(def);
         if(getStatBar()!= null) getStatBar().refresh();
     }
+    
+    /**
+     * Method to set speed for character
+     * 
+     * @param speed
+     */
     public void setSpeed(double speed){
         super.setSpeed(speed);
         if(getStatBar()!= null) getStatBar().refresh();
     }
+    
+    /**
+     * Method to get HpBar for character
+     * 
+     * @return hpBar
+     */
     public HPBar getHpBar(){
         return this.hpBar;
     }
+    
+    /**
+     * Method to get StatBar for character
+     * 
+     * @return statBar
+     */
     public StatBar getStatBar(){
         return this.statBar;
     }
+    
+    /**
+     * Method to get attack for character
+     * 
+     * @return attack
+     */
     public double getAttack(){
         return this.attack + 3; // 3 is the base damage for userchar, for balancing
     }
+    
+    /**
+     * Method to set augment for character
+     * 
+     * @param augment
+     */
     public void setAugment(Augment augment){
         augment.setOwner(this);
         this.augment = augment;
     }
+    
+    /**
+     * Method to get augment for character
+     * 
+     * @return augment
+     */
     public Augment getAugment(){
         return this.augment;
-    }
-    
-    public void attackAll(){
-        ArrayList<Enemy> ppl = (ArrayList<Enemy>)getObjectsInRange (2000, Enemy.class);
-        for (Entity e : ppl){
-            e.takeDamage(this.attack);
-        }
     }
 }

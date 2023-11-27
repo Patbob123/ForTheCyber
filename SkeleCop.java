@@ -10,6 +10,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version November 2023 */
 public class SkeleCop extends Enemy
 {
+    /**
+     * Constructor for skelecop
+     */
     public SkeleCop(){
         name = "SkeleCop";
         addMoveset(new DeathRay());
@@ -32,6 +35,12 @@ public class SkeleCop extends Enemy
         
         desc = "The punishing enforcer with devastating damage"; 
     }
+    
+    /**
+     * Clone this enemy
+     * 
+     * @return new Skelecop()
+     */
     public Enemy cloneEnemy(){
         return new SkeleCop();
     }

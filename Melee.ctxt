@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=Melee
-comment0.text=\r\n\ Melee\ is\ a\ basic\ enemy\ that\ uses\ Pincer\r\n\ \r\n\ @author\ Jaiden\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ November\ 2023\r\n
-comment1.params=
-comment1.target=Melee()
-comment2.params=
-comment2.target=Enemy\ cloneEnemy()
-numComments=3

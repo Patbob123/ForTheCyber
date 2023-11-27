@@ -31,7 +31,7 @@ public class EnemyWorld extends SuperWorld
         // Dictonary of all the Enemies 
         enemyDict = new HashMap<Integer, Enemy>(){{
             put(0,new Gunner());
-            put(1,new Melee());
+            put(1,new Pincher());
             put(2,new Sustainer());
             put(3,new Juggernaut());
             put(4,new Mech57());

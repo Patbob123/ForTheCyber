@@ -1,11 +1,10 @@
 #BlueJ class context
 comment0.target=UI
-comment0.text=\r\n\ UI\ class\ converts\ GreenfootImages\ into\ Objects\ so\ that\ they\ can\ be\ added\ to\ the\ world\r\n\ \r\n\ @author\ Rex\r\n\ @version\ November\ 2023\r\n
+comment0.text=\r\n\ UI\ class\ converts\ GreenfootImages\ into\ Objects\ so\ that\ they\ can\ be\ added\ to\ the\ world\r\n\ \r\n\ @author\ Rex\r\n\ <p>\r\n\ Modified\ by\:\ Dawson\r\n\ </p>\r\n\ @version\ November\ 2023\r\n
 comment1.params=width\ height
 comment1.target=UI(int,\ int)
+comment1.text=\r\n\ Makes\ a\ black\ UI,\ with\ width\ and\ height\r\n\ \r\n\ @param\ width\r\n\ @param\ height\r\n
 comment2.params=image\ scale
 comment2.target=UI(greenfoot.GreenfootImage,\ boolean)
-comment3.params=
-comment3.target=void\ act()
-comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ UI\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=4
+comment2.text=\r\n\ Makes\ a\ UI,\ with\ the\ image\ given\r\n\ \r\n\ @param\ image\r\n\ @param\ scale\ \ \ \ \ \ \ The\ image\ will\ be\ scaled\ to\ constant\ scaling\ if\ this\ is\ true\r\n
+numComments=3

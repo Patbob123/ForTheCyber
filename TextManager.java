@@ -37,6 +37,10 @@ public class TextManager extends Actor
     private int borderThickness;
     private int initPlaceY;
     
+    
+    /**
+     * Constructor for TextManager
+     */
     public TextManager() throws FontFormatException, IOException {
         text = new ArrayList<SuperTextBox>();
         setImage(new GreenfootImage("log.png"));
@@ -49,6 +53,13 @@ public class TextManager extends Actor
         spacing = 10;
         
     }
+    
+    /**
+     * Initialize font for text boxes
+     * 
+     * @param theFont
+     * @return a greenfoot font
+     */
     public greenfoot.Font addFont(Font theFont) {
         
         // Code to get Java to read the .ttf file that stores the Font
@@ -77,16 +88,32 @@ public class TextManager extends Actor
         }
         return null;
     }
+    
+    /**
+     * Initialize placement position for textboxes
+     * 
+     * @param w
+     */
     public void addedToWorld(World w){
         initPlaceY = getY()+getImage().getHeight()/2-50;
     }
     
+    /**
+     * Adds a new textbox to textmanager
+     * 
+     * @param sentence            String that is to be added to the log
+     */
     public void addSentence(String sentence){
         text.add(0,new SuperTextBox(splitSentence(sentence), Constants.DARK_BLUE, Constants.LIGHT_AQUA, pixel, false, textBoxWidth, borderThickness, Constants.AQUA));
         displayText();
     }
     
-    // Algorithm to split words to next line if it crosses over the length of the textbox
+    /**
+     * Algorithm to split words to next line if it crosses over the length of the textbox
+     * 
+     * @param sentence            String that is to be added to the log
+     * @return multiLine          Array of string to be added to a multiline text box
+     */
     public String[] splitSentence (String sentence){
         int stringWidth= SuperTextBox.getStringWidth(pixel,sentence);
         String[] words = sentence.split(" ");
@@ -118,7 +145,10 @@ public class TextManager extends Actor
         return multiLine;
     }
     
-    // Algorithm for displaying textboxes from newest to oldest (bottom to top), as well as making older textboxes transparent and fade away
+    /**
+     * Algorithm for displaying textboxes from newest to oldest (bottom to top), as well as making older textboxes transparent and fade away
+     * 
+     */
     public void displayText(){
         if(getWorld().getObjects((SuperTextBox.class)) != null){
             getWorld().removeObjects(text);
@@ -137,12 +167,5 @@ public class TextManager extends Actor
             getWorld().addObject(text.get(i),getX(),initPlaceY-placeY);
             placeY += textBoxHeight/2+spacing;
         }
-    }
-    public greenfoot.Font getFont(){
-        return pixel;
-    }
-    public void act()
-    {
-        // Add your action code here.
     }
 }

@@ -11,6 +11,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sustainer extends Enemy
 {
+    
+    /**
+     * Constructor for sustainer
+     */
     public Sustainer(){
         name = "Sustainer";
         addMoveset(new Heal());
@@ -31,6 +35,12 @@ public class Sustainer extends Enemy
         
         desc = "The critical support that keeps all the fighters alive"; 
     }
+    
+    /**
+     * Clone this enemy
+     * 
+     * @return new Sustainer();
+     */
     public Enemy cloneEnemy(){
         return new Sustainer();
     }

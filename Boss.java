@@ -11,6 +11,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Boss extends Enemy
 {
+    /**
+     * Constructor for the boss
+     */
     public Boss(){
         name = "Reddy";
         addMoveset(new ShotGun());
@@ -35,7 +38,12 @@ public class Boss extends Enemy
         
         desc = "Reddy is a tough enemy to beat with his unmatched stats... ";
     }
-
+    
+    /**
+     * Clone this enemy
+     * 
+     * @return new Boss()
+     */
     public Enemy cloneEnemy(){
         return new Boss();
     }

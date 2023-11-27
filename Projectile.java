@@ -1,16 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Projectile here.
+ * Projectile class for ranged animation
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version November 26 2023
  */
 public class Projectile extends SuperSmoothMover
 {
     private GreenfootImage projectileImage; 
     private int duration;
     
+    /**
+     * Makes an image of this url, with set duration
+     * 
+     * @param projectileImageUrl
+     */
     public Projectile(String projectileImageUrl) {
         projectileImage = new GreenfootImage(projectileImageUrl);
         projectileImage.scale(projectileImage.getWidth()*Constants.IMAGE_SCALING, projectileImage.getHeight()*Constants.IMAGE_SCALING);
@@ -20,8 +25,7 @@ public class Projectile extends SuperSmoothMover
     
     
     /**
-     * Act - do whatever the Projectile wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Duration ticks down, until it reaches 0 and removes itself from world
      */
     public void act()
     {

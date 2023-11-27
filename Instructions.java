@@ -1,20 +1,28 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Instructions here.
+ * This is the class of a instruction popup
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dawson
+ * @version Nov 2023
  */
 public class Instructions extends Popup
 {
     private GreenfootImage instructionImage = new GreenfootImage("instruction.png");
     private boolean clicked;
     
+    /**
+     * Constructor for Instructions 
+     */
     public Instructions(){
         instructionImage.scale(instructionImage.getWidth()*Constants.IMAGE_SCALING, instructionImage.getHeight()*Constants.IMAGE_SCALING);
         setImage(instructionImage);
     }
+    
+    /**
+     * When you click the image becomes smaller, and moves down
+     * Until its width and height is 0, which then it removes itself
+     */
     public void act()
     {
         if(Greenfoot.mouseClicked(this)){

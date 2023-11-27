@@ -9,10 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * </p>
  * @version November 2023
  */
-public class Melee extends Enemy
+public class Pincher extends Enemy
 {
-    public Melee(){
-        name = "Melee";
+    /**
+     * Constructor for pincher enemy
+     */
+    public Pincher(){
+        name = "Pincher";
         addMoveset(new Pincer());
         
         entityImageUrl = "enemy/melee.png";
@@ -33,7 +36,13 @@ public class Melee extends Enemy
         
         desc = "A swift fighter that attacks rapidly"; 
     }
+    
+    /**
+     * Clone this enemy
+     * 
+     * @return new Pincher()
+     */
     public Enemy cloneEnemy(){
-        return new Melee();
+        return new Pincher();
     }
 }

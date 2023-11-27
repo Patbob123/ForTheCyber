@@ -11,6 +11,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Juggernaut extends Enemy
 {
+    /**
+     * Constructor for juggernaut
+     */
     public Juggernaut(){
         name = "Juggernaut";
         addMoveset(new BodySlam());
@@ -33,6 +36,12 @@ public class Juggernaut extends Enemy
  
         desc = "A beefy fighter with respectable damage";  
     }
+    
+    /**
+     * Clone this enemy
+     * 
+     * @return new Juggernaut()
+     */
     public Enemy cloneEnemy(){
         return new Juggernaut();
     }

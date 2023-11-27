@@ -11,6 +11,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Gunner extends Enemy
 {
+    /**
+     * Constructor for gunner
+     */
     public Gunner(){
         name = "Gunner";
         
@@ -34,7 +37,12 @@ public class Gunner extends Enemy
         
         desc = "Don't underestimate this robot's firepower.";
     }
-
+    
+    /**
+     * Clone this enemy
+     * 
+     * @return new Gunner()
+     */
     public Enemy cloneEnemy(){
         return new Gunner();
     }
